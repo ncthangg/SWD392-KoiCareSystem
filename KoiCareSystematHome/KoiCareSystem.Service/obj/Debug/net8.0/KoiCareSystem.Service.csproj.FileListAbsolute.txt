@@ -1,0 +1,17 @@
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\obj\Debug\net8.0\KoiCareSystem.Service.csproj.AssemblyReference.cache
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\obj\Debug\net8.0\KoiCareSystem.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\obj\Debug\net8.0\KoiCareSystem.Service.AssemblyInfoInputs.cache
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\obj\Debug\net8.0\KoiCareSystem.Service.AssemblyInfo.cs
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\obj\Debug\net8.0\KoiCareSystem.Service.csproj.CoreCompileInputs.cache
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\bin\Debug\net8.0\KoiCareSystem.Service.deps.json
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\bin\Debug\net8.0\KoiCareSystem.Service.dll
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\bin\Debug\net8.0\KoiCareSystem.Service.pdb
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\bin\Debug\net8.0\KoiCareSystem.Common.dll
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\bin\Debug\net8.0\KoiCareSystem.Data.dll
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\bin\Debug\net8.0\KoiCareSystem.Common.pdb
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\bin\Debug\net8.0\KoiCareSystem.Data.pdb
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\obj\Debug\net8.0\KoiCareS.EB83C7BB.Up2Date
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\obj\Debug\net8.0\KoiCareSystem.Service.dll
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\obj\Debug\net8.0\refint\KoiCareSystem.Service.dll
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\obj\Debug\net8.0\KoiCareSystem.Service.pdb
+D:\FPT-university\ChuyenNganh7\PRN221\FA24_SE1702_PRN221_G5_KoiCareSystematHome\KoiCareSystem.Service\obj\Debug\net8.0\ref\KoiCareSystem.Service.dll

@@ -1,0 +1,6 @@
+-CRUD
+-Sort list
+-Lọc ít nhất 3 trường thông tin
+-chức năng chính
+
+adventureWorks
