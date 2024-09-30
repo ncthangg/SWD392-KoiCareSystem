@@ -15,13 +15,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
 {
     public class EditModel : PageModel
     {
-        //private readonly KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext _context;
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
 
-        public EditModel(KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context)
+        public EditModel()
         {
-            //_context = context;
             _productService ??= new ProductService();
             _categoryService ??= new CategoryService();
         }
@@ -56,34 +54,21 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
                 return Page();
             }
 
-            //_context.Attach(Product).State = EntityState.Modified;
-            await _productService.Save(Product);
+            if (!_productService.ProductExists(Product.ProductId))
+            {
+                return NotFound();
+            }
+            else
+            {
+                await _productService.Save(Product);
+            }
 
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!ProductExists(Product.ProductId))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-            //if (!_productService.ProductExists(Product.ProductId))
-            //{
-            //    return NotFound();
-            //}
+            if (!_productService.ProductExists(Product.ProductId))
+            {
+                return NotFound();
+            }
             return RedirectToPage("./Index");
         }
 
-        //private bool ProductExists(long id)
-        //{
-        //    return _context.Products.Any(e => e.ProductId == id);
-        //}
     }
 }

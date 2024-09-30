@@ -1,6 +1,7 @@
 ﻿using KoiCareSystem.Data.Base;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,5 +24,14 @@ namespace KoiCareSystem.Data.Repository
             return _context.Products.Any(e => e.ProductId == id);
         }
 
+        // Nối bảng Category
+        public async Task<Product> GetByIdAsync(long id)
+        {
+            return await _context.Products.Include(e => e.Category).FirstOrDefaultAsync(x => x.ProductId == id);    
+        }
+        public async Task<List<Product>> GetAllAsync()
+        {
+            return await _context.Products.Include(e=>e.Category).ToListAsync();
+        }
     }
 }

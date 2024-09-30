@@ -4415,11 +4415,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj",
+      "projectUniqueName": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj",
       "projectName": "KoiCareSystem.Data",
-      "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj",
+      "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Data\\obj\\",
+      "outputPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -8,40 +8,34 @@ using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service;
+using KoiCareSystem.Service;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Products
 {
     public class IndexModel : PageModel
     {
-        private readonly KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext _context;
         private readonly ProductService _productService;
+        private readonly CategoryService _categoryService;
 
-        public IndexModel(KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context)
+        public IndexModel()
         {
-            // _context = context;
             _productService ??= new ProductService();
+            _categoryService ??= new CategoryService();
         }
-        //public IndexModel(ProductService productService)
-        //{
-        //    // _context = context;
-        //    _productService ??= productService;
-        //}
+
 
         public IList<Product> Product { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            //Product = await _context.Products
-            //    .Include(p => p.Category).ToListAsync();
+            
+            var result = await _productService.GetAllProduct();
+            if (result.Status > 0)
+            {
+                Product = (IList<Product>)result.Data;
+            }
 
-            //var result = await _productService.GetAllProduct();
-            //if(result.Status > 0)
-            //{
-            //    Product =(IList<Product>) result.Data;
-            //}    
-
-
-            Product = (await _productService.GetAllProduct()).Data as IList<Product>;
+            //Product = (await _productService.GetAllProduct()).Data as IList<Product>;
 
         }
     }

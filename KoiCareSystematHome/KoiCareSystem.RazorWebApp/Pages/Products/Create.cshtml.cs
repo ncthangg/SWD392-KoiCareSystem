@@ -27,7 +27,6 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
         {
             //var categories = (await _categoryService.GetAllCategory()).Data as IList<Category>;
             var categories =  _categoryService.GetAllCategory().Result.Data as IList<Category>;
-            //ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Description");
             ViewData["CategoryId"] =  new SelectList(categories, "Id", "Description");
             return Page();
         }
@@ -43,9 +42,6 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
             {
                 return Page();
             }
-
-            //_context.Products.Add(Product);
-            //await _context.SaveChangesAsync();
 
             await _productService.Save(Product);
 

@@ -11,7 +11,9 @@ namespace De
 
             services.AddScoped<CategoryService>();
             services.AddScoped<ProductService>();
-            services.AddScoped<FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext>();
+            services.AddScoped<OrderService>();
+            //services.AddScoped<FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext>();
+
 
             return services;
         }

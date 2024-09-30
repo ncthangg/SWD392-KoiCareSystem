@@ -8,20 +8,20 @@ using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service;
+using KoiCareSystem.Service;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Products
 {
     public class DetailsModel : PageModel
     {
-        //private readonly KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext _context;
         private readonly ProductService _productService;
+        private readonly CategoryService _categoryService;
 
-        public DetailsModel(KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context)
+        public DetailsModel()
         {
-            //_context = context;
             _productService ??= new ProductService();
+            _categoryService ??= new CategoryService();
         }
-
         public Product Product { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(long? id)

@@ -17,5 +17,24 @@ namespace KoiCareSystem.Data.Repository
         }
 
         public OrderRepository(FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context) => _context = context;
+
+        // Kiểm tra sản phẩm có tồn tại không
+        public bool OrderExists(long id)
+        {
+            return _context.Orders.Any(e => e.OrderId == id);
+        }
+        public async Task<List<Order>> GetAllAsync()
+        {
+            return await _context.Orders.Include(x => x.User).ToListAsync();
+        }
+        public async Task<List<Order>> GetByUserIdAsync(long userId)
+        {
+            return await _context.Orders.Include(x => x.User).Where(x => x.UserId == userId).ToListAsync();
+        }
+        public async Task<Order> GetByOrderIdAsync(long orderId)
+        {
+            return await _context.Orders.Include(x => x.User).FirstOrDefaultAsync(x => x.OrderId == orderId);
+        }
+
     }
 }

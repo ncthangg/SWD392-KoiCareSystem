@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "AutoMapper/13.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Azure.Core/1.35.0": {
         "type": "package",
         "dependencies": {
@@ -1115,6 +1131,10 @@
       "KoiCareSystem.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "KoiCareSystem.Data": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/KoiCareSystem.Common.dll": {}
         },
@@ -1141,6 +1161,21 @@
     }
   },
   "libraries": {
+    "AutoMapper/13.0.1": {
+      "sha512": "/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
+      "type": "package",
+      "path": "automapper/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.13.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/net6.0/AutoMapper.dll",
+        "lib/net6.0/AutoMapper.xml"
+      ]
+    },
     "Azure.Core/1.35.0": {
       "sha512": "hENcx03Jyuqv05F4RBEPbxz29UrM3Nbhnr6Wl6NQpoU9BCIbL3XLentrxDCTrH54NLS11Exxi/o8MYgT/cnKFA==",
       "type": "package",
@@ -3144,6 +3179,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "AutoMapper >= 13.0.1",
       "KoiCareSystem.Common >= 1.0.0",
       "KoiCareSystem.Data >= 1.0.0"
     ]
@@ -3154,11 +3190,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Service\\KoiCareSystem.Service.csproj",
+      "projectUniqueName": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Service\\KoiCareSystem.Service.csproj",
       "projectName": "KoiCareSystem.Service",
-      "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Service\\KoiCareSystem.Service.csproj",
+      "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Service\\KoiCareSystem.Service.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Service\\obj\\",
+      "outputPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3176,11 +3212,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Common\\KoiCareSystem.Common.csproj": {
-              "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Common\\KoiCareSystem.Common.csproj"
+            "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Common\\KoiCareSystem.Common.csproj": {
+              "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Common\\KoiCareSystem.Common.csproj"
             },
-            "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj": {
-              "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj"
+            "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj": {
+              "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj"
             }
           }
         }
@@ -3199,6 +3235,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[13.0.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

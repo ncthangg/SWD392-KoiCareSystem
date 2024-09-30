@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "E8ThcgxVS2w=",
+  "dgSpecHash": "reren68EN9c=",
   "success": true,
-  "projectFilePath": "D:\\FPT-university\\ChuyenNganh7\\SWD\\KoiCareSystematHome\\KoiCareSystem.Service\\KoiCareSystem.Service.csproj",
+  "projectFilePath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Service\\KoiCareSystem.Service.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
