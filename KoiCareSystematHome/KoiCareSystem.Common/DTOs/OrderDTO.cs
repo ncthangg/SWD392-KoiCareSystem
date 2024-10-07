@@ -1,6 +1,6 @@
 ﻿namespace KoiCareSystem.Common.DTOs
 {
-    public class OrderDTO
+    public class OrderDto
     {
         public long OrderId { get; set; }
         public DateTime OrderDate { get; set; }

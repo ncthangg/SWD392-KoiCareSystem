@@ -3,6 +3,8 @@
 using System;
 using System.Collections.Generic;
 using KoiCareSystem.Data.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -18,7 +20,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
         : base(options)
     {
     }
-
+    public virtual DbSet<User> Users { get; set; }
     public virtual DbSet<Blog> Blogs { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
@@ -41,7 +43,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
     public virtual DbSet<Threshold> Thresholds { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
+    //public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<WaterParameter> WaterParameters { get; set; }
 

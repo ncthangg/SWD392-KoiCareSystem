@@ -18,12 +18,6 @@ namespace KoiCareSystem.Data.Repository
 
         public ProductRepository(FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context) => _context = context;
 
-        // Kiểm tra sản phẩm có tồn tại không
-        public bool ProductExists(long id)
-        {
-            return _context.Products.Any(e => e.ProductId == id);
-        }
-
         // Nối bảng Category
         public async Task<Product> GetByIdAsync(long id)
         {
@@ -32,6 +26,11 @@ namespace KoiCareSystem.Data.Repository
         public async Task<List<Product>> GetAllAsync()
         {
             return await _context.Products.Include(e=>e.Category).ToListAsync();
+        }
+        // Kiểm tra sản phẩm có tồn tại không
+        public bool ProductExists(long id)
+        {
+            return _context.Products.Any(e => e.ProductId == id);
         }
     }
 }

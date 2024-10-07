@@ -23,39 +23,6 @@ namespace KoiCareSystem.Service
             _unitOfWork ??= new UnitOfWork();
         }
 
-        //Delete by Id
-        public async Task<ServiceResult> DeleteOrderByOrderId(long id)
-        {
-            try
-            {
-                var result = false;
-
-                var removeOrder = this.GetOrderByOrderId(id);
-
-                if (removeOrder != null && removeOrder.Result.Status == Const.SUCCESS_READ_CODE)
-                {
-                    result = await _unitOfWork.OrderRepository.RemoveAsync((Order)removeOrder.Result.Data);
-
-                    if (result)
-                    {
-                        return new ServiceResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG, result);
-                    }
-                    else
-                    {
-                        return new ServiceResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, removeOrder.Result.Data);
-                    }
-                }
-                else
-                {
-                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
-                }
-            }
-            catch (Exception ex)
-            {
-                return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
-            }
-        }
-
         //Get All
         public async Task<ServiceResult> GetAllOrder()
         {
@@ -153,6 +120,39 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
+        //Delete by Id
+        public async Task<ServiceResult> DeleteOrderByOrderId(long id)
+        {
+            try
+            {
+                var result = false;
+
+                var removeOrder = this.GetOrderByOrderId(id);
+
+                if (removeOrder != null && removeOrder.Result.Status == Const.SUCCESS_READ_CODE)
+                {
+                    result = await _unitOfWork.OrderRepository.RemoveAsync((Order)removeOrder.Result.Data);
+
+                    if (result)
+                    {
+                        return new ServiceResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG, result);
+                    }
+                    else
+                    {
+                        return new ServiceResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, removeOrder.Result.Data);
+                    }
+                }
+                else
+                {
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
+            }
+        }
+
 
         //
         public bool OrderExists(long id)

@@ -21,39 +21,6 @@ namespace KoiCareSystematHome.Service
             _unitOfWork ??= new UnitOfWork();
         }
 
-        //Delete by Id
-        public async Task<ServiceResult> DeleteProductById(long id)
-        {
-            try
-            {
-                var result = false;
-
-                var removeProduct = this.GetProductById(id);
-
-                if (removeProduct != null && removeProduct.Result.Status == Const.SUCCESS_READ_CODE)
-                {
-                    result = await _unitOfWork.ProductRepository.RemoveAsync((Product)removeProduct.Result.Data);
-
-                    if (result)
-                    {
-                        return new ServiceResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG, result);
-                    }
-                    else
-                    {
-                        return new ServiceResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, removeProduct.Result.Data);
-                    }
-                }
-                else
-                {
-                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
-                }
-            }
-            catch (Exception ex)
-            {
-                return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
-            }
-        }
-
         //Get All
         public async Task<ServiceResult> GetAllProduct()
         {
@@ -126,6 +93,38 @@ namespace KoiCareSystematHome.Service
                     {
                         return new ServiceResult(Const.FAIL_CREATE_CODE, Const.FAIL_CREATE_MSG);
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
+            }
+        }
+        //Delete by Id
+        public async Task<ServiceResult> DeleteProductById(long id)
+        {
+            try
+            {
+                var result = false;
+
+                var removeProduct = this.GetProductById(id);
+
+                if (removeProduct != null && removeProduct.Result.Status == Const.SUCCESS_READ_CODE)
+                {
+                    result = await _unitOfWork.ProductRepository.RemoveAsync((Product)removeProduct.Result.Data);
+
+                    if (result)
+                    {
+                        return new ServiceResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG, result);
+                    }
+                    else
+                    {
+                        return new ServiceResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, removeProduct.Result.Data);
+                    }
+                }
+                else
+                {
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
             }
             catch (Exception ex)

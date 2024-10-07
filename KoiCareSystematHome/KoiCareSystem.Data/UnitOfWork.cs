@@ -1,11 +1,5 @@
 ﻿using KoiCareSystem.Data.DBContext;
-using KoiCareSystem.Data.Models;
 using KoiCareSystem.Data.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiCareSystem.Data
 {
@@ -17,6 +11,8 @@ namespace KoiCareSystem.Data
         private OrderRepository _orderRepository;
         private OrderItemRepository _orderItemRepository;
         private PaymentRepository _paymentRepository;
+        private UserRepository _userRepository;
+        private RoleRepository _roleRepository;
 
         public UnitOfWork()
         {
@@ -56,6 +52,20 @@ namespace KoiCareSystem.Data
             get
             {
                 return _paymentRepository ??= new Repository.PaymentRepository(_unitOfWorkContext);
+            }
+        }
+        public UserRepository UserRepository
+        {
+            get
+            {
+                return _userRepository ??= new Repository.UserRepository(_unitOfWorkContext);
+            }
+        }
+        public RoleRepository RoleRepository
+        {
+            get
+            {
+                return _roleRepository ??= new Repository.RoleRepository(_unitOfWorkContext);
             }
         }
 

@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\De.bundle.scp.css",
-      "PackagePath": "staticwebassets\\De.bundle.scp.css"
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\KoiCareSystem.RazorWebApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\KoiCareSystem.RazorWebApp.bundle.scp.css"
     },
     {
       "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\css\\site.css",
@@ -245,20 +245,20 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.De.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.KoiCareSystem.RazorWebApp.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.De.props",
-      "PackagePath": "build\\De.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.KoiCareSystem.RazorWebApp.props",
+      "PackagePath": "build\\KoiCareSystem.RazorWebApp.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.De.props",
-      "PackagePath": "buildMultiTargeting\\De.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.KoiCareSystem.RazorWebApp.props",
+      "PackagePath": "buildMultiTargeting\\KoiCareSystem.RazorWebApp.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.De.props",
-      "PackagePath": "buildTransitive\\De.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.KoiCareSystem.RazorWebApp.props",
+      "PackagePath": "buildTransitive\\KoiCareSystem.RazorWebApp.props"
     }
   ],
   "ElementsToRemove": []

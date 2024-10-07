@@ -1,8 +1,11 @@
 using De;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.DBContext;
+using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using KoiCareSystematHome.Service;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace KoiCareSystem.RazorWebApp
 {
@@ -17,6 +20,9 @@ namespace KoiCareSystem.RazorWebApp
             builder.Services.AddRazorPages();
 
             builder.Services.ConfigureApiServices(builder.Configuration);
+
+            //builder.Services.AddDbContext<FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext>(p =>
+            //       p.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiCareSystem.Service", "Ko
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiCareSystem.Common", "KoiCareSystem.Common\KoiCareSystem.Common.csproj", "{143AFE2B-E0F7-417C-BF96-681D72F2C30A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "De", "KoiCareSystem.RazorWebApp\De.csproj", "{92603140-DAA7-4FD2-9808-1349C492F195}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiCareSystem.RazorWebApp", "KoiCareSystem.RazorWebApp\KoiCareSystem.RazorWebApp.csproj", "{09811D7C-A68A-4B0C-B244-785D07BA6BFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{143AFE2B-E0F7-417C-BF96-681D72F2C30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{143AFE2B-E0F7-417C-BF96-681D72F2C30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{143AFE2B-E0F7-417C-BF96-681D72F2C30A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{92603140-DAA7-4FD2-9808-1349C492F195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{92603140-DAA7-4FD2-9808-1349C492F195}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{92603140-DAA7-4FD2-9808-1349C492F195}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{92603140-DAA7-4FD2-9808-1349C492F195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09811D7C-A68A-4B0C-B244-785D07BA6BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09811D7C-A68A-4B0C-B244-785D07BA6BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09811D7C-A68A-4B0C-B244-785D07BA6BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09811D7C-A68A-4B0C-B244-785D07BA6BFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -25,39 +25,6 @@ namespace KoiCareSystem.Service
             _unitOfWork ??= new UnitOfWork();
         }
 
-        //Delete by Id
-        public async Task<ServiceResult> DeleteCategoryById(long id)
-        {
-            try
-            {
-                var result = false;
-
-                var removeCategory = this.GetCategoryById(id);
-
-                if (removeCategory != null && removeCategory.Result.Status == Const.SUCCESS_READ_CODE)
-                {
-                    result = await _unitOfWork.CategoryRepository.RemoveAsync((Category)removeCategory.Result.Data);
-
-                    if (result)
-                    {
-                        return new ServiceResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG, result);
-                    }
-                    else
-                    {
-                        return new ServiceResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, removeCategory.Result.Data);
-                    }
-                }
-                else
-                {
-                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
-                }
-            }
-            catch (Exception ex)
-            {
-                return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
-            }
-        }
-
         //Get All
         public async Task<ServiceResult> GetAllCategory()
         {
@@ -130,6 +97,38 @@ namespace KoiCareSystem.Service
                     {
                         return new ServiceResult(Const.FAIL_CREATE_CODE, Const.FAIL_CREATE_MSG);
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
+            }
+        }
+        //Delete by Id
+        public async Task<ServiceResult> DeleteCategoryById(long id)
+        {
+            try
+            {
+                var result = false;
+
+                var removeCategory = this.GetCategoryById(id);
+
+                if (removeCategory != null && removeCategory.Result.Status == Const.SUCCESS_READ_CODE)
+                {
+                    result = await _unitOfWork.CategoryRepository.RemoveAsync((Category)removeCategory.Result.Data);
+
+                    if (result)
+                    {
+                        return new ServiceResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG, result);
+                    }
+                    else
+                    {
+                        return new ServiceResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, removeCategory.Result.Data);
+                    }
+                }
+                else
+                {
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
             }
             catch (Exception ex)

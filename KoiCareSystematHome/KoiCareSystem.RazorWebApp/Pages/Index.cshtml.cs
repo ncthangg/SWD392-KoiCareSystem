@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace KoiCareSystem.RazorWebApp.Pages
@@ -14,7 +14,7 @@ namespace KoiCareSystem.RazorWebApp.Pages
 
         public void OnGet()
         {
-
         }
     }
+
 }
