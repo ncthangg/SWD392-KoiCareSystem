@@ -30,8 +30,8 @@ namespace De
             services.AddTransient<SmtpClient>(provider =>
             {
                 var smtpClient = new SmtpClient();
-                smtpClient.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-                smtpClient.Authenticate("thangncse172630@fpt.edu.vn", "mbrx fwmj lxxn vdst");
+                smtpClient.Connect(configuration["SmtpSettings:Host"], int.Parse(configuration["SmtpSettings:Port"]), SecureSocketOptions.StartTls);
+                smtpClient.Authenticate(configuration["SmtpSettings:Username"], configuration["SmtpSettings:Password"]);
                 return smtpClient;
             });
 
