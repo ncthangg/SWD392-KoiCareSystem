@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using AutoMapper;
+using KoiCareSystem.Service;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Roles
 {
     public class DeleteModel : PageModel
     {
-        private readonly KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext _context;
+        private readonly UserService _userService;
+        private readonly RoleService _roleService;
 
-        public DeleteModel(KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context)
+        public DeleteModel(IMapper mapper)
         {
-            _context = context;
+            _userService ??= new UserService(mapper);
+            _roleService ??= new RoleService(mapper);
         }
 
         [BindProperty]
@@ -29,7 +33,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Roles
                 return NotFound();
             }
 
-            var role = await _context.Roles.FirstOrDefaultAsync(m => m.Id == id);
+            var role = await _roleService.GetRoleById((long)id);
 
             if (role == null)
             {
@@ -37,7 +41,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Roles
             }
             else
             {
-                Role = role;
+                Role = (Role)role.Data;
             }
             return Page();
         }
@@ -49,12 +53,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Roles
                 return NotFound();
             }
 
-            var role = await _context.Roles.FindAsync(id);
+            var role = await _roleService.GetRoleById((long)id);
             if (role != null)
             {
-                Role = role;
-                _context.Roles.Remove(Role);
-                await _context.SaveChangesAsync();
+                Role = (Role)role.Data;
+                await _roleService.DeleteRoleById((long)id);
             }
 
             return RedirectToPage("./Index");

@@ -7,23 +7,32 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using AutoMapper;
+using KoiCareSystem.Service;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Roles
 {
     public class IndexModel : PageModel
     {
-        private readonly KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext _context;
+        private readonly UserService _userService;
+        private readonly RoleService _roleService;
 
-        public IndexModel(KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context)
+        public IndexModel(IMapper mapper)
         {
-            _context = context;
+            _userService ??= new UserService(mapper);
+            _roleService ??= new RoleService(mapper);
         }
 
-        public IList<Role> Role { get;set; } = default!;
+        public IList<Role> Role { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Role = await _context.Roles.ToListAsync();
+
+            var result = await _roleService.GetAllRole();
+            if (result.Status > 0)
+            {
+                Role = (IList<Role>)result.Data;
+            }
         }
     }
 }

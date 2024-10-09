@@ -8,18 +8,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using AutoMapper;
+using KoiCareSystem.Service;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Roles
 {
     public class EditModel : PageModel
     {
-        private readonly KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext _context;
+        private readonly UserService _userService;
+        private readonly RoleService _roleService;
 
-        public EditModel(KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context)
+        public EditModel(IMapper mapper)
         {
-            _context = context;
+            _userService ??= new UserService(mapper);
+            _roleService ??= new RoleService(mapper);
         }
-
         [BindProperty]
         public Role Role { get; set; } = default!;
 
@@ -30,12 +33,12 @@ namespace KoiCareSystem.RazorWebApp.Pages.Roles
                 return NotFound();
             }
 
-            var role =  await _context.Roles.FirstOrDefaultAsync(m => m.Id == id);
+            var role =  await _roleService.GetRoleById((long)id);
             if (role == null)
             {
                 return NotFound();
             }
-            Role = role;
+            Role = (Role)role.Data;
             return Page();
         }
 
@@ -48,30 +51,23 @@ namespace KoiCareSystem.RazorWebApp.Pages.Roles
                 return Page();
             }
 
-            _context.Attach(Role).State = EntityState.Modified;
-
-            try
+            if (!_roleService.RoleExists(Role.Id))
             {
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
-            catch (DbUpdateConcurrencyException)
+            else
             {
-                if (!RoleExists(Role.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                await _roleService.Save(Role);
+            }
+
+            if (!_roleService.RoleExists(Role.Id))
+            {
+                return NotFound();
             }
 
             return RedirectToPage("./Index");
         }
 
-        private bool RoleExists(long id)
-        {
-            return _context.Roles.Any(e => e.Id == id);
-        }
+
     }
 }

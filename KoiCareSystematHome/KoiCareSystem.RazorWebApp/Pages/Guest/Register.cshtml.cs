@@ -39,19 +39,27 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             try
             {
                 // 
-                var user = await _userService.Save(RegisterDto);
-                if(user != null)
+                var userExist = _userService.UserExists(RegisterDto.Email);
+                if (!userExist)
                 {
-                    var userData = user.Data as User;
+                    var user = await _userService.Save(RegisterDto);
+                    var userData = (User)user.Data;
 
                     //Mail Service
-                    var verificationLink = _urlHelperService.GenerateVerificationLink(this.PageContext, userData.EmailVerifiedToken);
+                    var verificationCode = userData.EmailVerifiedToken;
+                    var verificationLink = _urlHelperService.GenerateVerificationLink(this.PageContext, verificationCode);
 
                     // Tiếp tục logic gửi email
-                    await _emailService.SendVerificationEmailAsync(userData.Email, verificationLink);
+                    await _emailService.SendVerificationEmailAsync(userData.Email, verificationCode, verificationLink);
+
+                    return RedirectToPage("/Index");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, $"Tài khoản đã tồn tại");
+                    return Page();
                 }
 
-                return RedirectToPage("/Index");
             }
             catch (Exception ex)
             {
@@ -59,5 +67,6 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
                 return Page();
             }
         }
+
     }
 }

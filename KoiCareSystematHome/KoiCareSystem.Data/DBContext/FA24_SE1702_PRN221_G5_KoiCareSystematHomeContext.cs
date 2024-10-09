@@ -405,7 +405,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
             entity.ToTable("user");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("id");
             entity.Property(e => e.Email)
                 .IsRequired()
@@ -417,6 +417,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
                 .IsRequired()
                 .HasMaxLength(255)
                 .HasColumnName("pashword_hash");
+
             entity.Property(e => e.RoleId).HasColumnName("role_id");
 
             entity.HasOne(d => d.Role).WithMany(p => p.Users)

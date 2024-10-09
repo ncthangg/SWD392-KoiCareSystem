@@ -135,7 +135,7 @@ namespace KoiCareSystem.Service
 
                     if (result > 0)
                     {
-                        return new ServiceResult(Const.SUCCESS_CREATE_CODE, Const.SUCCESS_CREATE_MSG);
+                        return new ServiceResult(Const.SUCCESS_CREATE_CODE, Const.SUCCESS_CREATE_MSG, newUser);
                     }
                     else
                     {
@@ -179,6 +179,9 @@ namespace KoiCareSystem.Service
                 {
                     var newUser = _mapper.Map<User>(registerAdminDto);
                     newUser.PashwordHash = HashPassword(registerAdminDto.Password);
+                    // Ghi lại thông tin của newUser để kiểm tra
+                    Console.WriteLine($"Email: {newUser.Email}, PasswordHash: {newUser.PashwordHash}, Id: {newUser.Id}, Role: {newUser.RoleId}");
+
                     result = await _unitOfWork.UserRepository.CreateAsync(newUser);
 
                     if (result > 0)

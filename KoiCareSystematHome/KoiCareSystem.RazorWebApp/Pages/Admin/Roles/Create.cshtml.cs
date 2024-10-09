@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using AutoMapper;
+using KoiCareSystem.Service;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Roles
 {
     public class CreateModel : PageModel
     {
-        private readonly KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext _context;
+        private readonly UserService _userService;
+        private readonly RoleService _roleService;
 
-        public CreateModel(KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context)
+        public CreateModel(IMapper mapper)
         {
-            _context = context;
+            _userService ??= new UserService(mapper);
+            _roleService ??= new RoleService(mapper);
         }
 
         public IActionResult OnGet()
@@ -35,8 +39,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Roles
                 return Page();
             }
 
-            _context.Roles.Add(Role);
-            await _context.SaveChangesAsync();
+            await _roleService.Save(Role);
 
             return RedirectToPage("./Index");
         }
