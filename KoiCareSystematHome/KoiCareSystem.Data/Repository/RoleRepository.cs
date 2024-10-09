@@ -25,6 +25,7 @@ namespace KoiCareSystem.Data.Repository
                   .Where(u => u.Name == name)
                   .FirstOrDefaultAsync();
         }
+ 
 
         // Kiểm tra Role có tồn tại không
         public bool RoleExists(long id)

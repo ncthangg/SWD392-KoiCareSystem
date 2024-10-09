@@ -26,104 +26,148 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Orders/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Orders/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Orders/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Orders/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Orders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Products/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Products/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Products/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Products/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Roles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9sZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Roles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9sZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Roles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9sZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Roles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9sZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Roles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9sZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Users/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Users/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Guest/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3Vlc3RcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Guest/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3Vlc3RcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Guest/VerifyEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3Vlc3RcVmVyaWZ5RW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Orders/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXENyZWF0ZS5jc2h0bWw=
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Member/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Orders/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXERlbGV0ZS5jc2h0bWw=
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Member/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Orders/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Orders/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Orders/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXEluZGV4LmNzaHRtbA==
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Member/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Products/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Products/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Products/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Products/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Products/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Roles/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Roles/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Roles/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Roles/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Roles/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Users/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Shop/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Users/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcRGVsZXRlLmNzaHRtbA==
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Shop/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcFxTaGFyZWRcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Users/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Users/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Users/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcSW5kZXguY3NodG1s
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Shop/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcFxfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/_ViewImports.cshtml]

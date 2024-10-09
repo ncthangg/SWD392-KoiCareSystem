@@ -533,3 +533,8 @@ D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareS
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.pdb
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.genruntimeconfig.cache
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\ref\KoiCareSystem.RazorWebApp.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\MailKit.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\MimeKit.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\NETCore.MailKit.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.MvcApplicationPartsAssemblyInfo.cs

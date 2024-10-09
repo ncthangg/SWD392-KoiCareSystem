@@ -3,9 +3,13 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<h1>@ViewData["Title"]</h1>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Koi Care System</h1>
+    <p class="lead">Chăm sóc và theo dõi sức khỏe cá Koi tại nhà</p>
+
+    <div>
+        <a class="btn btn-primary btn-lg" asp-page="/Guest/Login">Đăng nhập</a>
+        <a class="btn btn-secondary btn-lg" asp-page="/Guest/Register">Đăng ký</a>
+    </div>
 </div>

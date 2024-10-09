@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using KoiCareSystem.Common;
-using KoiCareSystem.Common.DTOs.User;
+using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service.Base;
@@ -165,6 +165,7 @@ namespace KoiCareSystem.Service
         {
             return _unitOfWork.RoleRepository.RoleExists(id);
         }
+
 
     }
 }

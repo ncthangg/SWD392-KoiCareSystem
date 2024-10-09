@@ -31,6 +31,12 @@ namespace KoiCareSystem.Data.Repository
             //return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
             return await _context.Users.Include(x => x.Role).Where(u => u.Email == email).FirstOrDefaultAsync();
         }
+        //// Kiểm tra User có role gì
+        //public async Task<long> GetUserRole(long email)
+        //{
+        //    var user = await _context.Users.Include(x => x.Role).Where(u => u.Email == email).FirstOrDefaultAsync();
+        //    return user.RoleId;
+        //}
 
         // Kiểm tra User có tồn tại không
         public bool UserExists(string email)

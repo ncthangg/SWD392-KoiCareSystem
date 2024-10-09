@@ -3,8 +3,6 @@
 using System;
 using System.Collections.Generic;
 using KoiCareSystem.Data.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -20,7 +18,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
         : base(options)
     {
     }
-    public virtual DbSet<User> Users { get; set; }
+
     public virtual DbSet<Blog> Blogs { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
@@ -43,13 +41,9 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
     public virtual DbSet<Threshold> Thresholds { get; set; }
 
-    //public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<WaterParameter> WaterParameters { get; set; }
-
-    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-    //        => optionsBuilder.UseSqlServer("Data Source=LAPTOP-SSAEKEN0\\CHIENTHANG;Initial Catalog=FA24_SE1702_PRN221_G5_KoiCareSystematHome;Persist Security Info=True;User ID=sa;Password=12345;Encrypt=False");
 
     public static string GetConnectionString(string connectionStringName)
     {
@@ -63,7 +57,11 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+   => optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+    //        => optionsBuilder.UseSqlServer("Data Source=LAPTOP-SSAEKEN0\\CHIENTHANG;Initial Catalog=FA24_SE1702_PRN221_G5_KoiCareSystematHome;Persist Security Info=True;User ID=sa;Password=12345;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -223,7 +221,6 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
             entity.Property(e => e.OrderDate).HasColumnName("order_date");
-            //entity.Property(e => e.ProductId).HasColumnName("product_id");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
             entity.Property(e => e.TotalPrice)
                 .HasColumnType("decimal(10, 2)")
@@ -414,6 +411,8 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
                 .IsRequired()
                 .HasMaxLength(255)
                 .HasColumnName("email");
+            entity.Property(e => e.EmailVerified).HasColumnName("emailVerified");
+            entity.Property(e => e.EmailVerifiedToken).HasColumnName("emailVerifiedToken");
             entity.Property(e => e.PashwordHash)
                 .IsRequired()
                 .HasMaxLength(255)

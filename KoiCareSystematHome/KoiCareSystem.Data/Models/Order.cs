@@ -9,8 +9,6 @@ public partial class Order
 {
     public long OrderId { get; set; }
 
-    //public long? ProductId { get; set; }
-
     public long? OrderDate { get; set; }
 
     public long? Quantity { get; set; }

@@ -1,13 +1,15 @@
 ﻿using AutoMapper;
 using Azure.Core;
 using KoiCareSystem.Common;
-using KoiCareSystem.Common.DTOs.User;
+using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Data.Repository;
+using KoiCareSystem.Service.Helper;
 using KoiCareSystematHome.Service.Base;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +23,8 @@ namespace KoiCareSystem.Service
         Task<ServiceResult> GetAllUser();
         Task<ServiceResult> GetUserById(long id);
         Task<ServiceResult> GetUserByEmail(string email);
-        Task<ServiceResult> Save(RegisterDto registerDto);
-        Task<ServiceResult> SaveByAdmin(RegisterAdminDto registerAdminDto);
+        Task<ServiceResult> Save(RequestRegisterDto registerDto);
+        Task<ServiceResult> SaveByAdmin(RequestRegisterAdminDto registerAdminDto);
         Task<ServiceResult> DeleteUserByEmail(string email);
     }
     public class UserService : IUserService
@@ -85,8 +87,17 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, User);
             }
         }
-        //Create/Update
-        public async Task<ServiceResult> Save(RegisterDto registerDto)
+        //public async Task<User> GetUserByEmail2(string email)
+        //{
+        //    #region Business Rule
+
+        //    #endregion Business Rule
+
+        //    var user = await _unitOfWork.UserRepository.GetByEmailAsync(email);
+        //    return user; 
+        //}
+        //Create/Update //ROLE: Guest
+        public async Task<ServiceResult> Save(RequestRegisterDto registerDto)
         {
             try
             {
@@ -117,7 +128,10 @@ namespace KoiCareSystem.Service
                     var newUser = _mapper.Map<User>(registerDto);
                     newUser.PashwordHash = HashPassword(registerDto.Password);
                     newUser.RoleId = 1;
+                    newUser.EmailVerifiedToken = Guid.NewGuid().ToString();
+
                     result = await _unitOfWork.UserRepository.CreateAsync(newUser);
+
 
                     if (result > 0)
                     {
@@ -125,7 +139,7 @@ namespace KoiCareSystem.Service
                     }
                     else
                     {
-                        return new ServiceResult(Const.FAIL_CREATE_CODE, Const.FAIL_CREATE_MSG);
+                        return new ServiceResult(Const.FAIL_CREATE_CODE, Const.FAIL_CREATE_MSG, newUser);
                     }
                 }
             }
@@ -135,7 +149,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Create/Update //ROLE: ADMIN
-        public async Task<ServiceResult> SaveByAdmin(RegisterAdminDto registerAdminDto)
+        public async Task<ServiceResult> SaveByAdmin(RequestRegisterAdminDto registerAdminDto)
         {
             try
             {
@@ -164,7 +178,6 @@ namespace KoiCareSystem.Service
                 else
                 {
                     var newUser = _mapper.Map<User>(registerAdminDto);
-                    newUser.Id = 5;
                     newUser.PashwordHash = HashPassword(registerAdminDto.Password);
                     result = await _unitOfWork.UserRepository.CreateAsync(newUser);
 
@@ -215,12 +228,12 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
-
-        //
+        //Kiểm tra User có tồn tại chưa
         public bool UserExists(string email)
         {
             return _unitOfWork.UserRepository.UserExists(email);
         }
+
         //Helper
         private string HashPassword(string password)
         {

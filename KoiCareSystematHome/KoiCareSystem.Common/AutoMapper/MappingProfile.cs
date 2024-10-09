@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using KoiCareSystem.Common.DTOs;
-using KoiCareSystem.Common.DTOs.User;
+using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data.Models;
 
 namespace KoiCareSystem.Common.AutoMapper
@@ -12,8 +12,8 @@ namespace KoiCareSystem.Common.AutoMapper
             // Ánh xạ từ Order sang OrderDTO và ngược lại
             CreateMap<Order, OrderDto>();
             CreateMap<OrderDto, Order>();
-            CreateMap<RegisterDto, User>();
-            CreateMap<RegisterAdminDto, User>();
+            CreateMap<RequestRegisterDto, User>();
+            CreateMap<RequestRegisterAdminDto, User>();
         }
     }
 }
