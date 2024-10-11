@@ -1,4 +1,5 @@
-﻿using MailKit.Net.Smtp;
+﻿using KoiCareSystem.Common.DTOs.Request;
+using MailKit.Net.Smtp;
 using MimeKit;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace KoiCareSystem.Service.Helper
     public interface IEmailService
     {
         Task SendVerificationEmailAsync(string email, string verifyCode, string verificationLink);
+
     }
     public class EmailService : IEmailService
     {
@@ -37,5 +39,7 @@ namespace KoiCareSystem.Service.Helper
             };
             await _smtpClient.SendAsync(message);
         }
+
+
     }
 }

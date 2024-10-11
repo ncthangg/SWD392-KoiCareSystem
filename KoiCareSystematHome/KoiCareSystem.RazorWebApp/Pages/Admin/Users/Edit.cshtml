@@ -14,41 +14,46 @@
 </head>
 <body>
 
-<h4>User</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="User.Id" />
-            <div class="form-group">
-                <label asp-for="User.Email" class="control-label"></label>
-                <input asp-for="User.Email" class="form-control" />
-                <span asp-validation-for="User.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.PashwordHash" class="control-label"></label>
-                <input asp-for="User.PashwordHash" class="form-control" />
-                <span asp-validation-for="User.PashwordHash" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.RoleId" class="control-label"></label>
-                <select asp-for="User.RoleId" class="form-control" asp-items="ViewBag.RoleId"></select>
-                <span asp-validation-for="User.RoleId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <h4>User</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="RequestRegisterAdminDto.Email" class="control-label"></label>
+                    <input asp-for="RequestRegisterAdminDto.Email" class="form-control" readonly/>
+                    <span asp-validation-for="RequestRegisterAdminDto.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RequestRegisterAdminDto.Password" class="control-label"></label>
+                    <input asp-for="RequestRegisterAdminDto.Password" class="form-control" type="password" />
+                    <span asp-validation-for="RequestRegisterAdminDto.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RequestRegisterAdminDto.ConfirmPassword"></label>
+                    <input asp-for="RequestRegisterAdminDto.ConfirmPassword" class="form-control" type="password" />
+                    <span asp-validation-for="RequestRegisterAdminDto.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RequestRegisterAdminDto.RoleId" class="control-label"></label>
+                    <select asp-for="RequestRegisterAdminDto.RoleId" class="form-control" asp-items="ViewBag.RoleId"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
+    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 </body>
 </html>

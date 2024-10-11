@@ -1,4 +1,36 @@
 ﻿@page
 @model KoiCareSystem.RazorWebApp.Pages.Guest.VerifyEmailModel
 @{
+    ViewData["Title"] = "Verify Email";
+}
+
+<h2>Xác minh tài khoản</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="RequestVerifyEmailDto.Email"></label>
+        <input asp-for="RequestVerifyEmailDto.Email" class="form-control" readonly />
+        <span asp-validation-for="RequestVerifyEmailDto.Email" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="RequestVerifyEmailDto.Code"></label>
+        <input asp-for="RequestVerifyEmailDto.Code" class="form-control" />
+        <span asp-validation-for="RequestVerifyEmailDto.Code" class="text-danger"></span>
+    </div>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Xác minh</button>
+    </div>
+</form>
+
+<div>
+    <a asp-page="/Guest/Login">Đăng nhập</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

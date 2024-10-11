@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity.Data;
 using NuGet.Protocol.Plugins;
 using KoiCareSystem.Service;
 using KoiCareSystem.Data.Models;
+using KoiCareSystem.Service.Helper;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Guest
 {
@@ -15,29 +16,18 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
         private readonly UserService _userService;
         private readonly RoleService _roleService;
         private readonly AuthenticateService _authenticateService;
-        
-        public LoginModel(UserService userService, RoleService roleService, AuthenticateService authenticateService)
+        private readonly EmailService _emailService;
+        private readonly IUrlHelperService _urlHelperService;
+
+        public LoginModel(UserService userService, RoleService roleService, AuthenticateService authenticateService, EmailService emailService, IUrlHelperService urlHelperService)
         {
             _userService = userService;
             _roleService = roleService;
             _authenticateService = authenticateService;
-            
+            _emailService = emailService;
+            _urlHelperService = urlHelperService;
         }
 
-        //[BindProperty]
-        //public InputModel Input { get; set; }
-
-        //public class InputModel
-        //{
-        //    [Required]
-        //    public string Username { get; set; }
-
-        //    [Required]
-        //    [DataType(DataType.Password)]
-        //    public string Password { get; set; }
-
-        //    public bool RememberMe { get; set; }
-        //}
         [BindProperty]
         public RequestLoginDto RequestLoginDto { get; set; } = new RequestLoginDto();
 
@@ -52,28 +42,43 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             var user = await _userService.GetUserByEmail(RequestLoginDto.Email);
             if (user == null)
             {
-                ModelState.AddModelError(string.Empty, "User not found.");
+                ModelState.AddModelError(string.Empty, "Không tìm thấy User");
                 return Page(); // Trả về nếu không tìm thấy user
             }
 
             // Thực hiện đăng nhập
             var result = await _authenticateService.Login(RequestLoginDto);
-            if (result == null || result.Data == null)
+            if (result == null)
             {
-                ModelState.AddModelError(string.Empty, $"{result.Status}: {result.Message}");
+                ModelState.AddModelError(string.Empty, $"Login fail");
                 return Page(); // Trả về nếu login thất bại
             }
 
-            // Lấy thông tin user từ kết quả đăng nhập
-            var userEntity = result.Data as User;
-            if (userEntity == null)
+            var userExist = (User)result.Data;
+            if (userExist != null && !userExist.EmailVerified)
             {
-                ModelState.AddModelError(string.Empty, "User data is invalid.");
+                userExist.EmailVerifiedToken = Guid.NewGuid().ToString();
+                await _userService.UpdateVerifyCode(userExist.Email, userExist.EmailVerifiedToken);
+
+                //Mail Service
+                var verificationCode = userExist.EmailVerifiedToken;
+                var verificationLink = _urlHelperService.GenerateVerificationLink(this.PageContext, verificationCode);
+
+                // Tiếp tục logic gửi email
+                await _emailService.SendVerificationEmailAsync(userExist.Email, verificationCode, verificationLink);
+                
+                return RedirectToPage("/Guest/VerifyEmail", new { email = userExist.Email});
+            }
+
+            // Lấy thông tin user từ kết quả đăng nhập
+            if (userExist == null)
+            {
+                ModelState.AddModelError(string.Empty, "Không lấy được User.");
                 return Page(); // Trả về nếu thông tin user không hợp lệ
             }
 
             // Lấy vai trò (role) của người dùng
-            var roles = await _roleService.GetRoleById(userEntity.RoleId);
+            var roles = await _roleService.GetRoleById(userExist.RoleId);
             if (roles == null || roles.Data == null)
             {
                 ModelState.AddModelError(string.Empty, "Role not found.");
@@ -89,15 +94,15 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             }
 
             // Điều hướng dựa trên vai trò của người dùng
-            if (roleOfAccount.Name.Contains("Admin"))
+            if (roleOfAccount.Name.ToLower().Contains("admin"))
             {
                 return RedirectToPage("/Admin/Index");
             }
-            else if (roleOfAccount.Name.Contains("Member"))
+            else if (roleOfAccount.Name.ToLower().Contains("member"))
             {
                 return RedirectToPage("/Member/Index");
             }
-            else if (roleOfAccount.Name.Contains("Shop"))
+            else if (roleOfAccount.Name.ToLower().Contains("shop"))
             {
                 return RedirectToPage("/Shop/Index");
             }

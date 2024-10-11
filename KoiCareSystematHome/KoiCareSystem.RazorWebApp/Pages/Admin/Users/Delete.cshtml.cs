@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using AutoMapper;
+using KoiCareSystem.Service;
+using System.Data;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Users
 {
     public class DeleteModel : PageModel
     {
-        private readonly KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext _context;
+        private readonly UserService _userService;
+        private readonly RoleService _roleService;
 
-        public DeleteModel(KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context)
+        public DeleteModel(IMapper mapper)
         {
-            _context = context;
+            _userService ??= new UserService(mapper);
+            _roleService ??= new RoleService(mapper);
         }
 
         [BindProperty]
@@ -29,7 +34,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Users
                 return NotFound();
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            var user =  await _userService.GetUserById((long)id);
 
             if (user == null)
             {
@@ -37,7 +42,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Users
             }
             else
             {
-                User = user;
+                User = (User)user.Data;
             }
             return Page();
         }
@@ -49,12 +54,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Users
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var user = await _userService.GetUserById((long)id);
             if (user != null)
             {
-                User = user;
-                _context.Users.Remove(User);
-                await _context.SaveChangesAsync();
+                User = (User)user.Data;
+                await _userService.DeleteUserById((long)id);
             }
 
             return RedirectToPage("./Index");

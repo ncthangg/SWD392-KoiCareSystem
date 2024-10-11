@@ -78,10 +78,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9sZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Roles/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9sZXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Roles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9sZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -100,10 +96,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Users/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Admin/Users/Edit.cshtml]

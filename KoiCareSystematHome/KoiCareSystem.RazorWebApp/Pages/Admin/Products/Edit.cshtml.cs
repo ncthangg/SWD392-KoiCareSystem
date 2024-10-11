@@ -41,7 +41,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
             }
             Product = (Product)product.Data;
             var category = _categoryService.GetAllCategory().Result.Data as IList<Category>;
-           ViewData["CategoryId"] = new SelectList(category, "Id", "Description");
+            ViewData["CategoryId"] = new SelectList(category, "Id", "Description");
             return Page();
         }
 

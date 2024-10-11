@@ -4,6 +4,7 @@ using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service.Base;
+using Org.BouncyCastle.Crypto.Fpe;
 using System.Text;
 
 namespace KoiCareSystem.Service
@@ -28,15 +29,15 @@ namespace KoiCareSystem.Service
 
         public async Task<ServiceResult> Login(RequestLoginDto requestLoginDto)
         {
-            
             try
             {
                 #region Business Rule
+
+                #endregion Business Rule
                 if (string.IsNullOrEmpty(requestLoginDto.Email) || string.IsNullOrEmpty(requestLoginDto.Password))
                 {
                     return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
                 }
-                #endregion Business Rule
 
                 var userExist = await _unitOfWork.UserRepository.GetByEmailAsync(requestLoginDto.Email);
 
@@ -44,17 +45,17 @@ namespace KoiCareSystem.Service
                 {
                     return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
-
-                // Kiểm tra trạng thái xác minh email
-                if (!userExist.EmailVerified)
-                {
-                    return new ServiceResult(Const.ERROR_UNAUTHORIZED, Const.ERROR_UNAUTHORIZED_MSG);
-                }
-
                 // So sánh mật khẩu sau khi băm
                 if (!VerifyPasswordHash(requestLoginDto.Password, userExist.PashwordHash))
                 {
                     return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
+                }
+
+                // Kiểm tra trạng thái xác minh email
+                if (!userExist.EmailVerified)
+                {
+                    // Chuyển hướng người dùng tới trang VerifyEmail
+                    return new ServiceResult(Const.ERROR_UNAUTHORIZED, Const.ERROR_UNAUTHORIZED_MSG, userExist);
                 }
 
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, userExist);
@@ -64,13 +65,6 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
-
-        //public async Task<User?> GetByVerificationToken(string token)
-        //{
-        //    var userRepository = _unitOfWork.Repository<User>();
-        //    return await userRepository.GetAll().AsNoTracking()
-        //        .FirstOrDefaultAsync(u => u.EmailVerificationToken == token);
-        //}
 
         #region Helper Methods
 

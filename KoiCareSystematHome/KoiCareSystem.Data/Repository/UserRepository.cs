@@ -22,28 +22,25 @@ namespace KoiCareSystem.Data.Repository
         {
             return await _context.Users.Include(x => x.Role).ToListAsync();
         }
-        //public async Task<List<User>> GetByEmailAsync(string email)
-        //{
-        //    return await _context.Users.Include(x => x.Role).Where(x => x.Email == email).ToListAsync();
-        //}
+        public async Task<User> GetByIdAsync(long id)
+        {
+            //return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            return await _context.Users.Include(x => x.Role).Where(u => u.Id == id).FirstOrDefaultAsync();
+        }
         public async Task<User> GetByEmailAsync(string email)
         {
             //return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
             return await _context.Users.Include(x => x.Role).Where(u => u.Email == email).FirstOrDefaultAsync();
         }
-        //// Kiểm tra User có role gì
-        //public async Task<long> GetUserRole(long email)
-        //{
-        //    var user = await _context.Users.Include(x => x.Role).Where(u => u.Email == email).FirstOrDefaultAsync();
-        //    return user.RoleId;
-        //}
-
         // Kiểm tra User có tồn tại không
         public bool UserExists(string email)
         {
             return _context.Users.Any(e => e.Email == email);
         }
-
+        public bool UserExists(long id)
+        {
+            return _context.Users.Any(e => e.Id == id);
+        }
 
     }
 }

@@ -14,12 +14,10 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
         private readonly UserService _userService;
         private readonly EmailService _emailService;
         private readonly IUrlHelperService _urlHelperService;
-        private readonly IUrlHelperFactory _urlHelperFactory;
-        public RegisterModel(UserService userService, EmailService emailService, IUrlHelperService urlHelperService, IUrlHelperFactory urlHelperFactory)
+        public RegisterModel(UserService userService, EmailService emailService, IUrlHelperService urlHelperService)
         {
             _userService = userService;
             _emailService = emailService;
-            _urlHelperFactory = urlHelperFactory;
             _urlHelperService = urlHelperService;
         }
 
@@ -39,7 +37,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             try
             {
                 // 
-                var userExist = _userService.UserExists(RegisterDto.Email);
+                var userExist = _userService.UserEmailExists(RegisterDto.Email);
                 if (!userExist)
                 {
                     var user = await _userService.Save(RegisterDto);
@@ -52,7 +50,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
                     // Tiếp tục logic gửi email
                     await _emailService.SendVerificationEmailAsync(userData.Email, verificationCode, verificationLink);
 
-                    return RedirectToPage("/Index");
+                    return RedirectToPage("/Guest/VerifyEmail", new { email = userData.Email });
                 }
                 else
                 {

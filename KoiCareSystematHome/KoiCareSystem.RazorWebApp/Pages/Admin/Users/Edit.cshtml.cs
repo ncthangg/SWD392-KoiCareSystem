@@ -8,21 +8,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using AutoMapper;
+using KoiCareSystem.Service;
+using KoiCareSystem.Common.DTOs.Request;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Users
 {
     public class EditModel : PageModel
     {
-        private readonly KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext _context;
+        private readonly UserService _userService;
+        private readonly RoleService _roleService;
 
-        public EditModel(KoiCareSystem.Data.DBContext.FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context)
+        public EditModel(IMapper mapper)
         {
-            _context = context;
+            _userService ??= new UserService(mapper);
+            _roleService ??= new RoleService(mapper);
         }
 
         [BindProperty]
+        public RequestRegisterAdminDto RequestRegisterAdminDto { get; set; } = default!;
         public User User { get; set; } = default!;
-
         public async Task<IActionResult> OnGetAsync(long? id)
         {
             if (id == null)
@@ -30,13 +35,25 @@ namespace KoiCareSystem.RazorWebApp.Pages.Users
                 return NotFound();
             }
 
-            var user =  await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            var user = await _userService.GetUserById((long)id);
             if (user == null)
             {
                 return NotFound();
             }
-            User = user;
-           ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Name");
+            User = (User)user.Data;
+
+            //Role
+            var roles = _roleService.GetAllRole().Result.Data as IList<Role>;
+            // Kiểm tra null trước khi lọc
+            var filteredRoles = roles?.Where(r => r.Name != "Guest").ToList() ?? new List<Role>();
+            ViewData["RoleId"] = new SelectList(filteredRoles, "Id", "Name");
+
+            // Điền email của User vào DTO
+            RequestRegisterAdminDto = new RequestRegisterAdminDto
+            {
+                Email = User.Email,
+                RoleId = User.RoleId
+            };
             return Page();
         }
 
@@ -48,31 +65,18 @@ namespace KoiCareSystem.RazorWebApp.Pages.Users
             {
                 return Page();
             }
-
-            _context.Attach(User).State = EntityState.Modified;
-
-            try
+            
+            if (!_userService.UserEmailExists(RequestRegisterAdminDto.Email))
             {
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
-            catch (DbUpdateConcurrencyException)
+            else
             {
-                if (!UserExists(User.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                await _userService.SaveByAdmin(RequestRegisterAdminDto);
             }
 
             return RedirectToPage("./Index");
         }
 
-        private bool UserExists(long id)
-        {
-            return _context.Users.Any(e => e.Id == id);
-        }
     }
 }
