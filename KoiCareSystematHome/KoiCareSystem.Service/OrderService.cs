@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using KoiCareSystem.Common;
 using KoiCareSystem.Common.DTOs;
+using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service.Base;
+using Microsoft.EntityFrameworkCore.Update.Internal;
 
 namespace KoiCareSystem.Service
 {
@@ -22,7 +24,6 @@ namespace KoiCareSystem.Service
         {
             _unitOfWork ??= new UnitOfWork();
         }
-
         //Get All
         public async Task<ServiceResult> GetAllOrder()
         {
@@ -40,7 +41,6 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, Orders);
             }
         }
-
         //Get By Id
         public async Task<ServiceResult> GetOrderByOrderId(long orderId)
         {
@@ -76,7 +76,6 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, Orders);
             }
         }
-
         //Create/Update
         public async Task<ServiceResult> Save(Order order)
         {
@@ -88,9 +87,9 @@ namespace KoiCareSystem.Service
 
                 int result = -1;
 
-                var item = this.GetOrderByOrderId(order.OrderId);
+                var item = await this.GetOrderByOrderId(order.OrderId);
 
-                if (item.Result.Status == Const.SUCCESS_READ_CODE)
+                if (item.Status == Const.SUCCESS_READ_CODE)
                 {
                     result = await _unitOfWork.OrderRepository.UpdateAsync(order);
                     if (result > 0)
@@ -104,7 +103,14 @@ namespace KoiCareSystem.Service
                 }
                 else
                 {
-                    result = await _unitOfWork.OrderRepository.CreateAsync(order);
+                    var newOrder = new Order
+                    {
+                        StatusId = 1,
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now,
+                        UserId = order.UserId,
+                    };
+                    result = await _unitOfWork.OrderRepository.CreateAsync(newOrder);
                     if (result > 0)
                     {
                         return new ServiceResult(Const.SUCCESS_CREATE_CODE, Const.SUCCESS_CREATE_MSG);
@@ -153,8 +159,7 @@ namespace KoiCareSystem.Service
             }
         }
 
-
-        //
+        //Helper
         public bool OrderExists(long id)
         {
             return _unitOfWork.OrderRepository.OrderExists(id);

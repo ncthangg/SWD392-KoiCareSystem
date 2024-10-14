@@ -243,41 +243,7 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
-        public async Task<ServiceResult> VerifyCode(RequestVerifyEmailDto requestVerifyEmailDto)
-        {
-            int result = -1;
-
-            var userExisted = await this.GetUserByEmail(requestVerifyEmailDto.Email);
-            if (userExisted.Status == Const.SUCCESS_READ_CODE)
-            {
-                var user = (User)userExisted.Data;
-                if (user.EmailVerified == true)
-                {
-                    return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
-                }
-                if (user.EmailVerifiedToken.ToLower().Contains((requestVerifyEmailDto.Code).ToLower()))
-                {
-                    user.EmailVerified = true;
-                    result = await _unitOfWork.UserRepository.UpdateAsync(user);
-                    if (result > 0)
-                    {
-                        return new ServiceResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG);
-                    }
-                    else
-                    {
-                        return new ServiceResult(Const.FAIL_UPDATE_CODE, Const.FAIL_UPDATE_MSG);
-                    }
-                }
-                else
-                {
-                    return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
-                }
-            }
-            else
-            {
-                return new ServiceResult(Const.FAIL_READ_CODE, Const.FAIL_READ_MSG);
-            }
-        }
+        
         //Delete by Id, Email
         public async Task<ServiceResult> DeleteUserById(long id)
         {
@@ -341,6 +307,42 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
+        public async Task<ServiceResult> VerifyCode(RequestVerifyEmailDto requestVerifyEmailDto)
+        {
+            int result = -1;
+
+            var userExisted = await this.GetUserByEmail(requestVerifyEmailDto.Email);
+            if (userExisted.Status == Const.SUCCESS_READ_CODE)
+            {
+                var user = (User)userExisted.Data;
+                if (user.EmailVerified == true)
+                {
+                    return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
+                }
+                if (user.EmailVerifiedToken.ToLower().Contains((requestVerifyEmailDto.Code).ToLower()))
+                {
+                    user.EmailVerified = true;
+                    result = await _unitOfWork.UserRepository.UpdateAsync(user);
+                    if (result > 0)
+                    {
+                        return new ServiceResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG);
+                    }
+                    else
+                    {
+                        return new ServiceResult(Const.FAIL_UPDATE_CODE, Const.FAIL_UPDATE_MSG);
+                    }
+                }
+                else
+                {
+                    return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
+                }
+            }
+            else
+            {
+                return new ServiceResult(Const.FAIL_READ_CODE, Const.FAIL_READ_MSG);
+            }
+        }
+
         //Kiểm tra User có tồn tại chưa
         public bool UserIdExists(long id)
         {
@@ -350,8 +352,6 @@ namespace KoiCareSystem.Service
         {
             return _unitOfWork.UserRepository.UserExists(email);
         }
-
-
         //Helper
         private string HashPassword(string password)
         {

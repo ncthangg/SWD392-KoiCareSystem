@@ -21,11 +21,9 @@ namespace KoiCareSystem.Data.Repository
         public async Task<Role> GetByNameAsync(string name)
         {
             //return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
-            return await _context.Roles
-                  .Where(u => u.Name == name)
-                  .FirstOrDefaultAsync();
+            return await _context.Roles.Where(u => u.Name == name).FirstOrDefaultAsync();
         }
- 
+
 
         // Kiểm tra Role có tồn tại không
         public bool RoleExists(long id)

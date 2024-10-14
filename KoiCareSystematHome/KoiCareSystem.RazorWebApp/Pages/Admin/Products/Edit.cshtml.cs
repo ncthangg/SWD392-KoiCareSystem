@@ -10,6 +10,8 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service;
 using KoiCareSystem.Service;
+using AutoMapper;
+using KoiCareSystem.Common.DTOs.Request;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Products
 {
@@ -17,16 +19,17 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
     {
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
-
-        public EditModel()
+        private readonly IMapper _mapper;
+        public EditModel(IMapper mapper)
         {
-            _productService ??= new ProductService();
+            _productService ??= new ProductService(mapper);
             _categoryService ??= new CategoryService();
+            _mapper = mapper;
         }
 
         [BindProperty]
+        public RequestCreateANewProductDto RequestCreateANewProductDto { get; set; } = default!;
         public Product Product { get; set; } = default!;
-
         public async Task<IActionResult> OnGetAsync(long? id)
         {
             if (id == null)
@@ -40,6 +43,8 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
                 return NotFound();
             }
             Product = (Product)product.Data;
+
+            RequestCreateANewProductDto = _mapper.Map<RequestCreateANewProductDto>(Product);
             var category = _categoryService.GetAllCategory().Result.Data as IList<Category>;
             ViewData["CategoryId"] = new SelectList(category, "Id", "Description");
             return Page();
@@ -54,16 +59,16 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
                 return Page();
             }
 
-            if (!_productService.ProductExists(Product.ProductId))
+            if (!_productService.ProductExists(RequestCreateANewProductDto.ProductId))
             {
                 return NotFound();
             }
             else
             {
-                await _productService.Save(Product);
+                await _productService.Save(RequestCreateANewProductDto);
             }
 
-            if (!_productService.ProductExists(Product.ProductId))
+            if (!_productService.ProductExists(RequestCreateANewProductDto.ProductId))
             {
                 return NotFound();
             }

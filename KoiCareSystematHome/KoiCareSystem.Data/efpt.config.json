@@ -35,6 +35,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[order_status]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[orders]",
          "ObjectType": 0
       },

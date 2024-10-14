@@ -9,7 +9,7 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 
-namespace De.Pages.Orders
+namespace KoiCareSystem.RazorWebApp.Pages.Orders
 {
     public class IndexModel : PageModel
     {

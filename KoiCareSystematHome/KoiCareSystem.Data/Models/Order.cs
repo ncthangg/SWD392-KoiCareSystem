@@ -21,9 +21,13 @@ public partial class Order
 
     public long UserId { get; set; }
 
+    public long? StatusId { get; set; }
+
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
+
+    public virtual OrderStatus Status { get; set; }
 
     public virtual User User { get; set; }
 }

@@ -13,6 +13,7 @@ namespace KoiCareSystem.Data
         private PaymentRepository _paymentRepository;
         private UserRepository _userRepository;
         private RoleRepository _roleRepository;
+        private OrderStatusRepository _orderStatusRepository;
 
         public UnitOfWork()
         {
@@ -66,6 +67,13 @@ namespace KoiCareSystem.Data
             get
             {
                 return _roleRepository ??= new Repository.RoleRepository(_unitOfWorkContext);
+            }
+        }
+        public OrderStatusRepository OrderStatusRepository
+        {
+            get
+            {
+                return _orderStatusRepository ??= new Repository.OrderStatusRepository(_unitOfWorkContext);
             }
         }
 

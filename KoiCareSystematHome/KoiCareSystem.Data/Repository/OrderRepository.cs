@@ -19,15 +19,15 @@ namespace KoiCareSystem.Data.Repository
         public OrderRepository(FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context) => _context = context;
         public async Task<List<Order>> GetAllAsync()
         {
-            return await _context.Orders.Include(x => x.User).ToListAsync();
+            return await _context.Orders.Include(x => x.User).Include(x => x.Status).ToListAsync();
         }
         public async Task<List<Order>> GetByUserIdAsync(long userId)
         {
-            return await _context.Orders.Include(x => x.User).Where(x => x.UserId == userId).ToListAsync();
+            return await _context.Orders.Include(x => x.User).Include(x => x.Status).Where(x => x.UserId == userId).ToListAsync();
         }
         public async Task<Order> GetByOrderIdAsync(long orderId)
         {
-            return await _context.Orders.Include(x => x.User).FirstOrDefaultAsync(x => x.OrderId == orderId);
+            return await _context.Orders.Include(x => x.User).Include(x => x.Status).FirstOrDefaultAsync(x => x.OrderId == orderId);
         }
 
         // Kiểm tra sản phẩm có tồn tại không

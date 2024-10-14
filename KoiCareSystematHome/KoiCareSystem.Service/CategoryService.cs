@@ -24,7 +24,6 @@ namespace KoiCareSystem.Service
         {
             _unitOfWork ??= new UnitOfWork();
         }
-
         //Get All
         public async Task<ServiceResult> GetAllCategory()
         {
@@ -42,7 +41,6 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, Categorys);
             }
         }
-
         //Get By Id
         public async Task<ServiceResult> GetCategoryById(long id)
         {
@@ -51,6 +49,23 @@ namespace KoiCareSystem.Service
             #endregion Business Rule
 
             var Category = await _unitOfWork.CategoryRepository.GetByIdAsync(id);
+            if (Category == null)
+            {
+                return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
+            }
+            else
+            {
+                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, Category);
+            }
+        }
+        //Get By Name
+        public async Task<ServiceResult> GetCategoryByName(string name)
+        {
+            #region Business Rule
+
+            #endregion Business Rule
+
+            var Category = await _unitOfWork.CategoryRepository.GetByNameAsync(name);
             if (Category == null)
             {
                 return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
@@ -72,7 +87,7 @@ namespace KoiCareSystem.Service
 
                 int result = -1;
 
-                var item = this.GetCategoryById(category.Id);
+                var item = this.GetCategoryByName(category.Name);
 
                 if (item.Result.Status == Const.SUCCESS_READ_CODE)
                 {

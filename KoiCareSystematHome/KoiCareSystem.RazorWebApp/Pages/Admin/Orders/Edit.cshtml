@@ -1,8 +1,8 @@
 ﻿@page
-@model De.Pages.Orders.EditModel
+@model KoiCareSystem.RazorWebApp.Pages.Orders.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Toi la Shop";
 }
 
 <h1>Edit</h1>
@@ -16,33 +16,38 @@
             <input type="hidden" asp-for="Order.OrderId" />
             <div class="form-group">
                 <label asp-for="Order.OrderDate" class="control-label"></label>
-                <input asp-for="Order.OrderDate" class="form-control" />
+                <input asp-for="Order.OrderDate" class="form-control" readonly/>
                 <span asp-validation-for="Order.OrderDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Order.Quantity" class="control-label"></label>
-                <input asp-for="Order.Quantity" class="form-control" />
+                <input asp-for="Order.Quantity" class="form-control" readonly />
                 <span asp-validation-for="Order.Quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Order.TotalPrice" class="control-label"></label>
-                <input asp-for="Order.TotalPrice" class="form-control" />
+                <input asp-for="Order.TotalPrice" class="form-control" readonly/>
                 <span asp-validation-for="Order.TotalPrice" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Order.CreatedAt" class="control-label"></label>
-                <input asp-for="Order.CreatedAt" class="form-control" />
+                <input asp-for="Order.CreatedAt" class="form-control" readonly/>
                 <span asp-validation-for="Order.CreatedAt" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Order.UpdatedAt" class="control-label"></label>
-                <input asp-for="Order.UpdatedAt" class="form-control" />
+                <input asp-for="Order.UpdatedAt" class="form-control" readonly/>
                 <span asp-validation-for="Order.UpdatedAt" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Order.UserId" class="control-label"></label>
-                <input asp-for="Order.UserId" class="form-control" />
+                <input asp-for="Order.UserId" class="form-control" readonly />
                 <span asp-validation-for="Order.User" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.StatusId" class="control-label"></label>
+                <select asp-for="Order.StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                <span asp-validation-for="Order.StatusId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

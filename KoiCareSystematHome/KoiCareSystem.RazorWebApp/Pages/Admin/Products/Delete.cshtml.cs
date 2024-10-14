@@ -9,6 +9,7 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service;
 using KoiCareSystem.Service;
+using AutoMapper;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Products
 {
@@ -17,9 +18,9 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
 
-        public DeleteModel()
+        public DeleteModel(IMapper mapper)
         {
-            _productService ??= new ProductService();
+            _productService ??= new ProductService(mapper);
             _categoryService ??= new CategoryService();
         }
 

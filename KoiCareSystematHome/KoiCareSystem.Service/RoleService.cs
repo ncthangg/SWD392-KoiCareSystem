@@ -96,7 +96,7 @@ namespace KoiCareSystem.Service
 
                 int result = -1;
 
-                var item = this.GetRoleById(Role.Id);
+                var item = this.GetRoleByName(Role.Name);
 
                 if (item.Result.Status == Const.SUCCESS_READ_CODE)
                 {

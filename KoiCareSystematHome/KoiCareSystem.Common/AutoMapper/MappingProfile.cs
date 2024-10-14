@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using KoiCareSystem.Common.DTOs;
 using KoiCareSystem.Common.DTOs.Request;
+using KoiCareSystem.Common.DTOs.Response;
 using KoiCareSystem.Data.Models;
 
 namespace KoiCareSystem.Common.AutoMapper
@@ -9,11 +10,24 @@ namespace KoiCareSystem.Common.AutoMapper
     {
         public MappingProfile()
         {
-            // Ánh xạ từ Order sang OrderDTO và ngược lại
-            CreateMap<Order, OrderDto>();
-            CreateMap<OrderDto, Order>();
+
+            // User
             CreateMap<RequestRegisterDto, User>();
             CreateMap<RequestRegisterAdminDto, User>();
+
+            //Order
+            CreateMap<Order, RequestCreateOrderDto>();
+            CreateMap<RequestCreateOrderDto, Order>();
+
+            CreateMap<Order, ResponseOrderDto>()
+            .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email));
+            CreateMap<ResponseOrderDto, Order>();
+            //Item in Order
+            CreateMap<OrderItem, RequestItemToOrderDto>();
+            CreateMap<RequestItemToOrderDto, OrderItem>();
+            //Product
+            CreateMap<Product, RequestCreateANewProductDto>();
+            CreateMap<RequestCreateANewProductDto, Product>();
         }
     }
 }

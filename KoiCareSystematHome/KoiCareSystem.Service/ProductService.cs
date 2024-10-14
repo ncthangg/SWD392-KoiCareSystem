@@ -1,4 +1,6 @@
-﻿using KoiCareSystem.Common;
+﻿using AutoMapper;
+using KoiCareSystem.Common;
+using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Data.Repository;
@@ -10,15 +12,17 @@ namespace KoiCareSystematHome.Service
     {
         Task<ServiceResult> GetAllProduct();
         Task<ServiceResult> GetProductById(long id);
-        Task<ServiceResult> Save(Product product);
+        Task<ServiceResult> Save(RequestCreateANewProductDto requestCreateANewProductDto);
         Task<ServiceResult> DeleteProductById(long id);
     }
     public class ProductService : IProductService
     {
         private readonly UnitOfWork _unitOfWork;
-        public ProductService()
+        private readonly IMapper _mapper;
+        public ProductService(IMapper mapper)
         {
             _unitOfWork ??= new UnitOfWork();
+            _mapper = mapper;
         }
 
         //Get All
@@ -38,7 +42,6 @@ namespace KoiCareSystematHome.Service
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, products);
             }
         }
-
         //Get By Id
         public async Task<ServiceResult> GetProductById(long id)
         {
@@ -56,9 +59,8 @@ namespace KoiCareSystematHome.Service
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, product);
             }
         }
-
         //Create/Update
-        public async Task<ServiceResult> Save(Product product)
+        public async Task<ServiceResult> Save(RequestCreateANewProductDto requestCreateANewProductDto)
         {
             try
             {
@@ -68,11 +70,13 @@ namespace KoiCareSystematHome.Service
 
                 int result = -1;
 
-                var item = this.GetProductById(product.ProductId);
+                var item = this.GetProductById(requestCreateANewProductDto.ProductId);
 
                 if (item.Result.Status == Const.SUCCESS_READ_CODE)
                 {
-                    result = await _unitOfWork.ProductRepository.UpdateAsync(product);
+                    var existItem = _mapper.Map<Product>(requestCreateANewProductDto);
+                    existItem.UpdatedAt = DateTime.Now;
+                    result = await _unitOfWork.ProductRepository.UpdateAsync(existItem);
                     if (result > 0)
                     {
                         return new ServiceResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG);
@@ -84,7 +88,10 @@ namespace KoiCareSystematHome.Service
                 }
                 else
                 {
-                    result = await _unitOfWork.ProductRepository.CreateAsync(product);
+                    var existItem = _mapper.Map<Product>(requestCreateANewProductDto);
+                    existItem.CreatedAt = DateTime.Now;
+                    existItem.UpdatedAt = DateTime.Now;
+                    result = await _unitOfWork.ProductRepository.CreateAsync(existItem);
                     if (result > 0)
                     {
                         return new ServiceResult(Const.SUCCESS_CREATE_CODE, Const.SUCCESS_CREATE_MSG);

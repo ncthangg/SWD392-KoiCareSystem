@@ -267,7 +267,9 @@ D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareS
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\AutoMapper.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Azure.Core.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Azure.Identity.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Humanizer.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\MailKit.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
@@ -301,10 +303,13 @@ D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareS
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Identity.Client.dll
@@ -326,7 +331,9 @@ D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareS
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\MimeKit.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\NETCore.MailKit.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\NuGet.Common.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\NuGet.Configuration.dll
@@ -513,6 +520,7 @@ D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareS
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.AssemblyInfoInputs.cache
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.AssemblyInfo.cs
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.csproj.CoreCompileInputs.cache
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.MvcApplicationPartsAssemblyInfo.cs
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.MvcApplicationPartsAssemblyInfo.cache
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.RazorAssemblyInfo.cache
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.RazorAssemblyInfo.cs
@@ -533,8 +541,3 @@ D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareS
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.pdb
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.genruntimeconfig.cache
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\ref\KoiCareSystem.RazorWebApp.dll
-D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
-D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\MailKit.dll
-D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\MimeKit.dll
-D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\NETCore.MailKit.dll
-D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.MvcApplicationPartsAssemblyInfo.cs

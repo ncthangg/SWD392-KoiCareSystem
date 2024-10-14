@@ -14,8 +14,4 @@
     <ProjectReference Include="..\KoiCareSystem.Data\KoiCareSystem.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\Response\" />
-  </ItemGroup>
-
 </Project>

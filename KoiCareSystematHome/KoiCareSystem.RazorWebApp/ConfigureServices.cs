@@ -21,7 +21,7 @@ namespace De
             services.AddScoped<CategoryService>();
             services.AddScoped<ProductService>();
             services.AddScoped<OrderService>();
-
+            services.AddScoped<OrderItemService>();
 
             //Helper
             services.AddScoped<EmailService>();

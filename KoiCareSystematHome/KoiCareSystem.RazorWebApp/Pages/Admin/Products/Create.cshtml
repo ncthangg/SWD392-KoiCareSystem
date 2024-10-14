@@ -14,43 +14,28 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Product.ProductId" class="control-label"></label>
-                <input asp-for="Product.ProductId" class="form-control" />
-                <span asp-validation-for="Product.ProductId" class="text-danger"></span>
+                <label asp-for="RequestCreateANewProductDto.ProductName" class="control-label"></label>
+                <input asp-for="RequestCreateANewProductDto.ProductName" class="form-control" />
+                <span asp-validation-for="RequestCreateANewProductDto.ProductName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.ProductName" class="control-label"></label>
-                <input asp-for="Product.ProductName" class="form-control" />
-                <span asp-validation-for="Product.ProductName" class="text-danger"></span>
+                <label asp-for="RequestCreateANewProductDto.ProductType" class="control-label"></label>
+                <input asp-for="RequestCreateANewProductDto.ProductType" class="form-control" />
+                <span asp-validation-for="RequestCreateANewProductDto.ProductType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.ProductType" class="control-label"></label>
-                <input asp-for="Product.ProductType" class="form-control" />
-                <span asp-validation-for="Product.ProductType" class="text-danger"></span>
+                <label asp-for="RequestCreateANewProductDto.Price" class="control-label"></label>
+                <input asp-for="RequestCreateANewProductDto.Price" class="form-control" />
+                <span asp-validation-for="RequestCreateANewProductDto.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.Price" class="control-label"></label>
-                <input asp-for="Product.Price" class="form-control" />
-                <span asp-validation-for="Product.Price" class="text-danger"></span>
+                <label asp-for="RequestCreateANewProductDto.StockQuantity" class="control-label"></label>
+                <input asp-for="RequestCreateANewProductDto.StockQuantity" class="form-control" />
+                <span asp-validation-for="RequestCreateANewProductDto.StockQuantity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.StockQuantity" class="control-label"></label>
-                <input asp-for="Product.StockQuantity" class="form-control" />
-                <span asp-validation-for="Product.StockQuantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product.CreatedAt" class="control-label"></label>
-                <input asp-for="Product.CreatedAt" class="form-control" />
-                <span asp-validation-for="Product.CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product.UpdatedAt" class="control-label"></label>
-                <input asp-for="Product.UpdatedAt" class="form-control" />
-                <span asp-validation-for="Product.UpdatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product.CategoryId" class="control-label"></label>
-                <select asp-for="Product.CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+                <label asp-for="RequestCreateANewProductDto.CategoryId" class="control-label"></label>
+                <select asp-for="RequestCreateANewProductDto.CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

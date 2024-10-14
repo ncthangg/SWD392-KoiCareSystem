@@ -1,0 +1,85 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.OrderItems.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    STT
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderItem[0].Product)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderItem[0].Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderItem[0].Price)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.OrderItem.Count; i++)
+            {
+                var item = Model.OrderItem[i];
+                <tr>
+                    <td>
+                        @(i + 1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+
+                </tr>
+            }
+           @*   @foreach (var item in Model.OrderItem)
+             {
+                 <tr>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Order.OrderId)
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Product.ProductName)
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Quantity)
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Price)
+                     </td>
+                     <td>
+                         @* <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                         <a asp-page="./Details" asp-route-id="@item.Id">Details</a> | 
+                         <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                     </td>
+                 </tr>
+             } *@
+        </tbody>
+    </table>
+    <a asp-page="/Admin/Orders/Index">Back to List</a>
+</body>
+</html>

@@ -9,6 +9,8 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service;
 using KoiCareSystem.Service;
+using KoiCareSystem.Common.DTOs.Request;
+using AutoMapper;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Products
 {
@@ -17,22 +19,21 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
 
-        public CreateModel()
+        public CreateModel(IMapper mapper)
         {
-            _productService ??= new ProductService();
+            _productService ??= new ProductService(mapper);
             _categoryService ??= new CategoryService();
         }
 
-        public ActionResult OnGet()
+        [BindProperty]
+        public RequestCreateANewProductDto RequestCreateANewProductDto { get; set; } = default!;
+
+        public  ActionResult OnGet()
         {
-            //var categories = (await _categoryService.GetAllCategory()).Data as IList<Category>;
-            var categories =  _categoryService.GetAllCategory().Result.Data as IList<Category>;
+            var categories = _categoryService.GetAllCategory().Result.Data as IList<Category>;
             ViewData["CategoryId"] =  new SelectList(categories, "Id", "Description");
             return Page();
         }
-
-        [BindProperty]
-        public Product Product { get; set; } = default!;
 
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
@@ -42,8 +43,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Products
             {
                 return Page();
             }
-
-            await _productService.Save(Product);
+            await _productService.Save(RequestCreateANewProductDto);
 
             return RedirectToPage("./Index");
         }

@@ -31,6 +31,8 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
     public virtual DbSet<OrderItem> OrderItems { get; set; }
 
+    public virtual DbSet<OrderStatus> OrderStatuses { get; set; }
+
     public virtual DbSet<Payment> Payments { get; set; }
 
     public virtual DbSet<Pond> Ponds { get; set; }
@@ -71,9 +73,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("blogs");
 
-            entity.Property(e => e.BlogId)
-                .ValueGeneratedNever()
-                .HasColumnName("blog_id");
+            entity.Property(e => e.BlogId).HasColumnName("blog_id");
             entity.Property(e => e.Content)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -101,9 +101,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("categories");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
@@ -126,9 +124,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("koi_fish");
 
-            entity.Property(e => e.FishId)
-                .ValueGeneratedNever()
-                .HasColumnName("fish_id");
+            entity.Property(e => e.FishId).HasColumnName("fish_id");
             entity.Property(e => e.Age).HasColumnName("age");
             entity.Property(e => e.BodyShape)
                 .HasMaxLength(255)
@@ -182,9 +178,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("koi_growth_logs");
 
-            entity.Property(e => e.LogId)
-                .ValueGeneratedNever()
-                .HasColumnName("log_id");
+            entity.Property(e => e.LogId).HasColumnName("log_id");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
@@ -214,14 +208,13 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("orders");
 
-            entity.Property(e => e.OrderId)
-                .ValueGeneratedNever()
-                .HasColumnName("order_id");
+            entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
             entity.Property(e => e.OrderDate).HasColumnName("order_date");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
+            entity.Property(e => e.StatusId).HasColumnName("status_id");
             entity.Property(e => e.TotalPrice)
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("total_price");
@@ -229,6 +222,10 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
                 .HasColumnType("datetime")
                 .HasColumnName("updated_at");
             entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.Status).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.StatusId)
+                .HasConstraintName("orders_status_id_foreign");
 
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
@@ -242,9 +239,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("order_item");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.Price).HasColumnName("price");
             entity.Property(e => e.ProductId).HasColumnName("product_id");
@@ -261,15 +256,26 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
                 .HasConstraintName("order_item_product_id_foreign");
         });
 
+        modelBuilder.Entity<OrderStatus>(entity =>
+        {
+            entity.HasKey(e => e.StatusId).HasName("PK__order_st__3683B531770084B4");
+
+            entity.ToTable("order_status");
+
+            entity.Property(e => e.StatusId).HasColumnName("status_id");
+            entity.Property(e => e.StatusName)
+                .IsRequired()
+                .HasMaxLength(255)
+                .HasColumnName("status_name");
+        });
+
         modelBuilder.Entity<Payment>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("payment_id_primary");
 
             entity.ToTable("payment");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.Total)
                 .HasColumnType("decimal(8, 2)")
@@ -293,9 +299,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("ponds");
 
-            entity.Property(e => e.PondId)
-                .ValueGeneratedNever()
-                .HasColumnName("pond_id");
+            entity.Property(e => e.PondId).HasColumnName("pond_id");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
@@ -336,9 +340,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("products");
 
-            entity.Property(e => e.ProductId)
-                .ValueGeneratedNever()
-                .HasColumnName("product_id");
+            entity.Property(e => e.ProductId).HasColumnName("product_id");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("datetime")
@@ -369,9 +371,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("role");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Name)
                 .IsRequired()
                 .HasMaxLength(255)
@@ -384,9 +384,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("thresholds");
 
-            entity.Property(e => e.ParameterId)
-                .ValueGeneratedNever()
-                .HasColumnName("parameter_id");
+            entity.Property(e => e.ParameterId).HasColumnName("parameter_id");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
@@ -404,9 +402,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("user");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Email)
                 .IsRequired()
                 .HasMaxLength(255)
@@ -417,7 +413,6 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
                 .IsRequired()
                 .HasMaxLength(255)
                 .HasColumnName("pashword_hash");
-
             entity.Property(e => e.RoleId).HasColumnName("role_id");
 
             entity.HasOne(d => d.Role).WithMany(p => p.Users)
@@ -432,9 +427,7 @@ public partial class FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext : DbContex
 
             entity.ToTable("water_parameters");
 
-            entity.Property(e => e.ParameterId)
-                .ValueGeneratedNever()
-                .HasColumnName("parameter_id");
+            entity.Property(e => e.ParameterId).HasColumnName("parameter_id");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
