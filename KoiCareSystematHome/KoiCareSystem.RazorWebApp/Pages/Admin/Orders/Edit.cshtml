@@ -1,8 +1,6 @@
 ﻿@page
-@model KoiCareSystem.RazorWebApp.Pages.Orders.EditModel
-
+@model KoiCareSystem.RazorWebApp.Pages.Admin.Orders.EditModel
 @{
-    ViewData["Title"] = "Toi la Shop";
 }
 
 <h1>Edit</h1>
@@ -14,11 +12,6 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Order.OrderId" />
-            <div class="form-group">
-                <label asp-for="Order.OrderDate" class="control-label"></label>
-                <input asp-for="Order.OrderDate" class="form-control" readonly/>
-                <span asp-validation-for="Order.OrderDate" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="Order.Quantity" class="control-label"></label>
                 <input asp-for="Order.Quantity" class="form-control" readonly />
@@ -43,6 +36,11 @@
                 <label asp-for="Order.UserId" class="control-label"></label>
                 <input asp-for="Order.UserId" class="form-control" readonly />
                 <span asp-validation-for="Order.User" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.OrderDate" class="control-label"></label>
+                <input asp-for="Order.OrderDate" class="form-control" readonly />
+                <span asp-validation-for="Order.OrderDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Order.StatusId" class="control-label"></label>

@@ -6,7 +6,7 @@ using KoiCareSystem.Service;
 using AutoMapper;
 using MailKit.Search;
 
-namespace KoiCareSystem.RazorWebApp.Pages.OrderItems
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.OrderItems
 {
     public class IndexModel : PageModel
     {

@@ -1,6 +1,5 @@
 ﻿@page
-@model KoiCareSystem.RazorWebApp.Pages.Orders.IndexModel
-
+@model KoiCareSystem.RazorWebApp.Pages.Admin.Orders.IndexModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -31,12 +30,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Order[0].Status)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].UpdatedAt)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -61,18 +54,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Status.StatusName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
 
             <td>
                 <a asp-page="/Admin/OrderItems/Index" asp-route-orderId="@item.OrderId">Manager</a> |
                 <a asp-page="/Admin/OrderItems/Create" asp-route-orderId="@item.OrderId">Add Item to Order</a> |
-                <a asp-page="./Status" asp-route-id="@item.OrderId">Status</a> |
-                <a asp-page="./Edit" asp-route-id="@item.OrderId">Edit</a> | 
+                <a asp-page="./Edit" asp-route-id="@item.OrderId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.OrderId">Details</a> | 
                 <a asp-page="./Delete" asp-route-id="@item.OrderId">Delete</a>
             </td>

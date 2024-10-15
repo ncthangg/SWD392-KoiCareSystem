@@ -68,53 +68,6 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, orderItems);
             }
         }
-        //Add Item to Order
-        //public async Task<ServiceResult> AddItemToOrder(RequestItemToOrderDto requestItemToOrderDto)
-        //{
-        //    var order = await _unitOfWork.OrderRepository.GetByIdAsync(requestItemToOrderDto.OrderId);
-        //    var product = await _unitOfWork.ProductRepository.GetByIdAsync(requestItemToOrderDto.ProductId);
-        //    // Kiểm tra nếu order hoặc product không tồn tại
-        //    if (order == null)
-        //    {
-        //        return new ServiceResult(Const.FAIL_READ_CODE, Const.FAIL_READ_MSG);
-        //    }
-
-        //    if (product == null)
-        //    {
-        //        return new ServiceResult(Const.FAIL_READ_CODE, Const.FAIL_READ_MSG);
-        //    }
-        //    try
-        //    {
-        //        var orderItem = _mapper.Map<OrderItem>(requestItemToOrderDto);
-        //        orderItem.Quantity += orderItem.Quantity;
-        //        orderItem.Price += orderItem.Quantity * (long)product.Price;
-
-        //        // Thêm orderItem vào cơ sở dữ liệu
-        //        var exist = this.ProductInOrderExists(orderItem.ProductId);
-        //        // Trong Order đã Có Item thì Update
-        //        if (exist)
-        //        {
-        //            var itemExist = await this.GetItemInOrderByProductId(orderItem.ProductId);
-        //            await _unitOfWork.OrderItemRepository.UpdateAsync((OrderItem)itemExist.Data);
-        //            // Cập nhật Order
-        //            return await UpdateOrderAsync(order);
-        //        }
-        //        // Trong Order không có Item thì Create
-        //        var result = await _unitOfWork.OrderItemRepository.CreateAsync(orderItem);
-        //        if (result == 1)
-        //        {
-        //            return await UpdateOrderAsync(order);
-        //        }
-        //        else
-        //        {
-        //            return new ServiceResult(Const.FAIL_CREATE_CODE, Const.FAIL_CREATE_MSG);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
-        //    }
-        //}
         public async Task<ServiceResult> AddItemToOrder(RequestItemToOrderDto requestItemToOrderDto)
         {
             var order = await _unitOfWork.OrderRepository.GetByIdAsync(requestItemToOrderDto.OrderId);
@@ -123,7 +76,7 @@ namespace KoiCareSystem.Service
             // Kiểm tra nếu order hoặc product không tồn tại
             if (order == null || product == null)
             {
-                return new ServiceResult(Const.FAIL_READ_CODE, Const.FAIL_READ_MSG);
+                return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
             }
 
             try
@@ -158,7 +111,7 @@ namespace KoiCareSystem.Service
             catch (Exception ex)
             {
                 // Ghi lại lỗi để hỗ trợ gỡ lỗi
-                return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
+                return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
 
@@ -187,7 +140,7 @@ namespace KoiCareSystem.Service
                             var updateResult = await UpdateOrder(order);
                             if (updateResult.Status == Const.SUCCESS_UPDATE_CODE)
                             {
-                                return new ServiceResult(Const.FAIL_UPDATE_CODE, Const.FAIL_UPDATE_MSG, order);
+                                return new ServiceResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_CREATE_MSG, order);
                             }
                             else
                             {

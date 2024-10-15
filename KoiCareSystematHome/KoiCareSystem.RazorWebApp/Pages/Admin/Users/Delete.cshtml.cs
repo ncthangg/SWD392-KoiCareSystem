@@ -11,7 +11,7 @@ using AutoMapper;
 using KoiCareSystem.Service;
 using System.Data;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Users
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
 {
     public class DeleteModel : PageModel
     {

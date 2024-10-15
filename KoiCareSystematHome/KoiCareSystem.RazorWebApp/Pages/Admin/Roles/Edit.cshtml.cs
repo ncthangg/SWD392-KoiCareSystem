@@ -11,7 +11,7 @@ using KoiCareSystem.Data.Models;
 using AutoMapper;
 using KoiCareSystem.Service;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Roles
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.Roles
 {
     public class EditModel : PageModel
     {

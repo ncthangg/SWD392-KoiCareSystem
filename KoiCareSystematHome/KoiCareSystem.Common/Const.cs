@@ -48,21 +48,6 @@ namespace KoiCareSystem.Common
         public static string WARNING_NO_DATA_MSG = "Warning: No data";
 
         #endregion
-
-        #region Invalid Data
-
-        public static int ERROR_INVALID_DATA = 3;
-        public static string ERROR_INVALID_DATA_MSG = "Error: No data";
-
-        #endregion
-
-        #region Error Verify
-
-        public static int ERROR_UNAUTHORIZED = 4;
-        public static string ERROR_UNAUTHORIZED_MSG = "Sai thông tin";
-
-        #endregion
-
     }
 }
 

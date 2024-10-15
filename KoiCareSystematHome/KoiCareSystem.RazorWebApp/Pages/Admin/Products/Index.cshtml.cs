@@ -11,7 +11,7 @@ using KoiCareSystematHome.Service;
 using KoiCareSystem.Service;
 using AutoMapper;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Products
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.Products
 {
     public class IndexModel : PageModel
     {

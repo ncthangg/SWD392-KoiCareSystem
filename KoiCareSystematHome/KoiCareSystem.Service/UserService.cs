@@ -235,7 +235,7 @@ namespace KoiCareSystem.Service
                 }
                 else
                 {
-                    return new ServiceResult(Const.ERROR_EXCEPTION, Const.ERROR_EXCEPTION.ToString());
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
             }
             catch (Exception ex)
@@ -317,7 +317,7 @@ namespace KoiCareSystem.Service
                 var user = (User)userExisted.Data;
                 if (user.EmailVerified == true)
                 {
-                    return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
                 if (user.EmailVerifiedToken.ToLower().Contains((requestVerifyEmailDto.Code).ToLower()))
                 {
@@ -334,7 +334,7 @@ namespace KoiCareSystem.Service
                 }
                 else
                 {
-                    return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
             }
             else

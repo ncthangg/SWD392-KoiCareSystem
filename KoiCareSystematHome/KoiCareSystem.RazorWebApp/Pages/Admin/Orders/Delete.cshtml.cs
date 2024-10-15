@@ -9,7 +9,7 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Orders
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
 {
     public class DeleteModel : PageModel
     {

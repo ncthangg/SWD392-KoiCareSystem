@@ -12,7 +12,7 @@ using AutoMapper;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs.Request;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Users
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
 {
     public class EditModel : PageModel
     {

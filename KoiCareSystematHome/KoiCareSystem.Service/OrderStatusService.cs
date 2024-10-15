@@ -27,7 +27,7 @@ namespace KoiCareSystem.Service
             var Status = await _unitOfWork.OrderStatusRepository.GetAllAsync();
             if (Status == null)
             {
-                return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<Category>());
+                return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<OrderStatus>());
             }
             else
             {

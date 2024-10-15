@@ -10,7 +10,7 @@ using KoiCareSystem.Data.Models;
 using AutoMapper;
 using KoiCareSystem.Service;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Users
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
 {
     public class IndexModel : PageModel
     {

@@ -57,11 +57,6 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
                 ModelState.AddModelError(string.Empty, "Sai mã xác minh.");
                 return Page();
             }
-            if (result.Result.Status == Const.ERROR_INVALID_DATA)
-            {
-                ModelState.AddModelError(string.Empty, "Sai thông tin hoặc Đã xác minh");
-                return Page();
-            }
 
 
             return RedirectToPage("/Guest/Login");

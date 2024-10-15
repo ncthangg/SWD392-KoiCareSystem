@@ -10,7 +10,7 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Orders
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
 {
     public class EditModel : PageModel
     {
@@ -39,14 +39,15 @@ namespace KoiCareSystem.RazorWebApp.Pages.Orders
                 return NotFound();
             }
             Order = (Order)order.Data;
-            var status =  _orderStatusService.GetAllStatus().Result.Data as IList<OrderStatus>;
-            ViewData["StatusId"] = new SelectList(status, "Id", "Name");
+
+            var status = _orderStatusService.GetAllStatus().Result.Data as IList<OrderStatus>;
+            ViewData["StatusId"] = new SelectList(status, "StatusId", "StatusName");
             return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(long? id)
         {
             if (!ModelState.IsValid)
             {

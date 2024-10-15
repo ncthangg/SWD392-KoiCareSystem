@@ -34,7 +34,7 @@ namespace KoiCareSystem.Service
             var Orders = await _unitOfWork.OrderRepository.GetAllAsync();
             if (Orders == null)
             {
-                return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<Category>());
+                return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<Order>());
             }
             else
             {

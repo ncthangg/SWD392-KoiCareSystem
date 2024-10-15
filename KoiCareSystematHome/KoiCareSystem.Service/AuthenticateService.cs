@@ -36,7 +36,7 @@ namespace KoiCareSystem.Service
                 #endregion Business Rule
                 if (string.IsNullOrEmpty(requestLoginDto.Email) || string.IsNullOrEmpty(requestLoginDto.Password))
                 {
-                    return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
 
                 var userExist = await _unitOfWork.UserRepository.GetByEmailAsync(requestLoginDto.Email);
@@ -48,14 +48,14 @@ namespace KoiCareSystem.Service
                 // So sánh mật khẩu sau khi băm
                 if (!VerifyPasswordHash(requestLoginDto.Password, userExist.PashwordHash))
                 {
-                    return new ServiceResult(Const.ERROR_INVALID_DATA, Const.ERROR_INVALID_DATA_MSG);
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
 
                 // Kiểm tra trạng thái xác minh email
                 if (!userExist.EmailVerified)
                 {
                     // Chuyển hướng người dùng tới trang VerifyEmail
-                    return new ServiceResult(Const.ERROR_UNAUTHORIZED, Const.ERROR_UNAUTHORIZED_MSG, userExist);
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, userExist);
                 }
 
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, userExist);
