@@ -23,14 +23,14 @@ namespace KoiCareSystem.Service
     public interface IUserService
     {
         Task<ServiceResult> GetAllUser();
-        Task<ServiceResult> GetUserById(long id);
+        Task<ServiceResult> GetUserById(int id);
         Task<ServiceResult> GetUserByEmail(string email);
         Task<ServiceResult> Save(RequestRegisterDto registerDto);
         Task<ServiceResult> SaveByAdmin(RequestRegisterAdminDto registerAdminDto);
         Task<ServiceResult> UpdateVerifyCode(string email, string code);
         Task<ServiceResult> VerifyCode(RequestVerifyEmailDto requestVerifyEmailDto);
         Task<ServiceResult> DeleteUserByEmail(string email);
-        Task<ServiceResult> DeleteUserById(long id);
+        Task<ServiceResult> DeleteUserById(int id);
     }
     public class UserService : IUserService
     {
@@ -59,7 +59,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Get By Id
-        public async Task<ServiceResult> GetUserById(long id)
+        public async Task<ServiceResult> GetUserById(int id)
         {
             #region Business Rule
 
@@ -110,7 +110,7 @@ namespace KoiCareSystem.Service
                     var oldUser = (User)userExisted.Data;
                     var userToUpdate = _mapper.Map<User>(registerDto);
                     userToUpdate.Id = oldUser.Id;
-                    userToUpdate.PashwordHash = registerDto.Password;
+                    userToUpdate.PasswordHash = registerDto.Password;
                     result = await _unitOfWork.UserRepository.UpdateAsync(userToUpdate);
 
                     if (result > 0)
@@ -125,8 +125,8 @@ namespace KoiCareSystem.Service
                 else
                 {
                     var newUser = _mapper.Map<User>(registerDto);
-                    newUser.PashwordHash = HashPassword(registerDto.Password);
-                    newUser.EmailVerifiedToken = Guid.NewGuid().ToString();
+                    newUser.PasswordHash = HashPassword(registerDto.Password);
+                    newUser.EmailVerificationToken = Guid.NewGuid().ToString();
 
                     // Lấy role "Member" từ cơ sở dữ liệu
                     var memberRole = await _unitOfWork.RoleRepository.GetByNameAsync("Member");
@@ -172,7 +172,7 @@ namespace KoiCareSystem.Service
                     var userData = (User)userExisted.Data;
                     var userToUpdate = _mapper.Map<User>(registerAdminDto);
                     userToUpdate.Id = userData.Id;
-                    userToUpdate.PashwordHash = registerAdminDto.Password;
+                    userToUpdate.PasswordHash = registerAdminDto.Password;
                     result = await _unitOfWork.UserRepository.UpdateAsync(userToUpdate);
 
                     if (result > 0)
@@ -187,7 +187,7 @@ namespace KoiCareSystem.Service
                 else
                 {
                     var newUser = _mapper.Map<User>(registerAdminDto);
-                    newUser.PashwordHash = HashPassword(registerAdminDto.Password);
+                    newUser.PasswordHash = HashPassword(registerAdminDto.Password);
 
                     result = await _unitOfWork.UserRepository.CreateAsync(newUser);
 
@@ -221,7 +221,7 @@ namespace KoiCareSystem.Service
                 if (userExisted.Status == Const.SUCCESS_READ_CODE)
                 {
                     var userData = (User)userExisted.Data;
-                    userData.EmailVerifiedToken = code;
+                    userData.EmailVerificationToken = code;
                     result = await _unitOfWork.UserRepository.UpdateAsync(userData);
 
                     if (result > 0)
@@ -245,7 +245,7 @@ namespace KoiCareSystem.Service
         }
         
         //Delete by Id, Email
-        public async Task<ServiceResult> DeleteUserById(long id)
+        public async Task<ServiceResult> DeleteUserById(int id)
         {
             try
             {
@@ -315,13 +315,13 @@ namespace KoiCareSystem.Service
             if (userExisted.Status == Const.SUCCESS_READ_CODE)
             {
                 var user = (User)userExisted.Data;
-                if (user.EmailVerified == true)
+                if (user.IsVerified == true)
                 {
                     return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
-                if (user.EmailVerifiedToken.ToLower().Contains((requestVerifyEmailDto.Code).ToLower()))
+                if (user.EmailVerificationToken.ToLower().Contains((requestVerifyEmailDto.Code).ToLower()))
                 {
-                    user.EmailVerified = true;
+                    user.IsVerified = true;
                     result = await _unitOfWork.UserRepository.UpdateAsync(user);
                     if (result > 0)
                     {
@@ -344,7 +344,7 @@ namespace KoiCareSystem.Service
         }
 
         //Kiểm tra User có tồn tại chưa
-        public bool UserIdExists(long id)
+        public bool UserIdExists(int id)
         {
             return _unitOfWork.UserRepository.UserExists(id);
         }

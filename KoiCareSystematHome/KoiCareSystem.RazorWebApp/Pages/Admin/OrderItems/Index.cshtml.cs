@@ -20,17 +20,17 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.OrderItems
         }
 
         public IList<OrderItem> OrderItem { get; set; } = default!;
-        public long OrderId { get; set; }
-        public async Task<IActionResult> OnGetAsync(long? orderId)
+        public int OrderId { get; set; }
+        public async Task<IActionResult> OnGetAsync(int? orderId)
         {
-            OrderId = (long)orderId; 
+            OrderId = (int)orderId; 
             Console.WriteLine(OrderId);
             if (orderId == null)
             {
                 return NotFound();
             }
 
-            var orderItems = await _orderItemService.GetAllItemInOrder((long)orderId);
+            var orderItems = await _orderItemService.GetAllItemInOrder((int)orderId);
             if (orderItems == null || orderItems.Data == null)
             {
                 return NotFound();

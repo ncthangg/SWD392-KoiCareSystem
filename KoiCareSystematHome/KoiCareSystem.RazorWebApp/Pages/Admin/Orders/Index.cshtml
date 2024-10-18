@@ -6,9 +6,6 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -57,7 +54,7 @@
 
             <td>
                 <a asp-page="/Admin/OrderItems/Index" asp-route-orderId="@item.OrderId">Manager</a> |
-                <a asp-page="/Admin/OrderItems/Create" asp-route-orderId="@item.OrderId">Add Item to Order</a> |
+                    @* <a asp-page="/Admin/OrderItems/AddItemToOrder" asp-route-orderId="@item.OrderId">Add Item to Order</a> | *@
                 <a asp-page="./Edit" asp-route-id="@item.OrderId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.OrderId">Details</a> | 
                 <a asp-page="./Delete" asp-route-id="@item.OrderId">Delete</a>

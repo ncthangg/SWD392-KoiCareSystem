@@ -26,14 +26,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Roles
         [BindProperty]
         public Role Role { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(long? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var role =  await _roleService.GetRoleById((long)id);
+            var role =  await _roleService.GetRoleById((int)id);
             if (role == null)
             {
                 return NotFound();

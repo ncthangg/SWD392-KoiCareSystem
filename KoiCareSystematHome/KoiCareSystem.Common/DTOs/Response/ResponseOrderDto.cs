@@ -8,11 +8,11 @@ namespace KoiCareSystem.Common.DTOs.Response
 {
     public class ResponseOrderDto
     {
-        public long OrderId { get; set; }
-        public long? Quantity { get; set; }
+        public int OrderId { get; set; }
+        public int? Quantity { get; set; }
         public decimal? TotalPrice { get; set; }
-        public long? OrderDate { get; set; }
-        public long UserId { get; set; }
+        public int? OrderDate { get; set; }
+        public int UserId { get; set; }
         public string Email { get; set; }
     }
 }

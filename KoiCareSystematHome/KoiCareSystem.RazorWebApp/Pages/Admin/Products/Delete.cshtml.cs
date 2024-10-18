@@ -27,13 +27,13 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Products
         [BindProperty]
         public Product Product { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(long? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            var product = await _productService.GetProductById((long)id) ;
+            var product = await _productService.GetProductById((int)id) ;
             if (product == null)
             {
                 return NotFound();
@@ -45,18 +45,18 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Products
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(long? id)
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = await _productService.GetProductById((long)id);
+            var product = await _productService.GetProductById((int)id);
             if (product != null)
             {
                 Product = (Product)product.Data;
-                await _productService.DeleteProductById((long)id);
+                await _productService.DeleteProductById((int)id);
             }
 
             return RedirectToPage("./Index");

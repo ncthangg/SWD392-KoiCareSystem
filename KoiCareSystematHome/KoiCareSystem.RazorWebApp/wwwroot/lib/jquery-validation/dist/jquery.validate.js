@@ -380,7 +380,7 @@ $.extend( $.validator, {
 		equalTo: "Please enter the same value again.",
 		maxlength: $.validator.format( "Please enter no more than {0} characters." ),
 		minlength: $.validator.format( "Please enter at least {0} characters." ),
-		rangelength: $.validator.format( "Please enter a value between {0} and {1} characters long." ),
+		rangelength: $.validator.format( "Please enter a value between {0} and {1} characters int." ),
 		range: $.validator.format( "Please enter a value between {0} and {1}." ),
 		max: $.validator.format( "Please enter a value less than or equal to {0}." ),
 		min: $.validator.format( "Please enter a value greater than or equal to {0}." ),
@@ -427,7 +427,7 @@ $.extend( $.validator, {
 					this.name = $( this ).attr( "name" );
 				}
 
-				// Ignore the element if it belongs to another form. This will happen mainly
+				// Ignore the element if it beints to another form. This will happen mainly
 				// when setting the `form` attribute of an input to the id of another form.
 				if ( currentForm !== this.form ) {
 					return;
@@ -668,7 +668,7 @@ $.extend( $.validator, {
 					this.name = name;
 				}
 
-				// Ignore elements that belong to other/nested forms
+				// Ignore elements that beint to other/nested forms
 				if ( this.form !== validator.currentForm ) {
 					return false;
 				}

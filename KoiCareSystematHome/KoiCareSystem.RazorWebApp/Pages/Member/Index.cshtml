@@ -9,3 +9,11 @@
     <h1 class="display-4">Welcome</h1>
     <p>Member đây</p>
 </div>
+@if (Model.UserId != 0)
+{
+    <p>User ID: @Model.UserId</p>
+}
+else
+{
+    <p>No User ID provided.</p>
+}

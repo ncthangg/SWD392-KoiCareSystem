@@ -13,9 +13,9 @@ namespace KoiCareSystem.Service
     public interface ICategoryService
     {
         Task<ServiceResult> GetAllCategory();
-        Task<ServiceResult> GetCategoryById(long id);
+        Task<ServiceResult> GetCategoryById(int id);
         Task<ServiceResult> Save(Category category);
-        Task<ServiceResult> DeleteCategoryById(long id);
+        Task<ServiceResult> DeleteCategoryById(int id);
     }
     public class CategoryService : ICategoryService
     {
@@ -42,7 +42,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Get By Id
-        public async Task<ServiceResult> GetCategoryById(long id)
+        public async Task<ServiceResult> GetCategoryById(int id)
         {
             #region Business Rule
 
@@ -120,7 +120,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Delete by Id
-        public async Task<ServiceResult> DeleteCategoryById(long id)
+        public async Task<ServiceResult> DeleteCategoryById(int id)
         {
             try
             {

@@ -29,10 +29,10 @@
                     @Html.DisplayNameFor(model => model.User[0].Role)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.User[0].EmailVerifiedToken)
+                    @Html.DisplayNameFor(model => model.User[0].EmailVerificationToken)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.User[0].EmailVerified)
+                    @Html.DisplayNameFor(model => model.User[0].IsVerified)
                 </th>
                 <th></th>
             </tr>
@@ -51,10 +51,10 @@
                         @Html.DisplayFor(modelItem => item.Role.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.EmailVerifiedToken)
+                        @Html.DisplayFor(modelItem => item.EmailVerificationToken)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.EmailVerified)
+                        @Html.DisplayFor(modelItem => item.IsVerified)
                     </td>
 
                     <td>

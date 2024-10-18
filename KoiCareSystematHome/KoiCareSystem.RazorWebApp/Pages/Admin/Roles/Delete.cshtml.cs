@@ -26,14 +26,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Roles
         [BindProperty]
         public Role Role { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(long? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var role = await _roleService.GetRoleById((long)id);
+            var role = await _roleService.GetRoleById((int)id);
 
             if (role == null)
             {
@@ -46,18 +46,18 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Roles
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(long? id)
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var role = await _roleService.GetRoleById((long)id);
+            var role = await _roleService.GetRoleById((int)id);
             if (role != null)
             {
                 Role = (Role)role.Data;
-                await _roleService.DeleteRoleById((long)id);
+                await _roleService.DeleteRoleById((int)id);
             }
 
             return RedirectToPage("./Index");

@@ -8,6 +8,6 @@ namespace KoiCareSystem.Common.DTOs.Request
 {
     public class RequestRegisterAdminDto : RequestRegisterDto
     {
-        public long RoleId { get; set; }
+        public int RoleId { get; set; }
     }
 }

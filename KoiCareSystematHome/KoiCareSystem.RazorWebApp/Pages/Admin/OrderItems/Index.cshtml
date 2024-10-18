@@ -50,34 +50,12 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
-                    <td>
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
+                    @* <td>
+                        <a asp-page="./DeleteItem" asp-route-id="@item.Id">Delete</a>
+                    </td> *@
 
                 </tr>
             }
-           @*   @foreach (var item in Model.OrderItem)
-             {
-                 <tr>
-                     <td>
-                         @Html.DisplayFor(modelItem => item.Order.OrderId)
-                     </td>
-                     <td>
-                         @Html.DisplayFor(modelItem => item.Product.ProductName)
-                     </td>
-                     <td>
-                         @Html.DisplayFor(modelItem => item.Quantity)
-                     </td>
-                     <td>
-                         @Html.DisplayFor(modelItem => item.Price)
-                     </td>
-                     <td>
-                         @* <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                         <a asp-page="./Details" asp-route-id="@item.Id">Details</a> | 
-                         <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                     </td>
-                 </tr>
-             } *@
         </tbody>
     </table>
     <a asp-page="/Admin/Orders/Index">Back to List</a>

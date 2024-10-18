@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj": {
-                "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj"
+              "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.DataV1\\KoiCareSystem.Data.csproj": {
+                "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.DataV1\\KoiCareSystem.Data.csproj"
               }
             }
           }
@@ -75,14 +75,14 @@
         }
       }
     },
-    "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj": {
+    "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.DataV1\\KoiCareSystem.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj",
+        "projectUniqueName": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.DataV1\\KoiCareSystem.Data.csproj",
         "projectName": "KoiCareSystem.Data",
-        "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj",
+        "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.DataV1\\KoiCareSystem.Data.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\obj\\",
+        "outputPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.DataV1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

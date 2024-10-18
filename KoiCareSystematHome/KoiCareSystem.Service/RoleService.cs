@@ -16,10 +16,10 @@ namespace KoiCareSystem.Service
     public interface IRoleService
     {
         Task<ServiceResult> GetAllRole();
-        Task<ServiceResult> GetRoleById(long id);
+        Task<ServiceResult> GetRoleById(int id);
         Task<ServiceResult> GetRoleByName(string name);
         Task<ServiceResult> Save(Role Role);
-        Task<ServiceResult> DeleteRoleById(long id);
+        Task<ServiceResult> DeleteRoleById(int id);
     }
     public class RoleService : IRoleService
     {
@@ -50,7 +50,7 @@ namespace KoiCareSystem.Service
         }
 
         //Get By Id
-        public async Task<ServiceResult> GetRoleById(long id)
+        public async Task<ServiceResult> GetRoleById(int id)
         {
             #region Business Rule
 
@@ -129,7 +129,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Delete by Id
-        public async Task<ServiceResult> DeleteRoleById(long id)
+        public async Task<ServiceResult> DeleteRoleById(int id)
         {
             try
             {
@@ -161,7 +161,7 @@ namespace KoiCareSystem.Service
             }
         }
         //
-        public bool RoleExists(long id)
+        public bool RoleExists(int id)
         {
             return _unitOfWork.RoleRepository.RoleExists(id);
         }

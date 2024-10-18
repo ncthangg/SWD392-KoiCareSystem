@@ -55,13 +55,13 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             }
 
             var userExist = (User)result.Data;
-            if (userExist != null && !userExist.EmailVerified)
+            if (userExist != null && !userExist.IsVerified)
             {
-                userExist.EmailVerifiedToken = Guid.NewGuid().ToString();
-                await _userService.UpdateVerifyCode(userExist.Email, userExist.EmailVerifiedToken);
+                userExist.EmailVerificationToken = Guid.NewGuid().ToString();
+                await _userService.UpdateVerifyCode(userExist.Email, userExist.EmailVerificationToken);
 
                 //Mail Service
-                var verificationCode = userExist.EmailVerifiedToken;
+                var verificationCode = userExist.EmailVerificationToken;
                 var verificationLink = _urlHelperService.GenerateVerificationLink(this.PageContext, verificationCode);
 
                 // Tiếp tục logic gửi email
@@ -93,12 +93,15 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
                 return Page(); // Trả về nếu role không hợp lệ
             }
 
+            // Lưu UserId vào session sau khi đăng nhập thành công
+            HttpContext.Session.SetInt32("UserId", userExist.Id);
+
             // Điều hướng dựa trên vai trò của người dùng
             if (roleOfAccount.Name.ToLower().Contains("admin"))
             {
                 return RedirectToPage("/Admin/Index");
             }
-            else if (roleOfAccount.Name.ToLower().Contains("member"))
+            else if (roleOfAccount.Name.ToLower().Contains("user"))
             {
                 return RedirectToPage("/Member/Index");
             }

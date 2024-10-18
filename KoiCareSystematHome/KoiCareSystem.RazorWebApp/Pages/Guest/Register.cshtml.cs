@@ -44,7 +44,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
                     var userData = (User)user.Data;
 
                     //Mail Service
-                    var verificationCode = userData.EmailVerifiedToken;
+                    var verificationCode = userData.EmailVerificationToken;
                     var verificationLink = _urlHelperService.GenerateVerificationLink(this.PageContext, verificationCode);
 
                     // Tiếp tục logic gửi email

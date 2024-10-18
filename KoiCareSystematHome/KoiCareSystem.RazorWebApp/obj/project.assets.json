@@ -9381,8 +9381,8 @@
     },
     "KoiCareSystem.Data/1.0.0": {
       "type": "project",
-      "path": "../KoiCareSystem.Data/KoiCareSystem.Data.csproj",
-      "msbuildProject": "../KoiCareSystem.Data/KoiCareSystem.Data.csproj"
+      "path": "../KoiCareSystem.DataV1/KoiCareSystem.Data.csproj",
+      "msbuildProject": "../KoiCareSystem.DataV1/KoiCareSystem.Data.csproj"
     },
     "KoiCareSystem.Service/1.0.0": {
       "type": "project",
@@ -9393,7 +9393,6 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "AutoMapper >= 13.0.1",
-      "KoiCareSystem.Data >= 1.0.0",
       "KoiCareSystem.Service >= 1.0.0",
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.8",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 8.0.8",
@@ -9429,9 +9428,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj": {
-              "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj"
-            },
             "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Service\\KoiCareSystem.Service.csproj": {
               "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Service\\KoiCareSystem.Service.csproj"
             }

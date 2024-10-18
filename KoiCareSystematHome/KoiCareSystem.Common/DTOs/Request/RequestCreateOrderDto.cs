@@ -2,6 +2,6 @@
 {
     public class RequestCreateOrderDto
     {
-        public long UserId { get; set; }
+        public int UserId { get; set; }
     }
 }

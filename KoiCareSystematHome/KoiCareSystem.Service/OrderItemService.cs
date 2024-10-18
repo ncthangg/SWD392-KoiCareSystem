@@ -14,11 +14,11 @@ namespace KoiCareSystem.Service
 {
     public interface IOrderItemService
     {
-        Task<ServiceResult> GetAllItemInOrder(long orderId);
-        Task<ServiceResult> GetById(long id);
-        Task<ServiceResult> GetItemInOrderByProductId(long productId);
+        Task<ServiceResult> GetAllItemInOrder(int orderId);
+        Task<ServiceResult> GetById(int id);
+        Task<ServiceResult> GetItemInOrderByProductId(int productId);
         Task<ServiceResult> AddItemToOrder(RequestItemToOrderDto requestItemToOrderDto);
-        Task<ServiceResult> DeleteItem(long id);
+        Task<ServiceResult> DeleteItem(int id);
     }
     public class OrderItemService : IOrderItemService
     {
@@ -31,7 +31,7 @@ namespace KoiCareSystem.Service
         }
 
         //Get All Item in Order
-        public async Task<ServiceResult> GetAllItemInOrder(long orderId)
+        public async Task<ServiceResult> GetAllItemInOrder(int orderId)
         {
             var orderItems = await _unitOfWork.OrderItemRepository.GetByOrderIdAsync(orderId);
             if (orderItems == null)
@@ -44,7 +44,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Get Item by Id
-        public async Task<ServiceResult> GetById(long id)
+        public async Task<ServiceResult> GetById(int id)
         {
             var orderItems = await _unitOfWork.OrderItemRepository.GetByIdAsync(id);
             if (orderItems == null)
@@ -56,7 +56,7 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, orderItems);
             }
         }
-        public async Task<ServiceResult> GetItemInOrderByProductId(long productId)
+        public async Task<ServiceResult> GetItemInOrderByProductId(int productId)
         {
             var orderItems = await _unitOfWork.OrderItemRepository.GetByProductIdAsync(productId);
             if (orderItems == null)
@@ -78,7 +78,10 @@ namespace KoiCareSystem.Service
             {
                 return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
             }
-
+            if(order.StatusId != 1)
+            {
+                return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
+            }
             try
             {
                 // Kiểm tra xem sản phẩm đã tồn tại trong Order hay chưa
@@ -91,7 +94,7 @@ namespace KoiCareSystem.Service
                     var itemExist = await _unitOfWork.OrderItemRepository.GetItemByOrderIdAndProductIdAsync(requestItemToOrderDto.OrderId, requestItemToOrderDto.ProductId);
 
                     itemExist.Quantity += orderItem.Quantity;
-                    itemExist.Price += orderItem.Price;
+                    itemExist.Price += orderItem.Quantity * (int)product.Price;
                     // Cập nhật OrderItem trong cơ sở dữ liệu
                     await _unitOfWork.OrderItemRepository.UpdateAsync(itemExist);
                 }
@@ -99,7 +102,7 @@ namespace KoiCareSystem.Service
                 {
                     var orderItem = _mapper.Map<OrderItem>(requestItemToOrderDto);
                     // Tạo mới OrderItem
-                    orderItem.Price = orderItem.Quantity * (long)product.Price;
+                    orderItem.Price = orderItem.Quantity * (int)product.Price;
 
                     // Thêm OrderItem vào cơ sở dữ liệu
                     await _unitOfWork.OrderItemRepository.CreateAsync(orderItem);
@@ -116,7 +119,7 @@ namespace KoiCareSystem.Service
         }
 
         //Delete Item in Order
-        public async Task<ServiceResult> DeleteItem(long id)
+        public async Task<ServiceResult> DeleteItem(int id)
         {
             try
             {
@@ -189,7 +192,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Helper
-        public bool ProductInOrderExists(long id)
+        public bool ProductInOrderExists(int id)
         {
             return _unitOfWork.OrderItemRepository.ProductExists(id);
         }

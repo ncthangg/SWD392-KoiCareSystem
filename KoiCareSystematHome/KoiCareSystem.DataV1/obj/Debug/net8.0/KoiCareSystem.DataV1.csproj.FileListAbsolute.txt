@@ -1,0 +1,15 @@
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\bin\Debug\net8.0\KoiCareSystem.DataV1.deps.json
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\bin\Debug\net8.0\KoiCareSystem.DataV1.runtimeconfig.json
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\bin\Debug\net8.0\KoiCareSystem.DataV1.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\bin\Debug\net8.0\KoiCareSystem.DataV1.pdb
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\KoiCareSystem.DataV1.csproj.AssemblyReference.cache
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\KoiCareSystem.DataV1.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\KoiCareSystem.DataV1.AssemblyInfoInputs.cache
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\KoiCareSystem.DataV1.AssemblyInfo.cs
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\KoiCareSystem.DataV1.csproj.CoreCompileInputs.cache
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\KoiCareSystem.DataV1.sourcelink.json
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\KoiCareSystem.DataV1.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\refint\KoiCareSystem.DataV1.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\KoiCareSystem.DataV1.pdb
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\KoiCareSystem.DataV1.genruntimeconfig.cache
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.DataV1\obj\Debug\net8.0\ref\KoiCareSystem.DataV1.dll

@@ -11,9 +11,9 @@ namespace KoiCareSystematHome.Service
     public interface IProductService
     {
         Task<ServiceResult> GetAllProduct();
-        Task<ServiceResult> GetProductById(long id);
+        Task<ServiceResult> GetProductById(int id);
         Task<ServiceResult> Save(RequestCreateANewProductDto requestCreateANewProductDto);
-        Task<ServiceResult> DeleteProductById(long id);
+        Task<ServiceResult> DeleteProductById(int id);
     }
     public class ProductService : IProductService
     {
@@ -43,7 +43,7 @@ namespace KoiCareSystematHome.Service
             }
         }
         //Get By Id
-        public async Task<ServiceResult> GetProductById(long id)
+        public async Task<ServiceResult> GetProductById(int id)
         {
             #region Business Rule
 
@@ -108,7 +108,7 @@ namespace KoiCareSystematHome.Service
             }
         }
         //Delete by Id
-        public async Task<ServiceResult> DeleteProductById(long id)
+        public async Task<ServiceResult> DeleteProductById(int id)
         {
             try
             {
@@ -140,7 +140,7 @@ namespace KoiCareSystematHome.Service
             }
         }
         //
-        public bool ProductExists(long id)
+        public bool ProductExists(int id)
         {
             return _unitOfWork.ProductRepository.ProductExists(id);
         }

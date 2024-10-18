@@ -25,14 +25,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Products
         }
         public Product Product { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(long? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = await _productService.GetProductById((long)id);
+            var product = await _productService.GetProductById((int)id);
             if (product == null)
             {
                 return NotFound();

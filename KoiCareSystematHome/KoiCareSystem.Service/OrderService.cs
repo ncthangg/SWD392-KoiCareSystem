@@ -12,10 +12,10 @@ namespace KoiCareSystem.Service
     public interface IOrderService
     {
         Task<ServiceResult> GetAllOrder();
-        Task<ServiceResult> GetOrderByOrderId(long orderId);
-        Task<ServiceResult> GetOrdersByUserId(long userId);
+        Task<ServiceResult> GetOrderByOrderId(int orderId);
+        Task<ServiceResult> GetOrdersByUserId(int userId);
         Task<ServiceResult> Save(Order order);
-        Task<ServiceResult> DeleteOrderByOrderId(long orderId);
+        Task<ServiceResult> DeleteOrderByOrderId(int orderId);
     }
     public class OrderService : IOrderService
     {
@@ -42,7 +42,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Get By Id
-        public async Task<ServiceResult> GetOrderByOrderId(long orderId)
+        public async Task<ServiceResult> GetOrderByOrderId(int orderId)
         {
             #region Business Rule
 
@@ -59,7 +59,7 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, Order);
             }
         }
-        public async Task<ServiceResult> GetOrdersByUserId(long userId)
+        public async Task<ServiceResult> GetOrdersByUserId(int userId)
         {
             #region Business Rule
 
@@ -86,7 +86,6 @@ namespace KoiCareSystem.Service
                 #endregion Business Rule
 
                 int result = -1;
-
                 var item = await this.GetOrderByOrderId(order.OrderId);
 
                 if (item.Status == Const.SUCCESS_READ_CODE)
@@ -103,6 +102,11 @@ namespace KoiCareSystem.Service
                 }
                 else
                 {
+                    if (await HasPendingOrders(order.UserId))
+                    {
+                        return new ServiceResult(Const.FAIL_CREATE_CODE, "Không thể tạo đơn hàng mới. Người dùng đã có đơn hàng đang chờ xử lý.");
+                    }
+
                     var newOrder = new Order
                     {
                         StatusId = 1,
@@ -120,6 +124,7 @@ namespace KoiCareSystem.Service
                         return new ServiceResult(Const.FAIL_CREATE_CODE, Const.FAIL_CREATE_MSG);
                     }
                 }
+
             }
             catch (Exception ex)
             {
@@ -127,7 +132,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Delete by Id
-        public async Task<ServiceResult> DeleteOrderByOrderId(long id)
+        public async Task<ServiceResult> DeleteOrderByOrderId(int id)
         {
             try
             {
@@ -158,11 +163,38 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
-
+        public async Task<bool> UpdateOrderStatusAsync(int orderId, int statusId)
+        {
+            // Giả sử bạn đã có phương thức trong unit of work để lấy đơn hàng theo ID
+            var orderExist = await this.GetOrderByOrderId(orderId);
+            if (orderExist != null)
+            {
+                var order = (Order)orderExist.Data;
+                order.StatusId = statusId; // Cập nhật trạng thái
+                order.Status = _unitOfWork.OrderStatusRepository.GetById(statusId);
+                await Save(order);
+                return true;
+            }
+            return false;
+        }
         //Helper
-        public bool OrderExists(long id)
+        public bool OrderExists(int id)
         {
             return _unitOfWork.OrderRepository.OrderExists(id);
+        }
+        public async Task<bool> HasPendingOrders(int userId)
+        {
+            var ordersResult = await GetOrdersByUserId(userId);
+
+            if (ordersResult.Status>0 && ordersResult.Data != null)
+            {
+                var orderList = ordersResult.Data as List<Order>;
+                var pendingOrders = orderList.Where(o => o.StatusId == 1).ToList();
+
+                return pendingOrders.Any();
+            }
+
+            return false;
         }
     }
 }

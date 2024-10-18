@@ -46,13 +46,13 @@ namespace KoiCareSystem.Service
                     return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
                 // So sánh mật khẩu sau khi băm
-                if (!VerifyPasswordHash(requestLoginDto.Password, userExist.PashwordHash))
+                if (!VerifyPasswordHash(requestLoginDto.Password, userExist.PasswordHash))
                 {
                     return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
 
                 // Kiểm tra trạng thái xác minh email
-                if (!userExist.EmailVerified)
+                if (!userExist.IsVerified)
                 {
                     // Chuyển hướng người dùng tới trang VerifyEmail
                     return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, userExist);

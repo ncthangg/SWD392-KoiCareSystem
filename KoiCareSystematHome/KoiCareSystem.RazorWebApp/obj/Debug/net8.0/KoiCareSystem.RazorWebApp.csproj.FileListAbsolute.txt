@@ -541,3 +541,4 @@ D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareS
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.pdb
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.genruntimeconfig.cache
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\ref\KoiCareSystem.RazorWebApp.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\scopedcss\Pages\Member\Shared\_Layout.cshtml.rz.scp.css

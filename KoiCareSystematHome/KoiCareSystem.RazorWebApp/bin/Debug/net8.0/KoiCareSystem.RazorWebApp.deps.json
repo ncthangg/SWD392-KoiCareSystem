@@ -9,7 +9,6 @@
       "KoiCareSystem.RazorWebApp/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1",
-          "KoiCareSystem.Data": "1.0.0",
           "KoiCareSystem.Service": "1.0.0",
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.8",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.8",

@@ -26,14 +26,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
         [BindProperty]
         public Order Order { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(long? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var order = await _orderService.GetOrderByOrderId((long)id);
+            var order = await _orderService.GetOrderByOrderId((int)id);
             if (order == null)
             {
                 return NotFound();
@@ -47,7 +47,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(long? id)
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (!ModelState.IsValid)
             {

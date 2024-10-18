@@ -6833,8 +6833,8 @@
     },
     "KoiCareSystem.Data/1.0.0": {
       "type": "project",
-      "path": "../KoiCareSystem.Data/KoiCareSystem.Data.csproj",
-      "msbuildProject": "../KoiCareSystem.Data/KoiCareSystem.Data.csproj"
+      "path": "../KoiCareSystem.DataV1/KoiCareSystem.Data.csproj",
+      "msbuildProject": "../KoiCareSystem.DataV1/KoiCareSystem.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6879,8 +6879,8 @@
             "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Common\\KoiCareSystem.Common.csproj": {
               "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Common\\KoiCareSystem.Common.csproj"
             },
-            "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj": {
-              "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj"
+            "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.DataV1\\KoiCareSystem.Data.csproj": {
+              "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.DataV1\\KoiCareSystem.Data.csproj"
             }
           }
         }

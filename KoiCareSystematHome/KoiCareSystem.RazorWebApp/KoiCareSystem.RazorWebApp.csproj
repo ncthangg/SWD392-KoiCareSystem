@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KoiCareSystem.Data\KoiCareSystem.Data.csproj" />
     <ProjectReference Include="..\KoiCareSystem.Service\KoiCareSystem.Service.csproj" />
   </ItemGroup>
 

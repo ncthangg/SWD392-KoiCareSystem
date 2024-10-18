@@ -27,14 +27,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
         [BindProperty]
         public User User { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(long? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var user =  await _userService.GetUserById((long)id);
+            var user =  await _userService.GetUserById((int)id);
 
             if (user == null)
             {
@@ -47,18 +47,18 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(long? id)
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var user = await _userService.GetUserById((long)id);
+            var user = await _userService.GetUserById((int)id);
             if (user != null)
             {
                 User = (User)user.Data;
-                await _userService.DeleteUserById((long)id);
+                await _userService.DeleteUserById((int)id);
             }
 
             return RedirectToPage("./Index");

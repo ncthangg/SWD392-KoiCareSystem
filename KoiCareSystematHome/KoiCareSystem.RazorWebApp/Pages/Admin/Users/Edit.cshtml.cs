@@ -28,14 +28,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
         [BindProperty]
         public RequestRegisterAdminDto RequestRegisterAdminDto { get; set; } = default!;
         public User User { get; set; } = default!;
-        public async Task<IActionResult> OnGetAsync(long? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var user = await _userService.GetUserById((long)id);
+            var user = await _userService.GetUserById((int)id);
             if (user == null)
             {
                 return NotFound();
