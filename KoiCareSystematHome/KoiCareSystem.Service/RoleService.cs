@@ -1,15 +1,8 @@
 ﻿using AutoMapper;
 using KoiCareSystem.Common;
-using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service.Base;
-using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiCareSystem.Service
 {

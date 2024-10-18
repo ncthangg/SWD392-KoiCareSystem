@@ -3,7 +3,6 @@ using KoiCareSystem.Common;
 using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
-using KoiCareSystem.Data.Repository;
 using KoiCareSystematHome.Service.Base;
 
 namespace KoiCareSystematHome.Service

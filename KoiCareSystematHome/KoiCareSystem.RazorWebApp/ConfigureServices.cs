@@ -20,9 +20,13 @@ namespace De
 
             services.AddScoped<CategoryService>();
             services.AddScoped<ProductService>();
+
             services.AddScoped<OrderService>();
+            services.AddScoped<OrderStatusService>();
             services.AddScoped<OrderItemService>();
 
+            services.AddScoped<KoiFishService>();
+            services.AddScoped<PondService>();
             //Helper
             services.AddScoped<EmailService>();
             services.AddScoped<IUrlHelperService, UrlHelperService>();

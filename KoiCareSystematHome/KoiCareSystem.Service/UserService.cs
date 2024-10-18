@@ -1,22 +1,9 @@
 ﻿using AutoMapper;
-using Azure.Core;
 using KoiCareSystem.Common;
 using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
-using KoiCareSystem.Data.Repository;
-using KoiCareSystem.Service.Helper;
 using KoiCareSystematHome.Service.Base;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Asn1.Ocsp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace KoiCareSystem.Service
 {

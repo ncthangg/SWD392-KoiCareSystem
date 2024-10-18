@@ -1,12 +1,7 @@
-﻿using AutoMapper;
-using KoiCareSystem.Common;
-using KoiCareSystem.Common.DTOs;
-using KoiCareSystem.Common.DTOs.Request;
+﻿using KoiCareSystem.Common;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service.Base;
-using Microsoft.EntityFrameworkCore.Update.Internal;
-
 namespace KoiCareSystem.Service
 {
     public interface IOrderService

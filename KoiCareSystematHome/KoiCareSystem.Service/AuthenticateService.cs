@@ -2,10 +2,7 @@
 using KoiCareSystem.Common;
 using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
-using KoiCareSystem.Data.Models;
 using KoiCareSystematHome.Service.Base;
-using Org.BouncyCastle.Crypto.Fpe;
-using System.Text;
 
 namespace KoiCareSystem.Service
 {

@@ -12,4 +12,4 @@ namespace KoiCareSystem.Common.DTOs.Request
         public string Email { get; set; }
         public string Password { get; set; }
     }
-}s
+}
