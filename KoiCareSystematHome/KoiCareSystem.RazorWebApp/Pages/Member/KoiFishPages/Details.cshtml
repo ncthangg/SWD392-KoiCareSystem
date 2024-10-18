@@ -1,0 +1,92 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>KoiFish</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.FishName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.FishName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.ImageUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @* @Html.DisplayFor(model => model.KoiFish.ImageUrl) *@
+            <img src="@Model.KoiFish.ImageUrl" alt="Koi Fish Image" style="width: 100px; height: auto;" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.BodyShape)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.BodyShape)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.Age)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.Size)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.Size)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.Weight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.Weight)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.Origin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.Origin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.UpdatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.UpdatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KoiFish.Pond)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoiFish.PondId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.KoiFish.FishId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

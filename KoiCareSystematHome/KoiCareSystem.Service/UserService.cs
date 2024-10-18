@@ -9,7 +9,7 @@ namespace KoiCareSystem.Service
 {
     public interface IUserService
     {
-        Task<ServiceResult> GetAllUser();
+        Task<ServiceResult> GetAll();
         Task<ServiceResult> GetUserById(int id);
         Task<ServiceResult> GetUserByEmail(string email);
         Task<ServiceResult> Save(RequestRegisterDto registerDto);
@@ -29,7 +29,7 @@ namespace KoiCareSystem.Service
             _mapper = mapper;
         }
         //Get All
-        public async Task<ServiceResult> GetAllUser()
+        public async Task<ServiceResult> GetAll()
         {
             #region Business Rule
 

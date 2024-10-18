@@ -132,7 +132,7 @@ namespace KoiCareSystem.Service
 
                 if (koiFishList == null)
                 {
-                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<KoiFish>());
                 }
 
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, koiFishList);
@@ -148,6 +148,23 @@ namespace KoiCareSystem.Service
             try
             {
                 var koiFishList = await _unitOfWork.KoiFishRepository.GetByIdAsync(id);
+                if (koiFishList == null)
+                {
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<KoiFish>());
+                }
+
+                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, koiFishList);
+            }
+            catch (Exception)
+            {
+                return new ServiceResult(Const.FAIL_READ_CODE, Const.FAIL_READ_MSG);
+            }
+        }
+        public async Task<ServiceResult> GetByUserId(int userId)
+        {
+            try
+            {
+                var koiFishList = await _unitOfWork.KoiFishRepository.GetByUserIdAsync(userId);
                 if (koiFishList == null)
                 {
                     return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);

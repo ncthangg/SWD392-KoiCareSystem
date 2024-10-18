@@ -28,7 +28,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
         public async Task OnGetAsync()
         {
 
-            var result = await _userService.GetAllUser();
+            var result = await _userService.GetAll();
             if (result.Status > 0)
             {
                 User = (IList<User>)result.Data;

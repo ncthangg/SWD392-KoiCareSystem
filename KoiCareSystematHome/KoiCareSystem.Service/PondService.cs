@@ -37,5 +37,27 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.FAIL_READ_CODE, Const.FAIL_READ_MSG);
             }
         }
+        public async Task<ServiceResult> GetByUserId(int userId)
+        {
+            try
+            {
+                #region Business Rule
+
+                #endregion
+
+                var pondList = await _unitOfWork.PondRepository.GetByUserIdAsync(userId);
+
+                if (pondList == null)
+                {
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
+                }
+
+                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, pondList);
+            }
+            catch (Exception)
+            {
+                return new ServiceResult(Const.FAIL_READ_CODE, Const.FAIL_READ_MSG);
+            }
+        }
     }
 }

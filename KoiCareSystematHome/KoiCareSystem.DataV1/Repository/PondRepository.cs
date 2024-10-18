@@ -18,6 +18,12 @@ namespace KoiCareSystem.Data.Repository
         }
 
         public PondRepository(ApplicationDbContext context) => _context = context;
-
+        public async Task<List<Pond>> GetByUserIdAsync(int userId)
+        {
+            // Fetch orders based on the userId
+            return await _context.Ponds
+                .Where(o => o.UserId == userId)
+                .ToListAsync();
+        }
     }
 }

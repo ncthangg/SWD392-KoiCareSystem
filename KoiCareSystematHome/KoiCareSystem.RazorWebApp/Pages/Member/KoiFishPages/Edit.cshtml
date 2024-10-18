@@ -1,0 +1,113 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>KoiFish</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="KoiFish.FishId" />
+            <div class="form-group">
+                <label asp-for="KoiFish.FishName" class="control-label"></label>
+                <input asp-for="KoiFish.FishName" class="form-control" />
+                <span asp-validation-for="KoiFish.FishName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KoiFish.UserId" class="control-label"></label>
+                <select asp-for="KoiFish.UserId" class="form-control" asp-items="ViewBag.UserId" disabled></select>
+                <span asp-validation-for="KoiFish.UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KoiFish.PondId" class="control-label"></label>
+                <select asp-for="KoiFish.PondId" class="form-control" asp-items="ViewBag.PondId"></select>
+                <span asp-validation-for="KoiFish.PondId" class="text-danger"></span>
+            </div>
+
+            @* <div class="form-group">
+            <label asp-for="KoiFish.UserId" class="control-label"></label>
+            <select asp-for="KoiFish.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+            <span asp-validation-for="KoiFish.UserId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+            <label asp-for="KoiFish.PondId" class="control-label"></label>
+            <select asp-for="KoiFish.PondId" class="form-control" asp-items="ViewBag.PondId"></select>
+            <span asp-validation-for="KoiFish.PondId" class="text-danger"></span>
+            </div> *@
+            @* <div class="form-group">
+            <label asp-for="KoiFish.ImageUrl" class="control-label"></label>
+            <input asp-for="KoiFish.ImageUrl" class="form-control" />
+            <span asp-validation-for="KoiFish.ImageUrl" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label for="ImageFile">Upload Image</label>
+                <input type="file" class="form-control" id="ImageFile" name="ImageFile" />
+            </div>
+            <div class="form-group">
+                <label asp-for="KoiFish.BodyShape" class="control-label"></label>
+                <input asp-for="KoiFish.BodyShape" class="form-control" />
+                <span asp-validation-for="KoiFish.BodyShape" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KoiFish.Age" class="control-label"></label>
+                <input asp-for="KoiFish.Age" class="form-control" />
+                <span asp-validation-for="KoiFish.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KoiFish.Size" class="control-label"></label>
+                <input asp-for="KoiFish.Size" class="form-control" />
+                <span asp-validation-for="KoiFish.Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KoiFish.Weight" class="control-label"></label>
+                <input asp-for="KoiFish.Weight" class="form-control" />
+                <span asp-validation-for="KoiFish.Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KoiFish.Gender" class="control-label"></label>
+                <input asp-for="KoiFish.Gender" class="form-control" />
+                <span asp-validation-for="KoiFish.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KoiFish.Origin" class="control-label"></label>
+                <input asp-for="KoiFish.Origin" class="form-control" />
+                <span asp-validation-for="KoiFish.Origin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KoiFish.Price" class="control-label"></label>
+                <input asp-for="KoiFish.Price" class="form-control" />
+                <span asp-validation-for="KoiFish.Price" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+            <label asp-for="KoiFish.CreatedAt" class="control-label"></label>
+            <input asp-for="KoiFish.CreatedAt" class="form-control" />
+            <span asp-validation-for="KoiFish.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="KoiFish.UpdatedAt" class="control-label"></label>
+            <input asp-for="KoiFish.UpdatedAt" class="form-control" />
+            <span asp-validation-for="KoiFish.UpdatedAt" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

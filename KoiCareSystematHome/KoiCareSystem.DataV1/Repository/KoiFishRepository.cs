@@ -1,6 +1,7 @@
 ﻿using KoiCareSystem.Data.Base;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace KoiCareSystem.Data.Repository
 {
@@ -24,6 +25,13 @@ namespace KoiCareSystem.Data.Repository
             {
                 throw ex;
             }
+        }
+        public async Task<List<KoiFish>> GetByUserIdAsync(int userId)
+        {
+            // Fetch orders based on the userId
+            return await _context.KoiFishes
+                .Where(o => o.UserId == userId)
+                .ToListAsync();
         }
 
     }
