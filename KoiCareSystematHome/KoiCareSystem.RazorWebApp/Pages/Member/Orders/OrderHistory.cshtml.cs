@@ -20,9 +20,10 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
         {
             _orderService ??= new OrderService();
         }
-
+        //========================================================
         public IList<Order> Order { get;set; } = default!;
         public int UserId { get; set; }
+        //========================================================
         public async Task OnGetAsync()
         {
             UserId = (int)UserSession.UserId; // Lấy UserId từ biến static
@@ -32,7 +33,6 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
                 Order = (IList<Order>)result.Data;
             }
         }
-
         public async Task<IActionResult> OnPostCreate()
         {
             // Tạo một đơn hàng mới

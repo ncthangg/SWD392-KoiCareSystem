@@ -22,7 +22,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         [BindProperty]
         public IFormFile ImageFile { get; set; }
         public int UserId { get; set; }
-
+        //========================================================
         private readonly KoiFishService _koiFishService;
         private readonly PondService _pondService;
         private readonly UserService _userService;
@@ -35,7 +35,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
             _userService = userService;
             _webHostEnvironment = webHostEnvironment;
         }
-
+        //========================================================
         public async Task<IActionResult> OnGetAsync(int id)
         {
             UserId = (int)UserSession.UserId;

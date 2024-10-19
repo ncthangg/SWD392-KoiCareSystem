@@ -21,8 +21,10 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             _authenticateService = authenticateService;
 
         }
+        //========================================================
         [BindProperty]
         public RequestVerifyEmailDto RequestVerifyEmailDto { get; set; }
+        //========================================================
         public void OnGet(string email)
         {
             if (RequestVerifyEmailDto == null)

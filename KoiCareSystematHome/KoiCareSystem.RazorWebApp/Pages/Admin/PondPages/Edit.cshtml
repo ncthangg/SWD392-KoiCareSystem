@@ -2,7 +2,7 @@
 @model KoiCareSystem.RazorWebApp.Pages.Admin.PondPages.EditModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Edit";
 }
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@
                 <input asp-for="Pond.PumpCapacity" class="form-control" />
                 <span asp-validation-for="Pond.PumpCapacity" class="text-danger"></span>
             </div>
-            <div class="form-group">
+@*             <div class="form-group">
                 <label asp-for="Pond.CreatedAt" class="control-label"></label>
                 <input asp-for="Pond.CreatedAt" class="form-control" />
                 <span asp-validation-for="Pond.CreatedAt" class="text-danger"></span>
@@ -65,7 +65,7 @@
                 <label asp-for="Pond.UpdatedAt" class="control-label"></label>
                 <input asp-for="Pond.UpdatedAt" class="form-control" />
                 <span asp-validation-for="Pond.UpdatedAt" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="form-group">
                 <label asp-for="Pond.SkimmerCount" class="control-label"></label>
                 <input asp-for="Pond.SkimmerCount" class="form-control" />
@@ -73,7 +73,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Pond.UserId" class="control-label"></label>
-                <select asp-for="Pond.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <select asp-for="Pond.UserId" class="form-control" asp-items="ViewBag.UserId" disabled></select>
                 <span asp-validation-for="Pond.UserId" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -19,10 +19,10 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
         {
             _orderService ??= new OrderService();
         }
-
+        //========================================================
         [BindProperty]
         public Order Order { get; set; } = default!;
-
+        //========================================================
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)

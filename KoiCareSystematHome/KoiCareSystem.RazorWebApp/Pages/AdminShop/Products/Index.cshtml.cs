@@ -23,7 +23,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
             _productService ??= new ProductService(mapper);
             _mapper = mapper;
         }
-
+        //========================================================
         public IList<Product> Products { get; set; } = new List<Product>();
 
         // Define the search properties
@@ -35,7 +35,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
 
         [BindProperty(SupportsGet = true)]
         public string SearchType { get; set; }
-
+        //========================================================
         public async Task OnGetAsync()
         {
             // Fetch all products using the ProductService

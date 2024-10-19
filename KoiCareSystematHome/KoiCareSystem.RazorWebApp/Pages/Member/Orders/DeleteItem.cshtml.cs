@@ -27,11 +27,12 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             _productService ??= new ProductService(mapper);
             _orderItemService ??= new OrderItemService(mapper);
         }
-
+        //========================================================
 
         [BindProperty]
         public OrderItem OrderItem { get; set; } = default!;
         public int UserId { get; set; }
+        //========================================================
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)

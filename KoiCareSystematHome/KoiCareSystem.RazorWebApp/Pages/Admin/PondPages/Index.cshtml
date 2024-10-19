@@ -2,20 +2,11 @@
 @model KoiCareSystem.RazorWebApp.Pages.Admin.PondPages.IndexModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
 }
 
-<!DOCTYPE html>
+<h1>Pond Management</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -40,12 +31,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Pond[0].PumpCapacity)
             </th>
-            <th>
+@*             <th>
                 @Html.DisplayNameFor(model => model.Pond[0].CreatedAt)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Pond[0].UpdatedAt)
-            </th>
+            </th> *@
             <th>
                 @Html.DisplayNameFor(model => model.Pond[0].SkimmerCount)
             </th>
@@ -56,49 +47,48 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Pond) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PondName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Depth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Volume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DrainCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PumpCapacity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SkimmerCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Email)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.PondId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.PondId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.PondId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Pond)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PondName)
+                </td>
+                <td>
+                    <img src="@item.ImageUrl" alt="Pond Image" style="width: 100px; height: auto;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Depth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Volume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DrainCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PumpCapacity)
+                </td>
+@*                 <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedAt)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.SkimmerCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Email)
+                </td>
+                <td>
+                    @* <a asp-page="./Edit" asp-route-id="@item.PondId">Edit</a> | *@
+                    <a asp-page="./Details" asp-route-id="@item.PondId">Details</a>
+                    @* <a asp-page="./Delete" asp-route-id="@item.PondId">Delete</a> *@
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
-</body>
-</html>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dhFAO0kRT4p+FAbZit9uMRB8fPdHEDqUmwmiqG3brZs=",
+  "Hash": "/NvqpX6DmWJKhXyVeKgDe+dqAp3VQVltOae+rTBQhnc=",
   "Source": "KoiCareSystem.RazorWebApp",
   "BasePath": "_content/KoiCareSystem.RazorWebApp",
   "Mode": "Default",
@@ -131,12 +131,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\1da85b83-55f8-47b5-95bb-4643252536d2_z5885998265907_f6c122a39cf8c80b20ffa243a7021395.jpg",
+      "Identity": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\ponds\\860413d4-f164-4378-a5d4-d4b8cea3a544_ho1.jfif",
       "SourceId": "KoiCareSystem.RazorWebApp",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\",
       "BasePath": "_content/KoiCareSystem.RazorWebApp",
-      "RelativePath": "images/1da85b83-55f8-47b5-95bb-4643252536d2_z5885998265907_f6c122a39cf8c80b20ffa243a7021395.jpg",
+      "RelativePath": "images/ponds/860413d4-f164-4378-a5d4-d4b8cea3a544_ho1.jfif",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,15 +147,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\1da85b83-55f8-47b5-95bb-4643252536d2_z5885998265907_f6c122a39cf8c80b20ffa243a7021395.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\ponds\\860413d4-f164-4378-a5d4-d4b8cea3a544_ho1.jfif"
     },
     {
-      "Identity": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\64aa9911-e755-43a3-9f9a-8a85ea6962c3_pixel-art-sunset-sky-with-clouds-stars-game-background-interface-with-you-win-text_1035836-166.jpg",
+      "Identity": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\ponds\\ee64e23e-b28b-4ea8-9887-98e2549c30ab_ho1.jfif",
       "SourceId": "KoiCareSystem.RazorWebApp",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\",
       "BasePath": "_content/KoiCareSystem.RazorWebApp",
-      "RelativePath": "images/64aa9911-e755-43a3-9f9a-8a85ea6962c3_pixel-art-sunset-sky-with-clouds-stars-game-background-interface-with-you-win-text_1035836-166.jpg",
+      "RelativePath": "images/ponds/ee64e23e-b28b-4ea8-9887-98e2549c30ab_ho1.jfif",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -166,26 +166,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\64aa9911-e755-43a3-9f9a-8a85ea6962c3_pixel-art-sunset-sky-with-clouds-stars-game-background-interface-with-you-win-text_1035836-166.jpg"
-    },
-    {
-      "Identity": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\d0f2b5fb-7920-477b-ad26-89fa2741a6ab_cakoi.jfif",
-      "SourceId": "KoiCareSystem.RazorWebApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\",
-      "BasePath": "_content/KoiCareSystem.RazorWebApp",
-      "RelativePath": "images/d0f2b5fb-7920-477b-ad26-89fa2741a6ab_cakoi.jfif",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\d0f2b5fb-7920-477b-ad26-89fa2741a6ab_cakoi.jfif"
+      "OriginalItemSpec": "wwwroot\\images\\ponds\\ee64e23e-b28b-4ea8-9887-98e2549c30ab_ho1.jfif"
     },
     {
       "Identity": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\js\\site.js",

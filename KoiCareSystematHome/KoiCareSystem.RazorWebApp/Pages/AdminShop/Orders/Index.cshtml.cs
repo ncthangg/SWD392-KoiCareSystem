@@ -21,6 +21,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
             _orderService ??= new OrderService();
             _orderStatusService ??= new OrderStatusService();
         }
+        //========================================================
         //List Order
         public IList<Order> Order { get; set; } = default!;
         public IList<OrderStatus> OrderStatuses { get; set; } = default!;
@@ -35,7 +36,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
         [BindProperty(SupportsGet = true)]
         public string SearchOrderStatus { get; set; }
 
-        //
+        //========================================================
         public async Task OnGetAsync()
         {
             var result = await _orderService.GetAllOrder();

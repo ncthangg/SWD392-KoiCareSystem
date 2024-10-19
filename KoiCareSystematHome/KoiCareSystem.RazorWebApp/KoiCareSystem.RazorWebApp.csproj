@@ -21,4 +21,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\koifishs\" />
+    <Folder Include="wwwroot\images\ponds\" />
+  </ItemGroup>
+
 </Project>

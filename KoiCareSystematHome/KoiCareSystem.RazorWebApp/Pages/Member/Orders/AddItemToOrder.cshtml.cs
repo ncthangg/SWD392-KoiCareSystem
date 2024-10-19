@@ -23,10 +23,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             _productService ??= new ProductService(mapper);
             _orderItemService ??= new OrderItemService(mapper);
         }
-
+        //========================================================
         [BindProperty]
         public RequestItemToOrderDto RequestItemToOrderDto { get; set; } = default!;
         public int UserId { get; set; }
+        //========================================================
         public IActionResult OnGet(int id)
         {
             if (RequestItemToOrderDto == null)

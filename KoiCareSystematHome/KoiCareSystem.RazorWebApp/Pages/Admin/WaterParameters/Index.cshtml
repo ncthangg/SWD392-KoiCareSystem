@@ -5,14 +5,8 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
+<h1>Water Parameters</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -43,12 +37,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.WaterParameter[0].Po4)
             </th>
-            <th>
+@*             <th>
                 @Html.DisplayNameFor(model => model.WaterParameter[0].CreatedAt)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.WaterParameter[0].UpdatedAt)
-            </th>
+            </th> *@
             <th>
                 @Html.DisplayNameFor(model => model.WaterParameter[0].Pond)
             </th>
@@ -82,12 +76,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Po4)
             </td>
-            <td>
+@*             <td>
                 @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
+            </td> *@
             <td>
                 @Html.DisplayFor(modelItem => item.Pond.PondName)
             </td>
@@ -100,5 +94,3 @@
 }
     </tbody>
 </table>
-</body>
-</html>

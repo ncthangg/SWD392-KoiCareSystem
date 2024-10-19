@@ -2,7 +2,7 @@
 @model KoiCareSystem.RazorWebApp.Pages.Admin.PondPages.DetailsModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Details";
 }
 
 <!DOCTYPE html>
@@ -77,12 +77,6 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Pond.SkimmerCount)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Pond.User)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Pond.User.Email)
         </dd>
     </dl>
 </div>

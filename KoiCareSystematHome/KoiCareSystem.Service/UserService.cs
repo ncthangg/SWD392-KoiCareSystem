@@ -116,7 +116,7 @@ namespace KoiCareSystem.Service
                     newUser.EmailVerificationToken = Guid.NewGuid().ToString();
 
                     // Lấy role "Member" từ cơ sở dữ liệu
-                    var memberRole = await _unitOfWork.RoleRepository.GetByNameAsync("Member");
+                    var memberRole = await _unitOfWork.RoleRepository.GetByNameAsync("User");
                     if (memberRole == null)
                     {
                         return new ServiceResult(Const.FAIL_READ_CODE, "Role 'Member' không tồn tại.");

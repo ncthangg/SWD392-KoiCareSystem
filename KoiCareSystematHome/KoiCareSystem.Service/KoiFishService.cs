@@ -91,12 +91,13 @@ namespace KoiCareSystem.Service
             try
             {
                 var result = false;
-                var existingKoiFish = this.GetById(id);
+                var existingKoiFish = await this.GetById(id);
                 // Kiểm tra có tồn tại trước đó không
-                if (existingKoiFish != null && existingKoiFish.Result.Status == Const.SUCCESS_READ_CODE)
+                if (existingKoiFish != null && existingKoiFish.Status == Const.SUCCESS_READ_CODE)
                 {
+                    var fish = (KoiFish)existingKoiFish.Data;
                     // Nếu tồn tại ==> xóa
-                    result = await _unitOfWork.KoiFishRepository.RemoveAsync((KoiFish)existingKoiFish.Result.Data);
+                    result = await _unitOfWork.KoiFishRepository.RemoveAsync(fish);
                     if (result)
                     {
                         // Xóa thành công => trả về kết quả 
@@ -105,7 +106,7 @@ namespace KoiCareSystem.Service
                     else
                     {
                         // Xóa không thành công => trả về lỗi  
-                        return new ServiceResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, existingKoiFish.Result.Data);
+                        return new ServiceResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, existingKoiFish.Data);
                     }
                 }
                 else
@@ -147,13 +148,13 @@ namespace KoiCareSystem.Service
         {
             try
             {
-                var koiFishList = await _unitOfWork.KoiFishRepository.GetByIdAsync(id);
-                if (koiFishList == null)
+                var koiFish = await _unitOfWork.KoiFishRepository.GetByIdAsync(id);
+                if (koiFish == null)
                 {
-                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<KoiFish>());
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
                 }
 
-                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, koiFishList);
+                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, koiFish);
             }
             catch (Exception)
             {
@@ -246,7 +247,7 @@ namespace KoiCareSystem.Service
 
                         result = await _unitOfWork.SaveChangesAsync();
 
-                        return new ServiceResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG, koiFishToUpdate);
+                        return new ServiceResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG, koiFish);
                     }
                 }
 

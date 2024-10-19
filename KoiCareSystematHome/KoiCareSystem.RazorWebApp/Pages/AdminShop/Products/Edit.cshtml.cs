@@ -26,10 +26,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
             _categoryService ??= new CategoryService();
             _mapper = mapper;
         }
-
+        //========================================================
         [BindProperty]
         public RequestCreateANewProductDto RequestCreateANewProductDto { get; set; } = default!;
         public Product Product { get; set; } = default!;
+        //========================================================
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)

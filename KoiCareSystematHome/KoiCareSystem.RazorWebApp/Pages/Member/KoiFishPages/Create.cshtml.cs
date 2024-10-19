@@ -19,7 +19,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         [BindProperty]
         public IFormFile ImageFile { get; set; }
         public int UserId { get; set; }
-
+        //========================================================
         private readonly KoiFishService _koiFishService;
         private readonly PondService _pondService;
         private readonly UserService _userService;
@@ -32,11 +32,17 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
             _userService = userService;
             _webHostEnvironment = webHostEnvironment;
         }
-
+        //========================================================
         public async Task<IActionResult> OnGet()
         {
             UserId = (int)UserSession.UserId;
             var ponds = (await _pondService.GetByUserId(UserId)).Data as List<Pond>;
+
+            if (ponds == null || !ponds.Any())
+            {
+                TempData["ErrorMessage"] = "Bạn cần tạo ít nhất một hồ cá trước khi tạo thông tin cá Koi.";
+                return RedirectToPage("/Member/KoiFishPages/Index"); // Chuyển hướng về trang danh sách hồ cá
+            }
 
             ViewData["PondId"] = new SelectList(ponds, "PondId", "PondName");
 
@@ -61,7 +67,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
             if (ImageFile != null)
             {
                 // Đường dẫn lưu file trong wwwroot
-                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/koifishs");
                 Directory.CreateDirectory(uploadsFolder);  // Tạo thư mục nếu chưa có
 
                 // Đặt tên file duy nhất
@@ -75,7 +81,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
                 }
 
                 // Cập nhật đường dẫn ảnh trong model
-                KoiFish.ImageUrl = "/images/" + uniqueFileName;
+                KoiFish.ImageUrl = "/images/koifishs" + uniqueFileName;
             }
 
             var a = _koiFishService.Create(KoiFish);

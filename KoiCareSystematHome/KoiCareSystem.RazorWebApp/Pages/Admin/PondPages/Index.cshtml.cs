@@ -7,24 +7,26 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using KoiCareSystem.Service;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.PondPages
 {
     public class IndexModel : PageModel
     {
-        private readonly KoiCareSystem.Data.DBContext.ApplicationDbContext _context;
-
-        public IndexModel(KoiCareSystem.Data.DBContext.ApplicationDbContext context)
+        private readonly KoiFishService _koiFishService;
+        private readonly PondService _pondService;
+        public IndexModel(KoiFishService koiFishService, PondService pondService)
         {
-            _context = context;
+            _koiFishService = koiFishService;
+            _pondService = pondService;
         }
 
         public IList<Pond> Pond { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Pond = await _context.Ponds
-                .Include(p => p.User).ToListAsync();
+            Pond = (await _pondService.GetAll()).Data as IList<Pond>;
         }
+
     }
 }

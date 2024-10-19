@@ -20,9 +20,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             _emailService = emailService;
             _urlHelperService = urlHelperService;
         }
-
+        //========================================================
         [BindProperty]
         public RequestRegisterDto RegisterDto { get; set; } = new RequestRegisterDto(); // Khởi tạo RegisterDto
+
+        //========================================================
 
         public void OnGet()
         {

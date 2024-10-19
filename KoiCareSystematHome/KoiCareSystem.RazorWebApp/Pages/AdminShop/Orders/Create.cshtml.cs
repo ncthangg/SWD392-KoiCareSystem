@@ -22,14 +22,17 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
             _orderService ??= new OrderService();
             _mapper = mapper;
         }
+        //========================================================
+        [BindProperty]
+        public Order Order { get; set; } = default!;
+        //public RequestCreateOrderDto RequestCreateOrderDto { get; set; } = default!;
+
+        //========================================================
         public IActionResult OnGet()
         {
             return Page();
         }
-
-        [BindProperty]
-        public Order Order { get; set; } = default!;
-        //public RequestCreateOrderDto RequestCreateOrderDto { get; set; } = default!;
+        
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {

@@ -18,7 +18,6 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
         private readonly AuthenticateService _authenticateService;
         private readonly EmailService _emailService;
         private readonly IUrlHelperService _urlHelperService;
-
         public LoginModel(UserService userService, RoleService roleService, AuthenticateService authenticateService, EmailService emailService, IUrlHelperService urlHelperService)
         {
             _userService = userService;
@@ -27,10 +26,10 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             _emailService = emailService;
             _urlHelperService = urlHelperService;
         }
-
+        //========================================================
         [BindProperty]
         public RequestLoginDto RequestLoginDto { get; set; } = new RequestLoginDto();
-
+        //========================================================
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)

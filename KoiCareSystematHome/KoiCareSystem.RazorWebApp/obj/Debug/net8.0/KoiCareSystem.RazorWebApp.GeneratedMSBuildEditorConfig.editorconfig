@@ -250,6 +250,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXE9yZGVyc1xPcmRlckhpc3RvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Member/PondPages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFBvbmRQYWdlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Member/PondPages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFBvbmRQYWdlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Member/PondPages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFBvbmRQYWdlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Member/PondPages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFBvbmRQYWdlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Member/PondPages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFBvbmRQYWdlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystematHome/KoiCareSystem.RazorWebApp/Pages/Member/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFNoYXJlZFxfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

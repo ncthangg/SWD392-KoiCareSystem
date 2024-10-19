@@ -21,10 +21,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         {
             _koiFishService = koiFishService;
         }
-
+        //========================================================
         [BindProperty]
         public KoiFish KoiFish { get; set; } = default!;
         public int UserId { get; set; }
+        //========================================================
         public async Task<IActionResult> OnGetAsync(int id)
         {
             UserId = (int)UserSession.UserId;

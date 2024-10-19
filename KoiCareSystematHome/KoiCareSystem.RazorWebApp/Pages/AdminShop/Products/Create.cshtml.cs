@@ -24,11 +24,12 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
             _productService ??= new ProductService(mapper);
             _categoryService ??= new CategoryService();
         }
-
+        //========================================================
         [BindProperty]
         public RequestCreateANewProductDto RequestCreateANewProductDto { get; set; } = default!;
 
-        public  ActionResult OnGet()
+        //========================================================
+        public ActionResult OnGet()
         {
             var categories = _categoryService.GetAll().Result.Data as IList<Category>;
             ViewData["CategoryId"] =  new SelectList(categories, "Id", "Description");

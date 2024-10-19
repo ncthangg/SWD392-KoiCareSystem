@@ -33,6 +33,13 @@ namespace KoiCareSystem.Data.Repository
                 .Where(o => o.UserId == userId)
                 .ToListAsync();
         }
+        public async Task<List<KoiFish>> GetByPondIdAsync(int pondId)
+        {
+            // Fetch orders based on the userId
+            return await _context.KoiFishes
+                .Where(o => o.PondId == pondId)
+                .ToListAsync();
+        }
 
     }
 }

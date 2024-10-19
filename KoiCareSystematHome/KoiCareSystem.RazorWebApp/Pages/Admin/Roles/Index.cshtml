@@ -5,14 +5,8 @@
     ViewData["Title"] = "Index";
 }
 
-<!DOCTYPE html>
+<h1>Roles Management</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -32,12 +26,10 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                @* <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> | *@
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
-</body>
-</html>

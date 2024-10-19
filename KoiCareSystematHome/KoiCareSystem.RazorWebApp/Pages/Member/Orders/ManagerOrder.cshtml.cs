@@ -18,11 +18,12 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             _orderService ??= new OrderService();
             _orderItemService ??= new OrderItemService(mapper);
         }
-
+        //========================================================
         public IList<OrderItem> OrderItem { get; set; } = default!;
         public int OrderId { get; set; }
         public int UserId { get; set; }
         public bool IsPurchasable { get; set; }
+        //========================================================
         public async Task<IActionResult> OnGetAsync(int? orderId)
         {
             OrderId = (int)orderId;
