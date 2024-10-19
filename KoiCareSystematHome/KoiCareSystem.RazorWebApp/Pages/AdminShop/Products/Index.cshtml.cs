@@ -39,7 +39,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
         public async Task OnGetAsync()
         {
             // Fetch all products using the ProductService
-            var productListResult = await _productService.GetAllProduct();
+            var productListResult = await _productService.GetAll();
             var products = productListResult?.Data as IList<Product> ?? new List<Product>();
 
             // Convert to queryable to enable search filtering

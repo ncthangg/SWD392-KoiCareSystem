@@ -18,6 +18,7 @@ namespace KoiCareSystem.Data
 
         private KoiFishRepository _koiFishRepository;
         private PondRepository _pondRepository;
+        private WaterParameterRepository _waterParameterRepository;
 
         private UserRepository _userRepository;
         private RoleRepository _roleRepository;
@@ -100,6 +101,13 @@ namespace KoiCareSystem.Data
             get
             {
                 return _pondRepository ??= new PondRepository(_dbContext);
+            }
+        }
+        public WaterParameterRepository WaterParameterRepository
+        {
+            get
+            {
+                return _waterParameterRepository ??= new WaterParameterRepository(_dbContext);
             }
         }
         public async Task<int> SaveChangesAsync()

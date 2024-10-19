@@ -32,7 +32,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
                 return NotFound();
             }
 
-            var product = await _productService.GetProductById((int)id);
+            var product = await _productService.GetById((int)id);
             if (product == null)
             {
                 return NotFound();

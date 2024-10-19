@@ -26,7 +26,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
         public async Task OnGetAsync()
         {
             UserId = (int)UserSession.UserId; // Lấy UserId từ biến static
-            var result = await _orderService.GetOrdersByUserId(UserId);
+            var result = await _orderService.GetByUserId(UserId);
             if (result.Status > 0)
             {
                 Order = (IList<Order>)result.Data;

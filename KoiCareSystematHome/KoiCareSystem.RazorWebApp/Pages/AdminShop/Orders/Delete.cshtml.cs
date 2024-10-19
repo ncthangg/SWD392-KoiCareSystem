@@ -30,7 +30,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
                 return NotFound();
             }
 
-            var order = await _orderService.GetOrderByOrderId((int)id);
+            var order = await _orderService.GetByOrderId((int)id);
 
             if (order == null)
             {
@@ -50,10 +50,10 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
                 return NotFound();
             }
 
-            var order = await _orderService.GetOrderByOrderId((int)id);
+            var order = await _orderService.GetByOrderId((int)id);
             if (order != null)
             {
-                await _orderService.DeleteOrderByOrderId((int)id);
+                await _orderService.DeleteByOrderId((int)id);
             }
 
             return RedirectToPage("./Index");

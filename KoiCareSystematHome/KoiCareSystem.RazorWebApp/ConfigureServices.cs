@@ -27,6 +27,7 @@ namespace De
 
             services.AddScoped<KoiFishService>();
             services.AddScoped<PondService>();
+            services.AddScoped<WaterParameterService>();
             //Helper
             services.AddScoped<EmailService>();
             services.AddScoped<IUrlHelperService, UrlHelperService>();

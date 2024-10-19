@@ -9,10 +9,10 @@ namespace KoiCareSystematHome.Service
 {
     public interface IProductService
     {
-        Task<ServiceResult> GetAllProduct();
-        Task<ServiceResult> GetProductById(int id);
+        Task<ServiceResult> GetAll();
+        Task<ServiceResult> GetById(int id);
         Task<ServiceResult> Save(RequestCreateANewProductDto requestCreateANewProductDto);
-        Task<ServiceResult> DeleteProductById(int id);
+        Task<ServiceResult> DeleteById(int id);
     }
     public class ProductService : IProductService
     {
@@ -25,7 +25,7 @@ namespace KoiCareSystematHome.Service
         }
 
         //Get All
-        public async Task<ServiceResult> GetAllProduct()
+        public async Task<ServiceResult> GetAll()
         {
             #region Business Rule
 
@@ -42,7 +42,7 @@ namespace KoiCareSystematHome.Service
             }
         }
         //Get By Id
-        public async Task<ServiceResult> GetProductById(int id)
+        public async Task<ServiceResult> GetById(int id)
         {
             #region Business Rule
 
@@ -69,7 +69,7 @@ namespace KoiCareSystematHome.Service
 
                 int result = -1;
 
-                var item = this.GetProductById(requestCreateANewProductDto.ProductId);
+                var item = this.GetById(requestCreateANewProductDto.ProductId);
 
                 if (item.Result.Status == Const.SUCCESS_READ_CODE)
                 {
@@ -107,13 +107,13 @@ namespace KoiCareSystematHome.Service
             }
         }
         //Delete by Id
-        public async Task<ServiceResult> DeleteProductById(int id)
+        public async Task<ServiceResult> DeleteById(int id)
         {
             try
             {
                 var result = false;
 
-                var removeProduct = this.GetProductById(id);
+                var removeProduct = this.GetById(id);
 
                 if (removeProduct != null && removeProduct.Result.Status == Const.SUCCESS_READ_CODE)
                 {

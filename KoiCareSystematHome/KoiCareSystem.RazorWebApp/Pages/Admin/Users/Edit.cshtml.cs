@@ -35,7 +35,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
                 return NotFound();
             }
 
-            var user = await _userService.GetUserById((int)id);
+            var user = await _userService.GetById((int)id);
             if (user == null)
             {
                 return NotFound();

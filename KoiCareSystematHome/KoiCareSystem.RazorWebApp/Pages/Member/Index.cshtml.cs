@@ -35,7 +35,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member
             UserSession.UserId = (int)userIdFromSession;
             UserId = (int)userIdFromSession;
 
-            var user = _userService.GetUserById(UserId);
+            var user = _userService.GetById(UserId);
             if (user != null)
             {
                 Email = ((user.Result.Data) as User).Email;

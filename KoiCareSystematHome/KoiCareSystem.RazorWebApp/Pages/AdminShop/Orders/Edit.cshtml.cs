@@ -31,14 +31,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
                 return NotFound();
             }
 
-            var order = await _orderService.GetOrderByOrderId((int)id);
+            var order = await _orderService.GetByOrderId((int)id);
             if (order == null)
             {
                 return NotFound();
             }
             Order = (Order)order.Data;
 
-            var status = _orderStatusService.GetAllStatus().Result.Data as IList<OrderStatus>;
+            var status = _orderStatusService.GetAll().Result.Data as IList<OrderStatus>;
             ViewData["StatusId"] = new SelectList(status, "StatusId", "StatusName");
             return Page();
         }

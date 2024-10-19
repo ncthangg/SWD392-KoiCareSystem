@@ -36,7 +36,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
 
             RequestItemToOrderDto.OrderId = id;
 
-            var products = _productService.GetAllProduct().Result.Data as IList<Product>;
+            var products = _productService.GetAll().Result.Data as IList<Product>;
             ViewData["ProductId"] = new SelectList(products, "ProductId", "ProductName");
             return Page();
         }

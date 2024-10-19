@@ -39,7 +39,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             {
                 return Page();
             }
-            var user = await _userService.GetUserByEmail(RequestVerifyEmailDto.Email);
+            var user = await _userService.GetByEmail(RequestVerifyEmailDto.Email);
             if (user == null)
             {
                 return NotFound();

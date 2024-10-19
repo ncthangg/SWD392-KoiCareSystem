@@ -33,7 +33,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Roles
                 return NotFound();
             }
 
-            var role = await _roleService.GetRoleById((int)id);
+            var role = await _roleService.GetById((int)id);
 
             if (role == null)
             {
@@ -53,11 +53,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Roles
                 return NotFound();
             }
 
-            var role = await _roleService.GetRoleById((int)id);
+            var role = await _roleService.GetById((int)id);
             if (role != null)
             {
                 Role = (Role)role.Data;
-                await _roleService.DeleteRoleById((int)id);
+                await _roleService.DeleteById((int)id);
             }
 
             return RedirectToPage("./Index");

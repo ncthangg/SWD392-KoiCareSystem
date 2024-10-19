@@ -33,7 +33,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Roles
                 return NotFound();
             }
 
-            var role =  await _roleService.GetRoleById((int)id);
+            var role =  await _roleService.GetById((int)id);
             if (role == null)
             {
                 return NotFound();

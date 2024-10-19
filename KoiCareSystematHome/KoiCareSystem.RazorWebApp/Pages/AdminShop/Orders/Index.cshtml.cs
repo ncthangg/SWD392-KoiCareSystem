@@ -43,7 +43,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
             {
                 Order = (IList<Order>)result.Data;
             }
-            OrderStatuses = (await _orderStatusService.GetAllStatus()).Data as List<OrderStatus>;
+            OrderStatuses = (await _orderStatusService.GetAll()).Data as List<OrderStatus>;
             OrderStatuses.Insert(0, new OrderStatus { StatusId = 0, StatusName = "Select an Order Status" });
 
             ViewData["OrderStatus"] = new SelectList(OrderStatuses, "StatusId", "StatusName");

@@ -30,7 +30,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
 
         public  ActionResult OnGet()
         {
-            var categories = _categoryService.GetAllCategory().Result.Data as IList<Category>;
+            var categories = _categoryService.GetAll().Result.Data as IList<Category>;
             ViewData["CategoryId"] =  new SelectList(categories, "Id", "Description");
             return Page();
         }

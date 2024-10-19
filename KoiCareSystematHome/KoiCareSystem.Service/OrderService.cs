@@ -7,10 +7,10 @@ namespace KoiCareSystem.Service
     public interface IOrderService
     {
         Task<ServiceResult> GetAllOrder();
-        Task<ServiceResult> GetOrderByOrderId(int orderId);
-        Task<ServiceResult> GetOrdersByUserId(int userId);
+        Task<ServiceResult> GetByOrderId(int orderId);
+        Task<ServiceResult> GetByUserId(int userId);
         Task<ServiceResult> Save(Order order);
-        Task<ServiceResult> DeleteOrderByOrderId(int orderId);
+        Task<ServiceResult> DeleteByOrderId(int orderId);
     }
     public class OrderService : IOrderService
     {
@@ -37,7 +37,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Get By Id
-        public async Task<ServiceResult> GetOrderByOrderId(int orderId)
+        public async Task<ServiceResult> GetByOrderId(int orderId)
         {
             #region Business Rule
 
@@ -54,7 +54,7 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, Order);
             }
         }
-        public async Task<ServiceResult> GetOrdersByUserId(int userId)
+        public async Task<ServiceResult> GetByUserId(int userId)
         {
             #region Business Rule
 
@@ -81,7 +81,7 @@ namespace KoiCareSystem.Service
                 #endregion Business Rule
 
                 int result = -1;
-                var item = await this.GetOrderByOrderId(order.OrderId);
+                var item = await this.GetByOrderId(order.OrderId);
 
                 if (item.Status == Const.SUCCESS_READ_CODE)
                 {
@@ -127,13 +127,13 @@ namespace KoiCareSystem.Service
             }
         }
         //Delete by Id
-        public async Task<ServiceResult> DeleteOrderByOrderId(int id)
+        public async Task<ServiceResult> DeleteByOrderId(int id)
         {
             try
             {
                 var result = false;
 
-                var removeOrder = this.GetOrderByOrderId(id);
+                var removeOrder = this.GetByOrderId(id);
 
                 if (removeOrder != null && removeOrder.Result.Status == Const.SUCCESS_READ_CODE)
                 {
@@ -161,7 +161,7 @@ namespace KoiCareSystem.Service
         public async Task<bool> UpdateOrderStatusAsync(int orderId, int statusId)
         {
             // Giả sử bạn đã có phương thức trong unit of work để lấy đơn hàng theo ID
-            var orderExist = await this.GetOrderByOrderId(orderId);
+            var orderExist = await this.GetByOrderId(orderId);
             if (orderExist != null)
             {
                 var order = (Order)orderExist.Data;
@@ -179,7 +179,7 @@ namespace KoiCareSystem.Service
         }
         public async Task<bool> HasPendingOrders(int userId)
         {
-            var ordersResult = await GetOrdersByUserId(userId);
+            var ordersResult = await GetByUserId(userId);
 
             if (ordersResult.Status>0 && ordersResult.Data != null)
             {

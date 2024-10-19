@@ -34,7 +34,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
                 return NotFound();
             }
 
-            var user =  await _userService.GetUserById((int)id);
+            var user =  await _userService.GetById((int)id);
 
             if (user == null)
             {
@@ -54,11 +54,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
                 return NotFound();
             }
 
-            var user = await _userService.GetUserById((int)id);
+            var user = await _userService.GetById((int)id);
             if (user != null)
             {
                 User = (User)user.Data;
-                await _userService.DeleteUserById((int)id);
+                await _userService.DeleteById((int)id);
             }
 
             return RedirectToPage("./Index");

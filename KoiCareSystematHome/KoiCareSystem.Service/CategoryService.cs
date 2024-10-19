@@ -7,10 +7,10 @@ namespace KoiCareSystem.Service
 {
     public interface ICategoryService
     {
-        Task<ServiceResult> GetAllCategory();
-        Task<ServiceResult> GetCategoryById(int id);
+        Task<ServiceResult> GetAll();
+        Task<ServiceResult> GetById(int id);
         Task<ServiceResult> Save(Category category);
-        Task<ServiceResult> DeleteCategoryById(int id);
+        Task<ServiceResult> DeleteById(int id);
     }
     public class CategoryService : ICategoryService
     {
@@ -20,7 +20,7 @@ namespace KoiCareSystem.Service
             _unitOfWork ??= new UnitOfWork();
         }
         //Get All
-        public async Task<ServiceResult> GetAllCategory()
+        public async Task<ServiceResult> GetAll()
         {
             #region Business Rule
 
@@ -37,7 +37,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Get By Id
-        public async Task<ServiceResult> GetCategoryById(int id)
+        public async Task<ServiceResult> GetById(int id)
         {
             #region Business Rule
 
@@ -115,13 +115,13 @@ namespace KoiCareSystem.Service
             }
         }
         //Delete by Id
-        public async Task<ServiceResult> DeleteCategoryById(int id)
+        public async Task<ServiceResult> DeleteById(int id)
         {
             try
             {
                 var result = false;
 
-                var removeCategory = this.GetCategoryById(id);
+                var removeCategory = this.GetById(id);
 
                 if (removeCategory != null && removeCategory.Result.Status == Const.SUCCESS_READ_CODE)
                 {

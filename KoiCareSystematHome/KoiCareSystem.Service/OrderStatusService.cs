@@ -7,7 +7,7 @@ namespace KoiCareSystem.Service
 {
     public interface IOrderStatusService
     {
-        Task<ServiceResult> GetAllStatus();
+        Task<ServiceResult> GetAll();
     }
     public class OrderStatusService : IOrderStatusService
     {
@@ -17,7 +17,7 @@ namespace KoiCareSystem.Service
             _unitOfWork ??= new UnitOfWork();
         }
 
-        public async Task<ServiceResult> GetAllStatus()
+        public async Task<ServiceResult> GetAll()
         {
             var Status = await _unitOfWork.OrderStatusRepository.GetAllAsync();
             if (Status == null)

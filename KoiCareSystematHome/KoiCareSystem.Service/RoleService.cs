@@ -9,10 +9,10 @@ namespace KoiCareSystem.Service
     public interface IRoleService
     {
         Task<ServiceResult> GetAllRole();
-        Task<ServiceResult> GetRoleById(int id);
-        Task<ServiceResult> GetRoleByName(string name);
+        Task<ServiceResult> GetById(int id);
+        Task<ServiceResult> GetByName(string name);
         Task<ServiceResult> Save(Role Role);
-        Task<ServiceResult> DeleteRoleById(int id);
+        Task<ServiceResult> DeleteById(int id);
     }
     public class RoleService : IRoleService
     {
@@ -43,7 +43,7 @@ namespace KoiCareSystem.Service
         }
 
         //Get By Id
-        public async Task<ServiceResult> GetRoleById(int id)
+        public async Task<ServiceResult> GetById(int id)
         {
             #region Business Rule
 
@@ -61,7 +61,7 @@ namespace KoiCareSystem.Service
         }
 
         //Get By Name
-        public async Task<ServiceResult> GetRoleByName(string name)
+        public async Task<ServiceResult> GetByName(string name)
         {
             #region Business Rule
 
@@ -89,7 +89,7 @@ namespace KoiCareSystem.Service
 
                 int result = -1;
 
-                var item = this.GetRoleByName(Role.Name);
+                var item = this.GetByName(Role.Name);
 
                 if (item.Result.Status == Const.SUCCESS_READ_CODE)
                 {
@@ -122,13 +122,13 @@ namespace KoiCareSystem.Service
             }
         }
         //Delete by Id
-        public async Task<ServiceResult> DeleteRoleById(int id)
+        public async Task<ServiceResult> DeleteById(int id)
         {
             try
             {
                 var result = false;
 
-                var removeRole = this.GetRoleById(id);
+                var removeRole = this.GetById(id);
 
                 if (removeRole != null && removeRole.Result.Status == Const.SUCCESS_READ_CODE)
                 {

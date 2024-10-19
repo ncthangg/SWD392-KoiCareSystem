@@ -41,7 +41,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             {
                 OrderItem = orderItems.Data as List<OrderItem>;
             }
-            var orderExist = await _orderService.GetOrderByOrderId(OrderId);
+            var orderExist = await _orderService.GetByOrderId(OrderId);
             if (orderExist != null)
             {
                 var order = orderExist.Data as Order;

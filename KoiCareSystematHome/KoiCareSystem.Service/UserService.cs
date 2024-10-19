@@ -10,14 +10,14 @@ namespace KoiCareSystem.Service
     public interface IUserService
     {
         Task<ServiceResult> GetAll();
-        Task<ServiceResult> GetUserById(int id);
-        Task<ServiceResult> GetUserByEmail(string email);
+        Task<ServiceResult> GetById(int id);
+        Task<ServiceResult> GetByEmail(string email);
         Task<ServiceResult> Save(RequestRegisterDto registerDto);
         Task<ServiceResult> SaveByAdmin(RequestRegisterAdminDto registerAdminDto);
         Task<ServiceResult> UpdateVerifyCode(string email, string code);
         Task<ServiceResult> VerifyCode(RequestVerifyEmailDto requestVerifyEmailDto);
-        Task<ServiceResult> DeleteUserByEmail(string email);
-        Task<ServiceResult> DeleteUserById(int id);
+        Task<ServiceResult> DeleteByEmail(string email);
+        Task<ServiceResult> DeleteById(int id);
     }
     public class UserService : IUserService
     {
@@ -46,7 +46,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Get By Id
-        public async Task<ServiceResult> GetUserById(int id)
+        public async Task<ServiceResult> GetById(int id)
         {
             #region Business Rule
 
@@ -63,7 +63,7 @@ namespace KoiCareSystem.Service
             }
         }
         //Get By Email
-        public async Task<ServiceResult> GetUserByEmail(string email)
+        public async Task<ServiceResult> GetByEmail(string email)
         {
             #region Business Rule
 
@@ -90,7 +90,7 @@ namespace KoiCareSystem.Service
 
                 int result = -1;
 
-                var userExisted = await this.GetUserByEmail(registerDto.Email);
+                var userExisted = await this.GetByEmail(registerDto.Email);
 
                 if (userExisted.Status == Const.SUCCESS_READ_CODE)
                 {
@@ -152,7 +152,7 @@ namespace KoiCareSystem.Service
 
                 int result = -1;
 
-                var userExisted = await this.GetUserByEmail(registerAdminDto.Email);
+                var userExisted = await this.GetByEmail(registerAdminDto.Email);
 
                 if (userExisted.Status == Const.SUCCESS_READ_CODE)
                 {
@@ -203,7 +203,7 @@ namespace KoiCareSystem.Service
 
                 int result = -1;
 
-                var userExisted = await this.GetUserByEmail(email);
+                var userExisted = await this.GetByEmail(email);
 
                 if (userExisted.Status == Const.SUCCESS_READ_CODE)
                 {
@@ -232,13 +232,13 @@ namespace KoiCareSystem.Service
         }
         
         //Delete by Id, Email
-        public async Task<ServiceResult> DeleteUserById(int id)
+        public async Task<ServiceResult> DeleteById(int id)
         {
             try
             {
                 var result = false;
 
-                var removeUser = this.GetUserById(id);
+                var removeUser = this.GetById(id);
 
                 if (removeUser != null && removeUser.Result.Status == Const.SUCCESS_READ_CODE)
                 {
@@ -263,13 +263,13 @@ namespace KoiCareSystem.Service
                 return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
-        public async Task<ServiceResult> DeleteUserByEmail(string email)
+        public async Task<ServiceResult> DeleteByEmail(string email)
         {
             try
             {
                 var result = false;
 
-                var removeUser = this.GetUserByEmail(email);
+                var removeUser = this.GetByEmail(email);
 
                 if (removeUser != null && removeUser.Result.Status == Const.SUCCESS_READ_CODE)
                 {
@@ -298,7 +298,7 @@ namespace KoiCareSystem.Service
         {
             int result = -1;
 
-            var userExisted = await this.GetUserByEmail(requestVerifyEmailDto.Email);
+            var userExisted = await this.GetByEmail(requestVerifyEmailDto.Email);
             if (userExisted.Status == Const.SUCCESS_READ_CODE)
             {
                 var user = (User)userExisted.Data;

@@ -39,7 +39,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             }
 
             // Kiểm tra sự tồn tại của người dùng dựa trên email
-            var user = await _userService.GetUserByEmail(RequestLoginDto.Email);
+            var user = await _userService.GetByEmail(RequestLoginDto.Email);
             if (user == null)
             {
                 ModelState.AddModelError(string.Empty, "Không tìm thấy User");
@@ -78,7 +78,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             }
 
             // Lấy vai trò (role) của người dùng
-            var roles = await _roleService.GetRoleById(userExist.RoleId);
+            var roles = await _roleService.GetById(userExist.RoleId);
             if (roles == null || roles.Data == null)
             {
                 ModelState.AddModelError(string.Empty, "Role not found.");

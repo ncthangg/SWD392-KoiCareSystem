@@ -29,7 +29,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
                 return NotFound();
             }
 
-            var order = await _orderService.GetOrderByOrderId((int)id);
+            var order = await _orderService.GetByOrderId((int)id);
             if (order == null)
             {
                 return NotFound();

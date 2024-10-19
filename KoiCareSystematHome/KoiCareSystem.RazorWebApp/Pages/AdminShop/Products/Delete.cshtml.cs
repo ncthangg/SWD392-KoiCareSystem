@@ -33,7 +33,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
             {
                 return NotFound();
             }
-            var product = await _productService.GetProductById((int)id) ;
+            var product = await _productService.GetById((int)id) ;
             if (product == null)
             {
                 return NotFound();
@@ -52,11 +52,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
                 return NotFound();
             }
 
-            var product = await _productService.GetProductById((int)id);
+            var product = await _productService.GetById((int)id);
             if (product != null)
             {
                 Product = (Product)product.Data;
-                await _productService.DeleteProductById((int)id);
+                await _productService.DeleteById((int)id);
             }
 
             return RedirectToPage("./Index");

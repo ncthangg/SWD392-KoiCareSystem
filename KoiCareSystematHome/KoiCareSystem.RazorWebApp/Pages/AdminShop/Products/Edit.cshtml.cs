@@ -37,7 +37,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
                 return NotFound();
             }
 
-            var product =  await _productService.GetProductById((int)id);
+            var product =  await _productService.GetById((int)id);
             if (product == null)
             {
                 return NotFound();
@@ -45,7 +45,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
             Product = (Product)product.Data;
 
             RequestCreateANewProductDto = _mapper.Map<RequestCreateANewProductDto>(Product);
-            var category = _categoryService.GetAllCategory().Result.Data as IList<Category>;
+            var category = _categoryService.GetAll().Result.Data as IList<Category>;
             ViewData["CategoryId"] = new SelectList(category, "Id", "Description");
             return Page();
         }
