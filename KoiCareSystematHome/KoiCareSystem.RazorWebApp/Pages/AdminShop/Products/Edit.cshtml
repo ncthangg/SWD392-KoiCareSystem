@@ -1,11 +1,11 @@
 ﻿@page
-@model KoiCareSystem.RazorWebApp.Pages.Admin.Products.CreateModel
+@model KoiCareSystem.RazorWebApp.Pages.Shop.Products.EditModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>Product</h4>
 <hr />
@@ -13,6 +13,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RequestCreateANewProductDto.ProductId" />
             <div class="form-group">
                 <label asp-for="RequestCreateANewProductDto.ProductName" class="control-label"></label>
                 <input asp-for="RequestCreateANewProductDto.ProductName" class="form-control" />
@@ -35,17 +36,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="RequestCreateANewProductDto.CategoryId" class="control-label"></label>
-                <select asp-for="RequestCreateANewProductDto.CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+                <select asp-for="RequestCreateANewProductDto.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="RequestCreateANewProductDto.CategoryId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

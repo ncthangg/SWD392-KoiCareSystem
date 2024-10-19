@@ -1,11 +1,31 @@
 ﻿@page
-@model KoiCareSystem.RazorWebApp.Pages.Admin.Orders.IndexModel
+@model KoiCareSystem.RazorWebApp.Pages.Shop.Orders.IndexModel
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Orders Management</h1>
 
+<form method="get">
+    <div class="row mb-3 justify-content-around">
+        <div class="col-md-3">
+            <label for="SearchId">Order ID:</label>
+            <input type="text" id="SearchOrderId" name="SearchOrderId" value="@Model.SearchOrderId" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label for="SearchName">User Name:</label>
+            <input type="text" id="SearchUserName" name="SearchUserName" value="@Model.SearchUserName" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label for="SearchOrderStatus">Order Status:</label>
+            <select asp-for="SearchOrderStatus" class="form-control" asp-items="ViewBag.OrderStatus"></select>
+        </div>
+        <div class="col-md-auto align-self-end">
+            <button type="submit" class="btn btn-primary mt-2">Search</button>
+            <button type="reset" class="btn btn-secondary mt-2">Reset</button>
+        </div>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -53,8 +73,7 @@
             </td>
 
             <td>
-                <a asp-page="/Admin/OrderItems/Index" asp-route-orderId="@item.OrderId">Manager</a> |
-                    @* <a asp-page="/Admin/OrderItems/AddItemToOrder" asp-route-orderId="@item.OrderId">Add Item to Order</a> | *@
+                <a asp-page="/AdminShop/OrderItems/Index" asp-route-orderId="@item.OrderId">Manager</a> |
                 <a asp-page="./Edit" asp-route-id="@item.OrderId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.OrderId">Details</a> | 
                 <a asp-page="./Delete" asp-route-id="@item.OrderId">Delete</a>

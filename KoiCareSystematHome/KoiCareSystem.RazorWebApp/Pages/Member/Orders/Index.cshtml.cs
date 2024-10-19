@@ -21,7 +21,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             _orderService ??= new OrderService();
         }
 
-        public IList<Order> Order { get;set; } = default!;
+        public IList<Order> Order { get; set; } = default!;
         public int UserId { get; set; }
         public async Task OnGetAsync()
         {
@@ -38,13 +38,13 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             // Tạo một đơn hàng mới
             Order newOrder = new Order
             {
-                    UserId = (int)UserSession.UserId
+                UserId = (int)UserSession.UserId
             };
 
-                await _orderService.Save(newOrder);
+            await _orderService.Save(newOrder);
 
-                // Điều hướng trở lại trang Index
-                return RedirectToPage("./Index");
+            // Điều hướng trở lại trang Index
+            return RedirectToPage("./Index");
         }
 
     }

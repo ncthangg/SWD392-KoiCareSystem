@@ -7,29 +7,35 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using KoiCareSystematHome.Service;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs.Request;
 using AutoMapper;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
+namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
 {
     public class CreateModel : PageModel
     {
-        private readonly OrderService _orderService;
-        private readonly IMapper _mapper;
+        private readonly ProductService _productService;
+        private readonly CategoryService _categoryService;
+
         public CreateModel(IMapper mapper)
         {
-            _orderService ??= new OrderService();
-            _mapper = mapper;
-        }
-        public IActionResult OnGet()
-        {
-            return Page();
+            _productService ??= new ProductService(mapper);
+            _categoryService ??= new CategoryService();
         }
 
         [BindProperty]
-        public Order Order { get; set; } = default!;
-        //public RequestCreateOrderDto RequestCreateOrderDto { get; set; } = default!;
+        public RequestCreateANewProductDto RequestCreateANewProductDto { get; set; } = default!;
+
+        public  ActionResult OnGet()
+        {
+            var categories = _categoryService.GetAllCategory().Result.Data as IList<Category>;
+            ViewData["CategoryId"] =  new SelectList(categories, "Id", "Description");
+            return Page();
+        }
+
+
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
@@ -37,8 +43,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
             {
                 return Page();
             }
-            //Order = _mapper.Map<Order>(RequestCreateOrderDto);
-            await _orderService.Save(Order);
+            await _productService.Save(RequestCreateANewProductDto);
 
             return RedirectToPage("./Index");
         }

@@ -10,7 +10,7 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
+namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
 {
     public class EditModel : PageModel
     {
@@ -22,10 +22,8 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
             _orderService ??= new OrderService();
             _orderStatusService ??= new OrderStatusService();
         }
-
         [BindProperty]
         public Order Order { get; set; } = default!;
-
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -62,10 +60,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
             {
                 await _orderService.Save(Order);
             }
-
             return RedirectToPage("./Index");
         }
-
-
     }
 }

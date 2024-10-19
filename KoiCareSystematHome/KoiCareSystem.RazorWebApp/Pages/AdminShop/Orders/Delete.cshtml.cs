@@ -9,17 +9,18 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
+namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
 {
-    public class DetailsModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly OrderService _orderService;
 
-        public DetailsModel()
+        public DeleteModel()
         {
             _orderService ??= new OrderService();
         }
 
+        [BindProperty]
         public Order Order { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -30,6 +31,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
             }
 
             var order = await _orderService.GetOrderByOrderId((int)id);
+
             if (order == null)
             {
                 return NotFound();
@@ -39,6 +41,22 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.Orders
                 Order = (Order)order.Data;
             }
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _orderService.GetOrderByOrderId((int)id);
+            if (order != null)
+            {
+                await _orderService.DeleteOrderByOrderId((int)id);
+            }
+
+            return RedirectToPage("./Index");
         }
     }
 }

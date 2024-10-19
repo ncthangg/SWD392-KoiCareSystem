@@ -11,33 +11,37 @@ using KoiCareSystematHome.Service;
 using KoiCareSystem.Service;
 using AutoMapper;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Admin.Products
+namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
 {
-    public class IndexModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
 
-        public IndexModel(IMapper mapper)
+        public DetailsModel(IMapper mapper)
         {
             _productService ??= new ProductService(mapper);
             _categoryService ??= new CategoryService();
         }
+        public Product Product { get; set; } = default!;
 
-
-        public IList<Product> Product { get; set; } = default!;
-
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
-            
-            var result = await _productService.GetAllProduct();
-            if (result.Status > 0)
+            if (id == null)
             {
-                Product = (IList<Product>)result.Data;
+                return NotFound();
             }
 
-            //Product = (await _productService.GetAllProduct()).Data as IList<Product>;
-
+            var product = await _productService.GetProductById((int)id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                Product = (Product)product.Data;
+            }
+            return Page();
         }
     }
 }
