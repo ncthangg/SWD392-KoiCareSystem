@@ -21,7 +21,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Admin.KoiFishPages
 
         public KoiFish KoiFish { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(long? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {

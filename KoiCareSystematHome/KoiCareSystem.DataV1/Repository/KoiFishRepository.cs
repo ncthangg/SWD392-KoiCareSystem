@@ -30,6 +30,7 @@ namespace KoiCareSystem.Data.Repository
         {
             // Fetch orders based on the userId
             return await _context.KoiFishes
+                .Include(e => e.Pond)
                 .Where(o => o.UserId == userId)
                 .ToListAsync();
         }
@@ -37,9 +38,16 @@ namespace KoiCareSystem.Data.Repository
         {
             // Fetch orders based on the userId
             return await _context.KoiFishes
+                .Include(e => e.Pond)
                 .Where(o => o.PondId == pondId)
                 .ToListAsync();
         }
-
+        public async Task<KoiFish> GetByIdAsync(int id)
+        {
+            // Fetch orders based on the userId
+            return await _context.KoiFishes
+                   .Include(e => e.Pond)
+                   .FirstOrDefaultAsync(o => o.FishId == id);
+        }
     }
 }

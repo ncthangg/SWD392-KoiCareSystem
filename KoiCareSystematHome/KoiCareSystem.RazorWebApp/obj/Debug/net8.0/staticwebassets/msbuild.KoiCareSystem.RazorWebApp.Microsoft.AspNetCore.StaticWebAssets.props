@@ -32,6 +32,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koifishs\af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jfif))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/koifishs/af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jfif</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koifishs\af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jfif))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ponds\860413d4-f164-4378-a5d4-d4b8cea3a544_ho1.jfif))">
       <SourceType>Package</SourceType>
       <SourceId>KoiCareSystem.RazorWebApp</SourceId>

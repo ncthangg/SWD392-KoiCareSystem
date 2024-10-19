@@ -69,6 +69,10 @@
       {
          "Name": "[dbo].[WaterParameters]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[WaterStatus]",
+         "ObjectType": 0
       }
    ],
    "UiHint": null,

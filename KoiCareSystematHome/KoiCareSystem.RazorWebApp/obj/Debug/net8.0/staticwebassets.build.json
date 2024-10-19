@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/NvqpX6DmWJKhXyVeKgDe+dqAp3VQVltOae+rTBQhnc=",
+  "Hash": "I8lFlS9PU4baETjjKDWdcpGPPEbv0RFDqUxMv0bCSJU=",
   "Source": "KoiCareSystem.RazorWebApp",
   "BasePath": "_content/KoiCareSystem.RazorWebApp",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\koifishs\\af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jfif",
+      "SourceId": "KoiCareSystem.RazorWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\",
+      "BasePath": "_content/KoiCareSystem.RazorWebApp",
+      "RelativePath": "images/koifishs/af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\koifishs\\af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jfif"
     },
     {
       "Identity": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystematHome\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\ponds\\860413d4-f164-4378-a5d4-d4b8cea3a544_ho1.jfif",

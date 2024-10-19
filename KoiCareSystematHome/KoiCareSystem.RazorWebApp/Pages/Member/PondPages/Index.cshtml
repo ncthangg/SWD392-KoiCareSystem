@@ -82,9 +82,8 @@
                 @Html.DisplayFor(modelItem => item.SkimmerCount)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.PondId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.PondId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.PondId">Delete</a>
+                <a asp-page="/Member/KoiFishPages/FishsInPond" asp-route-id="@item.PondId">View Fishs</a> |
+                <a asp-page="./Details" asp-route-id="@item.PondId">Details</a> 
             </td>
         </tr>
 }

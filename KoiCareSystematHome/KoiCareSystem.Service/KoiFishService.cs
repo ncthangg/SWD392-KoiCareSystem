@@ -13,6 +13,7 @@ namespace KoiCareSystem.Service
         Task<ServiceResult> GetPonds();
         Task<ServiceResult> GetUsers();
         Task<ServiceResult> GetById(int id);
+        Task<ServiceResult> GetByPondId(int pondId);
         Task<ServiceResult> UpdateById(int id, ServiceResult result);
         Task<ServiceResult> DeleteById(int id);
         Task<ServiceResult> Create(KoiFish koiFish);
@@ -86,40 +87,6 @@ namespace KoiCareSystem.Service
             }
         }
 
-        public async Task<ServiceResult> DeleteById(int id)
-        {
-            try
-            {
-                var result = false;
-                var existingKoiFish = await this.GetById(id);
-                // Kiểm tra có tồn tại trước đó không
-                if (existingKoiFish != null && existingKoiFish.Status == Const.SUCCESS_READ_CODE)
-                {
-                    var fish = (KoiFish)existingKoiFish.Data;
-                    // Nếu tồn tại ==> xóa
-                    result = await _unitOfWork.KoiFishRepository.RemoveAsync(fish);
-                    if (result)
-                    {
-                        // Xóa thành công => trả về kết quả 
-                        return new ServiceResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG, result);
-                    }
-                    else
-                    {
-                        // Xóa không thành công => trả về lỗi  
-                        return new ServiceResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, existingKoiFish.Data);
-                    }
-                }
-                else
-                {
-                    // Kiểm tra không tồn tại trước đó
-                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, result);
-                }
-            }
-            catch (Exception ex)
-            {
-                return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
-            }
-        }
 
         public async Task<ServiceResult> GetAll()
         {
@@ -166,6 +133,23 @@ namespace KoiCareSystem.Service
             try
             {
                 var koiFishList = await _unitOfWork.KoiFishRepository.GetByUserIdAsync(userId);
+                if (koiFishList == null)
+                {
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
+                }
+
+                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, koiFishList);
+            }
+            catch (Exception)
+            {
+                return new ServiceResult(Const.FAIL_READ_CODE, Const.FAIL_READ_MSG);
+            }
+        }
+        public async Task<ServiceResult> GetByPondId(int pondId)
+        {
+            try
+            {
+                var koiFishList = await _unitOfWork.KoiFishRepository.GetByPondIdAsync(pondId);
                 if (koiFishList == null)
                 {
                     return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
@@ -252,6 +236,40 @@ namespace KoiCareSystem.Service
                 }
 
                 return new ServiceResult(Const.FAIL_UPDATE_CODE, Const.FAIL_UPDATE_MSG);
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
+            }
+        }
+        public async Task<ServiceResult> DeleteById(int id)
+        {
+            try
+            {
+                var result = false;
+                var existingKoiFish = await this.GetById(id);
+                // Kiểm tra có tồn tại trước đó không
+                if (existingKoiFish != null && existingKoiFish.Status == Const.SUCCESS_READ_CODE)
+                {
+                    var fish = (KoiFish)existingKoiFish.Data;
+                    // Nếu tồn tại ==> xóa
+                    result = await _unitOfWork.KoiFishRepository.RemoveAsync(fish);
+                    if (result)
+                    {
+                        // Xóa thành công => trả về kết quả 
+                        return new ServiceResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG, result);
+                    }
+                    else
+                    {
+                        // Xóa không thành công => trả về lỗi  
+                        return new ServiceResult(Const.FAIL_DELETE_CODE, Const.FAIL_DELETE_MSG, existingKoiFish.Data);
+                    }
+                }
+                else
+                {
+                    // Kiểm tra không tồn tại trước đó
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, result);
+                }
             }
             catch (Exception ex)
             {

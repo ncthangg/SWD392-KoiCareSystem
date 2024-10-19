@@ -31,5 +31,9 @@ public partial class WaterParameter
 
     public DateTime? UpdatedAt { get; set; }
 
+    public int? StatusId { get; set; }
+
     public virtual Pond Pond { get; set; }
+
+    public virtual WaterStatus Status { get; set; }
 }

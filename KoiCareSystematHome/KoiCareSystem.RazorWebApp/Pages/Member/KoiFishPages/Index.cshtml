@@ -46,12 +46,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.KoiFish[0].Price)
             </th>
-            <th>
+@*             <th>
                 @Html.DisplayNameFor(model => model.KoiFish[0].CreatedAt)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.KoiFish[0].UpdatedAt)
-            </th>
+            </th> *@
             <th>
                 @Html.DisplayNameFor(model => model.KoiFish[0].Pond.PondName)
             </th>
@@ -89,14 +89,14 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
-                <td>
+@*                 <td>
                     @Html.DisplayFor(modelItem => item.CreatedAt)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.UpdatedAt)
-                </td>
+                </td> *@
                 <td>
-                    @Html.DisplayFor(modelItem => item.Pond.PondId)
+                    @Html.DisplayFor(modelItem => item.Pond.PondName)
                 </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.FishId">Edit</a> |

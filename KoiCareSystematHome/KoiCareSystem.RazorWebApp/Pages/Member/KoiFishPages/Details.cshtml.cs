@@ -8,22 +8,22 @@ using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Common.DTOs;
+using KoiCareSystem.Service;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
 {
     public class DetailsModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
-
-        public DetailsModel(ApplicationDbContext context)
+        private readonly KoiFishService _koiFishService;
+        public DetailsModel(KoiFishService koiFishService)
         {
-            _context = context;
+            _koiFishService = koiFishService;
         }
         //========================================================
         public KoiFish KoiFish { get; set; } = default!;
         public int UserId { get; set; }
         //========================================================
-        public async Task<IActionResult> OnGetAsync(long? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             UserId = (int)UserSession.UserId;
             if (id == null)
@@ -31,14 +31,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
                 return NotFound();
             }
 
-            var koifish = await _context.KoiFishes.FirstOrDefaultAsync(m => m.FishId == id);
+            var koifish = await _koiFishService.GetById((int)id);
             if (koifish == null)
             {
                 return NotFound();
             }
             else
             {
-                KoiFish = koifish;
+                KoiFish = (KoiFish)koifish.Data;
             }
             return Page();
         }
