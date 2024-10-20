@@ -2,7 +2,7 @@
 @model KoiCareSystem.RazorWebApp.Pages.Admin.WaterParameters.IndexModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
 }
 
 <h1>Water Parameters</h1>
@@ -13,6 +13,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].WaterVolume)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.WaterParameter[0].MeasurementDate)
             </th>
@@ -52,6 +55,9 @@
     <tbody>
 @foreach (var item in Model.WaterParameter) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaterVolume)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MeasurementDate)
             </td>

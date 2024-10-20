@@ -10,9 +10,6 @@ namespace KoiCareSystem.Service
     {
         Task<ServiceResult> Login(RequestLoginDto requestLoginDto);
 
-        //Task<User?> GetByVerificationToken(string token);
-
-
     }
     public class AuthenticateService : IAuthenticateService
     {

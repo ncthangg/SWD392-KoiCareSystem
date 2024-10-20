@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.WaterStatusPages
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
         }
 
         [BindProperty]
-        public WaterParameter WaterParameter { get; set; } = default!;
+        public WaterStatus WaterStatus { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,14 +30,12 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
                 return NotFound();
             }
 
-            var waterparameter =  await _context.WaterParameters.FirstOrDefaultAsync(m => m.ParameterId == id);
-            if (waterparameter == null)
+            var waterstatus =  await _context.WaterStatuses.FirstOrDefaultAsync(m => m.StatusId == id);
+            if (waterstatus == null)
             {
                 return NotFound();
             }
-            WaterParameter = waterparameter;
-           ViewData["PondId"] = new SelectList(_context.Ponds, "PondId", "PondName");
-           ViewData["StatusId"] = new SelectList(_context.WaterStatuses, "StatusId", "StatusName");
+            WaterStatus = waterstatus;
             return Page();
         }
 
@@ -50,7 +48,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
                 return Page();
             }
 
-            _context.Attach(WaterParameter).State = EntityState.Modified;
+            _context.Attach(WaterStatus).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +56,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!WaterParameterExists(WaterParameter.ParameterId))
+                if (!WaterStatusExists(WaterStatus.StatusId))
                 {
                     return NotFound();
                 }
@@ -71,9 +69,9 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
             return RedirectToPage("./Index");
         }
 
-        private bool WaterParameterExists(int id)
+        private bool WaterStatusExists(int id)
         {
-            return _context.WaterParameters.Any(e => e.ParameterId == id);
+            return _context.WaterStatuses.Any(e => e.StatusId == id);
         }
     }
 }

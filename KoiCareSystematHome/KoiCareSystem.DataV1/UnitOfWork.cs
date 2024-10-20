@@ -18,8 +18,9 @@ namespace KoiCareSystem.Data
 
         private KoiFishRepository _koiFishRepository;
         private PondRepository _pondRepository;
-        private WaterParameterRepository _waterParameterRepository;
         private WaterStatusRepository _waterStatusRepository;
+        private WaterParameterRepository _waterParameterRepository;
+        private WaterParameterLimitRepository _waterParameterLimitRepository;
 
         private UserRepository _userRepository;
         private RoleRepository _roleRepository;
@@ -96,18 +97,13 @@ namespace KoiCareSystem.Data
                 return _koiFishRepository ??= new Repository.KoiFishRepository(_dbContext);
             }
         }
+
+        //Pond
         public PondRepository PondRepository
         {
             get
             {
                 return _pondRepository ??= new PondRepository(_dbContext);
-            }
-        }
-        public WaterParameterRepository WaterParameterRepository
-        {
-            get
-            {
-                return _waterParameterRepository ??= new WaterParameterRepository(_dbContext);
             }
         }
         public WaterStatusRepository WaterStatusRepository
@@ -117,6 +113,26 @@ namespace KoiCareSystem.Data
                 return _waterStatusRepository ??= new WaterStatusRepository(_dbContext);
             }
         }
+        public WaterParameterRepository WaterParameterRepository
+        {
+            get
+            {
+                return _waterParameterRepository ??= new WaterParameterRepository(_dbContext);
+            }
+        }
+        public WaterParameterLimitRepository WaterParameterLimitRepository
+        {
+            get
+            {
+                return _waterParameterLimitRepository ??= new WaterParameterLimitRepository(_dbContext);
+            }
+
+        }
+
+        /// <summary>
+        /// SaveChanges
+        /// </summary>
+        /// <returns></returns>
         public async Task<int> SaveChangesAsync()
         {
             return await _dbContext.SaveChangesAsync();

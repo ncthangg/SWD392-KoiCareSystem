@@ -33,6 +33,8 @@ public partial class WaterParameter
 
     public int? StatusId { get; set; }
 
+    public decimal? WaterVolume { get; set; }
+
     public virtual Pond Pond { get; set; }
 
     public virtual WaterStatus Status { get; set; }

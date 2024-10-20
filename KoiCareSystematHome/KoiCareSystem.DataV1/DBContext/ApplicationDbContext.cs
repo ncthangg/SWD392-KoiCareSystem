@@ -193,6 +193,7 @@ public partial class ApplicationDbContext : DbContext
                 .HasColumnName("PO4");
             entity.Property(e => e.Salinity).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.Temperature).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.WaterVolume).HasColumnType("decimal(18, 2)");
 
             entity.HasOne(d => d.Pond).WithMany(p => p.WaterParameters).HasForeignKey(d => d.PondId);
 
@@ -205,14 +206,16 @@ public partial class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.ParameterId);
 
-            entity.Property(e => e.MaxValue).HasColumnType("decimal(18, 2)");
-            entity.Property(e => e.MinValue).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.MaxAcceptValue).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.MaxGoodValue).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.MinAcceptValue).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.MinGoodValue).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.ParameterName).IsRequired();
         });
 
         modelBuilder.Entity<WaterStatus>(entity =>
         {
-            entity.HasKey(e => e.StatusId).HasName("PK__WaterSta__C8EE206368B8243A");
+            entity.HasKey(e => e.StatusId).HasName("PK__WaterSta__C8EE20636C029C12");
 
             entity.ToTable("WaterStatus");
 

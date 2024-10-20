@@ -40,7 +40,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
             _context.WaterParameters.Add(WaterParameter);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Member/PondPages/Index");
         }
     }
 }

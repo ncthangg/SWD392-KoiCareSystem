@@ -11,9 +11,13 @@ public partial class WaterParameterLimit
 
     public string ParameterName { get; set; }
 
-    public decimal MinValue { get; set; }
+    public decimal MinGoodValue { get; set; }
 
-    public decimal MaxValue { get; set; }
+    public decimal MaxGoodValue { get; set; }
+
+    public decimal MinAcceptValue { get; set; }
+
+    public decimal MaxAcceptValue { get; set; }
 
     public DateTime CreatedAt { get; set; }
 

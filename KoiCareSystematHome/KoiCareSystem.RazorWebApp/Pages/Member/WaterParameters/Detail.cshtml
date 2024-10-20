@@ -1,8 +1,8 @@
 ﻿@page
-@model KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters.DetailsModel
+@model KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters.DetailModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Detail";
 }
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>Detail</title>
 </head>
 <body>
 
@@ -79,6 +79,12 @@
             @Html.DisplayFor(model => model.WaterParameter.UpdatedAt)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WaterParameter.WaterVolume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WaterParameter.WaterVolume)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.WaterParameter.Pond)
         </dt>
         <dd class="col-sm-10">
@@ -88,13 +94,12 @@
             @Html.DisplayNameFor(model => model.WaterParameter.Status)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameter.Status.StatusName)
+            @Html.DisplayFor(model => model.WaterParameter.StatusId)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.WaterParameter.ParameterId">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+        <a asp-page="/Member/PondPages/Index">Back to List</a>
 </div>
 </body>
 </html>

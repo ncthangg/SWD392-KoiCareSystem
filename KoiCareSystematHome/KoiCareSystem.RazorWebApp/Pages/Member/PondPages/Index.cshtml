@@ -16,6 +16,9 @@
     <thead>
         <tr>
             <th>
+                Water Status
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Pond[0].PondName)
             </th>
             <th>
@@ -51,6 +54,10 @@
     <tbody>
 @foreach (var item in Model.Pond) {
         <tr>
+            <td>
+               <a asp-page="/Member/WaterParameters/Index" asp-route-id="@item.PondId">Index</a>
+               <a asp-page="/Member/WaterParameters/Detail" asp-route-id="@item.PondId">Detail</a>
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PondName)
             </td>

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.WaterStatusPages
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
         }
 
         [BindProperty]
-        public WaterParameter WaterParameter { get; set; } = default!;
+        public WaterStatus WaterStatus { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,15 +29,15 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
                 return NotFound();
             }
 
-            var waterparameter = await _context.WaterParameters.FirstOrDefaultAsync(m => m.ParameterId == id);
+            var waterstatus = await _context.WaterStatuses.FirstOrDefaultAsync(m => m.StatusId == id);
 
-            if (waterparameter == null)
+            if (waterstatus == null)
             {
                 return NotFound();
             }
             else
             {
-                WaterParameter = waterparameter;
+                WaterStatus = waterstatus;
             }
             return Page();
         }
@@ -49,11 +49,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
                 return NotFound();
             }
 
-            var waterparameter = await _context.WaterParameters.FindAsync(id);
-            if (waterparameter != null)
+            var waterstatus = await _context.WaterStatuses.FindAsync(id);
+            if (waterstatus != null)
             {
-                WaterParameter = waterparameter;
-                _context.WaterParameters.Remove(WaterParameter);
+                WaterStatus = waterstatus;
+                _context.WaterStatuses.Remove(WaterStatus);
                 await _context.SaveChangesAsync();
             }
 

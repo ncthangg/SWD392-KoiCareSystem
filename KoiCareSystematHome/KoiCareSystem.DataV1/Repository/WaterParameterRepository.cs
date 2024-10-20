@@ -16,13 +16,12 @@ namespace KoiCareSystem.Data.Repository
         {
         }
         public WaterParameterRepository(ApplicationDbContext context) => _context = context;
-        public async Task<List<WaterParameter>> GetByIdAsync(int id)
+        public async Task<WaterParameter> GetByIdAsync(int id)
         {
             // Fetch orders based on the userId
             return await _context.WaterParameters
                 .Include(e => e.Status)
-                .Where(o => o.ParameterId == id)
-                .ToListAsync();
+                .FirstOrDefaultAsync(o => o.ParameterId == id);
         }
         public async Task<List<WaterParameter>> GetByPondIdAsync(int pondId)
         {

@@ -1,0 +1,73 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Admin.WaterParameterLimits.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+<h4>WaterParameterLimit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="WaterParameterLimit.ParameterName" class="control-label"></label>
+                <input asp-for="WaterParameterLimit.ParameterName" class="form-control" />
+                <span asp-validation-for="WaterParameterLimit.ParameterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaterParameterLimit.MinGoodValue" class="control-label"></label>
+                <input asp-for="WaterParameterLimit.MinGoodValue" class="form-control" />
+                <span asp-validation-for="WaterParameterLimit.MinGoodValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaterParameterLimit.MaxGoodValue" class="control-label"></label>
+                <input asp-for="WaterParameterLimit.MaxGoodValue" class="form-control" />
+                <span asp-validation-for="WaterParameterLimit.MaxGoodValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaterParameterLimit.MinAcceptValue" class="control-label"></label>
+                <input asp-for="WaterParameterLimit.MinAcceptValue" class="form-control" />
+                <span asp-validation-for="WaterParameterLimit.MinAcceptValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaterParameterLimit.MaxAcceptValue" class="control-label"></label>
+                <input asp-for="WaterParameterLimit.MaxAcceptValue" class="form-control" />
+                <span asp-validation-for="WaterParameterLimit.MaxAcceptValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaterParameterLimit.CreatedAt" class="control-label"></label>
+                <input asp-for="WaterParameterLimit.CreatedAt" class="form-control" />
+                <span asp-validation-for="WaterParameterLimit.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaterParameterLimit.UpdatedAt" class="control-label"></label>
+                <input asp-for="WaterParameterLimit.UpdatedAt" class="form-control" />
+                <span asp-validation-for="WaterParameterLimit.UpdatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

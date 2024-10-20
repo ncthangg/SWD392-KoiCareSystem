@@ -88,36 +88,36 @@ namespace KoiCareSystem.Service
 
         }
 
-            public async Task<ServiceResult> Update(WaterParameter param)
+        public async Task<ServiceResult> Update(WaterParameter param)
+        {
+            try
             {
-                try
-                {
-                    int result = -1;
-                    var paramExist = await this.GetById(param.ParameterId);
+                int result = -1;
+                var paramExist = await this.GetById(param.ParameterId);
 
-                    // Update existing
-                    if (paramExist.Status == Const.SUCCESS_READ_CODE)
+                // Update existing
+                if (paramExist.Status == Const.SUCCESS_READ_CODE)
+                {
+                    var waterParamToUpdate = (WaterParameter)paramExist.Data;
+                    param.CreatedAt = waterParamToUpdate.CreatedAt;
+                    param.UpdatedAt = DateTime.UtcNow;
+
+                    if (waterParamToUpdate != null)
                     {
-                        var waterParamToUpdate = (WaterParameter)paramExist.Data;
-                        param.CreatedAt = waterParamToUpdate.CreatedAt;
-                        param.UpdatedAt = DateTime.UtcNow;
+                        _unitOfWork.WaterParameterRepository.UpdateEntity(waterParamToUpdate, param);
 
-                        if (waterParamToUpdate != null)
-                        {
-                            _unitOfWork.WaterParameterRepository.UpdateEntity(waterParamToUpdate, param);
+                        result = await _unitOfWork.SaveChangesAsync();
 
-                            result = await _unitOfWork.SaveChangesAsync();
-
-                            return new ServiceResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG, param);
-                        }
+                        return new ServiceResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG, param);
                     }
+                }
 
-                    return new ServiceResult(Const.FAIL_UPDATE_CODE, Const.FAIL_UPDATE_MSG);
-                }
-                catch (Exception ex)
-                {
-                    return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
-                }
+                return new ServiceResult(Const.FAIL_UPDATE_CODE, Const.FAIL_UPDATE_MSG);
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
     }
+}

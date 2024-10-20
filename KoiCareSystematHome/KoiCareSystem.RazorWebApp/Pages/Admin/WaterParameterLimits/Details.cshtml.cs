@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
+namespace KoiCareSystem.RazorWebApp.Pages.Admin.WaterParameterLimits
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
             _context = context;
         }
 
-        public WaterParameter WaterParameter { get; set; } = default!;
+        public WaterParameterLimit WaterParameterLimit { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,14 +28,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
                 return NotFound();
             }
 
-            var waterparameter = await _context.WaterParameters.FirstOrDefaultAsync(m => m.ParameterId == id);
-            if (waterparameter == null)
+            var waterparameterlimit = await _context.WaterParameterLimits.FirstOrDefaultAsync(m => m.ParameterId == id);
+            if (waterparameterlimit == null)
             {
                 return NotFound();
             }
             else
             {
-                WaterParameter = waterparameter;
+                WaterParameterLimit = waterparameterlimit;
             }
             return Page();
         }
