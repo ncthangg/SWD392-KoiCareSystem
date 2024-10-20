@@ -36,9 +36,9 @@ namespace KoiCareSystem.Data.Repository
         }
 
         // Kiểm tra Role có tồn tại không
-        public bool ProductExists(int id)
+        public bool ProductExists(int orderId, int productId)
         {
-            return _context.OrderItems.Any(e => e.ProductId == id);
+            return _context.OrderItems.Any(e => e.OrderId == orderId && e.ProductId == productId);
         }
 
     }

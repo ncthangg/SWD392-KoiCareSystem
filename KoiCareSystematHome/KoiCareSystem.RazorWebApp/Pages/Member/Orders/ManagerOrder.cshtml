@@ -12,16 +12,23 @@
     <title>Index</title>
 
 </head>
-@if (Model.IsPurchasable)
+@if (Model.HasItems)
 {
-    <form method="post" asp-page-handler="PurchaseOrder" asp-route-orderId="@Model.OrderId">
-        <button type="submit" class="btn btn-success">Mua hàng</button>
-    </form>
+    @if (Model.IsPurchasable)
+    {
+        <form method="post" asp-page-handler="PurchaseOrder" asp-route-orderId="@Model.OrderId">
+            <button type="submit" class="btn btn-success">Mua hàng</button>
+        </form>
+    }
+    else
+    {
+        <button class="btn btn-secondary" disabled>Đã mua</button>
+    }
     <a asp-page="./AddItemToOrder" asp-route-id="@Model.OrderId" class="btn btn-primary">Thêm sản phẩm vào đơn hàng</a>
 }
 else
 {
-    <button class="btn btn-secondary" disabled>Đã mua</button>
+    <a asp-page="./AddItemToOrder" asp-route-id="@Model.OrderId" class="btn btn-primary">Thêm sản phẩm vào đơn hàng</a>
 }
    
 <body>

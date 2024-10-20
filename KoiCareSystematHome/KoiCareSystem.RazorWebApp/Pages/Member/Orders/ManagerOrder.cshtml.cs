@@ -23,11 +23,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
         public int OrderId { get; set; }
         public int UserId { get; set; }
         public bool IsPurchasable { get; set; }
+        public bool HasItems { get; set; }
         //========================================================
         public async Task<IActionResult> OnGetAsync(int? orderId)
         {
             OrderId = (int)orderId;
-            Console.WriteLine(OrderId);
             if (orderId == null)
             {
                 return NotFound();
@@ -47,6 +47,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             {
                 var order = orderExist.Data as Order;
                 IsPurchasable = order.StatusId == 1; // Chỉ cho phép mua hàng nếu status == 1
+                HasItems = order.Quantity != null;
             }
             return Page();
         }

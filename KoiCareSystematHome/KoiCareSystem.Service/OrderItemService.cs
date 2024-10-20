@@ -79,7 +79,7 @@ namespace KoiCareSystem.Service
             try
             {
                 // Kiểm tra xem sản phẩm đã tồn tại trong Order hay chưa
-                var exist = this.ProductInOrderExists(requestItemToOrderDto.ProductId);
+                var exist = this.ProductInOrderExists(requestItemToOrderDto.OrderId, requestItemToOrderDto.ProductId);
                
                 if (exist) //tồn tại
                 {        
@@ -186,9 +186,9 @@ namespace KoiCareSystem.Service
             }
         }
         //Helper
-        public bool ProductInOrderExists(int id)
+        public bool ProductInOrderExists(int orderId, int productId)
         {
-            return _unitOfWork.OrderItemRepository.ProductExists(id);
+            return _unitOfWork.OrderItemRepository.ProductExists(orderId, productId);
         }
     }
 }

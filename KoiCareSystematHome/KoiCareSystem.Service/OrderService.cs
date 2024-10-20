@@ -160,11 +160,11 @@ namespace KoiCareSystem.Service
         }
         public async Task<bool> UpdateOrderStatusAsync(int orderId, int statusId)
         {
-            // Giả sử bạn đã có phương thức trong unit of work để lấy đơn hàng theo ID
             var orderExist = await this.GetByOrderId(orderId);
-            if (orderExist != null)
+            if (orderExist != null && (orderExist.Data as Order).Quantity != null)
             {
                 var order = (Order)orderExist.Data;
+                order.OrderDate = DateTime.Now;
                 order.StatusId = statusId; // Cập nhật trạng thái
                 order.Status = _unitOfWork.OrderStatusRepository.GetById(statusId);
                 await Save(order);
