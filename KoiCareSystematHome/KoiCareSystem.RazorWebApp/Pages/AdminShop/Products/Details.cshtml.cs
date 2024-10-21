@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
-using KoiCareSystematHome.Service;
+using KoiCareSystem.Service;
 using KoiCareSystem.Service;
 using AutoMapper;
 

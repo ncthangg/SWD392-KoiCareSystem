@@ -64,18 +64,6 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.WaterParameter.Po4)
         </dd>
-@*         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterParameter.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameter.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterParameter.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameter.UpdatedAt)
-        </dd> *@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.WaterParameter.WaterVolume)
         </dt>
@@ -89,22 +77,25 @@
             @Html.DisplayFor(model => model.WaterParameter.Status.StatusName)
         </dd>
     </dl>
+    
 </div>
-<div>
-    <h4>Water Parameter Comparison</h4>
-    <hr />
-    <dl class="row">
-        @foreach (var comparison in Model.ParameterComparisons)
+
+<h3>Parameter Evaluations</h3>
+<dl class="row">
+    @if (Model.Evaluations != null)
+    {
+        @foreach (var evaluation in Model.Evaluations)
         {
-            <dt class="col-sm-2">
-                @comparison.Key
-            </dt>
-            <dd class="col-sm-10">
-                @comparison.Value
-            </dd>
+                    <dt class="col-sm-2">
+                @evaluation.Key
+                    </dt>
+                    <dd class="col-sm-10">
+                @evaluation.Value
+                    </dd>
         }
-    </dl>
-</div>
+    }
+</dl>
+
 
 <div>
     <a asp-page="/Member/PondPages/Index">Back to List</a>

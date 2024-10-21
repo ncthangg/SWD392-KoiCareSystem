@@ -2,7 +2,7 @@
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using KoiCareSystem.Service.Helper;
-using KoiCareSystematHome.Service;
+using KoiCareSystem.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Routing;

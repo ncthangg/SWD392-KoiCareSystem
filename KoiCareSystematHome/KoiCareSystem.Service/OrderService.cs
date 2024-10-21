@@ -1,7 +1,7 @@
 ﻿using KoiCareSystem.Common;
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
-using KoiCareSystematHome.Service.Base;
+using KoiCareSystem.Service.Base;
 namespace KoiCareSystem.Service
 {
     public interface IOrderService

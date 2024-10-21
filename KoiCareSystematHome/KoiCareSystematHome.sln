@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiCareSystem.RazorWebApp",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiCareSystem.Data", "KoiCareSystem.DataV1\KoiCareSystem.Data.csproj", "{A1A2DFEC-67A1-431D-BB49-3641B58FBFB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoiCareSystem.Api", "KoiCareSystem.Api\KoiCareSystem.Api.csproj", "{D6F17BC9-EB86-41E0-B7AA-EB945A390491}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A1A2DFEC-67A1-431D-BB49-3641B58FBFB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1A2DFEC-67A1-431D-BB49-3641B58FBFB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1A2DFEC-67A1-431D-BB49-3641B58FBFB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6F17BC9-EB86-41E0-B7AA-EB945A390491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F17BC9-EB86-41E0-B7AA-EB945A390491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F17BC9-EB86-41E0-B7AA-EB945A390491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F17BC9-EB86-41E0-B7AA-EB945A390491}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

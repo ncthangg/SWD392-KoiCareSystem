@@ -1,7 +1,7 @@
 ﻿using KoiCareSystem.Common;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Data;
-using KoiCareSystematHome.Service.Base;
+using KoiCareSystem.Service.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace KoiCareSystem.Service

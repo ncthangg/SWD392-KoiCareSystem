@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KoiCareSystematHome.Service.Base
+namespace KoiCareSystem.Service.Base
 {
-    public interface IBusinessResult
+    public interface IServiceResult
     {
         int Status { get; set; }
         string? Message { get; set; }
@@ -14,7 +14,7 @@ namespace KoiCareSystematHome.Service.Base
 
     }
 
-    public class ServiceResult : IBusinessResult
+    public class ServiceResult : IServiceResult
     {
         public int Status { get; set; }
         public string? Message { get; set; }

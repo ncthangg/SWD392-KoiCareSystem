@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
-using KoiCareSystematHome.Service;
+using KoiCareSystem.Service;
 using AutoMapper;
 using KoiCareSystem.Common.DTOs.Request;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;

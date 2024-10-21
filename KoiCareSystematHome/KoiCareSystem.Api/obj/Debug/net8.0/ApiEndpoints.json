@@ -1,0 +1,85 @@
+[
+  {
+    "ContainingType": "KoiCareSystem.Api.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/koi-care-system/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "KoiCareSystem.Common.DTOs.Request.RequestLoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiCareSystem.Common.DTOs.ApiResponseDto\u00601[[KoiCareSystem.Common.DTOs.Response.ResponseUserDto, KoiCareSystem.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "KoiCareSystem.Api.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/koi-care-system/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "KoiCareSystem.Common.DTOs.Request.RequestRegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiCareSystem.Common.DTOs.ApiResponseDto\u00601[[KoiCareSystem.Common.DTOs.Response.ResponseUserDto, KoiCareSystem.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "KoiCareSystem.Api.Controllers.AuthController",
+    "Method": "VerifyToken",
+    "RelativePath": "api/koi-care-system/verify-email",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "KoiCareSystem.Common.DTOs.ApiResponseDto\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

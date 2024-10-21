@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "KtzNN+Ty03cC5G22UBGdcp2NX4CyEPtCsjBR+vc+mjw=",
+  "Source": "KoiCareSystem.Api",
+  "BasePath": "_content/KoiCareSystem.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

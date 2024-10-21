@@ -3,7 +3,7 @@ using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Common;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Data;
-using KoiCareSystematHome.Service.Base;
+using KoiCareSystem.Service.Base;
 namespace KoiCareSystem.Service
 {
     public interface IOrderItemService

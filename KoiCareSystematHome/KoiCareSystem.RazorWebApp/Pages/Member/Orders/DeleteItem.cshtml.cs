@@ -9,7 +9,7 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using AutoMapper;
 using KoiCareSystem.Service;
-using KoiCareSystematHome.Service;
+using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Common.DTOs;
 

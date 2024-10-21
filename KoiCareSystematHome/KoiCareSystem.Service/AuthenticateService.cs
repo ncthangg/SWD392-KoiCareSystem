@@ -2,7 +2,7 @@
 using KoiCareSystem.Common;
 using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
-using KoiCareSystematHome.Service.Base;
+using KoiCareSystem.Service.Base;
 
 namespace KoiCareSystem.Service
 {
