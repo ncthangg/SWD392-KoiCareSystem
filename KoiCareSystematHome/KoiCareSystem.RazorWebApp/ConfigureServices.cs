@@ -33,6 +33,7 @@ namespace De
             //Helper
             services.AddScoped<EmailService>();
             services.AddScoped<IUrlHelperService, UrlHelperService>();
+            services.AddTransient<IFileService, FileService>();
 
             services.AddTransient<SmtpClient>(provider =>
             {

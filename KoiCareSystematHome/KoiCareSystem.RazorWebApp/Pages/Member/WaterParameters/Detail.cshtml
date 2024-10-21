@@ -5,18 +5,16 @@
     ViewData["Title"] = "Detail";
 }
 
-<!DOCTYPE html>
+<h1>@Model.PondName</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Detail</title>
-</head>
-<body>
+
 
 <div>
     <h4>WaterParameter</h4>
+    <a asp-page="./Create" asp-route-id="@Model.PondId"> Load</a> |||
+    <a asp-page="/Member/WaterParameters/History" asp-route-id="@Model.PondId">History</a>
     <hr />
+    
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.WaterParameter.MeasurementDate)
@@ -66,7 +64,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.WaterParameter.Po4)
         </dd>
-        <dt class="col-sm-2">
+@*         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.WaterParameter.CreatedAt)
         </dt>
         <dd class="col-sm-10">
@@ -77,7 +75,7 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.WaterParameter.UpdatedAt)
-        </dd>
+        </dd> *@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.WaterParameter.WaterVolume)
         </dt>
@@ -85,21 +83,29 @@
             @Html.DisplayFor(model => model.WaterParameter.WaterVolume)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterParameter.Pond)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameter.Pond.PondName)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.WaterParameter.Status)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameter.StatusId)
+            @Html.DisplayFor(model => model.WaterParameter.Status.StatusName)
         </dd>
     </dl>
 </div>
 <div>
-        <a asp-page="/Member/PondPages/Index">Back to List</a>
+    <h4>Water Parameter Comparison</h4>
+    <hr />
+    <dl class="row">
+        @foreach (var comparison in Model.ParameterComparisons)
+        {
+            <dt class="col-sm-2">
+                @comparison.Key
+            </dt>
+            <dd class="col-sm-10">
+                @comparison.Value
+            </dd>
+        }
+    </dl>
 </div>
-</body>
-</html>
+
+<div>
+    <a asp-page="/Member/PondPages/Index">Back to List</a>
+</div>

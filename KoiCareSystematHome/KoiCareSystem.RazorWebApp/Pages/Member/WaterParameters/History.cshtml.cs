@@ -11,11 +11,11 @@ using KoiCareSystem.Service;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
 {
-    public class IndexModel : PageModel
+    public class HistoryModel : PageModel
     {
         private readonly PondService _pondService;
         private readonly WaterParameterService _waterParameterService;
-        public IndexModel(PondService pondService, WaterParameterService waterParameterService)
+        public HistoryModel(PondService pondService, WaterParameterService waterParameterService)
         {
             _pondService = pondService;
             _waterParameterService = waterParameterService;
@@ -30,7 +30,9 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
             var pond = (await _pondService.GetById((int)id)).Data as Pond;
             PondName = pond.PondName;
 
-            WaterParameter = (await _waterParameterService.GetByPondId((int)id)).Data as IList<WaterParameter>;
+           var WaterParameterData = (await _waterParameterService.GetByPondId((int)id)).Data as IList<WaterParameter>;
+
+            WaterParameter = WaterParameterData.OrderByDescending(wp => wp.CreatedAt).ToList();
 
         }
     }

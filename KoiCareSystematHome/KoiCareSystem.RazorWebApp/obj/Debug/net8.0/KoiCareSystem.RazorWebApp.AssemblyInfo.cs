@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KoiCareSystem.RazorWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+001113a8d4320d6cab45bbd69ff85f4c96131dca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf739fc7611b2ef4e95b2072fe057a423cc015bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("KoiCareSystem.RazorWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KoiCareSystem.RazorWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

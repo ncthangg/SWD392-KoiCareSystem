@@ -28,6 +28,8 @@ namespace KoiCareSystem.Common.AutoMapper
             //Product
             CreateMap<Product, RequestCreateANewProductDto>();
             CreateMap<RequestCreateANewProductDto, Product>();
+            //WaterParameters
+            CreateMap<ImportDataDto, WaterParameter>().ReverseMap();
         }
     }
 }

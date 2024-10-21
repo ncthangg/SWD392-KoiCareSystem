@@ -55,8 +55,7 @@
 @foreach (var item in Model.Pond) {
         <tr>
             <td>
-               <a asp-page="/Member/WaterParameters/Index" asp-route-id="@item.PondId">Index</a>
-               <a asp-page="/Member/WaterParameters/Detail" asp-route-id="@item.PondId">Detail</a>
+                    <a asp-page="/Member/WaterParameters/Detail" asp-route-id="@item.PondId">Now Status</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PondName)

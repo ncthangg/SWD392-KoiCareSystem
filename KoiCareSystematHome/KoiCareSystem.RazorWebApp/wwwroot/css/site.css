@@ -1,4 +1,4 @@
-html {
+﻿html {
   font-size: 14px;
 }
 
@@ -19,4 +19,19 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.first-item-border {
+    border: 3px solid #000; /* Thêm khung với màu đen và độ dày 2px */
+}
+.bg-stable {
+    background-color: #d4edda; /* Màu nền cho trạng thái Stable (xanh nhạt) */
+}
+
+.bg-average {
+    background-color: #fff3cd; /* Màu nền cho trạng thái Average (vàng nhạt) */
+}
+
+.bg-unstable {
+    background-color: #f8d7da; /* Màu nền cho trạng thái Unstable (đỏ nhạt) */
 }

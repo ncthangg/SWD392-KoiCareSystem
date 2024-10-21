@@ -2,27 +2,24 @@
 @model KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters.CreateModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Create";
 }
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
+
 
 <h4>WaterParameter</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" asp-page-handler="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="WaterParameter.PondId" class="control-label"></label>
-                <select asp-for="WaterParameter.PondId" class ="form-control" asp-items="ViewBag.PondId"></select>
+                <input asp-for="WaterParameter.PondId" class="form-control" readonly />
+                <span asp-validation-for="WaterParameter.PondId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="WaterParameter.MeasurementDate" class="control-label"></label>
@@ -69,7 +66,7 @@
                 <input asp-for="WaterParameter.Po4" class="form-control" />
                 <span asp-validation-for="WaterParameter.Po4" class="text-danger"></span>
             </div>
-            <div class="form-group">
+@*             <div class="form-group">
                 <label asp-for="WaterParameter.CreatedAt" class="control-label"></label>
                 <input asp-for="WaterParameter.CreatedAt" class="form-control" />
                 <span asp-validation-for="WaterParameter.CreatedAt" class="text-danger"></span>
@@ -78,24 +75,53 @@
                 <label asp-for="WaterParameter.UpdatedAt" class="control-label"></label>
                 <input asp-for="WaterParameter.UpdatedAt" class="form-control" />
                 <span asp-validation-for="WaterParameter.UpdatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            </div> 
+             <div class="form-group">
                 <label asp-for="WaterParameter.StatusId" class="control-label"></label>
-                <select asp-for="WaterParameter.StatusId" class ="form-control" asp-items="ViewBag.StatusId"></select>
-            </div>
+                <select asp-for="WaterParameter.StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+            </div> *@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
+
+    <!-- Vạch phân cách ở giữa -->
+    <div class="col-md-1 d-flex justify-content-center align-items-center">
+        <div style="border-left: 1px solid #000; height: 100%;"></div>
+    </div>
+
+    <div class="col-md-6">
+        <h4>Import Water Parameters from Excel</h4>
+        <form method="post" asp-page-handler="ImportExcel" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="hidden" asp-for="PondIdGet" />
+                <label for="excelFile">Select Excel File</label>
+                <input type="file" class="form-control-file" id="excelFile" name="excelFile" />
+            </div>
+            <button type="submit" class="btn btn-primary">Import</button>
+        </form>
+        <hr />
+        <h4>Import Water Parameters from CSV</h4>
+        <form method="post" asp-page-handler="ImportCsv" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="hidden" asp-for="PondIdGet" />
+                <label for="csvFile">Select CSV File</label>
+                <input type="file" class="form-control-file" id="csvFile" name="csvFile" />
+            </div>
+            <button type="submit" class="btn btn-primary">Import</button>
+        </form>
+    </div>
 </div>
 
+
+<hr />
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="/Member/WaterParameters/Detail" asp-route-id="@Model.PondIdGet">Now Status</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
-</body>
-</html>

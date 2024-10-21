@@ -217,6 +217,18 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[33.0.1, )"
+            },
+            "ExcelDataReader": {
+              "target": "Package",
+              "version": "[3.7.0, )"
+            },
+            "ExcelDataReader.DataSet": {
+              "target": "Package",
+              "version": "[3.7.0, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[4.8.0, )"

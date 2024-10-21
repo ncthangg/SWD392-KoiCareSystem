@@ -261,7 +261,6 @@ D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareS
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.AssemblyInfoInputs.cache
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.AssemblyInfo.cs
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.csproj.CoreCompileInputs.cache
-D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.MvcApplicationPartsAssemblyInfo.cs
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.MvcApplicationPartsAssemblyInfo.cache
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.RazorAssemblyInfo.cache
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.RazorAssemblyInfo.cs
@@ -542,3 +541,6 @@ D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareS
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.genruntimeconfig.cache
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\ref\KoiCareSystem.RazorWebApp.dll
 D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\scopedcss\Pages\Member\Shared\_Layout.cshtml.rz.scp.css
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\CsvHelper.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\ExcelDataReader.dll
+D:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystematHome\KoiCareSystem.RazorWebApp\bin\Debug\net8.0\ExcelDataReader.DataSet.dll

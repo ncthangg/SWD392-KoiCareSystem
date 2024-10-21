@@ -1,5 +1,5 @@
 ﻿@page
-@model KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters.IndexModel
+@model KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters.HistoryModel
 
 @{
     ViewData["Title"] = "Index";
@@ -7,9 +7,7 @@
 
 <h1>@Model.PondName</h1>
 
-<div>
-    <a asp-page="./Create">Add</a>
-</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -48,9 +46,26 @@
         </tr>
     </thead>
     <tbody>
+        @{
+            int index = 0; // Biến đếm để xác định dòng đầu tiên
+        }
+
         @foreach (var item in Model.WaterParameter)
         {
-            <tr>
+            // Xác định lớp CSS dựa trên Status
+            var rowClass = item.Status.StatusName switch
+            {
+                "Stable" => "bg-stable",
+                "Average" => "bg-average",
+                "Unstable" => "bg-unstable",
+                _ => ""
+            };
+
+            // Nếu là item đầu tiên, thêm lớp CSS "first-item-border" để có khung
+            var additionalClass = index == 0 ? "first-item-border" : "";
+            var finalClass = $"{rowClass} {additionalClass}";
+
+            <tr class="@finalClass">
                 <td>
                     @Html.DisplayFor(modelItem => item.MeasurementDate)
                 </td>
@@ -78,14 +93,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Po4)
                 </td>
-                <td>
+                <td style="font-weight: bold; font-size: larger;">
                     @Html.DisplayFor(modelItem => item.Status.StatusName)
                 </td>
             </tr>
+            index++;
         }
     </tbody>
 </table>
 
 <div>
-    <a asp-page="/Member/PondPages/Index">Back to List</a>
+    <a asp-page="/Member/PondPages/Index">Back to Pond</a>
 </div>
