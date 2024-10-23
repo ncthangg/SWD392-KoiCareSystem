@@ -3,22 +3,26 @@ using KoiCareSystem.Common;
 using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data;
 using KoiCareSystem.Service.Base;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KoiCareSystem.Service
 {
     public interface IAuthenticateService
     {
         Task<ServiceResult> Login(RequestLoginDto requestLoginDto);
-
+        ServiceResult Logout();
     }
     public class AuthenticateService : IAuthenticateService
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public AuthenticateService(IMapper mapper)
+        public AuthenticateService(IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork ??= new UnitOfWork();
             _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<ServiceResult> Login(RequestLoginDto requestLoginDto)
@@ -52,12 +56,25 @@ namespace KoiCareSystem.Service
                     return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, userExist);
                 }
 
+                var session = _httpContextAccessor.HttpContext.Session;
+                session.SetString("UserEmail", userExist.Email); // Lưu UserName vào session
+                session.SetInt32("UserId", userExist.Id); // Lưu UserId vào session
+                session.SetString("UserRole", userExist.Role.Name);
+
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, userExist);
             }
             catch (Exception ex)
             {
                 return new ServiceResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
+        }
+        public ServiceResult Logout()
+        {
+            var session = _httpContextAccessor.HttpContext.Session;
+            session.Clear(); // Xóa toàn bộ session
+
+            // Trả về một thông báo khi đăng xuất thành công
+            return new ServiceResult(Const.SUCCESS_READ_CODE, "You have logged out successfully.");
         }
 
         #region Helper Methods

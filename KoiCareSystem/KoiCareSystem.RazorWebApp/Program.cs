@@ -22,12 +22,6 @@ namespace KoiCareSystem.RazorWebApp
 
             builder.Services.AddScoped<ApplicationDbContext>();
 
-            builder.Services.AddSession(options =>
-            {
-                options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian hết hạn của session
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
-            });
 
             var app = builder.Build();
 
@@ -39,10 +33,10 @@ namespace KoiCareSystem.RazorWebApp
                 app.UseHsts();
             }
 
-            app.UseSession();
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 

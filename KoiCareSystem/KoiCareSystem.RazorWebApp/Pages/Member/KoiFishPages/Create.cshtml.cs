@@ -35,7 +35,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         //========================================================
         public async Task<IActionResult> OnGet()
         {
-            UserId = (int)UserSession.UserId;
+            UserId = (int)HttpContext.Session.GetInt32("UserId");
             var ponds = (await _pondService.GetByUserId(UserId)).Data as List<Pond>;
 
             if (ponds == null || !ponds.Any())
@@ -52,7 +52,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            UserId = (int)UserSession.UserId; // Get the UserId from the session
+            UserId = (int)HttpContext.Session.GetInt32("UserId"); // Get the UserId from the session
             KoiFish.UserId = UserId; // Set the UserId for KoiFish
 
             if (!ModelState.IsValid)

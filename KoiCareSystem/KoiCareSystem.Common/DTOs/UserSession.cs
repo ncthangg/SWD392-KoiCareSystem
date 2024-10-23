@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace KoiCareSystem.Common.DTOs
 {
-    public static class UserSession
-    {
-        public static int? UserId { get; set; }
-    }
+    //public static class UserSession
+    //{
+    //    public static int? UserId { get; set; }
+    //}
 }

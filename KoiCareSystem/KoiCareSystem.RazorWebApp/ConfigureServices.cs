@@ -44,6 +44,14 @@ namespace KoiCareSystem.RazorWebApp
 
             services.AddAutoMapper(typeof(MappingProfile));
 
+            services.AddHttpContextAccessor();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian hết hạn của session
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             return services;
         }

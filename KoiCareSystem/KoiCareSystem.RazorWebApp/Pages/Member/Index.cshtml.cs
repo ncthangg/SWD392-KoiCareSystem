@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Azure;
 using KoiCareSystem.Common.DTOs;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
@@ -20,26 +19,32 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member
         }
         public int UserId { get; set; }
         public string Email { get; set; }
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
             // Lấy UserId từ session
             var userIdFromSession = HttpContext.Session.GetInt32("UserId");
 
             if (userIdFromSession == null)
             {
-                Response.Redirect("/Guest/Login");
-                return; // Kết thúc hàm OnGet sau khi điều hướng
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
             }
 
-            // Gán giá trị cho biến static
-            UserSession.UserId = (int)userIdFromSession;
+            // Gán giá trị cho biến cục bộ và static
             UserId = (int)userIdFromSession;
 
-            var user = _userService.GetById(UserId);
-            if (user != null)
+            // Lấy thông tin người dùng từ service
+            var userResult = await _userService.GetById(UserId);
+            if (userResult.Data is User user)
             {
-                Email = ((user.Result.Data) as User).Email;
+                Email = user.Email;
             }
+            else
+            {
+                return RedirectToPage("/Error"); // Chuyển hướng nếu có lỗi
+            }
+
+            return Page(); // Hiển thị trang sau khi xử lý xong
         }
+
     }
 }

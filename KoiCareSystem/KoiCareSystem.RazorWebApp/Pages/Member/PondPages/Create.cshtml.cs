@@ -35,14 +35,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
         //========================================================
         public IActionResult OnGet()
         {
-            UserId = (int)UserSession.UserId;
+            UserId = (int)HttpContext.Session.GetInt32("UserId");
             return Page();
         }
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            UserId = (int)UserSession.UserId; // Get the UserId from the session
+            UserId = (int)HttpContext.Session.GetInt32("UserId");
             Pond.UserId = UserId; // Set the UserId for KoiFish
 
             if (!ModelState.IsValid)

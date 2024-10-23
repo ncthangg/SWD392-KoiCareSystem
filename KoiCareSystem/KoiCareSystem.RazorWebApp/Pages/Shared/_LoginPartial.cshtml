@@ -1,0 +1,20 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+
+@if (HttpContextAccessor.HttpContext.Session.GetString("UserEmail") != null)
+{
+    var userName = HttpContextAccessor.HttpContext.Session.GetString("UserEmail");
+    <div class="navbar-nav">
+        <span class="nav-item nav-link">Hello, @userName!</span>
+        <form id="logoutForm" method="post" asp-page="/Guest/Logout" class="form-inline">
+            <button type="submit" class="btn btn-link nav-item nav-link">Logout</button>
+        </form>
+    </div>
+}
+else
+{
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" asp-area="" asp-page="/Guest/Login">Login</a>
+        <a class="nav-item nav-link" asp-area="" asp-page="/Guest/Register">Register</a>
+    </div>
+}

@@ -92,21 +92,20 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
                 return Page(); // Trả về nếu role không hợp lệ
             }
 
-            // Lưu UserId vào session sau khi đăng nhập thành công
-            HttpContext.Session.SetInt32("UserId", userExist.Id);
+            var role = HttpContext.Session.GetString("UserRole"); // Lấy thông tin từ session
 
             // Điều hướng dựa trên vai trò của người dùng
-            if (roleOfAccount.Name.ToLower().Contains("admin"))
+            if (roleOfAccount.Name.ToLower().Contains("admin") && role.ToLower().Contains("admin"))
             {
                 return RedirectToPage("/Admin/Index");
             }
-            else if (roleOfAccount.Name.ToLower().Contains("user"))
+            else if (roleOfAccount.Name.ToLower().Contains("user") && role.ToLower().Contains("user"))
             {
                 return RedirectToPage("/Member/Index");
             }
-            else if (roleOfAccount.Name.ToLower().Contains("shop"))
+            else if (roleOfAccount.Name.ToLower().Contains("shop") && role.ToLower().Contains("shop"))
             {
-                return RedirectToPage("/Shop/Index");
+                return RedirectToPage("/AdminShop/Index");
             }
 
             // Trường hợp không xác định được vai trò

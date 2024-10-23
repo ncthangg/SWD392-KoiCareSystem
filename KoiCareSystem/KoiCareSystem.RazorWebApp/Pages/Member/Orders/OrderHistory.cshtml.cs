@@ -26,7 +26,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
         //========================================================
         public async Task OnGetAsync()
         {
-            UserId = (int)UserSession.UserId; // Lấy UserId từ biến static
+            UserId = (int)HttpContext.Session.GetInt32("UserId");
             var result = await _orderService.GetByUserId(UserId);
             if (result.Status > 0)
             {
@@ -38,7 +38,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             // Tạo một đơn hàng mới
             Order newOrder = new Order
             {
-                    UserId = (int)UserSession.UserId
+                UserId = (int)HttpContext.Session.GetInt32("UserId")
             };
 
                 await _orderService.Save(newOrder);

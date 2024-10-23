@@ -27,7 +27,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
         //========================================================
         public async Task OnGetAsync()
         {
-            UserId = (int)UserSession.UserId;
+            UserId = (int)HttpContext.Session.GetInt32("UserId");
             Pond = (await _pondService.GetByUserId(UserId)).Data as IList<Pond>;
         }
 
