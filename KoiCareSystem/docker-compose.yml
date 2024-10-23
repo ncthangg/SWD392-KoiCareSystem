@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  koicaresystem-api:
+    image: koicaresystem-api
+    build:
+      context: .
+      dockerfile: KoiCareSystem.Api/Dockerfile
+    ports:
+      - "5001:80"  # Exposing port 80 inside the container to port 5000 on the host
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development

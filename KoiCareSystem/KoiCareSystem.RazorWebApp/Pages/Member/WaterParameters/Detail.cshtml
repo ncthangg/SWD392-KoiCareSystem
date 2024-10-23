@@ -1,0 +1,122 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters.DetailModel
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>@Model.PondName</h1>
+
+<div>
+    <h4>WaterParameter</h4>
+    <a asp-page="./Create" asp-route-id="@Model.PondId"> Load</a> |||
+    <a asp-page="/Member/WaterParameters/History" asp-route-id="@Model.PondId">History</a>
+    <hr />
+
+    <table class="table table-bordered centered">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+                <th>Evaluation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.WaterParameter.MeasurementDate)</td>
+                <td>@Html.DisplayFor(model => model.WaterParameter.MeasurementDate)</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.WaterParameter.WaterVolume)</td>
+                <td>@Html.DisplayFor(model => model.WaterParameter.WaterVolume)</td>
+                <td></td>
+            </tr>
+            <tr class="@GetEvaluationClass(Model.Evaluations,"Temperature")">
+                <td>@Html.DisplayNameFor(model => model.WaterParameter.Temperature)</td>
+                <td>@Html.DisplayFor(model => model.WaterParameter.Temperature) độ C</td>
+                <td>@(Model.Evaluations.ContainsKey("Temperature") ? Model.Evaluations["Temperature"] : "N/A")</td>
+            </tr>
+            <tr class="@GetEvaluationClass(Model.Evaluations,"Salinity")">
+                <td>@Html.DisplayNameFor(model => model.WaterParameter.Salinity)</td>
+                <td>@Html.DisplayFor(model => model.WaterParameter.Salinity) mg/L</td>
+                <td>@(Model.Evaluations.ContainsKey("Salinity") ? Model.Evaluations["Salinity"] : "N/A")</td>
+            </tr>
+            <tr class="@GetEvaluationClass(Model.Evaluations,"pH")">
+                <td>@Html.DisplayNameFor(model => model.WaterParameter.Ph)</td>
+                <td>@Html.DisplayFor(model => model.WaterParameter.Ph) mg/L</td>
+                <td>@(Model.Evaluations.ContainsKey("pH") ? Model.Evaluations["pH"] : "N/A")</td>
+            </tr>
+            <tr class="@GetEvaluationClass(Model.Evaluations,"O2")">
+                <td>@Html.DisplayNameFor(model => model.WaterParameter.O2)</td>
+                <td>@Html.DisplayFor(model => model.WaterParameter.O2) mg/L</td>
+                <td>@(Model.Evaluations.ContainsKey("O2") ? Model.Evaluations["O2"] : "N/A")</td>
+            </tr>
+            <tr class="@GetEvaluationClass(Model.Evaluations,"No2")">
+                <td>@Html.DisplayNameFor(model => model.WaterParameter.No2)</td>
+                <td>@Html.DisplayFor(model => model.WaterParameter.No2) mg/L</td>
+                <td>@(Model.Evaluations.ContainsKey("No2") ? Model.Evaluations["No2"] : "N/A")</td>
+            </tr>
+            <tr class="@GetEvaluationClass(Model.Evaluations,"No3")">
+                <td>@Html.DisplayNameFor(model => model.WaterParameter.No3)</td>
+                <td>@Html.DisplayFor(model => model.WaterParameter.No3) mg/L</td>
+                <td>@(Model.Evaluations.ContainsKey("No3") ? Model.Evaluations["No3"] : "N/A")</td>
+            </tr>
+            <tr class="@GetEvaluationClass(Model.Evaluations,"Po4")">
+                <td>@Html.DisplayNameFor(model => model.WaterParameter.Po4)</td>
+                <td>@Html.DisplayFor(model => model.WaterParameter.Po4) mg/L</td>
+                <td>@(Model.Evaluations.ContainsKey("Po4") ? Model.Evaluations["Po4"] : "N/A")</td>
+            </tr>
+            <tr class="@GetStatusClass(Model.Status)">
+                <td>@Html.DisplayNameFor(model => model.WaterParameter.Status.StatusName)</td>
+                <td style="font-weight: bold; font-size: larger;">@Html.DisplayFor(model => model.WaterParameter.Status.StatusName)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a asp-page="/Member/PondPages/Index">Back to List</a>
+</div>
+
+@functions {
+    public string GetEvaluationClass(Dictionary<string, string> evaluations, string key)
+    {
+        if (evaluations != null && evaluations.ContainsKey(key))
+        {
+            var evaluation = evaluations[key].ToLower();
+            if (evaluation == "good")
+            {
+                return "good-range"; // Màu xanh cho within
+            }
+            else if (evaluation == "within acceptable range")
+            {
+                return "accept-range"; // Màu xanh cho within
+            }
+            else
+            {
+                return "out-of-range"; // Màu đỏ cho below hoặc above
+            }
+        }
+        return string.Empty;
+    }
+
+    public string GetStatusClass(string statusName)
+    {
+        if (string.IsNullOrEmpty(statusName))
+            return string.Empty; // Trả về chuỗi rỗng nếu statusName không hợp lệ
+
+        switch (statusName.ToLower())
+        {
+            case "stable":
+                return "good-range"; // Màu xanh
+            case "average":
+                return "accept-range"; // Màu vàng
+            case "unstable":
+                return "out-of-range"; // Màu đỏ
+            default:
+                return string.Empty; // Trả về chuỗi rỗng nếu không có trạng thái phù hợp
+        }
+    }
+}
+
