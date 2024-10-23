@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oJGddkdhWxcTESCa3xrGWr+3Gik8IMYXZ7rDrDgaS38=",
+  "Hash": "qKNyoUOGOyIv1fFotkWVHr76e2Tp/O31MkBa4Z+JGAU=",
   "Source": "KoiCareSystem.RazorWebApp",
   "BasePath": "_content/KoiCareSystem.RazorWebApp",
   "Mode": "Default",
@@ -167,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ponds\\860413d4-f164-4378-a5d4-d4b8cea3a544_ho1.jfif"
+    },
+    {
+      "Identity": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\ponds\\c25a2f63-8096-4c4e-8266-85ae60b783f4_ho2.jfif",
+      "SourceId": "KoiCareSystem.RazorWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\",
+      "BasePath": "_content/KoiCareSystem.RazorWebApp",
+      "RelativePath": "images/ponds/c25a2f63-8096-4c4e-8266-85ae60b783f4_ho2.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ponds\\c25a2f63-8096-4c4e-8266-85ae60b783f4_ho2.jfif"
     },
     {
       "Identity": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\ponds\\ee64e23e-b28b-4ea8-9887-98e2549c30ab_ho1.jfif",

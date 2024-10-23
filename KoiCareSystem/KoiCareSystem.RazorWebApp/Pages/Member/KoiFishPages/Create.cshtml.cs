@@ -67,7 +67,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
             if (ImageFile != null)
             {
                 // Đường dẫn lưu file trong wwwroot
-                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/koifishs");
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/koifishs/");
                 Directory.CreateDirectory(uploadsFolder);  // Tạo thư mục nếu chưa có
 
                 // Đặt tên file duy nhất

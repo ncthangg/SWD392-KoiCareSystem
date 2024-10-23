@@ -17,6 +17,8 @@ namespace KoiCareSystem.Data
         private PaymentRepository _paymentRepository;
 
         private KoiFishRepository _koiFishRepository;
+        private KoiGrowthLogRepository _koiGrowthLogRepository;
+
         private PondRepository _pondRepository;
         private WaterStatusRepository _waterStatusRepository;
         private WaterParameterRepository _waterParameterRepository;
@@ -125,6 +127,15 @@ namespace KoiCareSystem.Data
             get
             {
                 return _waterParameterLimitRepository ??= new WaterParameterLimitRepository(_dbContext);
+            }
+
+        }
+
+        public KoiGrowthLogRepository KoiGrowthLogRepository
+        {
+            get
+            {
+                return _koiGrowthLogRepository ??= new KoiGrowthLogRepository(_dbContext);
             }
 
         }

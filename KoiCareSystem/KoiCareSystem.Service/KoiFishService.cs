@@ -252,6 +252,12 @@ namespace KoiCareSystem.Service
                 if (existingKoiFish != null && existingKoiFish.Status == Const.SUCCESS_READ_CODE)
                 {
                     var fish = (KoiFish)existingKoiFish.Data;
+
+                    var relatedLogs = await _unitOfWork.KoiGrowthLogRepository.GetByFishIdAsync(fish.FishId);
+                    foreach (var log in relatedLogs)
+                    {
+                        await _unitOfWork.KoiGrowthLogRepository.RemoveAsync(log);
+                    }
                     // Nếu tồn tại ==> xóa
                     result = await _unitOfWork.KoiFishRepository.RemoveAsync(fish);
                     if (result)

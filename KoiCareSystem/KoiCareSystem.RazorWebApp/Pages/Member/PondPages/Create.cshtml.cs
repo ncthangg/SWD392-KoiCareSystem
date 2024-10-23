@@ -57,7 +57,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
             if (ImageFile != null)
             {
                 // Đường dẫn lưu file trong wwwroot
-                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/ponds");
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/ponds/");
                 Directory.CreateDirectory(uploadsFolder);  // Tạo thư mục nếu chưa có
 
                 // Đặt tên file duy nhất
