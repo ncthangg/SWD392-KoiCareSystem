@@ -8,10 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Common.DTOs;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel : BasePageModel
     {
         private readonly KoiCareSystem.Data.DBContext.ApplicationDbContext _context;
 
@@ -22,14 +23,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
         //========================================================
 
         public Pond Pond { get; set; } = default!;
-        public int UserId { get; set; }
         //========================================================
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            UserId = (int)HttpContext.Session.GetInt32("UserId");
-            if (id == null)
+            LoadUserIdFromSession();
+
+            if (UserId == null)
             {
-                return NotFound();
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
             }
 
             var pond = await _context.Ponds.FirstOrDefaultAsync(m => m.PondId == id);

@@ -15,9 +15,9 @@ namespace KoiCareSystem.Service
     }
     public class AuthenticateService : IAuthenticateService
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         public AuthenticateService(IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork ??= new UnitOfWork();
@@ -55,11 +55,6 @@ namespace KoiCareSystem.Service
                     // Chuyển hướng người dùng tới trang VerifyEmail
                     return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, userExist);
                 }
-
-                var session = _httpContextAccessor.HttpContext.Session;
-                session.SetString("UserEmail", userExist.Email); // Lưu UserName vào session
-                session.SetInt32("UserId", userExist.Id); // Lưu UserId vào session
-                session.SetString("UserRole", userExist.Role.Name);
 
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, userExist);
             }

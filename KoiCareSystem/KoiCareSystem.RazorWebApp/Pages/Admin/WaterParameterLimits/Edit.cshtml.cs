@@ -8,10 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.WaterParameterLimits
 {
-    public class EditModel : PageModel
+    public class EditModel : BasePageModel
     {
         private readonly KoiCareSystem.Data.DBContext.ApplicationDbContext _context;
 

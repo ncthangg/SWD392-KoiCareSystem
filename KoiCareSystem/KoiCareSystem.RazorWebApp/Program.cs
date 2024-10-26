@@ -1,10 +1,5 @@
-﻿
-using KoiCareSystem.Data;
-using KoiCareSystem.Data.DBContext;
-using KoiCareSystem.Data.Models;
-using KoiCareSystem.Service;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using KoiCareSystem.Data.DBContext;
+using KoiCareSystem.RazorWebApp.Middleware;
 
 namespace KoiCareSystem.RazorWebApp
 {
@@ -37,6 +32,7 @@ namespace KoiCareSystem.RazorWebApp
             app.UseStaticFiles();
 
             app.UseSession();
+            app.UseMiddleware<RoleAuthorizationMiddleware>();
 
             app.UseRouting();
 

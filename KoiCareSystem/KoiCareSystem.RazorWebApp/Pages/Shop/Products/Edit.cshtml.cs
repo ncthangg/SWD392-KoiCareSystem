@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,10 +8,11 @@ using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using AutoMapper;
 using KoiCareSystem.Common.DTOs.Request;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
 {
-    public class EditModel : PageModel
+    public class EditModel : BasePageModel
     {
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;

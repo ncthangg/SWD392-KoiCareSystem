@@ -10,10 +10,11 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Common;
 using KoiCareSystem.Service;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.KoiFishPages
 {
-    public class EditModel : PageModel
+    public class EditModel : BasePageModel
     {
         [BindProperty]
         public KoiFish KoiFish { get; set; } = default!;

@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.KoiFishPages
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel : BasePageModel
     {
         private readonly ApplicationDbContext _context;
 

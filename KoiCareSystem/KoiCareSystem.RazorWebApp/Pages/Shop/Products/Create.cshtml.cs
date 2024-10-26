@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs.Request;
 using AutoMapper;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
 {
-    public class CreateModel : PageModel
+    public class CreateModel : BasePageModel
     {
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;

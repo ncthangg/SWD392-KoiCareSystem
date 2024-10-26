@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using AutoMapper;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel
     {
         private readonly ProductService _productService;
         private readonly IMapper _mapper;
@@ -29,8 +30,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
         [BindProperty(SupportsGet = true)]
         public string SearchType { get; set; }
         //========================================================
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
+            LoadUserIdFromSession();
+
+            if (UserId == null)
+            {
+                return RedirectToPage("/Guest/Login");
+            }
             // Fetch all products using the ProductService
             var productListResult = await _productService.GetAll();
             var products = productListResult?.Data as IList<Product> ?? new List<Product>();
@@ -57,6 +64,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
             }
 
             Products = query.ToList();
+            return Page();
         }
     }
 }

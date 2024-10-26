@@ -8,10 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.WaterStatusPages
 {
-    public class CreateModel : PageModel
+    public class CreateModel : BasePageModel
     {
         private readonly WaterStatusService _waterStatusService;
 

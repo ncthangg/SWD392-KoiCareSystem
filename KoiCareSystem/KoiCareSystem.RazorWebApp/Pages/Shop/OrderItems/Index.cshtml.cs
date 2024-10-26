@@ -1,14 +1,13 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using AutoMapper;
-using MailKit.Search;
+using KoiCareSystem.RazorWebApp.PageBase;
 
-namespace KoiCareSystem.RazorWebApp.Pages.Admin.OrderItems
+namespace KoiCareSystem.RazorWebApp.Pages.Shop.OrderItems
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel
     {
         private readonly OrderService _orderService;
         private readonly OrderItemService _orderItemService;

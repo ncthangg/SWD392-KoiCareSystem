@@ -11,10 +11,11 @@ using KoiCareSystem.Data.Models;
 using AutoMapper;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs.Request;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
 {
-    public class EditModel : PageModel
+    public class EditModel : BasePageModel
     {
         private readonly UserService _userService;
         private readonly RoleService _roleService;

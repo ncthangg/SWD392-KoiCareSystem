@@ -11,10 +11,11 @@ using KoiCareSystem.Data.Models;
 using KoiCareSystem.Common.DTOs;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
 {
-    public class EditModel : PageModel
+    public class EditModel : BasePageModel
     {
         private readonly KoiFishService _koiFishService;
         private readonly PondService _pondService;
@@ -33,14 +34,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
         public Pond Pond { get; set; } = default!;
         [BindProperty]
         public IFormFile ImageFile { get; set; }
-        public int UserId { get; set; }
         //========================================================
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            UserId = (int)HttpContext.Session.GetInt32("UserId");
-            if (id == null)
+            LoadUserIdFromSession();
+
+            if (UserId == null)
             {
-                return NotFound();
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
             }
 
             var pond =  await _pondService.GetById((int)id);
@@ -49,7 +50,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
                 return NotFound();
             }
             Pond = (Pond)pond.Data;
-            Pond.UserId = UserId;
+            Pond.UserId = (int)UserId;
             return Page();
         }
 

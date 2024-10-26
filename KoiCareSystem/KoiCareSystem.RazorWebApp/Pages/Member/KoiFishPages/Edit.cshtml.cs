@@ -11,17 +11,17 @@ using KoiCareSystem.Data.Models;
 using KoiCareSystem.Common;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
 {
-    public class EditModel : PageModel
+    public class EditModel : BasePageModel
     {
         [BindProperty]
         public KoiFish KoiFish { get; set; } = default!;
 
         [BindProperty]
         public IFormFile ImageFile { get; set; }
-        public int UserId { get; set; }
         //========================================================
         private readonly KoiFishService _koiFishService;
         private readonly PondService _pondService;
@@ -38,10 +38,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         //========================================================
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            UserId = (int)HttpContext.Session.GetInt32("UserId");
-            if (id == 0)
+            LoadUserIdFromSession();
+
+            if (UserId == null)
             {
-                return NotFound();
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
             }
             // Lấy cá Koi theo id
             var result = await _koiFishService.GetByIdWithIncludeAsync(id);
@@ -51,7 +52,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
             }
             KoiFish = (KoiFish)result.Data;
 
-            var ponds = (await _pondService.GetByUserId(UserId)).Data as List<Pond>;
+            var ponds = (await _pondService.GetByUserId((int)UserId)).Data as List<Pond>;
             var users = (await _userService.GetAll()).Data as List<User>;
 
             ViewData["PondId"] = new SelectList(ponds, "PondId", "PondName");

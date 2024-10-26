@@ -8,10 +8,11 @@ using AutoMapper;
 using KoiCareSystem.Common.DTOs.Request;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using KoiCareSystem.Common.DTOs;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
 {
-    public class AddItemModel : PageModel
+    public class AddItemModel : BasePageModel
     {
         private readonly OrderService _orderService;
         private readonly ProductService _productService;
@@ -26,7 +27,6 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
         //========================================================
         [BindProperty]
         public RequestItemToOrderDto RequestItemToOrderDto { get; set; } = default!;
-        public int UserId { get; set; }
         //========================================================
         public IActionResult OnGet(int id)
         {

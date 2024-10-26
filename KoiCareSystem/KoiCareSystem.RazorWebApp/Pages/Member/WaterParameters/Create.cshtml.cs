@@ -12,10 +12,11 @@ using KoiCareSystem.Service.Helper;
 using KoiCareSystem.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
 {
-    public class CreateModel : PageModel
+    public class CreateModel : BasePageModel
     {
         private readonly KoiCareSystem.Data.DBContext.ApplicationDbContext _context;
         private readonly PondService _pondService;
@@ -50,7 +51,6 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
         //=============================================
         [BindProperty]
         public WaterParameter WaterParameter { get; set; } = default!;
-        public int UserId { get; set; }
         [BindProperty]
         public int PondIdGet { get; set; }
         //=============================================

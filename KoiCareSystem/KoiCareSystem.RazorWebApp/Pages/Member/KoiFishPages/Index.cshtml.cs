@@ -10,11 +10,11 @@ using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs;
 using Microsoft.AspNetCore.Authorization;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
 {
-    [Authorize(Roles ="User")]
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel
     {
         private readonly KoiFishService _koiFishService;
         public IndexModel(KoiFishService koiFishService)
@@ -25,10 +25,16 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         public IList<KoiFish> KoiFish { get; set; } = default!;
        
         //========================================================
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            var UserId = (int)HttpContext.Session.GetInt32("UserId");
-            KoiFish = (await _koiFishService.GetByUserId(UserId)).Data as IList<KoiFish>;
+            LoadUserIdFromSession();
+
+            if (UserId == null)
+            {
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
+            }
+            KoiFish = (await _koiFishService.GetByUserId((int)UserId)).Data as IList<KoiFish>;
+            return Page();
         }
     }
 }

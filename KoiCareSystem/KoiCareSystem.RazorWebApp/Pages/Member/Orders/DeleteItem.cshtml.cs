@@ -12,10 +12,11 @@ using KoiCareSystem.Service;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Common.DTOs;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : BasePageModel
     {
         private readonly OrderService _orderService;
         private readonly ProductService _productService;
@@ -31,7 +32,6 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
 
         [BindProperty]
         public OrderItem OrderItem { get; set; } = default!;
-        public int UserId { get; set; }
         //========================================================
         public async Task<IActionResult> OnGetAsync(int? id)
         {

@@ -9,10 +9,11 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel
     {
         private readonly OrderService _orderService;
         private readonly OrderStatusService _orderStatusService;

@@ -9,10 +9,11 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
 {
-    public class OrderHistory : PageModel
+    public class OrderHistory : BasePageModel
     {
         private readonly OrderService _orderService;
 
@@ -22,16 +23,22 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
         }
         //========================================================
         public IList<Order> Order { get;set; } = default!;
-        public int UserId { get; set; }
         //========================================================
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            UserId = (int)HttpContext.Session.GetInt32("UserId");
-            var result = await _orderService.GetByUserId(UserId);
+            LoadUserIdFromSession();
+
+            if (UserId == null)
+            {
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
+            }
+
+            var result = await _orderService.GetByUserId((int)UserId);
             if (result.Status > 0)
             {
                 Order = (IList<Order>)result.Data;
             }
+            return Page();
         }
         public async Task<IActionResult> OnPostCreate()
         {

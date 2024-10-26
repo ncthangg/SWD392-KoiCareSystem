@@ -9,10 +9,11 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : BasePageModel
     {
 
         private readonly KoiFishService _koiFishService;
@@ -24,14 +25,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         //========================================================
         [BindProperty]
         public KoiFish KoiFish { get; set; } = default!;
-        public int UserId { get; set; }
         //========================================================
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            UserId = (int)HttpContext.Session.GetInt32("UserId");
-            if (id == null)
+            LoadUserIdFromSession();
+
+            if (UserId == null)
             {
-                return NotFound();
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
             }
 
             var koifish = await _koiFishService.GetById(id);

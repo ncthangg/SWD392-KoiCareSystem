@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using KoiCareSystem.Data.DBContext;
+﻿using Microsoft.AspNetCore.Mvc;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
-using KoiCareSystem.Common.DTOs.Request;
 using AutoMapper;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Shop.Orders
 {
-    public class CreateModel : PageModel
+    public class CreateModel : BasePageModel
     {
         private readonly OrderService _orderService;
         private readonly IMapper _mapper;

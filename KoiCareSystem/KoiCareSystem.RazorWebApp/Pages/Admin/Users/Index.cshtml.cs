@@ -9,10 +9,11 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using AutoMapper;
 using KoiCareSystem.Service;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel
     {
         private readonly UserService _userService;
         private readonly RoleService _roleService;

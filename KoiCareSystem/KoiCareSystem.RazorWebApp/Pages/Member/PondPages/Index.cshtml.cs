@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using KoiCareSystem.Data.DBContext;
-using KoiCareSystem.Data.Models;
+﻿using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
-using KoiCareSystem.Common.DTOs;
+using KoiCareSystem.RazorWebApp.PageBase;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel
     {
         private readonly KoiFishService _koiFishService;
         private readonly PondService _pondService;
@@ -23,12 +16,17 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
         }
         //========================================================
         public IList<Pond> Pond { get; set; } = default!;
-        public int UserId { get; set; }
         //========================================================
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            UserId = (int)HttpContext.Session.GetInt32("UserId");
-            Pond = (await _pondService.GetByUserId(UserId)).Data as IList<Pond>;
+            LoadUserIdFromSession();
+
+            if (UserId == null)
+            {
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
+            }
+            Pond = (await _pondService.GetByUserId((int)UserId)).Data as IList<Pond>;
+            return Page();
         }
 
     }

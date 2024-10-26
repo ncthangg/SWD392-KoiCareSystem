@@ -10,10 +10,11 @@ using KoiCareSystem.Data.Models;
 using KoiCareSystem.Common.DTOs;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : BasePageModel
     {
         private readonly PondService _pondService;
 
@@ -24,15 +25,15 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
         //========================================================
         [BindProperty]
         public Pond Pond { get; set; } = default!;
-        public int UserId { get; set; }
         public string ErrorMessage { get; set; }
         //========================================================
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            UserId = (int)HttpContext.Session.GetInt32("UserId");
-            if (id == null)
+            LoadUserIdFromSession();
+
+            if (UserId == null)
             {
-                return NotFound();
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
             }
 
             var pond = await _pondService.GetById(id);

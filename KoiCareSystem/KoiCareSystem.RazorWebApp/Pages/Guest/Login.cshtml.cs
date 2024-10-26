@@ -8,6 +8,7 @@ using NuGet.Protocol.Plugins;
 using KoiCareSystem.Service;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service.Helper;
+using Microsoft.AspNetCore.Http;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Guest
 {
@@ -18,13 +19,15 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
         private readonly AuthenticateService _authenticateService;
         private readonly EmailService _emailService;
         private readonly IUrlHelperService _urlHelperService;
-        public LoginModel(UserService userService, RoleService roleService, AuthenticateService authenticateService, EmailService emailService, IUrlHelperService urlHelperService)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public LoginModel(UserService userService, RoleService roleService, AuthenticateService authenticateService, EmailService emailService, IUrlHelperService urlHelperService, IHttpContextAccessor httpContextAccessor)
         {
             _userService = userService;
             _roleService = roleService;
             _authenticateService = authenticateService;
             _emailService = emailService;
             _urlHelperService = urlHelperService;
+            _httpContextAccessor = httpContextAccessor;
         }
         //========================================================
         [BindProperty]
@@ -42,75 +45,76 @@ namespace KoiCareSystem.RazorWebApp.Pages.Guest
             if (user == null)
             {
                 ModelState.AddModelError(string.Empty, "Không tìm thấy User");
-                return Page(); // Trả về nếu không tìm thấy user
+                return Page();
             }
 
             // Thực hiện đăng nhập
             var result = await _authenticateService.Login(RequestLoginDto);
             if (result == null)
             {
-                ModelState.AddModelError(string.Empty, $"Login fail");
-                return Page(); // Trả về nếu login thất bại
+                ModelState.AddModelError(string.Empty, "Login failed");
+                return Page();
             }
 
-            var userExist = (User)result.Data;
-            if (userExist != null && !userExist.IsVerified)
-            {
-                userExist.EmailVerificationToken = Guid.NewGuid().ToString();
-                await _userService.UpdateVerifyCode(userExist.Email, userExist.EmailVerificationToken);
-
-                //Mail Service
-                var verificationCode = userExist.EmailVerificationToken;
-                var verificationLink = _urlHelperService.GenerateVerificationLink(this.PageContext, verificationCode);
-
-                // Tiếp tục logic gửi email
-                await _emailService.SendVerificationEmailAsync(userExist.Email, verificationCode, verificationLink);
-                
-                return RedirectToPage("/Guest/VerifyEmail", new { email = userExist.Email});
-            }
-
-            // Lấy thông tin user từ kết quả đăng nhập
+            var userExist = result.Data as User;
             if (userExist == null)
             {
                 ModelState.AddModelError(string.Empty, "Không lấy được User.");
-                return Page(); // Trả về nếu thông tin user không hợp lệ
+                return Page();
             }
 
-            // Lấy vai trò (role) của người dùng
-            var roles = await _roleService.GetById(userExist.RoleId);
-            if (roles == null || roles.Data == null)
+            // Nếu user chưa xác thực email
+            if (!userExist.IsVerified)
             {
-                ModelState.AddModelError(string.Empty, "Role not found.");
-                return Page(); // Trả về nếu không tìm thấy role
+                await HandleEmailVerification(userExist);
+                return RedirectToPage("/Guest/VerifyEmail", new { email = userExist.Email });
             }
 
-            // Kiểm tra thông tin role
-            var roleOfAccount = roles.Data as Role;
-            if (roleOfAccount == null)
-            {
-                ModelState.AddModelError(string.Empty, "Invalid role data.");
-                return Page(); // Trả về nếu role không hợp lệ
-            }
+            // Lưu thông tin vào session
+            SaveUserSession(userExist);
 
-            var role = HttpContext.Session.GetString("UserRole"); // Lấy thông tin từ session
+            // Điều hướng dựa trên vai trò
+            return RedirectBasedOnRole(userExist.Role.Name.ToLower());
+        }
 
-            // Điều hướng dựa trên vai trò của người dùng
-            if (roleOfAccount.Name.ToLower().Contains("admin") && role.ToLower().Contains("admin"))
+        // Gửi mã xác thực qua email
+        private async Task HandleEmailVerification(User userExist)
+        {
+            userExist.EmailVerificationToken = Guid.NewGuid().ToString();
+            await _userService.UpdateVerifyCode(userExist.Email, userExist.EmailVerificationToken);
+
+            // Gửi email xác thực
+            var verificationLink = _urlHelperService.GenerateVerificationLink(this.PageContext, userExist.EmailVerificationToken);
+            await _emailService.SendVerificationEmailAsync(userExist.Email, userExist.EmailVerificationToken, verificationLink);
+        }
+        // Hàm lưu session
+        private void SaveUserSession(User user)
+        {
+            HttpContext.Session.SetString("UserEmail", user.Email);
+            HttpContext.Session.SetInt32("UserId", user.Id);
+            HttpContext.Session.SetString("UserRole", user.Role.Name.ToLower());
+        }
+
+        //Chuyển trang dựa theo Role
+        private IActionResult RedirectBasedOnRole(string role)
+        {
+            if (role.Contains("admin"))
             {
                 return RedirectToPage("/Admin/Index");
             }
-            else if (roleOfAccount.Name.ToLower().Contains("user") && role.ToLower().Contains("user"))
+            else if (role.Contains("member"))
             {
                 return RedirectToPage("/Member/Index");
             }
-            else if (roleOfAccount.Name.ToLower().Contains("shop") && role.ToLower().Contains("shop"))
+            else if (role.Contains("shop"))
             {
-                return RedirectToPage("/AdminShop/Index");
+                return RedirectToPage("/Shop/Index");
             }
-
-            // Trường hợp không xác định được vai trò
-            ModelState.AddModelError(string.Empty, "Invalid role.");
-            return Page();
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid role.");
+                return Page();
+            }
         }
     }
 }

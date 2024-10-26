@@ -9,16 +9,16 @@ using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
 {
-    public class CreateModel : PageModel
+    public class CreateModel : BasePageModel
     {
         [BindProperty]
         public KoiFish KoiFish { get; set; } = default!;
         [BindProperty]
         public IFormFile ImageFile { get; set; }
-        public int UserId { get; set; }
         //========================================================
         private readonly KoiFishService _koiFishService;
         private readonly PondService _pondService;
@@ -35,8 +35,13 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         //========================================================
         public async Task<IActionResult> OnGet()
         {
-            UserId = (int)HttpContext.Session.GetInt32("UserId");
-            var ponds = (await _pondService.GetByUserId(UserId)).Data as List<Pond>;
+            LoadUserIdFromSession();
+
+            if (UserId == null)
+            {
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
+            }
+            var ponds = (await _pondService.GetByUserId((int)UserId)).Data as List<Pond>;
 
             if (ponds == null || !ponds.Any())
             {
@@ -52,12 +57,16 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            UserId = (int)HttpContext.Session.GetInt32("UserId"); // Get the UserId from the session
-            KoiFish.UserId = UserId; // Set the UserId for KoiFish
+            LoadUserIdFromSession();
+
+            if (UserId == null)
+            {
+                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
+            }
 
             if (!ModelState.IsValid)
             {
-                var ponds = (await _pondService.GetByUserId(UserId)).Data as List<Pond>;
+                var ponds = (await _pondService.GetByUserId((int)UserId)).Data as List<Pond>;
 
                 ViewData["PondId"] = new SelectList(ponds, "PondId", "PondName");
                 ModelState.AddModelError(string.Empty, "Cập nhật không thành công.");

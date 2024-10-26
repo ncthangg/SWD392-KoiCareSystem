@@ -10,10 +10,11 @@ using KoiCareSystem.Data.Models;
 using AutoMapper;
 using KoiCareSystem.Service;
 using System.Data;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.Users
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : BasePageModel
     {
         private readonly UserService _userService;
         private readonly RoleService _roleService;

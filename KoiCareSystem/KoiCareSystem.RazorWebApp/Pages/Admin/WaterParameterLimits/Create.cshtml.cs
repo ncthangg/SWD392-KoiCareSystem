@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.WaterParameterLimits
 {
-    public class CreateModel : PageModel
+    public class CreateModel : BasePageModel
     {
         private readonly KoiCareSystem.Data.DBContext.ApplicationDbContext _context;
 

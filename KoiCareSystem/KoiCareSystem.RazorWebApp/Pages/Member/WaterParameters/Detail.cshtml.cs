@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
+using KoiCareSystem.RazorWebApp.PageBase;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
 {
-    public class DetailModel : PageModel
+    public class DetailModel : BasePageModel
     {
         private readonly KoiCareSystem.Data.DBContext.ApplicationDbContext _context;
         private readonly PondService _pondService;
@@ -26,8 +21,6 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
         //========================================
         public WaterParameter WaterParameter { get; set; } = default!;
         public Dictionary<string, string> Evaluations { get; set; }
-
-        public int UserId { get; set; }
         public int PondId { get; set; }
         public string PondName { get; set; }
         public string Status { get; set; }

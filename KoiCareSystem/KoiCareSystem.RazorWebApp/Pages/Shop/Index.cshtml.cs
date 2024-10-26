@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using KoiCareSystem.Data.Models;
+using KoiCareSystem.RazorWebApp.PageBase;
 using KoiCareSystem.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace KoiCareSystem.RazorWebApp.Pages.AdminShop
+namespace KoiCareSystem.RazorWebApp.Pages.Shop
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel
     {
         private readonly UserService _userService;
         private readonly RoleService _roleService;
@@ -16,23 +17,19 @@ namespace KoiCareSystem.RazorWebApp.Pages.AdminShop
             _userService ??= new UserService(mapper);
             _roleService ??= new RoleService(mapper);
         }
-        public int UserId { get; set; }
         public string Email { get; set; }
         public async Task<IActionResult> OnGetAsync()
         {
-            // Lấy UserId từ session
-            var userIdFromSession = HttpContext.Session.GetInt32("UserId");
 
-            if (userIdFromSession == null)
+            LoadUserIdFromSession();
+
+            if (UserId == null)
             {
-                return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
+                return RedirectToPage("/Guest/Login");
             }
 
-            // Gán giá trị cho biến cục bộ và static
-            UserId = (int)userIdFromSession;
-
             // Lấy thông tin người dùng từ service
-            var userResult = await _userService.GetById(UserId);
+            var userResult = await _userService.GetById((int)UserId);
             if (userResult.Data is User user)
             {
                 Email = user.Email;

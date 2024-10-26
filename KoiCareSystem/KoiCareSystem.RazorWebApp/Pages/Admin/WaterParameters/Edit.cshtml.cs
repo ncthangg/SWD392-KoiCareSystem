@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using KoiCareSystem.RazorWebApp.PageBase;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.WaterParameters
 {
-    public class EditModel : PageModel
+    public class EditModel : BasePageModel
     {
         private readonly KoiCareSystem.Data.DBContext.ApplicationDbContext _context;
 

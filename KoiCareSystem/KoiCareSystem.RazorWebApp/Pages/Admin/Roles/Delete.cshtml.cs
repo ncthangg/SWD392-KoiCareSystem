@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using KoiCareSystem.Data.DBContext;
+﻿using Microsoft.AspNetCore.Mvc;
+using KoiCareSystem.RazorWebApp.PageBase;
 using KoiCareSystem.Data.Models;
 using AutoMapper;
 using KoiCareSystem.Service;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Admin.Roles
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : BasePageModel
     {
         private readonly UserService _userService;
         private readonly RoleService _roleService;
