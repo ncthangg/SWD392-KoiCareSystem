@@ -38,6 +38,9 @@
                 @Html.DisplayNameFor(model => model.Products[0].ProductName)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Products[0].ImageUrl)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Products[0].ProductType)
             </th>
             <th>
@@ -58,6 +61,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                <img src="@item.ImageUrl" alt="Product Image" style="width: 100px; height: auto;" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductType)

@@ -2,11 +2,6 @@
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiCareSystem.Data.Repository
 {
@@ -16,9 +11,9 @@ namespace KoiCareSystem.Data.Repository
         {
         }
 
-        public CategoryRepository(FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context) => _context = context;
+        public CategoryRepository(ApplicationDbContext context) => _context = context;
 
-        public async Task<Category> GetByIdAsync(long id)
+        public async Task<Category> GetByIdAsync(int id)
         {
             //return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
             return await _context.Categories.Where(u => u.Id == id).FirstOrDefaultAsync();

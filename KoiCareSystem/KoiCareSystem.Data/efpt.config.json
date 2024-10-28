@@ -1,9 +1,9 @@
 ﻿{
    "CodeGenerationMode": 4,
-   "ContextClassName": "FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext",
+   "ContextClassName": "TestdbPRNv4Context",
    "ContextNamespace": null,
    "FilterSchemas": false,
-   "IncludeConnectionString": true,
+   "IncludeConnectionString": false,
    "ModelNamespace": null,
    "OutputContextPath": null,
    "OutputPath": "Models",
@@ -15,59 +15,63 @@
    "T4TemplatePath": null,
    "Tables": [
       {
-         "Name": "[dbo].[blogs]",
+         "Name": "[dbo].[Blogs]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[categories]",
+         "Name": "[dbo].[Categories]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[koi_fish]",
+         "Name": "[dbo].[KoiFishes]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[koi_growth_logs]",
+         "Name": "[dbo].[KoiGrowthLogs]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[order_item]",
+         "Name": "[dbo].[OrderItems]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[order_status]",
+         "Name": "[dbo].[Orders]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[orders]",
+         "Name": "[dbo].[OrderStatus]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[payment]",
+         "Name": "[dbo].[Payments]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[ponds]",
+         "Name": "[dbo].[Ponds]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[products]",
+         "Name": "[dbo].[Products]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[role]",
+         "Name": "[dbo].[Roles]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[thresholds]",
+         "Name": "[dbo].[Users]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[user]",
+         "Name": "[dbo].[WaterParameterLimits]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[water_parameters]",
+         "Name": "[dbo].[WaterParameters]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[WaterStatus]",
          "ObjectType": 0
       }
    ],

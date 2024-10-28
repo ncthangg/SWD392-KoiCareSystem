@@ -7,11 +7,11 @@ namespace KoiCareSystem.Data.Models;
 
 public partial class Blog
 {
-    public long BlogId { get; set; }
+    public int BlogId { get; set; }
 
     public string Title { get; set; }
 
-    public long UserId { get; set; }
+    public int UserId { get; set; }
 
     public string Content { get; set; }
 

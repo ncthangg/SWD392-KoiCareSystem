@@ -1,0 +1,167 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Blog.NutritionModel
+@{
+    ViewData["Title"] = "Nutrition";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Koi Care System</title>
+    <style>
+        .banner {
+            background-image: url('/images/using/guide-banner.jpg'); /* Banner image for guide page */
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+            .banner h1 {
+                font-size: 3rem;
+                font-weight: bold;
+            }
+
+        .content-section {
+            padding: 40px;
+        }
+
+            .content-section h2 {
+                color: #333;
+                font-size: 2rem;
+                margin-top: 30px;
+            }
+
+            .content-section p {
+                color: #555;
+                line-height: 1.6;
+            }
+
+            .content-section ul {
+                list-style-type: disc;
+                padding-left: 20px;
+            }
+
+        keyframes fade {
+            0%
+
+        {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 1;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+
+        }
+
+        .animated-background {
+            animation: fade 10s infinite; /* Fade effect over 10 seconds */
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            height: 350px;
+            transition: background-image 1s ease-in-out; /* Smooth transition */
+        }
+
+        .text-overlay {
+            color: white;
+            font-weight: bold;
+            font-size: 3.5rem;
+        }
+
+        .lead-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <div id="background" class="text-center animated-background banner">
+            <h1>Sự Phát Triển Của Cá Koi</h1>
+        </div>
+
+        <div class="content-section">
+            <h2>Giới Thiệu</h2>
+            <p>
+                Chăm sóc cá Koi đòi hỏi nhiều sự kiên nhẫn và kiến thức. Trang này sẽ giúp bạn hiểu những điều cơ bản cần thiết để cá Koi phát triển khỏe mạnh và đẹp.
+            </p>
+
+            <h2>1. Lựa Chọn Cá Koi Phù Hợp</h2>
+            <p>
+                Trước khi bắt đầu, hãy chắc chắn rằng bạn chọn những con cá Koi khỏe mạnh từ một nguồn đáng tin cậy. Một số yếu tố cần lưu ý bao gồm màu sắc sáng, không có dấu hiệu bị thương hoặc bệnh.
+            </p>
+
+            <h2>2. Thiết Kế Hồ Nuôi Cá Koi</h2>
+            <p>
+                Cá Koi yêu cầu một hồ có diện tích và độ sâu phù hợp. Độ sâu nên vào khoảng 1-1.5m để đảm bảo cá có không gian bơi và tránh được những thay đổi nhiệt độ đột ngột.
+            </p>
+
+            <h2>3. Chất Lượng Nước</h2>
+            <p>
+                Chất lượng nước là yếu tố quan trọng nhất để cá Koi phát triển. Đảm bảo rằng bạn duy trì pH từ 7.0 đến 8.5, nhiệt độ từ 15°C đến 25°C và độ cứng của nước ở mức vừa phải.
+            </p>
+
+            <h2>4. Chế Độ Dinh Dưỡng</h2>
+            <p>
+                Cá Koi có nhu cầu dinh dưỡng đặc biệt và cần được cung cấp thức ăn giàu protein. Hãy chọn thức ăn chuyên dụng và tránh cho ăn quá nhiều để duy trì môi trường nước sạch.
+            </p>
+
+            <h2>5. Kiểm Tra Sức Khỏe Cá Koi Thường Xuyên</h2>
+            <p>
+                Kiểm tra sức khỏe của cá Koi thường xuyên là cách tốt nhất để phát hiện bệnh sớm. Một số dấu hiệu bất thường bao gồm giảm sự hoạt động, mất màu sắc, và sự thay đổi trong hành vi ăn uống.
+            </p>
+
+            <h2>6. Cách Phòng Ngừa Bệnh Cho Cá Koi</h2>
+            <ul>
+                <li>Giữ hồ và nước sạch sẽ</li>
+                <li>Kiểm tra nước định kỳ để đảm bảo chất lượng</li>
+                <li>Tránh quá tải cá trong hồ</li>
+                <li>Đảm bảo thức ăn luôn mới và có chất lượng cao</li>
+            </ul>
+
+            <h2>Kết Luận</h2>
+            <p>
+                Nuôi cá Koi là một thú vui đầy bổ ích, nhưng cũng đòi hỏi nhiều sự chăm sóc và kiến thức. Hãy đảm bảo rằng bạn luôn học hỏi và thực hiện các bước để tạo điều kiện sống tốt nhất cho cá Koi của mình.
+            </p>
+
+            <a class="btn btn-primary mt-4" href="/">Quay lại Trang Chủ</a>
+        </div>
+    </div>
+    <script>
+        const images = [
+            '/images/background/background1.jpg',
+            '/images/background/background2.jpg',
+            '/images/background/background3.jpg'// Add all your image paths here
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            const backgroundDiv = document.getElementById('background');
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
+        }
+
+        // Change background every 10 seconds
+        setInterval(changeBackground, 10000); // 10 seconds
+        changeBackground(); // Initialize the first background
+    </script>
+</body>
+</html>
+

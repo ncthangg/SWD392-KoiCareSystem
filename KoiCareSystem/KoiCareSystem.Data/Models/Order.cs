@@ -7,21 +7,21 @@ namespace KoiCareSystem.Data.Models;
 
 public partial class Order
 {
-    public long OrderId { get; set; }
+    public int OrderId { get; set; }
 
-    public long? OrderDate { get; set; }
+    public DateTime? OrderDate { get; set; }
 
-    public long? Quantity { get; set; }
+    public int? Quantity { get; set; }
 
     public decimal? TotalPrice { get; set; }
+
+    public int UserId { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
 
-    public long UserId { get; set; }
-
-    public long? StatusId { get; set; }
+    public int StatusId { get; set; }
 
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 

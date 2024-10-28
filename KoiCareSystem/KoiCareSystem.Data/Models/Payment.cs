@@ -7,13 +7,13 @@ namespace KoiCareSystem.Data.Models;
 
 public partial class Payment
 {
-    public long Id { get; set; }
+    public int Id { get; set; }
 
-    public long OrderId { get; set; }
+    public int OrderId { get; set; }
 
     public decimal Total { get; set; }
 
-    public long UserId { get; set; }
+    public int UserId { get; set; }
 
     public virtual Order Order { get; set; }
 

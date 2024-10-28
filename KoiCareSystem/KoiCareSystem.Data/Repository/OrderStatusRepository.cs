@@ -11,7 +11,7 @@ namespace KoiCareSystem.Data.Repository
         {
         }
 
-        public OrderStatusRepository(FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context) => _context = context;
+        public OrderStatusRepository(ApplicationDbContext context) => _context = context;
         public async Task<List<OrderStatus>> GetAllAsync()
         {
             return await _context.OrderStatuses.ToListAsync();

@@ -109,7 +109,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
                 if (ImageFile != null)
                 {
                     // Đường dẫn lưu file trong wwwroot
-                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/koifishs/");
                     Directory.CreateDirectory(uploadsFolder);  // Tạo thư mục nếu chưa có
 
                     // Đặt tên file duy nhất
@@ -123,7 +123,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
                     }
 
                     // Cập nhật đường dẫn ảnh trong model
-                    KoiFish.ImageUrl = "/images/" + uniqueFileName;
+                    KoiFish.ImageUrl = "/images/koifishs/" + uniqueFileName;
                 }
 
                 var updateResult = await _koiFishService.Update(KoiFish);

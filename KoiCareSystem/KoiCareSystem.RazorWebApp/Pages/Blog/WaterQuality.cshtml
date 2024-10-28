@@ -1,0 +1,163 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Blog.WaterQualityModel
+@{
+    ViewData["Title"] = "Water Quality";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Koi Care System</title>
+    <style>
+        .banner {
+            background-image: url('/images/using/guide-banner.jpg'); /* Banner image for guide page */
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+            .banner h1 {
+                font-size: 3rem;
+                font-weight: bold;
+            }
+
+        .content-section {
+            padding: 40px;
+        }
+
+            .content-section h2 {
+                color: #333;
+                font-size: 2rem;
+                margin-top: 30px;
+            }
+
+            .content-section p {
+                color: #555;
+                line-height: 1.6;
+            }
+
+            .content-section ul {
+                list-style-type: disc;
+                padding-left: 20px;
+            }
+
+        keyframes fade {
+            0%
+
+        {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 1;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+
+        }
+
+        .animated-background {
+            animation: fade 10s infinite; /* Fade effect over 10 seconds */
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            height: 350px;
+            transition: background-image 1s ease-in-out; /* Smooth transition */
+        }
+
+        .text-overlay {
+            color: white;
+            font-weight: bold;
+            font-size: 3.5rem;
+        }
+
+        .lead-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <div id="background" class="text-center animated-background banner">
+            <h1>Cách duy trì chất lượng nước trong hồ</h1>
+        </div>
+
+        <div class="content-section">
+            <h2>Chất Lượng Nước</h2>
+            <p>
+                Chất lượng nước là yếu tố then chốt quyết định sức khỏe và sự phát triển của cá Koi. Để cá có môi trường sống tối ưu, bạn cần duy trì các thông số nước phù hợp và luôn kiểm tra định kỳ các chỉ số này.
+            </p>
+
+            <h3>1. Độ pH</h3>
+            <p>
+                Độ pH lý tưởng cho hồ cá Koi nằm trong khoảng từ 7.0 đến 8.5. Độ pH quá thấp hoặc quá cao đều có thể gây căng thẳng và tổn thương cho cá. Bạn nên sử dụng dụng cụ đo pH để kiểm tra thường xuyên, đặc biệt là sau khi thay nước hay sau mưa lớn, vì các yếu tố này có thể làm thay đổi độ pH đột ngột.
+            </p>
+
+            <h3>2. Nhiệt Độ Nước</h3>
+            <p>
+                Cá Koi phát triển tốt nhất trong khoảng nhiệt độ từ 15°C đến 25°C. Nhiệt độ nước quá thấp sẽ làm giảm hoạt động của cá, trong khi nhiệt độ quá cao sẽ làm tăng nguy cơ nhiễm khuẩn. Sử dụng máy sưởi trong mùa đông và hệ thống làm mát trong mùa hè để duy trì nhiệt độ ổn định cho cá.
+            </p>
+
+            <h3>3. Độ Cứng (GH) và Độ Kiềm (KH) của Nước</h3>
+            <p>
+                Độ cứng tổng (GH) và độ kiềm (KH) là các yếu tố quan trọng ảnh hưởng đến pH và sự ổn định của nước. Độ GH trong hồ cá Koi nên duy trì từ 60-160 ppm, còn độ KH từ 120-180 ppm. Độ kiềm cao giúp duy trì pH ổn định và tạo môi trường tốt hơn cho cá.
+            </p>
+
+            <h3>4. Hàm Lượng Amoniac và Nitrite</h3>
+            <p>
+                Amoniac và Nitrite là các chất độc hại cho cá, thường xuất hiện khi hệ thống lọc không hoạt động hiệu quả hoặc lượng cá trong hồ quá nhiều. Bạn cần thường xuyên kiểm tra nồng độ amoniac và nitrite, đảm bảo chúng luôn ở mức 0 ppm. Việc thay nước thường xuyên và duy trì hệ thống lọc tốt sẽ giúp giảm nồng độ của các chất này.
+            </p>
+
+            <h3>5. Hệ Thống Lọc và Tuần Hoàn Nước</h3>
+            <p>
+                Hệ thống lọc có vai trò quan trọng trong việc giữ cho nước trong hồ luôn sạch và không bị nhiễm độc. Bạn nên sử dụng lọc cơ học để loại bỏ chất rắn và lọc sinh học để phân hủy các chất độc hại. Ngoài ra, hệ thống tuần hoàn giúp ngăn ngừa sự tích tụ của cặn bã và đảm bảo lượng oxy đầy đủ cho cá.
+            </p>
+
+            <h3>6. Oxy Hòa Tan</h3>
+            <p>
+                Cá Koi cần một lượng oxy hòa tan lớn để hô hấp. Lượng oxy hòa tan nên đạt ít nhất 5 mg/L. Bạn có thể tăng cường oxy bằng cách lắp đặt máy sục khí hoặc thác nước trong hồ, đặc biệt là vào mùa hè khi nhiệt độ tăng cao làm giảm lượng oxy hòa tan.
+            </p>
+
+            <h2>Kết Luận</h2>
+            <p>
+                Để cá Koi phát triển khỏe mạnh, việc duy trì chất lượng nước là vô cùng quan trọng. Hãy kiểm tra các chỉ số nước định kỳ và xử lý kịp thời nếu có sự thay đổi. Điều này không chỉ giúp cá tránh được bệnh tật mà còn đảm bảo môi trường sống tối ưu cho chúng.
+            </p>
+
+            <a class="btn btn-primary mt-4" href="/">Quay lại Trang Chủ</a>
+        </div>
+    </div>
+    <script>
+        const images = [
+            '/images/background/background1.jpg',
+            '/images/background/background2.jpg',
+            '/images/background/background3.jpg'// Add all your image paths here
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            const backgroundDiv = document.getElementById('background');
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
+        }
+
+        // Change background every 10 seconds
+        setInterval(changeBackground, 10000); // 10 seconds
+        changeBackground(); // Initialize the first background
+    </script>
+</body>
+</html>

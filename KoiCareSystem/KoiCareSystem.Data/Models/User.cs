@@ -7,17 +7,17 @@ namespace KoiCareSystem.Data.Models;
 
 public partial class User
 {
-    public long Id { get; set; }
+    public int Id { get; set; }
 
     public string Email { get; set; }
 
-    public string PashwordHash { get; set; }
+    public string PasswordHash { get; set; }
 
-    public long RoleId { get; set; }
+    public bool IsVerified { get; set; }
 
-    public string EmailVerifiedToken { get; set; }
+    public string EmailVerificationToken { get; set; }
 
-    public bool EmailVerified { get; set; }
+    public int RoleId { get; set; }
 
     public virtual ICollection<Blog> Blogs { get; set; } = new List<Blog>();
 

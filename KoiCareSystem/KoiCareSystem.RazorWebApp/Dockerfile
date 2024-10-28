@@ -3,7 +3,7 @@ WORKDIR /src
 
 COPY ["KoiCareSystem.RazorWebApp/KoiCareSystem.RazorWebApp.csproj", "KoiCareSystem.RazorWebApp/"]
 COPY ["KoiCareSystem.Service/KoiCareSystem.Service.csproj", "KoiCareSystem.Service/"]
-COPY ["KoiCareSystem.DataV1/KoiCareSystem.Data.csproj", "KoiCareSystem.DataV1/"]
+COPY ["KoiCareSystem.Data/KoiCareSystem.Data.csproj", "KoiCareSystem.Data/"]
 COPY ["KoiCareSystem.Common/KoiCareSystem.Common.csproj", "KoiCareSystem.Common/"]
 
 # Khôi phục các gói NuGet

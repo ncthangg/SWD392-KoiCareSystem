@@ -7,11 +7,11 @@ namespace KoiCareSystem.Data.Models;
 
 public partial class WaterParameter
 {
-    public long ParameterId { get; set; }
+    public int ParameterId { get; set; }
 
-    public long? PondId { get; set; }
+    public int? PondId { get; set; }
 
-    public long? MeasurementDate { get; set; }
+    public DateTime? MeasurementDate { get; set; }
 
     public decimal? Temperature { get; set; }
 
@@ -31,5 +31,11 @@ public partial class WaterParameter
 
     public DateTime? UpdatedAt { get; set; }
 
+    public int? StatusId { get; set; }
+
+    public decimal? WaterVolume { get; set; }
+
     public virtual Pond Pond { get; set; }
+
+    public virtual WaterStatus Status { get; set; }
 }

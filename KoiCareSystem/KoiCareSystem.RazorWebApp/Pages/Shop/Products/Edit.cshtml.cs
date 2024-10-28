@@ -17,16 +17,21 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
         private readonly IMapper _mapper;
-        public EditModel(IMapper mapper)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public EditModel(IMapper mapper, IWebHostEnvironment webHostEnvironment)
         {
             _productService ??= new ProductService(mapper);
             _categoryService ??= new CategoryService();
             _mapper = mapper;
+            _webHostEnvironment = webHostEnvironment;
         }
         //========================================================
         [BindProperty]
         public RequestCreateANewProductDto RequestCreateANewProductDto { get; set; } = default!;
         public Product Product { get; set; } = default!;
+        [BindProperty]
+        public IFormFile ImageFile { get; set; }
         //========================================================
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -63,6 +68,25 @@ namespace KoiCareSystem.RazorWebApp.Pages.Shop.Products
             }
             else
             {
+                if (ImageFile != null)
+                {
+                    // Đường dẫn lưu file trong wwwroot
+                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/products/");
+                    Directory.CreateDirectory(uploadsFolder);  // Tạo thư mục nếu chưa có
+
+                    // Đặt tên file duy nhất
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + ImageFile.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    // Lưu file vào thư mục
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ImageFile.CopyToAsync(fileStream);
+                    }
+
+                    // Cập nhật đường dẫn ảnh trong model
+                    RequestCreateANewProductDto.ImageUrl = "/images/products/" + uniqueFileName;
+                }
                 await _productService.Save(RequestCreateANewProductDto);
             }
 

@@ -7,11 +7,11 @@ namespace KoiCareSystem.Data.Models;
 
 public partial class KoiGrowthLog
 {
-    public long LogId { get; set; }
+    public int LogId { get; set; }
 
-    public long? FishId { get; set; }
+    public int? FishId { get; set; }
 
-    public long? GrowthDate { get; set; }
+    public DateTime? GrowthDate { get; set; }
 
     public decimal? Size { get; set; }
 
@@ -21,7 +21,7 @@ public partial class KoiGrowthLog
 
     public DateTime? UpdatedAt { get; set; }
 
-    public decimal FoodRecomment { get; set; }
+    public decimal RecommendedFoodAmount { get; set; }
 
     public virtual KoiFish Fish { get; set; }
 }

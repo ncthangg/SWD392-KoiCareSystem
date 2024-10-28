@@ -51,3 +51,7 @@ body {
 .good-range {
     background-color: lightgreen; /* Màu nền đỏ cho các dòng below hoặc above */
 }
+
+.bg-color {
+    background-color: #99FFFF; /* Chọn màu xanh theo ý muốn */
+}

@@ -2,12 +2,6 @@
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace KoiCareSystem.Data.Repository
 {
     public class ProductRepository : GenericRepository<Product>
@@ -16,10 +10,10 @@ namespace KoiCareSystem.Data.Repository
         {
         }
 
-        public ProductRepository(FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context) => _context = context;
+        public ProductRepository(ApplicationDbContext context) => _context = context;
 
         // Nối bảng Category
-        public async Task<Product> GetByIdAsync(long id)
+        public async Task<Product> GetByIdAsync(int id)
         {
             return await _context.Products.Include(e => e.Category).FirstOrDefaultAsync(x => x.ProductId == id);    
         }
@@ -28,7 +22,7 @@ namespace KoiCareSystem.Data.Repository
             return await _context.Products.Include(e=>e.Category).ToListAsync();
         }
         // Kiểm tra sản phẩm có tồn tại không
-        public bool ProductExists(long id)
+        public bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.ProductId == id);
         }

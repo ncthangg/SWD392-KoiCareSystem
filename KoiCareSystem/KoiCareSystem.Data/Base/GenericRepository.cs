@@ -1,27 +1,16 @@
 ﻿using KoiCareSystem.Data.DBContext;
-using KoiCareSystem.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoiCareSystem.Data.Base
 {
 
     public class GenericRepository<T> where T : class
     {
-        protected FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext _context;
+        protected ApplicationDbContext _context;
 
         public GenericRepository()
         {
-            _context ??= new FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext();
-        }
-
-        public GenericRepository(FA24_SE1702_PRN221_G5_KoiCareSystematHomeContext context)
-        {
-            _context = context;
+            _context ??= new ApplicationDbContext();
         }
 
         public List<T> GetAll()
@@ -78,7 +67,7 @@ namespace KoiCareSystem.Data.Base
             return _context.Set<T>().Find(id);
         }
 
-        public async Task<T> GetByIdAsync(long id)
+        public async Task<T> GetByIdAsync(int id)
         {
             return await _context.Set<T>().FindAsync(id);
         }

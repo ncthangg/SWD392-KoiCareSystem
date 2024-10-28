@@ -7,7 +7,7 @@ namespace KoiCareSystem.Data.Models;
 
 public partial class OrderStatus
 {
-    public long StatusId { get; set; }
+    public int StatusId { get; set; }
 
     public string StatusName { get; set; }
 

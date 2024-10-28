@@ -13,8 +13,32 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\background\\background1.jpg",
+      "PackagePath": "staticwebassets\\images\\background\\background1.jpg"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\background\\background2.jpg",
+      "PackagePath": "staticwebassets\\images\\background\\background2.jpg"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\background\\background3.jpg",
+      "PackagePath": "staticwebassets\\images\\background\\background3.jpg"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\icons\\icon.png",
+      "PackagePath": "staticwebassets\\images\\icons\\icon.png"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\icons\\icon1.png",
+      "PackagePath": "staticwebassets\\images\\icons\\icon1.png"
+    },
+    {
       "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\koifishs\\af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jfif",
       "PackagePath": "staticwebassets\\images\\koifishs\\af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jfif"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\ponds\\7d4bcd71-e606-45de-aa49-68a97e270ed3_ho1.jfif",
+      "PackagePath": "staticwebassets\\images\\ponds\\7d4bcd71-e606-45de-aa49-68a97e270ed3_ho1.jfif"
     },
     {
       "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\ponds\\860413d4-f164-4378-a5d4-d4b8cea3a544_ho1.jfif",
@@ -27,6 +51,34 @@
     {
       "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\ponds\\ee64e23e-b28b-4ea8-9887-98e2549c30ab_ho1.jfif",
       "PackagePath": "staticwebassets\\images\\ponds\\ee64e23e-b28b-4ea8-9887-98e2549c30ab_ho1.jfif"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\products\\da6209d2-6cd4-4757-acd9-8163d5a4b0c9_resunlp200.png",
+      "PackagePath": "staticwebassets\\images\\products\\da6209d2-6cd4-4757-acd9-8163d5a4b0c9_resunlp200.png"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\using\\fish.jpg",
+      "PackagePath": "staticwebassets\\images\\using\\fish.jpg"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\using\\nutrition.jpg",
+      "PackagePath": "staticwebassets\\images\\using\\nutrition.jpg"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\using\\phattrien.jpg",
+      "PackagePath": "staticwebassets\\images\\using\\phattrien.jpg"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\using\\pond.jpg",
+      "PackagePath": "staticwebassets\\images\\using\\pond.jpg"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\using\\store.jpg",
+      "PackagePath": "staticwebassets\\images\\using\\store.jpg"
+    },
+    {
+      "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\using\\water.jpg",
+      "PackagePath": "staticwebassets\\images\\using\\water.jpg"
     },
     {
       "Id": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\js\\site.js",

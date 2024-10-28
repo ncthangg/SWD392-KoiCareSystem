@@ -17,6 +17,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
     {
         [BindProperty]
         public KoiFish KoiFish { get; set; } = default!;
+
         [BindProperty]
         public IFormFile ImageFile { get; set; }
         //========================================================
@@ -90,7 +91,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
                 }
 
                 // Cập nhật đường dẫn ảnh trong model
-                KoiFish.ImageUrl = "/images/koifishs" + uniqueFileName;
+                KoiFish.ImageUrl = "/images/koifishs/" + uniqueFileName;
             }
 
             var a = _koiFishService.Create(KoiFish);

@@ -11,12 +11,16 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="RequestCreateANewProductDto.ProductName" class="control-label"></label>
                 <input asp-for="RequestCreateANewProductDto.ProductName" class="form-control" />
                 <span asp-validation-for="RequestCreateANewProductDto.ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ImageFile">Upload Image</label>
+                <input type="file" class="form-control" id="ImageFile" name="ImageFile" />
             </div>
             <div class="form-group">
                 <label asp-for="RequestCreateANewProductDto.ProductType" class="control-label"></label>

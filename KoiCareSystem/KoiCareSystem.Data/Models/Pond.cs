@@ -7,7 +7,7 @@ namespace KoiCareSystem.Data.Models;
 
 public partial class Pond
 {
-    public long PondId { get; set; }
+    public int PondId { get; set; }
 
     public string PondName { get; set; }
 
@@ -19,7 +19,7 @@ public partial class Pond
 
     public decimal? Volume { get; set; }
 
-    public long? DrainCount { get; set; }
+    public int? DrainCount { get; set; }
 
     public decimal? PumpCapacity { get; set; }
 
@@ -27,9 +27,9 @@ public partial class Pond
 
     public DateTime? UpdatedAt { get; set; }
 
-    public long UserId { get; set; }
+    public int? SkimmerCount { get; set; }
 
-    public long SkimmerCount { get; set; }
+    public int UserId { get; set; }
 
     public virtual ICollection<KoiFish> KoiFishes { get; set; } = new List<KoiFish>();
 

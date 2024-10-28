@@ -7,27 +7,25 @@ namespace KoiCareSystem.Data.Models;
 
 public partial class KoiFish
 {
-    public long FishId { get; set; }
+    public int FishId { get; set; }
 
     public string FishName { get; set; }
 
-    public long UserId { get; set; }
+    public int? UserId { get; set; }
 
-    public long? PondId { get; set; }
+    public int? PondId { get; set; }
 
     public string ImageUrl { get; set; }
 
     public string BodyShape { get; set; }
 
-    public long? Age { get; set; }
+    public int? Age { get; set; }
 
     public decimal? Size { get; set; }
 
     public decimal? Weight { get; set; }
 
     public string Gender { get; set; }
-
-    public string Breed { get; set; }
 
     public string Origin { get; set; }
 
