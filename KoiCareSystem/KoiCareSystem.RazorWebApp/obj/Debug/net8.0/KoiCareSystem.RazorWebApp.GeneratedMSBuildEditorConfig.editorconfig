@@ -282,6 +282,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFNoYXJlZFxfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Member/Shop/MainView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFNob3BcTWFpblZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Member/WaterParameters/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFdhdGVyUGFyYW1ldGVyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

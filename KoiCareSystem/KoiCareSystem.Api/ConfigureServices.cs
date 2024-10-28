@@ -1,9 +1,6 @@
 ﻿using KoiCareSystem.Service.AutoMapper;
-using KoiCareSystem.Data;
-using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using KoiCareSystem.Service.Helper;
-using KoiCareSystem.Service;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.AspNetCore.Mvc.Routing;

@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\KoiCareSystem.Common\KoiCareSystem.Common.csproj" />
     <ProjectReference Include="..\KoiCareSystem.DataV1\KoiCareSystem.Data.csproj" />
+    <ProjectReference Include="..\KoiCareSystem.Data\KoiCareSystem.Data.csproj" />
     <ProjectReference Include="..\KoiCareSystem.Service\KoiCareSystem.Service.csproj" />
   </ItemGroup>
 

@@ -9498,8 +9498,8 @@
     },
     "KoiCareSystem.Data/1.0.0": {
       "type": "project",
-      "path": "../KoiCareSystem.DataV1/KoiCareSystem.Data.csproj",
-      "msbuildProject": "../KoiCareSystem.DataV1/KoiCareSystem.Data.csproj"
+      "path": "../KoiCareSystem.Data/KoiCareSystem.Data.csproj",
+      "msbuildProject": "../KoiCareSystem.Data/KoiCareSystem.Data.csproj"
     },
     "KoiCareSystem.Service/1.0.0": {
       "type": "project",

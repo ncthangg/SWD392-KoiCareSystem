@@ -7385,8 +7385,8 @@
     },
     "KoiCareSystem.Data/1.0.0": {
       "type": "project",
-      "path": "../KoiCareSystem.DataV1/KoiCareSystem.Data.csproj",
-      "msbuildProject": "../KoiCareSystem.DataV1/KoiCareSystem.Data.csproj"
+      "path": "../KoiCareSystem.Data/KoiCareSystem.Data.csproj",
+      "msbuildProject": "../KoiCareSystem.Data/KoiCareSystem.Data.csproj"
     },
     "KoiCareSystem.Service/1.0.0": {
       "type": "project",
@@ -7435,6 +7435,9 @@
             },
             "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.DataV1\\KoiCareSystem.Data.csproj": {
               "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.DataV1\\KoiCareSystem.Data.csproj"
+            },
+            "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj": {
+              "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Data\\KoiCareSystem.Data.csproj"
             },
             "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Service\\KoiCareSystem.Service.csproj": {
               "projectPath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Service\\KoiCareSystem.Service.csproj"

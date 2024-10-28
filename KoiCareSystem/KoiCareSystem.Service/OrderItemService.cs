@@ -64,8 +64,8 @@ namespace KoiCareSystem.Service
         }
         public async Task<ServiceResult> AddItemToOrder(RequestItemToOrderDto requestItemToOrderDto)
         {
-            var order = await _unitOfWork.OrderRepository.GetByIdAsync(requestItemToOrderDto.OrderId);
-            var product = await _unitOfWork.ProductRepository.GetByIdAsync(requestItemToOrderDto.ProductId);
+            var order = await _unitOfWork.OrderRepository.GetByIdAsync((int)requestItemToOrderDto.OrderId);
+            var product = await _unitOfWork.ProductRepository.GetByIdAsync((int)requestItemToOrderDto.ProductId);
 
             // Kiểm tra nếu order hoặc product không tồn tại
             if (order == null || product == null)
@@ -79,13 +79,13 @@ namespace KoiCareSystem.Service
             try
             {
                 // Kiểm tra xem sản phẩm đã tồn tại trong Order hay chưa
-                var exist = this.ProductInOrderExists(requestItemToOrderDto.OrderId, requestItemToOrderDto.ProductId);
+                var exist = this.ProductInOrderExists((int)requestItemToOrderDto.OrderId, (int)requestItemToOrderDto.ProductId);
                
                 if (exist) //tồn tại
                 {        
                     var orderItem = _mapper.Map<OrderItem>(requestItemToOrderDto);
 
-                    var itemExist = await _unitOfWork.OrderItemRepository.GetItemByOrderIdAndProductIdAsync(requestItemToOrderDto.OrderId, requestItemToOrderDto.ProductId);
+                    var itemExist = await _unitOfWork.OrderItemRepository.GetItemByOrderIdAndProductIdAsync((int)requestItemToOrderDto.OrderId, (int)requestItemToOrderDto.ProductId);
 
                     itemExist.Quantity += orderItem.Quantity;
                     itemExist.Price += orderItem.Quantity * (int)product.Price;

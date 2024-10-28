@@ -2,6 +2,7 @@
 using KoiCareSystem.Data;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service.Base;
+using Microsoft.AspNetCore.Mvc;
 namespace KoiCareSystem.Service
 {
     public interface IOrderService
@@ -9,8 +10,10 @@ namespace KoiCareSystem.Service
         Task<ServiceResult> GetAllOrder();
         Task<ServiceResult> GetByOrderId(int orderId);
         Task<ServiceResult> GetByUserId(int userId);
+        Task<bool> CreateByUserId(int userId);
         Task<ServiceResult> Save(Order order);
         Task<ServiceResult> DeleteByOrderId(int orderId);
+        Task<Order> GetNewOrder(int userId);
     }
     public class OrderService : IOrderService
     {
@@ -72,6 +75,37 @@ namespace KoiCareSystem.Service
             }
         }
         //Create/Update
+        public async Task<bool> CreateByUserId(int userId)
+        {
+            int result = -1;
+            var existOrder = await this.HasNewOrders(userId);
+
+            if (!existOrder)
+            {
+                var newOrder = new Order
+                {
+                    StatusId = 1,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    UserId = userId,
+                };
+                result = await _unitOfWork.OrderRepository.CreateAsync(newOrder);
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
         public async Task<ServiceResult> Save(Order order)
         {
             try
@@ -97,7 +131,7 @@ namespace KoiCareSystem.Service
                 }
                 else
                 {
-                    if (await HasPendingOrders(order.UserId))
+                    if (await HasNewOrders(order.UserId))
                     {
                         return new ServiceResult(Const.FAIL_CREATE_CODE, "Không thể tạo đơn hàng mới. Người dùng đã có đơn hàng đang chờ xử lý.");
                     }
@@ -177,11 +211,25 @@ namespace KoiCareSystem.Service
         {
             return _unitOfWork.OrderRepository.OrderExists(id);
         }
-        public async Task<bool> HasPendingOrders(int userId)
+        public async Task<Order> GetNewOrder(int userId)
         {
             var ordersResult = await GetByUserId(userId);
 
-            if (ordersResult.Status>0 && ordersResult.Data != null)
+            if (ordersResult.Status > 0 && ordersResult.Data != null)
+            {
+                var orderList = ordersResult.Data as List<Order>;
+                var createdOrder = orderList.FirstOrDefault(o => o.StatusId == 1);
+
+                return createdOrder;
+            }
+            return new Order();
+        }
+
+        public async Task<bool> HasNewOrders(int userId)
+        {
+            var ordersResult = await GetByUserId(userId);
+
+            if (ordersResult.Status > 0 && ordersResult.Data != null)
             {
                 var orderList = ordersResult.Data as List<Order>;
                 var pendingOrders = orderList.Where(o => o.StatusId == 1).ToList();
