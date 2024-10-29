@@ -36,7 +36,9 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             var result = await _orderService.GetByUserId((int)UserId);
             if (result.Status > 0)
             {
-                Order = (IList<Order>)result.Data;
+                Order = ((IList<Order>)result.Data)
+                         .OrderByDescending(o => o.CreatedAt) // Sắp xếp từ mới nhất đến cũ
+                         .ToList();
             }
             return Page();
         }

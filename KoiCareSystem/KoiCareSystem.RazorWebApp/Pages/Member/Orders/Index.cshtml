@@ -66,78 +66,86 @@
         </div>
         <h1 class="text-center mb-4">Order History</h1>
 
-<p>
-   @*  <a asp-page="Create">Create New</a> *@
-    <form method="post" asp-page-handler="Create">
-        <input type="submit" value="Create New" class="btn btn-primary" />
-    </form>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].OrderId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].TotalPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Order) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status.StatusName)
-            </td>
+        <p>
+            @*  <a asp-page="Create">Create New</a> *@
+            <form method="post" asp-page-handler="Create">
+                <input type="submit" value="Create New" class="btn btn-primary" />
+            </form>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Newest
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Order[0].OrderId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Order[0].OrderDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Order[0].Quantity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Order[0].TotalPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Order[0].Status)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Order.Count; i++)
+                {
+                    var item = Model.Order[i];
+                    <tr>
+                        <td>
+                            @(i + 1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status.StatusName)
+                        </td>
 
-            <td>
-                <a asp-page="./ManagerOrder" asp-route-orderId="@item.OrderId">Manager</a> 
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-<script>
-    const images = [
-        '/images/background/background1.jpg',
-        '/images/background/background2.jpg',
-        '/images/background/background3.jpg'// Add all your image paths here
-    ];
+                        <td>
+                            <a asp-page="./ManagerOrder" asp-route-orderId="@item.OrderId">Manager</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <script>
+            const images = [
+                '/images/background/background1.jpg',
+                '/images/background/background2.jpg',
+                '/images/background/background3.jpg'// Add all your image paths here
+            ];
 
-    let currentIndex = 0;
+            let currentIndex = 0;
 
-    function changeBackground() {
-        const backgroundDiv = document.getElementById('background');
-        currentIndex = (currentIndex + 1) % images.length; // Cycle through images
-        backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
-    }
+            function changeBackground() {
+                const backgroundDiv = document.getElementById('background');
+                currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+                backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
+            }
 
-    // Change background every 10 seconds
-    setInterval(changeBackground, 10000); // 10 seconds
-    changeBackground(); // Initialize the first background
-</script>
+            // Change background every 10 seconds
+            setInterval(changeBackground, 10000); // 10 seconds
+            changeBackground(); // Initialize the first background
+        </script>
 
 </body>
 </html>

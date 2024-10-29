@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using KoiCareSystem.RazorWebApp.PageBase;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
 {
@@ -20,7 +21,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
         }
         //========================================
         public WaterParameter WaterParameter { get; set; } = default!;
-        public Dictionary<string, string> Evaluations { get; set; }
+        public Dictionary<string, string> Evaluations { get; set; } = new Dictionary<string, string>();
         public int PondId { get; set; }
         public string PondName { get; set; }
         public string Status { get; set; }
@@ -33,34 +34,57 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
                 return NotFound();
             }
             var pond = (await _pondService.GetById((int)id)).Data as Pond;
-            if (pond == null) {
+            if (pond == null)
+            {
                 return NotFound();
             }
             PondId = (int)id;
             PondName = pond.PondName;
-            
+
             // Fetch the most recent WaterParameter for the specified PondId
             var waterParameter = await _context.WaterParameters
-                .Include(x=> x.Status)
+                .Include(x => x.Status)
                 .Where(m => m.PondId == id) // Filter by PondId
                 .OrderByDescending(m => m.UpdatedAt) // Order by UpdatedAt to get the most recent record
                 .FirstOrDefaultAsync();
 
             if (waterParameter == null)
             {
-                return NotFound();
+                // Gán WaterParameter mặc định nếu không có bản ghi nào
+                WaterParameter = new WaterParameter()
+                {
+                    ParameterId = 0,
+                    PondId = id,
+                    MeasurementDate = null,
+                    Temperature = 0,
+                    Salinity = 0,
+                    Ph = 0,
+                    O2 = 0,
+                    No2 = 0,
+                    No3 = 0,
+                    Po4 = 0,
+                    WaterVolume = 0,
+                    CreatedAt = null,
+                    UpdatedAt = null,
+                    StatusId = 0,
+                };
+                Status = "unknown"; // hoặc giá trị mặc định khác cho Status
+                Evaluations = new Dictionary<string, string>();
             }
-            Status = waterParameter.Status.StatusName;
-            // Gọi hàm Evaluate để lấy các đánh giá
-            var evaluationResult = await _waterParameterService.Evaluate(waterParameter);
-            var evaluations = evaluationResult;
+            else
+            {
+                Status = waterParameter.Status.StatusName;
+                // Gọi hàm Evaluate để lấy các đánh giá
+                var evaluationResult = await _waterParameterService.Evaluate(waterParameter);
+                var evaluations = evaluationResult;
 
-            WaterParameter = waterParameter;
-            Evaluations = evaluations;
+                WaterParameter = waterParameter;
+                Evaluations = evaluations;
 
+                
+            }
             return Page();
+
         }
-
-
     }
 }

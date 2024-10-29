@@ -1,22 +1,26 @@
 ﻿using AutoMapper;
+using Humanizer;
 using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.Data.Models;
 using KoiCareSystem.RazorWebApp.PageBase;
 using KoiCareSystem.Service;
+using MailKit.Search;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis;
+using System;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
 {
-    public class MainViewModel : BasePageModel
+    public class MainModel : BasePageModel
     {
         private readonly OrderService _orderService;
         private readonly ProductService _productService;
         private readonly OrderItemService _orderItemService;
         private readonly IMapper _mapper;
 
-        public MainViewModel(IMapper mapper)
+        public MainModel(IMapper mapper)
         {
             _orderService ??= new OrderService();
             _productService ??= new ProductService(mapper);
@@ -59,18 +63,28 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
 
             return Page();
         }
+
         public async Task<IActionResult> OnPostAddToCart(RequestItemToOrderDto requestItemToOrderDto)
         {
+            Console.WriteLine("Send");
             if (requestItemToOrderDto != null)
             {
-                // Gọi service để thêm sản phẩm vào giỏ hàng
+                var productId = requestItemToOrderDto.ProductId;
+                var orderId = requestItemToOrderDto.OrderId;
+                var quantity = requestItemToOrderDto.Quantity;
+
+                // Ghi log các giá trị để kiểm tra
+                Console.WriteLine($"ProductId: {productId}, OrderId: {orderId}, Quantity: {quantity}");
+
                 var result = await _orderItemService.AddItemToOrder(requestItemToOrderDto);
                 if (result.Status > 0)
                 {
-                    return Page();
+                    //return new JsonResult(new { success = true, message = "Đã thêm vào giỏ hàng thành công!" }); 
+                    return RedirectToPage("./Main", new { message = "Đã thêm vào giỏ hàng thành công!" });
                 }
             }
-            return Page();
+            //return new JsonResult(new { success = false, message = "Không thể thêm sản phẩm vào giỏ hàng." });
+            return RedirectToPage("/Main", new { message = "Không thể thêm sản phẩm vào giỏ hàng." });
         }
 
     }

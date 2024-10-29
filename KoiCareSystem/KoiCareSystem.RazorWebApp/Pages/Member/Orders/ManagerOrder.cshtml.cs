@@ -23,8 +23,16 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
         public IList<OrderItem> OrderItem { get; set; } = default!;
         public Order Order { get; set; } = default!;
         public int OrderId { get; set; }
-        public bool IsPurchasable { get; set; }
-        public bool NotCreated { get; set; }
+        /// <summary>
+        /// status
+        /// </summary>
+        public bool New { get; set; }
+        public bool Pending { get; set; }
+        public bool Confirmed { get; set; }
+        public bool Shipping { get; set; }
+        public bool Delivered { get; set; }
+        public bool Completed { get; set; }
+        public bool Cancelled { get; set; }
         public bool HasItems { get; set; }
         //========================================================
         public async Task<IActionResult> OnGetAsync(int? orderId)
@@ -56,14 +64,13 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             if (orderExist != null)
             {
                 var order = orderExist.Data as Order;
-                IsPurchasable = order.StatusId == 1; // Chỉ cho phép mua hàng nếu
-                NotCreated = order.StatusId == 0;                                    // status == 1
+                SetStatus(order);
                HasItems = order.Quantity != null;
             }
             return Page();
         }
 
-        public async Task<IActionResult> OnPostPurchaseOrder(int orderId)
+        public async Task<IActionResult> OnPostPendingOrder(int orderId)
         {
             // Gọi dịch vụ để cập nhật trạng thái đơn hàng
             var result = await _orderService.UpdateOrderStatusAsync(orderId, 2); // 2 là status 'Mua hàng'
@@ -78,7 +85,32 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             ModelState.AddModelError(string.Empty, "Không thể cập nhật trạng thái đơn hàng.");
             return Page();
         }
+        public async Task<IActionResult> OnPostCancelOrder(int orderId)
+        {
+            // Gọi dịch vụ để cập nhật trạng thái đơn hàng
+            var result = await _orderService.UpdateOrderStatusAsync(orderId, 7);
 
+            if (result)
+            {
+                // Chuyển hướng lại trang danh sách hoặc trang khác
+                return RedirectToPage("./Index");
+            }
 
+            // Nếu có lỗi xảy ra, bạn có thể trả lại thông báo lỗi
+            ModelState.AddModelError(string.Empty, "Không thể cập nhật trạng thái đơn hàng.");
+            return Page();
+        }
+
+        private void SetStatus(Order order)
+        {
+            New = order.StatusId == 1;
+            Pending = order.StatusId == 2;
+            Confirmed = order.StatusId == 3;
+            Shipping = order.StatusId == 4;
+            Delivered = order.StatusId == 5;
+            Completed = order.StatusId == 6;
+            Cancelled = order.StatusId == 7;
+
+        }
     }
 }

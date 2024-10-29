@@ -68,8 +68,8 @@
                 <td>@(Model.Evaluations.ContainsKey("Po4") ? Model.Evaluations["Po4"] : "N/A")</td>
             </tr>
             <tr class="@GetStatusClass(Model.Status)">
-                <td>@Html.DisplayNameFor(model => model.WaterParameter.Status.StatusName)</td>
-                <td style="font-weight: bold; font-size: larger;">@Html.DisplayFor(model => model.WaterParameter.Status.StatusName)</td>
+                <td>@Html.DisplayNameFor(model => model.Status)</td>
+                <td style="font-weight: bold; font-size: larger;">@Html.DisplayFor(model => model.Status)</td>
             </tr>
         </tbody>
     </table>

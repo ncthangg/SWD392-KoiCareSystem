@@ -11,7 +11,11 @@ namespace KoiCareSystem.RazorWebApp
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddRazorPages();
+            builder.Services.AddRazorPages().AddJsonOptions(options =>
+            {
+                // Tuỳ chỉnh cài đặt JSON nếu cần, ví dụ: đặt PropertyNamingPolicy
+                options.JsonSerializerOptions.PropertyNamingPolicy = null; // Mặc định là camelCase
+            });
 
             builder.Services.ConfigureApiServices(builder.Configuration);
 

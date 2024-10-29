@@ -192,6 +192,102 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ponds\ee64e23e-b28b-4ea8-9887-98e2549c30ab_ho1.jfif))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\07b5e19b-233b-4bd7-8a9c-595709a64775_Muối.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/products/07b5e19b-233b-4bd7-8a9c-595709a64775_Muối.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\07b5e19b-233b-4bd7-8a9c-595709a64775_Muối.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\4f3220bd-de23-47f0-9248-dd5b2202e962_VI-CASALT muối và khoáng.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/products/4f3220bd-de23-47f0-9248-dd5b2202e962_VI-CASALT muối và khoáng.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\4f3220bd-de23-47f0-9248-dd5b2202e962_VI-CASALT muối và khoáng.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\61c2945a-78af-45a8-b3c5-8a1a95153919_vn-11134207-7r98o-ltc7f7vfakd592.jfif))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/products/61c2945a-78af-45a8-b3c5-8a1a95153919_vn-11134207-7r98o-ltc7f7vfakd592.jfif</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\61c2945a-78af-45a8-b3c5-8a1a95153919_vn-11134207-7r98o-ltc7f7vfakd592.jfif))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\889836ce-1b35-4073-86d2-f5ad7e360900_Screenshot 2024-10-29 174004.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/products/889836ce-1b35-4073-86d2-f5ad7e360900_Screenshot 2024-10-29 174004.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\889836ce-1b35-4073-86d2-f5ad7e360900_Screenshot 2024-10-29 174004.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\8bf82f36-5ca1-4c2b-a928-fc0f6cb0636f_Cám Porpoise 5 kg.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/products/8bf82f36-5ca1-4c2b-a928-fc0f6cb0636f_Cám Porpoise 5 kg.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\8bf82f36-5ca1-4c2b-a928-fc0f6cb0636f_Cám Porpoise 5 kg.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\938a50f9-4136-46d7-a5ad-14ceb5051e56_Screenshot 2024-10-29 174019.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/products/938a50f9-4136-46d7-a5ad-14ceb5051e56_Screenshot 2024-10-29 174019.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\938a50f9-4136-46d7-a5ad-14ceb5051e56_Screenshot 2024-10-29 174019.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\da6209d2-6cd4-4757-acd9-8163d5a4b0c9_resunlp200.png))">
       <SourceType>Package</SourceType>
       <SourceId>KoiCareSystem.RazorWebApp</SourceId>
@@ -207,6 +303,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\da6209d2-6cd4-4757-acd9-8163d5a4b0c9_resunlp200.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\f9475c4a-c9bd-49d0-9b5e-272e50cb9198_7_41722f044db44895aebb99778fd35a21_master.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/products/f9475c4a-c9bd-49d0-9b5e-272e50cb9198_7_41722f044db44895aebb99778fd35a21_master.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\f9475c4a-c9bd-49d0-9b5e-272e50cb9198_7_41722f044db44895aebb99778fd35a21_master.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\using\fish.jpg))">
       <SourceType>Package</SourceType>

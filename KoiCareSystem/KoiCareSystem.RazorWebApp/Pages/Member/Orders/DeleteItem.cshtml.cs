@@ -68,7 +68,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
 
             }
 
-            return RedirectToPage("./Index", new { orderId = OrderItem.OrderId });
+            return RedirectToPage("./ManagerOrder", new { orderId = OrderItem.OrderId });
         }
     }
 }

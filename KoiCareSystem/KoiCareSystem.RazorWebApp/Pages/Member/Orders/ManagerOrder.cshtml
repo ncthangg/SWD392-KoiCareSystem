@@ -10,53 +10,101 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <style>
+        .table-bordered {
+            border: 2px solid #333; /* Đặt màu và độ dày cho viền ngoài */
+        }
 
+            .table-bordered th,
+            .table-bordered td {
+                border: 1px solid #333; /* Đặt màu và độ dày cho viền của ô */
+            }
+    </style>
 </head>
-@if (Model.HasItems)
-{
-    @if (Model.IsPurchasable)
+<body>
+    @if (Model.HasItems)
     {
-        <form method="post" asp-page-handler="PurchaseOrder" asp-route-orderId="@Model.OrderId">
-            <button type="submit" class="btn btn-success">Mua hàng</button>
-        </form>
-        <a asp-page="./AddItemToOrder" asp-route-id="@Model.OrderId" class="btn btn-primary">Thêm sản phẩm vào đơn hàng</a>
+        @if (Model.New)
+        {
+            <div class="d-flex gap-2">
+                <form method="post" asp-page-handler="PendingOrder" asp-route-orderId="@Model.OrderId" class="d-inline-block">
+                    <button type="submit" class="btn btn-success">Mua hàng</button>
+                </form>
+                <a asp-page="./AddItemToOrder" asp-route-id="@Model.OrderId" class="btn btn-primary d-inline-block">Thêm sản phẩm vào đơn hàng</a>
+            </div>
+        }
+        else if(Model.Pending)
+        {
+            <div class="d-flex gap-2">
+                <button class="btn btn-warning" disabled>Đang xét duyệt</button>
+                <form method="post" asp-page-handler="CancelOrder" asp-route-orderId="@Model.OrderId">
+                    <button type="submit" class="btn btn-success" style="background-color:red">Hủy đơn hàng</button>
+                </form>
+            </div>
+        }
+        else if(Model.Confirmed)
+        {
+            <div class="d-flex gap-2">
+                <button class="btn btn-warning" disabled>Lên Đơn Thành Công</button>
+            </div>
+        }
+        else if (Model.Shipping)
+        {
+            <div class="d-flex gap-2">
+                <button class="btn btn-warning" disabled>Đang Vận Chuyển</button>
+            </div>
+        }
+        else if (Model.Delivered)
+        {
+            <div class="d-flex gap-2">
+                <button class="btn btn-warning" disabled>Đã giao hàng</button>
+            </div>
+        }
+        else if (Model.Completed)
+        {
+            <div class="d-flex gap-2">
+                <button class="btn btn-success" disabled>Mua hàng thành công</button>
+            </div>
+        }
+        else if (Model.Cancelled)
+        {
+            <div class="d-flex gap-2">
+                <button class="btn btn-danger" disabled>Đã hủy</button>
+            </div>
+        }
+        else
+        {
+            <div class="d-flex gap-2">
+                <button class="btn btn-secondary" disabled>Không biết</button>
+            </div>
+        }
     }
     else
     {
-        <button class="btn btn-secondary" disabled>Đã mua</button>
-        <form method="post" asp-page-handler="CancelOrder" asp-route-orderId="@Model.OrderId">
-            <button type="submit" class="btn btn-success" style="background-color:red">Hủy đơn hàng</button>
-        </form>
+        <a asp-page="./AddItemToOrder" asp-route-id="@Model.OrderId" class="btn btn-primary">Thêm sản phẩm vào đơn hàng</a>
     }
- 
-}
-else
-{
-    <a asp-page="./AddItemToOrder" asp-route-id="@Model.OrderId" class="btn btn-primary">Thêm sản phẩm vào đơn hàng</a>
-}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Order.OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order.TotalPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order.Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order.TotalPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order.Status)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
             <tr>
                 <td>
-                @Html.DisplayFor(modelItem => Model.Order.OrderDate)
+                    @Html.DisplayFor(modelItem => Model.Order.OrderDate)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => Model.Order.Quantity)
@@ -65,13 +113,13 @@ else
                     @Html.DisplayFor(modelItem => Model.Order.TotalPrice)
                 </td>
                 <td>
-                @Html.DisplayFor(modelItem => Model.Order.Status.StatusName)
+                    @Html.DisplayFor(modelItem => Model.Order.Status.StatusName)
                 </td>
             </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
 
-<body>
+
     <table class="table">
         <thead>
             <tr>
@@ -108,7 +156,7 @@ else
                     <td>
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
-                    @if (Model.NotCreated)
+                    @if (Model.New)
                     {
                         <td>
                             <a asp-page="./DeleteItem" asp-route-id="@item.Id">Delete</a>
@@ -116,7 +164,7 @@ else
                     }
                 </tr>
             }
-          
+
         </tbody>
     </table>
     <a asp-page="./Index">Back to List</a>

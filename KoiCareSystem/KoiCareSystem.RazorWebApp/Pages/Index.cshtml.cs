@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KoiCareSystem.RazorWebApp.PageBase;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace KoiCareSystem.RazorWebApp.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel
     {
         private readonly ILogger<IndexModel> _logger;
 
@@ -12,8 +13,18 @@ namespace KoiCareSystem.RazorWebApp.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGet()
         {
+            LoadUserIdFromSession();
+
+            if (UserId == null)
+            {
+                return Page();
+            }
+            else
+            {
+                return RedirectToPage("/Member/Index");
+            }    
         }
     }
 
