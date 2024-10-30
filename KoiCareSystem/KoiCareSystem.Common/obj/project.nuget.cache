@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IFbiSLRuSuc=",
+  "dgSpecHash": "4/SY0so4ZkU=",
   "success": true,
-  "projectFilePath": "D:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Common\\KoiCareSystem.Common.csproj",
+  "projectFilePath": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Common\\KoiCareSystem.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
