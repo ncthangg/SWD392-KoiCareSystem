@@ -15,6 +15,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
 {
     public class MainModel : BasePageModel
     {
+        private readonly CategoryService _categoryService;
         private readonly OrderService _orderService;
         private readonly ProductService _productService;
         private readonly OrderItemService _orderItemService;
@@ -22,15 +23,29 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
 
         public MainModel(IMapper mapper)
         {
+            _categoryService ??= new CategoryService();
             _orderService ??= new OrderService();
             _productService ??= new ProductService(mapper);
             _orderItemService ??= new OrderItemService(mapper);
         }
         //========================================================
+        /// <summary>
+        ///              Get
+        /// </summary>
         public IList<Product> Products { get; set; } = new List<Product>();
+        public List<Category> Categories { get; set; }
+        public string CategoriesName { get; set; }
+        public int OrderId { get; set; }
+        public int TotalItems { get; set; }
+
         [BindProperty]
         public RequestItemToOrderDto RequestItemToOrderDto { get; set; } = default!;
-        public int OrderId { get; set; }
+
+        /// <summary>
+        ///          Search
+        /// </summary>
+        public string SearchQuery { get; set; }
+        public int SelectedCategoryId { get; set; }
         //========================================================
 
         public async Task<IActionResult> OnGetAsync()
@@ -42,12 +57,17 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
             }
             var productListResult = await _productService.GetAll();
             Products = productListResult?.Data as IList<Product> ?? new List<Product>();
+            var categoryListResult = await _categoryService.GetAll();
+            Categories = categoryListResult?.Data as List<Category> ?? new List<Category>();
 
             var existOrder = await _orderService.GetNewOrder((int)UserId);
             if(existOrder != null)
             {
                 var id = existOrder.OrderId;
                 OrderId = (int)id;
+
+                var order = (await _orderService.GetByOrderId(OrderId)).Data as Order;
+                TotalItems = (int)order.Quantity;
             }
             else
             {
@@ -57,6 +77,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
                     var newOrder = await _orderService.GetNewOrder((int)UserId);
                     var id = newOrder.OrderId;
                     OrderId = (int)id;
+                    TotalItems = 0;
                 }
                 RedirectToPage("/Error");
             }
@@ -85,6 +106,27 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
             }
             //return new JsonResult(new { success = false, message = "Không thể thêm sản phẩm vào giỏ hàng." });
             return RedirectToPage("/Main", new { message = "Không thể thêm sản phẩm vào giỏ hàng." });
+        }
+
+        public async Task<IActionResult> OnGetSearchAsync(string searchQuery, int? categoryId)
+        {
+            Console.WriteLine("Search handler called");
+            SearchQuery = searchQuery;
+            SelectedCategoryId = categoryId ?? 0; // Lưu categoryId được chọn
+
+            // Lấy danh sách sản phẩm từ dịch vụ
+            var allProducts = (await _productService.GetAll()).Data as List<Product>;
+
+            // Lọc sản phẩm dựa trên tìm kiếm và categoryId
+            Products = allProducts
+                .Where(p => (string.IsNullOrEmpty(searchQuery) || p.ProductName.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) &&
+                             (!categoryId.HasValue || p.CategoryId == categoryId.Value))
+                .ToList();
+
+            // Lấy danh sách category từ cơ sở dữ liệu
+            Categories = (await _categoryService.GetAll()).Data as List<Category>;
+
+            return Page();
         }
 
     }

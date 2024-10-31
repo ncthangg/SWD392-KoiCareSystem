@@ -1,5 +1,6 @@
 ﻿using KoiCareSystem.Data.DBContext;
 using KoiCareSystem.RazorWebApp.Middleware;
+using Microsoft.AspNetCore.DataProtection;
 
 namespace KoiCareSystem.RazorWebApp
 {
@@ -20,6 +21,13 @@ namespace KoiCareSystem.RazorWebApp
             builder.Services.ConfigureApiServices(builder.Configuration);
 
             builder.Services.AddScoped<ApplicationDbContext>();
+
+            builder.WebHost.ConfigureKestrel(serverOptions =>
+            {
+                serverOptions.ListenAnyIP(80); // Lắng nghe trên port 80
+            });
+            builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo("/root/.aspnet/DataProtection-Keys")); // Thay đổi đường dẫn nếu cần
 
 
             var app = builder.Build();

@@ -1,11 +1,13 @@
 version: '3.8'
+
 services:
-  koicaresystem-api:
-    image: koicaresystem-api
+  web:
     build:
       context: .
-      dockerfile: KoiCareSystem.Api/Dockerfile
+      dockerfile: KoiCareSystem.RazorWebApp/Dockerfile  # Đường dẫn đến Dockerfile của ứng dụng
+    volumes:
+      - ./dataprotection-keys:/root/.aspnet/DataProtection-Keys 
     ports:
-      - "5001:80"  # Exposing port 80 inside the container to port 5000 on the host
+      - "8080:80"  # Map port 8080 trên host đến port 80 trong container
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Development  # Cấu hình môi trường

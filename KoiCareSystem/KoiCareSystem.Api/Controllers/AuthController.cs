@@ -17,14 +17,16 @@ namespace KoiCareSystem.Api.Controllers
         private readonly RoleService _roleService;
         private readonly AuthenticateService _authenticateService;
         private readonly EmailService _emailService;
+        private readonly ITokenService _tokenService;
         private readonly IUrlHelperService _urlHelperService;
         private readonly IMapper _mapper;
-        public AuthController(UserService userService, RoleService roleService, AuthenticateService authenticateService, EmailService emailService, IUrlHelperService urlHelperService, IMapper mapper)
+        public AuthController(UserService userService, RoleService roleService, AuthenticateService authenticateService, EmailService emailService, ITokenService tokenService, IUrlHelperService urlHelperService, IMapper mapper)
         {
             _userService = userService;
             _roleService = roleService;
             _authenticateService = authenticateService;
             _emailService = emailService;
+            _tokenService = tokenService;
             _urlHelperService = urlHelperService;
             _mapper = mapper;
         }
@@ -109,6 +111,8 @@ namespace KoiCareSystem.Api.Controllers
             });
 
             var response = _mapper.Map<ResponseUserDto>(result);
+            var token = _tokenService.GenerateToken((result.Data as User), (result.Data as User).Role.Name);
+            response.EmailVerificationToken = token;
             return Ok(new ApiResponseDto<ResponseUserDto>
             {
                 StatusCode = HttpStatusCode.OK,

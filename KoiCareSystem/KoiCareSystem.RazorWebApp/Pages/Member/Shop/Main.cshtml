@@ -65,6 +65,45 @@
                 width: 100%;
                 object-fit: cover; /* Giữ tỷ lệ ảnh, cắt bớt nếu cần */
             }
+
+        .card.p-3 {
+            position: sticky;
+            top: 20px;
+        }
+
+        .filter-panel {
+            position: fixed;
+            top: 500px; /* Tùy chỉnh khoảng cách từ đầu trang */
+            left: 20px;
+            width: 200px; /* Đặt chiều rộng cho bảng lọc */
+            z-index: 1000; /* Đảm bảo bảng lọc nổi lên trên các phần tử khác */
+        }
+
+        .product-list {
+            margin-left: 240px; /* Đặt khoảng cách bên trái để tránh bị che bởi bảng lọc */
+        }
+
+        .search-bar .input-group {
+            max-width: 800px; /* Chiều rộng tối đa cho nhóm nhập */
+            max-height: 80px;
+            margin: 0 auto; /* Để căn giữa thanh tìm kiếm */
+        }
+
+        .search-bar input {
+            flex: 3; /* Điều chỉnh tỉ lệ giữa các phần tử trong search-bar */
+            min-width: 800px; /* Đặt chiều rộng tối thiểu nếu cần */
+            max-height: 80px;
+        }
+
+        .input-group .form-control {
+            height: 40px; /* Chiều cao thanh tìm kiếm */
+            font-size: 16px; /* Kích thước chữ */
+        }
+
+        .btn-primary {
+            height: 80px; /* Chiều cao nút tìm kiếm */
+            font-size: 16px; /* Kích thước chữ */
+        }
     </style>
 </head>
 
@@ -77,6 +116,64 @@
 
         <h1 class="text-center mb-4">Cửa hàng Koi</h1>
 
+        <div class="search-bar mb-4 d-flex">
+            <form method="get" asp-page-handler="Search" class="flex-grow-1">
+                <div class="input-group" style="width: 100%; height: 100%;">
+                    <select class="form-select" name="categoryId" style="width: 25%; height: 100%; font-size: 20px;">
+                        <option value="">Tất cả loại sản phẩm</option>
+                        @foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                    <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm..." name="searchQuery" style="width: 50%; height: 100%; font-size: 20px;">
+                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                </div>
+            </form>
+            <!-- Biểu tượng giỏ hàng đứng riêng -->
+            <span class="input-group-text" style="width: 70px; padding: 0; margin-left: 0; position: relative;">
+                <a href="/Member/Orders/ManagerOrder?orderId=@Model.OrderId" style="display: block; width: 100%; height: 100%; position: relative;">
+                <img src="/images/using/cart-icon.png" alt="Giỏ hàng" style="width: 70px; height: 70px;">
+                <!-- Hiển thị số lượng sản phẩm -->
+                @if (Model.TotalItems > 0)
+                {
+                    <span class="badge bg-danger" style="position: absolute; top: 0; right: 0; font-size: 0.8em; z-index: 10;">
+                        @Model.TotalItems
+                    </span>
+                }
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <!-- Row chứa bảng lọc và danh sách sản phẩm -->
+
+    <!-- Bảng lọc nổi bên trái -->
+    <div class="filter-panel">
+        <div class="card p-3">
+            <h4>Lọc theo loại sản phẩm</h4>
+@*             <form method="get" action="">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="category" value="Cá Koi" id="koiFish">
+                    <label class="form-check-label" for="koiFish">Cá Koi</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="category" value="Thức ăn" id="food">
+                    <label class="form-check-label" for="food">Thức ăn</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="category" value="Dụng cụ chăm sóc" id="careTools">
+                    <label class="form-check-label" for="careTools">Dụng cụ chăm sóc</label>
+                </div>
+                <!-- Nút lọc -->
+                <button type="submit" class="btn btn-primary mt-3">Lọc</button>
+            </form> *@
+        </div>
+    </div>
+
+
+    <!-- Danh sách sản phẩm bên phải -->
+    <div class="container my-5">
         <div class="row row-cols-1 row-cols-md-4 g-4">
             @foreach (var product in Model.Products)
             {
@@ -102,6 +199,7 @@
         </div>
     </div>
 
+
     <script>
         const images = [
             '/images/background/background1.jpg',
@@ -122,36 +220,36 @@
         changeBackground(); // Initialize the first background
     </script>
 
-@*      <script>
-         function addToCart(button) {
-             const productId = $(button).data("id");
-             const orderId = $(button).data("order-id");
-             console.log(`Adding to cart: ProductId: ${productId}, OrderId: ${orderId}`); // Debug log
+    @*      <script>
+    function addToCart(button) {
+    const productId = $(button).data("id");
+    const orderId = $(button).data("order-id");
+    console.log(`Adding to cart: ProductId: ${productId}, OrderId: ${orderId}`); // Debug log
 
-             $.ajax({
-                 type: "POST",
-                 url: "/Member/Shop/Main?handler=OnPostAddToCart", // URL đến phương thức xử lý
-                 data: JSON.stringify({
-                     ProductId: productId,
-                     OrderId: orderId,
-                     Quantity: 1
-                 }),
-                 contentType: "application/json; charset=utf-8",
-                 dataType: "json",
-                 success: function (response) {
-                     if (response.success) {
-                         alert(response.message); // Thông báo khi thành công
-                     } else {
-                         alert(response.message); // Thông báo khi thất bại
-                     }
-                 },
-                 error: function (xhr, status, error) {
-                     console.error(`Error: ${xhr.responseText}`); // In lỗi ra console
-                     alert("Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.");
-                 }
-             });
-         }
-     </script> *@
+    $.ajax({
+    type: "POST",
+    url: "/Member/Shop/Main?handler=OnPostAddToCart", // URL đến phương thức xử lý
+    data: JSON.stringify({
+    ProductId: productId,
+    OrderId: orderId,
+    Quantity: 1
+    }),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function (response) {
+    if (response.success) {
+    alert(response.message); // Thông báo khi thành công
+    } else {
+    alert(response.message); // Thông báo khi thất bại
+    }
+    },
+    error: function (xhr, status, error) {
+    console.error(`Error: ${xhr.responseText}`); // In lỗi ra console
+    alert("Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.");
+    }
+    });
+    }
+    </script> *@
 
 </body>
 </html>

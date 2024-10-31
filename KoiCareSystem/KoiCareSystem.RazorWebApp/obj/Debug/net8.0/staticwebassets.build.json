@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "y/03OWZhUElhMgxtJDWSVLbbUvD13UHLoJe1yO8Vguw=",
+  "Hash": "cl4uEg246/dLSAl5ohhazr9Pnvzso3qhjANscx3TNWc=",
   "Source": "KoiCareSystem.RazorWebApp",
   "BasePath": "_content/KoiCareSystem.RazorWebApp",
   "Mode": "Default",
@@ -471,6 +471,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\f9475c4a-c9bd-49d0-9b5e-272e50cb9198_7_41722f044db44895aebb99778fd35a21_master.png"
+    },
+    {
+      "Identity": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\using\\cart-icon.png",
+      "SourceId": "KoiCareSystem.RazorWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\",
+      "BasePath": "_content/KoiCareSystem.RazorWebApp",
+      "RelativePath": "images/using/cart-icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\using\\cart-icon.png"
     },
     {
       "Identity": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\using\\fish.jpg",

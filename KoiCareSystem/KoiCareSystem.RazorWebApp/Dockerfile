@@ -6,6 +6,9 @@ COPY ["KoiCareSystem.Service/KoiCareSystem.Service.csproj", "KoiCareSystem.Servi
 COPY ["KoiCareSystem.Data/KoiCareSystem.Data.csproj", "KoiCareSystem.Data/"]
 COPY ["KoiCareSystem.Common/KoiCareSystem.Common.csproj", "KoiCareSystem.Common/"]
 
+# Sao chép appsettings.json vào container
+COPY ["KoiCareSystem.RazorWebApp/appsettings.json", "KoiCareSystem.RazorWebApp/"]
+
 # Khôi phục các gói NuGet
 RUN dotnet restore "KoiCareSystem.RazorWebApp/KoiCareSystem.RazorWebApp.csproj"
 
@@ -22,6 +25,13 @@ RUN dotnet publish "KoiCareSystem.RazorWebApp.csproj" -c Release -o /app/publish
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=publish /app/publish . 
+ENTRYPOINT ["dotnet", "KoiCareSystem.RazorWebApp.dll"]
+
+# Cài đặt ping
+RUN apt-get update && apt-get install -y iputils-ping
+
+WORKDIR /app
+COPY . .
 ENTRYPOINT ["dotnet", "KoiCareSystem.RazorWebApp.dll"]
 
 

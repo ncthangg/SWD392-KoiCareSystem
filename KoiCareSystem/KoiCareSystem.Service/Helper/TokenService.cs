@@ -11,7 +11,11 @@ using System.Threading.Tasks;
 
 namespace KoiCareSystem.Service.Helper
 {
-    public class TokenService
+    public interface ITokenService
+    {
+        string GenerateToken(User user, string roleName);
+    }
+    public class TokenService : ITokenService
     {
         private readonly IConfiguration _configuration;
 
@@ -20,21 +24,17 @@ namespace KoiCareSystem.Service.Helper
             _configuration = configuration;
         }
 
-        public string GenerateToken(User user, IList<string> roles)
+        public string GenerateToken(User user, string roleName)
         {
             var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["JwtSettings:SecretKey"]));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Name, user.Email),
+            new Claim(ClaimTypes.Email, user.Email),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Role, roleName)
         };
-
-            foreach (var role in roles)
-            {
-                claims.Add(new Claim(ClaimTypes.Role, role));
-            }
 
             var token = new JwtSecurityToken(
                 _configuration["JwtSettings:Issuer"],

@@ -85,6 +85,10 @@
       "PackagePath": "staticwebassets\\images\\products\\f9475c4a-c9bd-49d0-9b5e-272e50cb9198_7_41722f044db44895aebb99778fd35a21_master.png"
     },
     {
+      "Id": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\using\\cart-icon.png",
+      "PackagePath": "staticwebassets\\images\\using\\cart-icon.png"
+    },
+    {
       "Id": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\wwwroot\\images\\using\\fish.jpg",
       "PackagePath": "staticwebassets\\images\\using\\fish.jpg"
     },
