@@ -1,19 +1,19 @@
 ﻿@model IEnumerable<KoiCareSystem.Data.Models.Product>
 
 
-<div class="product-list">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        @foreach (var product in Model)
-        {
-            <div class="col">
-                <div class="card h-100">
-                    <div class="image-container">
-                        <img src="@product.ImageUrl" class="card-img-top" alt="@product.ProductName">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">@product.ProductName</h5>
-                        <p class="card-text">@product.ProductType</p>
-                        <p class="card-text">Giá: @product.Price</p>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    @foreach (var product in Model)
+    {
+        <div class="col">
+            <div class="card h-100">
+                <div class="image-container">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.ProductName">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@product.ProductName</h5>
+                    <p class="card-text">@product.ProductType</p>
+                    <p class="card-text">Giá: @product.Price</p>
+                    <div class="mt-auto text-center">
                         <form method="post" asp-page-handler="AddToCart">
                             <input type="hidden" name="ProductId" value="@product.ProductId" />
                             <input type="hidden" name="OrderId" value="@ViewData["OrderId"]" />
@@ -23,6 +23,14 @@
                     </div>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
+
+<style>
+    .image-container img {
+        width: 100%; /* Đảm bảo hình ảnh chiếm chiều rộng tối đa của ô */
+        height: 200px; /* Chiều cao cố định để hình ảnh đều nhau */
+        object-fit: cover; /* Đảm bảo hình ảnh được cắt theo tỷ lệ và không bị méo */
+    }
+</style>

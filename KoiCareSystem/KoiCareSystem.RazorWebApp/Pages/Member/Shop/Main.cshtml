@@ -145,74 +145,98 @@
     <div class="filter-panel">
         <div class="card p-3">
             <h4>Lọc theo loại sản phẩm</h4>
-            <form method="get" action="">
+            <form id="filterForm">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" value="O2" id="o2" onchange="this.form.submit()">
+                    <input class="form-check-input" type="radio" name="category" value="O2" id="o2" onchange="console.log('Changed to O2'); applyFilter()">
                     <label class="form-check-label" for="o2">Oxi</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" value="Temperature" id="temperature" onchange="this.form.submit()">
+                    <input class="form-check-input" type="radio" name="category" value="Temperature" id="temperature" onchange="applyFilter()">
                     <label class="form-check-label" for="temperature">Nhiệt độ</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" value="Salinity" id="salinity" onchange="this.form.submit()">
+                    <input class="form-check-input" type="radio" name="category" value="Salinity" id="salinity" onchange="applyFilter()">
                     <label class="form-check-label" for="salinity">Muối</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" value="PH" id="pH" onchange="this.form.submit()">
+                    <input class="form-check-input" type="radio" name="category" value="PH" id="pH" onchange="applyFilter()">
                     <label class="form-check-label" for="pH">pH</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" value="NO2" id="nO2" onchange="this.form.submit()">
+                    <input class="form-check-input" type="radio" name="category" value="NO2" id="nO2" onchange="applyFilter()">
                     <label class="form-check-label" for="nO2">NO2</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" value="NO3" id="nO3" onchange="this.form.submit()">
+                    <input class="form-check-input" type="radio" name="category" value="NO3" id="nO3" onchange="applyFilter()">
                     <label class="form-check-label" for="nO3">NO3</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" value="PO4" id="pO4" onchange="this.form.submit()">
+                    <input class="form-check-input" type="radio" name="category" value="PO4" id="pO4" onchange="applyFilter()">
                     <label class="form-check-label" for="pO4">PO4</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" value="Food" id="food" onchange="this.form.submit()">
+                    <input class="form-check-input" type="radio" name="category" value="Food" id="food" onchange="applyFilter()">
                     <label class="form-check-label" for="food">Food</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="category" value="Medicine" id="medicine" onchange="this.form.submit()">
+                    <input class="form-check-input" type="radio" name="category" value="Medicine" id="medicine" onchange="applyFilter()">
                     <label class="form-check-label" for="medicine">Medicine</label>
                 </div>
             </form>
+
         </div>
     </div>
 
 
     <!-- Danh sách sản phẩm bên phải -->
     <div class="container my-5" id="productListContainer">
-            <div class="row row-cols-1 row-cols-md-4 g-4">
-                @foreach (var product in Model.Products)
-                {
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="image-container">
-                                <img src="@product.ImageUrl" class="card-img-top" alt="@product.ProductName">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">@product.ProductName</h5>
-                                <p class="card-text">@product.ProductType</p>
-                                <p class="card-text">Giá: @product.Price</p>
-                                <form method="post" asp-page-handler="AddToCart">
-                                    <input type="hidden" name="ProductId" value="@product.ProductId" />
-                                    <input type="hidden" name="OrderId" value="@Model.OrderId" />
-                                    <input type="hidden" name="Quantity" value="1" />
-                                    <button type="submit" class="btn btn-primary">Thêm vào giỏ</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
+        @await Html.PartialAsync("/Pages/Member/Shared/_ProductListPartial.cshtml", Model.Products)
     </div>
+
+    <script> 
+        function applyFilter() {
+            const selectedCategory = document.querySelector('input[name="category"]:checked');
+
+            // Ghi lại giá trị của selectedCategory
+            console.log("Selected category element:", selectedCategory); // Kiểm tra phần tử đã chọn
+
+            if (selectedCategory) {
+                const categoryValue = selectedCategory.value; // Lấy giá trị từ phần tử đã chọn
+                console.log("Selected category value:", categoryValue); // Ghi lại giá trị chọn
+
+                // Gửi yêu cầu AJAX
+                $.ajax({
+                    url: '@Url.Page("Main", "OnGetAsync")',
+                    type: 'GET',
+                    data: { category: categoryValue, ajax: true },
+                    success: function (data) {
+                        $('#productListContainer').html(data); // Cập nhật danh sách sản phẩm
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Có lỗi xảy ra: " + error);
+                    }
+                });
+            } else {
+                console.log("No category selected."); // Ghi log nếu không có ô nào được chọn
+                loadAllProducts(); // Tải lại tất cả sản phẩm
+            }
+        }
+
+
+        function loadAllProducts() {
+            $.ajax({
+                url: '@Url.Page("Main", "OnGetAsync")',
+                type: 'GET',
+                data: { ajax: true }, // Chỉ gửi tham số ajax để tải tất cả sản phẩm
+                success: function (data) {
+                    $('#productListContainer').html(data); // Cập nhật danh sách sản phẩm
+                },
+                error: function (xhr, status, error) {
+                    console.error("Có lỗi xảy ra: " + error);
+                }
+            });
+        }
+    </script>
 
     <script>
         const images = [

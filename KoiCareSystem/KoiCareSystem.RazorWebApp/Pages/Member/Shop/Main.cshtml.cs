@@ -48,7 +48,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
         public int SelectedCategoryId { get; set; }
         //========================================================
 
-        public async Task<IActionResult> OnGetAsync(string? searchQuery, string? category)
+        public async Task<IActionResult> OnGetAsync(string? searchQuery, string? category, bool ajax = false)
         {
             LoadUserIdFromSession();
             if (UserId == null)
@@ -79,8 +79,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
             }
             else
             {
-                var productListResult = await _productService.GetAll();
-                Products = productListResult?.Data as IList<Product> ?? new List<Product>();
+                Products = allProducts;
             }
 
             var categoryListResult = await _categoryService.GetAll();
@@ -108,6 +107,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
                 RedirectToPage("/Error");
             }
 
+            // Kiểm tra nếu yêu cầu AJAX để trả về Partial View
+            if (ajax) // Kiểm tra tham số ajax
+            {
+                return Partial("/Pages/Member/Shared/_ProductListPartial.cshtml", Products);
+            }
             return Page();
         }
 
