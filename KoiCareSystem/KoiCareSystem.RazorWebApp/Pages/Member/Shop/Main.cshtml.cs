@@ -48,15 +48,41 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
         public int SelectedCategoryId { get; set; }
         //========================================================
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(string? searchQuery, string? category)
         {
             LoadUserIdFromSession();
             if (UserId == null)
             {
                 return RedirectToPage("/Guest/Login");
             }
-            var productListResult = await _productService.GetAll();
-            Products = productListResult?.Data as IList<Product> ?? new List<Product>();
+            var allProducts = (await _productService.GetAll()).Data as List<Product>;
+
+            if (searchQuery != null)
+            {
+                SearchQuery = searchQuery;
+
+                // Lọc sản phẩm dựa trên tìm kiếm và categoryId
+                Products = allProducts
+                    .Where(p => (string.IsNullOrEmpty(searchQuery) || p.ProductName.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)))
+                    .ToList();
+            } 
+            else if (searchQuery == null && category != null)
+            {
+                Products = allProducts
+                    .Where(p => p.Category.Name == category) // Giả định rằng Product có thuộc tính Category
+                    .ToList();
+            }else if (searchQuery != null && category != null)
+            {
+                Products = allProducts
+                    .Where(p => p.Category.Name.Contains(category, StringComparison.OrdinalIgnoreCase) && p.ProductName.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) // Giả định rằng Product có thuộc tính Category
+                    .ToList();
+            }
+            else
+            {
+                var productListResult = await _productService.GetAll();
+                Products = productListResult?.Data as IList<Product> ?? new List<Product>();
+            }
+
             var categoryListResult = await _categoryService.GetAll();
             Categories = categoryListResult?.Data as List<Category> ?? new List<Category>();
 
@@ -108,25 +134,23 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
             return RedirectToPage("/Main", new { message = "Không thể thêm sản phẩm vào giỏ hàng." });
         }
 
-        public async Task<IActionResult> OnGetSearchAsync(string searchQuery, int? categoryId)
+        public async Task OnGetFilterAsync(string category)
         {
-            Console.WriteLine("Search handler called");
-            SearchQuery = searchQuery;
-            SelectedCategoryId = categoryId ?? 0; // Lưu categoryId được chọn
-
-            // Lấy danh sách sản phẩm từ dịch vụ
+            // Fetch all products
             var allProducts = (await _productService.GetAll()).Data as List<Product>;
 
-            // Lọc sản phẩm dựa trên tìm kiếm và categoryId
-            Products = allProducts
-                .Where(p => (string.IsNullOrEmpty(searchQuery) || p.ProductName.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) &&
-                             (!categoryId.HasValue || p.CategoryId == categoryId.Value))
-                .ToList();
+            // Filter products based on selected category
+            if (!string.IsNullOrEmpty(category))
+            {
+                Products = allProducts
+                    .Where(p => p.ProductType.Equals(category, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+            else
+            {
+                Products = allProducts; // Return all if no category selected
+            }
 
-            // Lấy danh sách category từ cơ sở dữ liệu
-            Categories = (await _categoryService.GetAll()).Data as List<Category>;
-
-            return Page();
         }
 
     }

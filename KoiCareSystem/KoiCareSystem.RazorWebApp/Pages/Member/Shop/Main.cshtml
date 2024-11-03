@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Cửa hàng";
 }
+@using System.Text.Json
 
 <!DOCTYPE html>
 <html lang="en">
@@ -117,17 +118,11 @@
         <h1 class="text-center mb-4">Cửa hàng Koi</h1>
 
         <div class="search-bar mb-4 d-flex">
-            <form method="get" asp-page-handler="Search" class="flex-grow-1">
+            <form method="get" class="flex-grow-1" id="searchForm">
                 <div class="input-group" style="width: 100%; height: 100%;">
-                    <select class="form-select" name="categoryId" style="width: 25%; height: 100%; font-size: 20px;">
-                        <option value="">Tất cả loại sản phẩm</option>
-                        @foreach (var category in Model.Categories)
-                        {
-                            <option value="@category.Id">@category.Name</option>
-                        }
-                    </select>
-                    <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm..." name="searchQuery" style="width: 50%; height: 100%; font-size: 20px;">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm..." name="SearchQuery" value="@Model.SearchQuery" style="width: 50%; height: 100%; font-size: 20px;">
                     <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                    <a href="@Url.Page("/Member/Shop/Main")" class="btn btn-light" style="height: 100%; display: flex; align-items: center; justify-content: center; border: 1px solid #007bff;">Reset</a>
                 </div>
             </form>
             <!-- Biểu tượng giỏ hàng đứng riêng -->
@@ -146,59 +141,78 @@
         </div>
     </div>
 
-    <!-- Row chứa bảng lọc và danh sách sản phẩm -->
-
     <!-- Bảng lọc nổi bên trái -->
     <div class="filter-panel">
         <div class="card p-3">
             <h4>Lọc theo loại sản phẩm</h4>
-@*             <form method="get" action="">
+            <form method="get" action="">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="category" value="Cá Koi" id="koiFish">
-                    <label class="form-check-label" for="koiFish">Cá Koi</label>
+                    <input class="form-check-input" type="radio" name="category" value="O2" id="o2" onchange="this.form.submit()">
+                    <label class="form-check-label" for="o2">Oxi</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="category" value="Thức ăn" id="food">
-                    <label class="form-check-label" for="food">Thức ăn</label>
+                    <input class="form-check-input" type="radio" name="category" value="Temperature" id="temperature" onchange="this.form.submit()">
+                    <label class="form-check-label" for="temperature">Nhiệt độ</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="category" value="Dụng cụ chăm sóc" id="careTools">
-                    <label class="form-check-label" for="careTools">Dụng cụ chăm sóc</label>
+                    <input class="form-check-input" type="radio" name="category" value="Salinity" id="salinity" onchange="this.form.submit()">
+                    <label class="form-check-label" for="salinity">Muối</label>
                 </div>
-                <!-- Nút lọc -->
-                <button type="submit" class="btn btn-primary mt-3">Lọc</button>
-            </form> *@
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="PH" id="pH" onchange="this.form.submit()">
+                    <label class="form-check-label" for="pH">pH</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="NO2" id="nO2" onchange="this.form.submit()">
+                    <label class="form-check-label" for="nO2">NO2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="NO3" id="nO3" onchange="this.form.submit()">
+                    <label class="form-check-label" for="nO3">NO3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="PO4" id="pO4" onchange="this.form.submit()">
+                    <label class="form-check-label" for="pO4">PO4</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="Food" id="food" onchange="this.form.submit()">
+                    <label class="form-check-label" for="food">Food</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="Medicine" id="medicine" onchange="this.form.submit()">
+                    <label class="form-check-label" for="medicine">Medicine</label>
+                </div>
+            </form>
         </div>
     </div>
 
 
     <!-- Danh sách sản phẩm bên phải -->
-    <div class="container my-5">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            @foreach (var product in Model.Products)
-            {
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="image-container">
-                            <img src="@product.ImageUrl" class="card-img-top" alt="@product.ProductName">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">@product.ProductName</h5>
-                            <p class="card-text">@product.ProductType</p>
-                            <p class="card-text">Giá: @product.Price</p>
-                            <form method="post" asp-page-handler="AddToCart">
-                                <input type="hidden" name="ProductId" value="@product.ProductId" />
-                                <input type="hidden" name="OrderId" value="@Model.OrderId" />
-                                <input type="hidden" name="Quantity" value="1" />
-                                <button type="submit" class="btn btn-primary">Thêm vào giỏ</button>
-                            </form>
+    <div class="container my-5" id="productListContainer">
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="image-container">
+                                <img src="@product.ImageUrl" class="card-img-top" alt="@product.ProductName">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">@product.ProductName</h5>
+                                <p class="card-text">@product.ProductType</p>
+                                <p class="card-text">Giá: @product.Price</p>
+                                <form method="post" asp-page-handler="AddToCart">
+                                    <input type="hidden" name="ProductId" value="@product.ProductId" />
+                                    <input type="hidden" name="OrderId" value="@Model.OrderId" />
+                                    <input type="hidden" name="Quantity" value="1" />
+                                    <button type="submit" class="btn btn-primary">Thêm vào giỏ</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
-        </div>
+                }
+            </div>
     </div>
-
 
     <script>
         const images = [
@@ -219,37 +233,6 @@
         setInterval(changeBackground, 10000); // 10 seconds
         changeBackground(); // Initialize the first background
     </script>
-
-    @*      <script>
-    function addToCart(button) {
-    const productId = $(button).data("id");
-    const orderId = $(button).data("order-id");
-    console.log(`Adding to cart: ProductId: ${productId}, OrderId: ${orderId}`); // Debug log
-
-    $.ajax({
-    type: "POST",
-    url: "/Member/Shop/Main?handler=OnPostAddToCart", // URL đến phương thức xử lý
-    data: JSON.stringify({
-    ProductId: productId,
-    OrderId: orderId,
-    Quantity: 1
-    }),
-    contentType: "application/json; charset=utf-8",
-    dataType: "json",
-    success: function (response) {
-    if (response.success) {
-    alert(response.message); // Thông báo khi thành công
-    } else {
-    alert(response.message); // Thông báo khi thất bại
-    }
-    },
-    error: function (xhr, status, error) {
-    console.error(`Error: ${xhr.responseText}`); // In lỗi ra console
-    alert("Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.");
-    }
-    });
-    }
-    </script> *@
 
 </body>
 </html>

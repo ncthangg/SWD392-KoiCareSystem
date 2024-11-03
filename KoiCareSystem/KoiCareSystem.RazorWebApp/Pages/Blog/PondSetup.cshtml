@@ -1,0 +1,150 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Blog.PondSetupModel
+@{
+    ViewData["Title"] = "PondSetup";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Koi Care System</title>
+    <style>
+        .banner {
+            background-image: url('/images/using/guide-banner.jpg'); /* Banner image for guide page */
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+            .banner h1 {
+                font-size: 3rem;
+                font-weight: bold;
+            }
+
+        .content-section {
+            padding: 40px;
+        }
+
+            .content-section h2 {
+                color: #333;
+                font-size: 2rem;
+                margin-top: 30px;
+            }
+
+            .content-section p {
+                color: #555;
+                line-height: 1.6;
+            }
+
+            .content-section ul {
+                list-style-type: disc;
+                padding-left: 20px;
+            }
+
+        keyframes fade {
+            0%
+
+        {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 1;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+
+        }
+
+        .animated-background {
+            animation: fade 10s infinite; /* Fade effect over 10 seconds */
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            height: 350px;
+            transition: background-image 1s ease-in-out; /* Smooth transition */
+        }
+
+        .text-overlay {
+            color: white;
+            font-weight: bold;
+            font-size: 3.5rem;
+        }
+
+        .lead-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <div id="background" class="text-center animated-background banner">
+            <h1>Thiết lập Hồ Cá Koi</h1>
+        </div>
+
+        <div class="content-section">
+
+            <!-- Phần giới thiệu -->
+            <section>
+                <h2>Giới thiệu</h2>
+                <p>Thiết lập hồ cá Koi là bước đầu tiên và quan trọng để đảm bảo môi trường sống cho cá Koi. Dưới đây là hướng dẫn chi tiết giúp bạn bắt đầu thiết lập hồ cá tại nhà.</p>
+            </section>
+
+            <!-- Phần lựa chọn vị trí và kích thước hồ -->
+            <section>
+                <h2>Lựa chọn Vị trí và Kích thước Hồ</h2>
+                <ul>
+                    <li><strong>Vị trí phù hợp</strong>: Chọn nơi có ánh sáng mặt trời vừa đủ, tránh các khu vực có gió mạnh hoặc cây dễ rụng lá.</li>
+                    <li><strong>Kích thước hồ</strong>: Hồ Koi nên có độ sâu từ 1.2m đến 1.5m để ổn định nhiệt độ và tạo không gian cho cá phát triển.</li>
+                    <li><strong>Hình dạng hồ</strong>: Ưu tiên hình dạng đơn giản giúp dễ dàng kiểm soát dòng nước và hệ thống lọc.</li>
+                </ul>
+            </section>
+
+            <!-- Phần thiết lập hệ thống lọc -->
+            <section>
+                <h2>Thiết lập Hệ thống Lọc</h2>
+                <ul>
+                    <li><strong>Chọn bộ lọc phù hợp</strong>: Sử dụng bộ lọc cơ học và bộ lọc sinh học để giữ cho nước sạch và ổn định.</li>
+                    <li><strong>Thiết lập dòng chảy</strong>: Dòng chảy nhẹ nhàng trong hồ giúp nước tuần hoàn và tăng cường lượng oxy.</li>
+                    <li><strong>Hệ thống thoát nước</strong>: Đảm bảo có hệ thống thoát nước ở đáy hồ để loại bỏ cặn bã dễ dàng.</li>
+                </ul>
+            </section>
+            <!-- Nút điều hướng -->
+            <a class="btn btn-primary mt-4" href="/">Quay lại Trang Chủ</a>
+        </div>
+    </div>
+    <script>
+        const images = [
+            '/images/background/background1.jpg',
+            '/images/background/background2.jpg',
+            '/images/background/background3.jpg'// Add all your image paths here
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            const backgroundDiv = document.getElementById('background');
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
+        }
+
+        // Change background every 10 seconds
+        setInterval(changeBackground, 10000); // 10 seconds
+        changeBackground(); // Initialize the first background
+    </script>
+</body>
+</html>

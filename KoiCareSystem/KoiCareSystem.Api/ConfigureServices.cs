@@ -4,6 +4,10 @@ using KoiCareSystem.Service.Helper;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace KoiCareSystem.Api
 {
@@ -43,12 +47,39 @@ namespace KoiCareSystem.Api
 
             services.AddAutoMapper(typeof(MappingProfile));
 
-            services.AddSession(options =>
+            //services.AddSession(options =>
+            //{
+            //    options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian hết hạn của session
+            //    options.Cookie.HttpOnly = true;
+            //    options.Cookie.IsEssential = true;
+            //});
+            services.Configure<KestrelServerOptions>(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian hết hạn của session
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
+                options.Limits.MaxRequestHeadersTotalSize = 64 * 1024; // Ví dụ: 64KB
             });
+
+            var durationInMinutes = configuration["JwtSettings:Audience"]; // Lấy DurationInMinutes từ appsettings
+
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = configuration["JwtSettings:Issuer"],
+                    ValidAudience = configuration["JwtSettings:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:SecretKey"]))
+                };
+            });
+
 
             return services;
         }

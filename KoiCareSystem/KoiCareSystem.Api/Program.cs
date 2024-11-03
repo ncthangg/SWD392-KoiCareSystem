@@ -23,12 +23,17 @@ namespace KoiCareSystem.Api
 
             builder.Services.AddScoped<ApplicationDbContext>();
 
-            builder.Services.AddSession(options =>
+            builder.Services.AddControllers().AddJsonOptions(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian hết hạn của session
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
+                options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
             });
+
+            //builder.Services.AddSession(options =>
+            //{
+            //    options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian hết hạn của session
+            //    options.Cookie.HttpOnly = true;
+            //    options.Cookie.IsEssential = true;
+            //});
 
             var app = builder.Build();
 
@@ -38,7 +43,7 @@ namespace KoiCareSystem.Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.UseSession();
+            //app.UseSession();
 
             app.UseHttpsRedirection();
 

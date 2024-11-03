@@ -19,6 +19,13 @@
             .table-bordered td {
                 border: 1px solid #333; /* Đặt màu và độ dày cho viền của ô */
             }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +85,7 @@
                 <button class="btn btn-secondary" disabled>Không biết</button>
             </div>
         }
+
     }
     else
     {
@@ -167,6 +175,10 @@
 
         </tbody>
     </table>
-    <a asp-page="/Member/Shop/Main">Back to Shop</a>
+    <div class="footer-buttons">
+        <a asp-page="/Member/Shop/Main" class="btn btn-secondary">Back to Shop</a>
+        <a asp-page="/Member/Orders/OrderHistory" class="btn btn-primary">Order History</a>
+    </div>
+
 </body>
 </html>

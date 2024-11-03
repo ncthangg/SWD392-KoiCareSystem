@@ -8,9 +8,12 @@ using KoiCareSystem.Common.DTOs;
 using KoiCareSystem.Common.DTOs.Response;
 using KoiCareSystem.Common.DTOs.Request;
 using KoiCareSystem.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KoiCareSystem.Api.Controllers
 {
+    [Route("authenticate")]
+    [ApiController]
     public class AuthController : BaseApiController
     {
         private readonly UserService _userService;
@@ -88,6 +91,7 @@ namespace KoiCareSystem.Api.Controllers
 
         //}
         [HttpPost("login")]
+        [AllowAnonymous]
         public async Task<ActionResult<ApiResponseDto<ResponseUserDto>>> Login([FromBody] RequestLoginDto request)
         {
             Console.WriteLine("Login endpoint was hit.");
@@ -122,6 +126,7 @@ namespace KoiCareSystem.Api.Controllers
         }
         //Register
         [HttpPost("register")]
+        [AllowAnonymous]
         public async Task<ActionResult<ApiResponseDto<ResponseUserDto>>> Register([FromBody] RequestRegisterDto request)
         {
             if (!ModelState.IsValid) return BadRequest();
@@ -161,6 +166,7 @@ namespace KoiCareSystem.Api.Controllers
         }
         //Verify
         [HttpGet("verify-email")]
+        [AllowAnonymous]
         public async Task<ActionResult<ApiResponseDto<string>>> VerifyToken(string email,string token)
         {
             if (string.IsNullOrEmpty(token)) return BadRequest(new ApiResponseDto<string>

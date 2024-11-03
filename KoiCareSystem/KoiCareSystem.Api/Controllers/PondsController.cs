@@ -12,9 +12,12 @@ using AutoMapper;
 using KoiCareSystem.Service.Helper;
 using KoiCareSystem.Service;
 using NETCore.MailKit.Core;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KoiCareSystem.Api.Controllers
 {
+    [Route("pond")]
+    [ApiController]
     public class PondsController : BaseApiController
     {
         private readonly ApplicationDbContext _context;
@@ -36,7 +39,23 @@ namespace KoiCareSystem.Api.Controllers
             _mapper = mapper;
         }
 
+        // GET: api/koi-care-system/pond/getall
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<Pond>>> GetAllPond()
+        {
+            var pondList = await _context.Ponds.Include(f => f.WaterParameters).Include(f => f.KoiFishes).ToListAsync();
+
+            if (pondList == null || !pondList.Any())
+            {
+                return Ok("No pond records found.");
+            }
+
+            return Ok(pondList);
+        }
+
         [HttpGet("user/{userId}")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Pond>>> GetByUserId(int userId)
         {
             var ponds = await _context.Ponds.Where(p => p.UserId == userId).ToListAsync();

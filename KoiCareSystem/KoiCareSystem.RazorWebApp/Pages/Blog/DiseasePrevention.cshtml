@@ -1,0 +1,176 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Blog.DiseasePreventionModel
+@{
+    ViewData["Title"] = "DiseasePrevention";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Koi Care System</title>
+    <style>
+        .banner {
+            background-image: url('/images/using/guide-banner.jpg'); /* Banner image for guide page */
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+            .banner h1 {
+                font-size: 3rem;
+                font-weight: bold;
+            }
+
+        .content-section {
+            padding: 40px;
+        }
+
+            .content-section h2 {
+                color: #333;
+                font-size: 2rem;
+                margin-top: 30px;
+            }
+
+            .content-section p {
+                color: #555;
+                line-height: 1.6;
+            }
+
+            .content-section ul {
+                list-style-type: disc;
+                padding-left: 20px;
+            }
+
+        keyframes fade {
+            0%
+
+        {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 1;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+
+        }
+
+        .animated-background {
+            animation: fade 10s infinite; /* Fade effect over 10 seconds */
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            height: 350px;
+            transition: background-image 1s ease-in-out; /* Smooth transition */
+        }
+
+        .text-overlay {
+            color: white;
+            font-weight: bold;
+            font-size: 3.5rem;
+        }
+
+        .lead-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <div id="background" class="text-center animated-background banner">
+            <h1>Phòng ngừa bệnh cho cá Koi</h1>
+        </div>
+
+        <div class="content-section">
+            <section>
+                <h2>Giới thiệu</h2>
+                <p>Cá Koi là loài cá cảnh đẹp, nhưng chúng cũng rất nhạy cảm với môi trường sống và có thể mắc nhiều loại bệnh nếu không được chăm sóc đúng cách. Việc phòng ngừa bệnh cho cá Koi không chỉ giúp chúng duy trì sức khỏe tốt mà còn đảm bảo tuổi thọ dài lâu.</p>
+            </section>
+
+            <!-- Phần đảm bảo chất lượng nước -->
+            <section>
+                <h2>Đảm bảo chất lượng nước</h2>
+                <ul>
+                    <li><strong>Duy trì pH ổn định</strong>: Cá Koi thích nghi tốt nhất với nước có độ pH từ 7.0 đến 8.0. Kiểm tra độ pH thường xuyên và sử dụng hóa chất điều chỉnh nếu cần.</li>
+                    <li><strong>Kiểm tra nhiệt độ nước</strong>: Cá Koi phát triển tốt ở nhiệt độ từ 15°C đến 25°C. Nhiệt độ quá thấp hoặc quá cao có thể gây căng thẳng và giảm sức đề kháng.</li>
+                    <li><strong>Giảm thiểu chất độc hại</strong>: Ammonia và nitrite là hai chất độc hại phổ biến trong hồ cá. Sử dụng bộ lọc chất lượng cao và thay nước định kỳ để giảm thiểu độc tố.</li>
+                </ul>
+            </section>
+
+            <!-- Phần chế độ ăn uống -->
+            <section>
+                <h2>Chế độ ăn uống lành mạnh</h2>
+                <ul>
+                    <li><strong>Chọn thức ăn chất lượng cao</strong>: Sử dụng thức ăn giàu dinh dưỡng, chứa đầy đủ vitamin và khoáng chất cần thiết.</li>
+                    <li><strong>Không cho ăn quá nhiều</strong>: Lượng thức ăn quá nhiều sẽ làm bẩn nước nhanh chóng, tạo điều kiện cho vi khuẩn và ký sinh trùng có hại.</li>
+                    <li><strong>Bổ sung vi chất</strong>: Đôi khi, có thể bổ sung các loại vi chất và thức ăn chứa probiotic để tăng cường hệ miễn dịch cho cá.</li>
+                </ul>
+            </section>
+
+            <!-- Phần vệ sinh hồ cá -->
+            <section>
+                <h2>Vệ sinh hồ cá định kỳ</h2>
+                <ul>
+                    <li><strong>Thay nước thường xuyên</strong>: Thay khoảng 10-20% lượng nước mỗi tuần giúp duy trì môi trường nước sạch.</li>
+                    <li><strong>Vệ sinh bộ lọc</strong>: Kiểm tra và vệ sinh bộ lọc định kỳ để đảm bảo hiệu quả trong việc loại bỏ các chất cặn bẩn.</li>
+                    <li><strong>Làm sạch đáy hồ</strong>: Các chất thải và thức ăn dư thừa thường tích tụ ở đáy hồ, tạo điều kiện cho vi khuẩn và ký sinh trùng sinh sôi.</li>
+                </ul>
+            </section>
+
+            <!-- Phần quan sát cá -->
+            <section>
+                <h2>Quan sát cá thường xuyên</h2>
+                <ul>
+                    <li><strong>Theo dõi dấu hiệu bệnh lý</strong>: Quan sát biểu hiện của cá, như bơi lờ đờ, giảm ăn, xuất hiện đốm trắng, đỏ trên da hoặc mang.</li>
+                    <li><strong>Cách ly cá bị bệnh</strong>: Nếu phát hiện cá bị bệnh, cách ly ngay để tránh lây lan.</li>
+                    <li><strong>Sử dụng thuốc phòng bệnh</strong>: Có thể sử dụng thuốc phòng bệnh cho cá theo định kỳ, nhưng tham khảo ý kiến chuyên gia để tránh làm suy giảm hệ miễn dịch tự nhiên.</li>
+                </ul>
+            </section>
+
+            <!-- Phần kết luận -->
+            <section>
+                <h2>Kết luận</h2>
+                <p>Phòng ngừa bệnh cho cá Koi không khó, nhưng đòi hỏi sự chú ý và kiên trì. Bằng cách duy trì môi trường sạch sẽ, cung cấp thức ăn dinh dưỡng, và quan sát kỹ lưỡng, bạn có thể bảo vệ sức khỏe của cá Koi và giúp chúng phát triển khỏe mạnh trong hồ cá của mình.</p>
+            </section>
+
+            <a class="btn btn-primary mt-4" href="/">Quay lại Trang Chủ</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const images = [
+            '/images/background/background1.jpg',
+            '/images/background/background2.jpg',
+            '/images/background/background3.jpg'// Add all your image paths here
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            const backgroundDiv = document.getElementById('background');
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
+        }
+
+        // Change background every 10 seconds
+        setInterval(changeBackground, 10000); // 10 seconds
+        changeBackground(); // Initialize the first background
+    </script>
+</body>
+</html>

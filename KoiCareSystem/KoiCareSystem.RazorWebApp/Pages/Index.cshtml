@@ -91,42 +91,94 @@
     </div>
 
     <hr />
-    <div class="text-center mt-5">
-        <h2 class="display-6">Các Bài Viết Hữu Ích</h2>
-        <p>Những bài viết giúp bạn hiểu thêm về cách chăm sóc và nuôi dưỡng cá Koi.</p>
-    </div>
-    <div class="row my-5">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="/images/using/phattrien.jpg" class="card-img-top" alt="Guide to Koi Care">
-                <div class="card-body">
-                    <h5 class="card-title">Hướng dẫn chăm sóc cá Koi</h5>
-                    <p class="card-text">Những bước cơ bản để bắt đầu chăm sóc cá Koi tại nhà.</p>
-                    <a href="/Blog/Guide" class="btn btn-outline-primary">Đọc thêm</a>
+        <div class="my-5 position-relative">
+            <!-- Carousel -->
+            <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/phattrien.jpg" class="card-img-top" alt="Guide to Koi Care">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Hướng dẫn chăm sóc cá Koi</h5>
+                                        <p class="card-text">Những bước cơ bản để bắt đầu chăm sóc cá Koi tại nhà.</p>
+                                        <a href="/Blog/Guide" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/water.jpg" class="card-img-top" alt="Water Quality Tips">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cách duy trì chất lượng nước trong hồ</h5>
+                                        <p class="card-text">Lời khuyên về cách giữ nước sạch và ổn định cho cá Koi.</p>
+                                        <a href="/Blog/WaterQuality" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/nutrition.jpg" class="card-img-top" alt="Koi Nutrition">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dinh dưỡng cho cá Koi</h5>
+                                        <p class="card-text">Các loại thức ăn và chế độ dinh dưỡng phù hợp cho cá Koi.</p>
+                                        <a href="/Blog/Nutrition" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/disease.png" class="card-img-top" alt="Disease Prevention">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Phòng ngừa bệnh cho cá Koi</h5>
+                                        <p class="card-text">Những cách để bảo vệ cá Koi khỏi các loại bệnh thường gặp.</p>
+                                        <a href="/Blog/DiseasePrevention" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/pondsetup.jpg" class="card-img-top" alt="Pond Setup Tips">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Thiết lập hồ cá Koi</h5>
+                                        <p class="card-text">Những điều cần lưu ý khi xây dựng hồ cá Koi tại nhà.</p>
+                                        <a href="/Blog/PondSetup" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/maintenance.jpg" class="card-img-top" alt="Koi Pond Maintenance">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Bảo trì hồ cá Koi</h5>
+                                        <p class="card-text">Các bước cơ bản để bảo trì hồ cá Koi một cách hiệu quả.</p>
+                                        <a href="/Blog/Maintenance" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                    <img src="/images/using/water.jpg" class="card-img-top" alt="Water Quality Tips">
-                <div class="card-body">
-                    <h5 class="card-title">Cách duy trì chất lượng nước trong hồ</h5>
-                    <p class="card-text">Lời khuyên về cách giữ nước sạch và ổn định cho cá Koi.</p>
-                    <a href="/Blog/WaterQuality" class="btn btn-outline-primary">Đọc thêm</a>
-                </div>
+
+            <!-- Carousel controls placed outside the carousel -->
+            <div class="d-flex justify-content-between mt-3">
+                <button class="btn btn-primary" type="button" data-bs-target="#blogCarousel" data-bs-slide="prev">
+                    <span aria-hidden="true">&laquo; Previous</span>
+                </button>
+                <button class="btn btn-primary" type="button" data-bs-target="#blogCarousel" data-bs-slide="next">
+                    <span aria-hidden="true">Next &raquo;</span>
+                </button>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                    <img src="/images/using/nutrition.jpg" class="card-img-top" alt="Koi Nutrition">
-                <div class="card-body">
-                    <h5 class="card-title">Dinh dưỡng cho cá Koi</h5>
-                    <p class="card-text">Các loại thức ăn và chế độ dinh dưỡng phù hợp cho cá Koi.</p>
-                    <a href="/Blog/Nutrition" class="btn btn-outline-primary">Đọc thêm</a>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
     <hr />
     <footer>

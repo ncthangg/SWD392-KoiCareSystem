@@ -3,48 +3,52 @@
   "WorkspaceRootPath": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.razorwebapp\\pages\\member\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|solutionrelative:koicaresystem.razorwebapp\\pages\\member\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.razorwebapp\\pages\\member\\shop\\main.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|solutionrelative:koicaresystem.razorwebapp\\pages\\member\\shop\\main.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|solutionrelative:koicaresystem.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.razorwebapp\\pages\\member\\shop\\main.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|solutionrelative:koicaresystem.razorwebapp\\pages\\member\\shop\\main.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|solutionrelative:koicaresystem.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337199D8-662B-4379-B600-4D0802C27563}|KoiCareSystem.Data\\KoiCareSystem.Data.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.data\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337199D8-662B-4379-B600-4D0802C27563}|KoiCareSystem.Data\\KoiCareSystem.Data.csproj|solutionrelative:koicaresystem.data\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{337199D8-662B-4379-B600-4D0802C27563}|KoiCareSystem.Data\\KoiCareSystem.Data.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{337199D8-662B-4379-B600-4D0802C27563}|KoiCareSystem.Data\\KoiCareSystem.Data.csproj|solutionrelative:koicaresystem.data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{869E403D-E28D-480D-ADD1-84BB9F32FC8F}|KoiCareSystem.Service\\KoiCareSystem.Service.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{869E403D-E28D-480D-ADD1-84BB9F32FC8F}|KoiCareSystem.Service\\KoiCareSystem.Service.csproj|solutionrelative:koicaresystem.service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{143AFE2B-E0F7-417C-BF96-681D72F2C30A}|KoiCareSystem.Common\\KoiCareSystem.Common.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.common\\dtos\\response\\responseuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{143AFE2B-E0F7-417C-BF96-681D72F2C30A}|KoiCareSystem.Common\\KoiCareSystem.Common.csproj|solutionrelative:koicaresystem.common\\dtos\\response\\responseuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{337199D8-662B-4379-B600-4D0802C27563}|KoiCareSystem.Data\\KoiCareSystem.Data.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.data\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{337199D8-662B-4379-B600-4D0802C27563}|KoiCareSystem.Data\\KoiCareSystem.Data.csproj|solutionrelative:koicaresystem.data\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{869E403D-E28D-480D-ADD1-84BB9F32FC8F}|KoiCareSystem.Service\\KoiCareSystem.Service.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.service\\helper\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{869E403D-E28D-480D-ADD1-84BB9F32FC8F}|KoiCareSystem.Service\\KoiCareSystem.Service.csproj|solutionrelative:koicaresystem.service\\helper\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.razorwebapp\\pages\\member\\orders\\managerorder.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|solutionrelative:koicaresystem.razorwebapp\\pages\\member\\orders\\managerorder.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.api\\controllers\\pondscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|solutionrelative:koicaresystem.api\\controllers\\pondscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.razorwebapp\\pages\\member\\pondpages\\details.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|solutionrelative:koicaresystem.razorwebapp\\pages\\member\\pondpages\\details.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.api\\controllers\\basecontroller\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|solutionrelative:koicaresystem.api\\controllers\\basecontroller\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.razorwebapp\\pages\\member\\orders\\managerorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|solutionrelative:koicaresystem.razorwebapp\\pages\\member\\orders\\managerorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.api\\configureservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|solutionrelative:koicaresystem.api\\configureservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.razorwebapp\\pages\\member\\pondpages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|solutionrelative:koicaresystem.razorwebapp\\pages\\member\\pondpages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|solutionrelative:koicaresystem.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.razorwebapp\\pages\\member\\pondpages\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|solutionrelative:koicaresystem.razorwebapp\\pages\\member\\pondpages\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.api\\koicaresystem.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{D6F17BC9-EB86-41E0-B7AA-EB945A390491}|KoiCareSystem.Api\\KoiCareSystem.Api.csproj|solutionrelative:koicaresystem.api\\koicaresystem.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.razorwebapp\\pages\\member\\orders\\orderhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|solutionrelative:koicaresystem.razorwebapp\\pages\\member\\orders\\orderhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|e:\\fpt-university\\chuyennganh7\\swd392-koicaresystem\\koicaresystem\\koicaresystem.razorwebapp\\pages\\member\\pondpages\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{09811D7C-A68A-4B0C-B244-785D07BA6BFF}|KoiCareSystem.RazorWebApp\\KoiCareSystem.RazorWebApp.csproj|solutionrelative:koicaresystem.razorwebapp\\pages\\member\\pondpages\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -53,156 +57,181 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 275,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 421,
+          "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Index.cshtml",
-              "RelativeDocumentMoniker": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Index.cshtml",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Index.cshtml",
-              "RelativeToolTip": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Index.cshtml",
-              "ViewState": "AgIAAGcAAAAAAAAAAADwv6MAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-31T15:25:46.223Z",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Data\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "KoiCareSystem.Data\\Models\\Product.cs",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Data\\Models\\Product.cs",
+              "RelativeToolTip": "KoiCareSystem.Data\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T11:07:47.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "KoiCareSystem.Api\\appsettings.json",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\appsettings.json",
-              "RelativeToolTip": "KoiCareSystem.Api\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-31T15:12:10.696Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ResponseUserDto.cs",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Common\\DTOs\\Response\\ResponseUserDto.cs",
-              "RelativeDocumentMoniker": "KoiCareSystem.Common\\DTOs\\Response\\ResponseUserDto.cs",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Common\\DTOs\\Response\\ResponseUserDto.cs",
-              "RelativeToolTip": "KoiCareSystem.Common\\DTOs\\Response\\ResponseUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T14:36:30.679Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Data\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "KoiCareSystem.Data\\UnitOfWork.cs",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Data\\UnitOfWork.cs",
-              "RelativeToolTip": "KoiCareSystem.Data\\UnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T14:19:41.939Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Service\\Helper\\TokenService.cs",
-              "RelativeDocumentMoniker": "KoiCareSystem.Service\\Helper\\TokenService.cs",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Service\\Helper\\TokenService.cs",
-              "RelativeToolTip": "KoiCareSystem.Service\\Helper\\TokenService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwCQAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T14:11:32.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "KoiCareSystem.Api\\Controllers\\AuthController.cs",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "KoiCareSystem.Api\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAA1wHQAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T05:57:45.152Z",
+              "Title": "Main.cshtml",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Shop\\Main.cshtml",
+              "RelativeDocumentMoniker": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Shop\\Main.cshtml",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Shop\\Main.cshtml*",
+              "RelativeToolTip": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Shop\\Main.cshtml*",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAmwPIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-03T10:21:11.831Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 265,
+          "DockedWidth": 380,
           "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "KoiCareSystem.Api\\Properties\\launchSettings.json",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\Properties\\launchSettings.json",
-              "RelativeToolTip": "KoiCareSystem.Api\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-31T10:00:43.399Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ConfigureServices.cs",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\ConfigureServices.cs",
-              "RelativeDocumentMoniker": "KoiCareSystem.Api\\ConfigureServices.cs",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\ConfigureServices.cs",
-              "RelativeToolTip": "KoiCareSystem.Api\\ConfigureServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T05:57:42.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "PondsController.cs",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\Controllers\\PondsController.cs",
-              "RelativeDocumentMoniker": "KoiCareSystem.Api\\Controllers\\PondsController.cs",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\Controllers\\PondsController.cs",
-              "RelativeToolTip": "KoiCareSystem.Api\\Controllers\\PondsController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAYwBoAAAAAAAAAAAAAAA==",
+              "Title": "Details.cshtml.cs",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Details.cshtml.cs",
+              "RelativeDocumentMoniker": "KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Details.cshtml.cs",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Details.cshtml.cs",
+              "RelativeToolTip": "KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Details.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T13:33:51.626Z",
+              "WhenOpened": "2024-11-03T10:29:47.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ManagerOrder.cshtml.cs",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\ManagerOrder.cshtml.cs",
+              "RelativeDocumentMoniker": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\ManagerOrder.cshtml.cs",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\ManagerOrder.cshtml.cs",
+              "RelativeToolTip": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\ManagerOrder.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T10:29:29.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Main.cshtml.cs",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Shop\\Main.cshtml.cs",
+              "RelativeDocumentMoniker": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Shop\\Main.cshtml.cs",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Shop\\Main.cshtml.cs",
+              "RelativeToolTip": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Shop\\Main.cshtml.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAowDgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T10:10:02.502Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "BaseApiController.cs",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\Controllers\\BaseController\\BaseApiController.cs",
-              "RelativeDocumentMoniker": "KoiCareSystem.Api\\Controllers\\BaseController\\BaseApiController.cs",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\Controllers\\BaseController\\BaseApiController.cs",
-              "RelativeToolTip": "KoiCareSystem.Api\\Controllers\\BaseController\\BaseApiController.cs",
+              "Title": "ManagerOrder.cshtml",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\ManagerOrder.cshtml",
+              "RelativeDocumentMoniker": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\ManagerOrder.cshtml",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\ManagerOrder.cshtml",
+              "RelativeToolTip": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\ManagerOrder.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-03T10:30:02.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Data\\Repository\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "KoiCareSystem.Data\\Repository\\ProductRepository.cs",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Data\\Repository\\ProductRepository.cs",
+              "RelativeToolTip": "KoiCareSystem.Data\\Repository\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBMAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T10:32:38.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Service\\ProductService.cs",
+              "RelativeDocumentMoniker": "KoiCareSystem.Service\\ProductService.cs",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Service\\ProductService.cs",
+              "RelativeToolTip": "KoiCareSystem.Service\\ProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T10:27:08.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Index.cshtml.cs",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Index.cshtml.cs",
+              "RelativeToolTip": "KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T10:29:31.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Edit.cshtml.cs",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Edit.cshtml.cs",
+              "RelativeDocumentMoniker": "KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Edit.cshtml.cs",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Edit.cshtml.cs",
+              "RelativeToolTip": "KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Edit.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T13:38:46.157Z",
+              "WhenOpened": "2024-11-03T10:29:43.814Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "KoiCareSystem.Api",
-              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\KoiCareSystem.Api.csproj",
-              "RelativeDocumentMoniker": "KoiCareSystem.Api\\KoiCareSystem.Api.csproj",
-              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.Api\\KoiCareSystem.Api.csproj",
-              "RelativeToolTip": "KoiCareSystem.Api\\KoiCareSystem.Api.csproj",
+              "Title": "OrderHistory.cshtml",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\OrderHistory.cshtml",
+              "RelativeDocumentMoniker": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\OrderHistory.cshtml",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\OrderHistory.cshtml",
+              "RelativeToolTip": "KoiCareSystem.RazorWebApp\\Pages\\Member\\Orders\\OrderHistory.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-31T10:36:27.188Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-03T10:29:24.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Edit.cshtml",
+              "RelativeDocumentMoniker": "KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Edit.cshtml",
+              "ToolTip": "E:\\FPT-university\\ChuyenNganh7\\SWD392-KoiCareSystem\\KoiCareSystem\\KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Edit.cshtml",
+              "RelativeToolTip": "KoiCareSystem.RazorWebApp\\Pages\\Member\\PondPages\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-03T10:29:20.345Z",
               "EditorCaption": ""
             }
           ]

@@ -31,9 +31,9 @@ namespace KoiCareSystem.Service.Helper
 
             var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Role, roleName)
+            new Claim("e", user.Email),
+            new Claim("id", user.Id.ToString()),
+            new Claim("r", roleName)
         };
 
             var token = new JwtSecurityToken(

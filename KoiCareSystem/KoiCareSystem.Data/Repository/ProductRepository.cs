@@ -15,11 +15,18 @@ namespace KoiCareSystem.Data.Repository
         // Nối bảng Category
         public async Task<Product> GetByIdAsync(int id)
         {
-            return await _context.Products.Include(e => e.Category).FirstOrDefaultAsync(x => x.ProductId == id);    
+            return await _context.Products.Include(e => e.Category).FirstOrDefaultAsync(x => x.ProductId == id);
+        }
+        public async Task<List<Product>> GetByCategoryNameAsync(List<string> names)
+        {
+            return await _context.Products
+                .Include(e => e.Category) // Lấy thông tin danh mục
+                .Where(p => names.Contains(p.Category.Name)) // Lọc sản phẩm theo tên danh mục
+                .ToListAsync(); // Trả về danh sách sản phẩm
         }
         public async Task<List<Product>> GetAllAsync()
         {
-            return await _context.Products.Include(e=>e.Category).ToListAsync();
+            return await _context.Products.Include(e => e.Category).ToListAsync();
         }
         // Kiểm tra sản phẩm có tồn tại không
         public bool ProductExists(int id)

@@ -11,6 +11,7 @@ namespace KoiCareSystem.Service
     {
         Task<ServiceResult> GetAll();
         Task<ServiceResult> GetById(int id);
+        Task<ServiceResult> GetByCategoryName(List<string> name);
         Task<ServiceResult> Save(RequestCreateANewProductDto requestCreateANewProductDto);
         Task<ServiceResult> DeleteById(int id);
     }
@@ -49,6 +50,22 @@ namespace KoiCareSystem.Service
             #endregion Business Rule
 
             var product = await _unitOfWork.ProductRepository.GetByIdAsync(id);
+            if (product == null)
+            {
+                return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);
+            }
+            else
+            {
+                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, product);
+            }
+        }
+        public async Task<ServiceResult> GetByCategoryName(List<string> name)
+        {
+            #region Business Rule
+
+            #endregion Business Rule
+
+            var product = await _unitOfWork.ProductRepository.GetByCategoryNameAsync(name);
             if (product == null)
             {
                 return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG);

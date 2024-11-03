@@ -1,0 +1,28 @@
+﻿@model IEnumerable<KoiCareSystem.Data.Models.Product>
+
+
+<div class="product-list">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <div class="image-container">
+                        <img src="@product.ImageUrl" class="card-img-top" alt="@product.ProductName">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ProductName</h5>
+                        <p class="card-text">@product.ProductType</p>
+                        <p class="card-text">Giá: @product.Price</p>
+                        <form method="post" asp-page-handler="AddToCart">
+                            <input type="hidden" name="ProductId" value="@product.ProductId" />
+                            <input type="hidden" name="OrderId" value="@ViewData["OrderId"]" />
+                            <input type="hidden" name="Quantity" value="1" />
+                            <button type="submit" class="btn btn-primary">Thêm vào giỏ</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

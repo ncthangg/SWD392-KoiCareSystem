@@ -170,12 +170,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Blog/DiseasePrevention.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xEaXNlYXNlUHJldmVudGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Blog/Guide.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xHdWlkZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Blog/Maintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xNYWludGVuYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Blog/Nutrition.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xOdXRyaXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Blog/PondSetup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xQb25kU2V0dXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Blog/WaterQuality.cshtml]
@@ -276,6 +288,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Member/PondPages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFBvbmRQYWdlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Member/Shared/_ProductListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFNoYXJlZFxfUHJvZHVjdExpc3RQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/FPT-university/ChuyenNganh7/SWD392-KoiCareSystem/KoiCareSystem/KoiCareSystem.RazorWebApp/Pages/Member/Shared/_ValidationScriptsPartial.cshtml]
