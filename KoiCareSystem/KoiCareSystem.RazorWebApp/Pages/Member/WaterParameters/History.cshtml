@@ -55,9 +55,9 @@
             // Xác định lớp CSS dựa trên Status
             var rowClass = item.Status.StatusName switch
             {
-                "Stable" => "bg-stable",
+                "Good" => "bg-stable",
                 "Average" => "bg-average",
-                "Unstable" => "bg-unstable",
+                "Bad" => "bg-unstable",
                 _ => ""
             };
 

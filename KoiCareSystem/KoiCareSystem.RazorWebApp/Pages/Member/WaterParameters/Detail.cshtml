@@ -68,30 +68,30 @@
                 <td>@Html.DisplayFor(model => model.WaterParameter.Salinity) mg/L</td>
                 <td>@(Model.Evaluations.ContainsKey("Salinity") ? Model.Evaluations["Salinity"] : "N/A")</td>
             </tr>
-            <tr class="@GetEvaluationClass(Model.Evaluations,"pH")">
+            <tr class="@GetEvaluationClass(Model.Evaluations,"PH")">
                 <td>@Html.DisplayNameFor(model => model.WaterParameter.Ph)</td>
                 <td>@Html.DisplayFor(model => model.WaterParameter.Ph) mg/L</td>
-                <td>@(Model.Evaluations.ContainsKey("pH") ? Model.Evaluations["pH"] : "N/A")</td>
+                <td>@(Model.Evaluations.ContainsKey("PH") ? Model.Evaluations["PH"] : "N/A")</td>
             </tr>
             <tr class="@GetEvaluationClass(Model.Evaluations,"O2")">
                 <td>@Html.DisplayNameFor(model => model.WaterParameter.O2)</td>
                 <td>@Html.DisplayFor(model => model.WaterParameter.O2) mg/L</td>
                 <td>@(Model.Evaluations.ContainsKey("O2") ? Model.Evaluations["O2"] : "N/A")</td>
             </tr>
-            <tr class="@GetEvaluationClass(Model.Evaluations,"No2")">
+            <tr class="@GetEvaluationClass(Model.Evaluations,"NO2")">
                 <td>@Html.DisplayNameFor(model => model.WaterParameter.No2)</td>
                 <td>@Html.DisplayFor(model => model.WaterParameter.No2) mg/L</td>
-                <td>@(Model.Evaluations.ContainsKey("No2") ? Model.Evaluations["No2"] : "N/A")</td>
+                <td>@(Model.Evaluations.ContainsKey("NO2") ? Model.Evaluations["NO2"] : "N/A")</td>
             </tr>
-            <tr class="@GetEvaluationClass(Model.Evaluations,"No3")">
+            <tr class="@GetEvaluationClass(Model.Evaluations,"NO3")">
                 <td>@Html.DisplayNameFor(model => model.WaterParameter.No3)</td>
                 <td>@Html.DisplayFor(model => model.WaterParameter.No3) mg/L</td>
-                <td>@(Model.Evaluations.ContainsKey("No3") ? Model.Evaluations["No3"] : "N/A")</td>
+                <td>@(Model.Evaluations.ContainsKey("NO3") ? Model.Evaluations["NO3"] : "N/A")</td>
             </tr>
-            <tr class="@GetEvaluationClass(Model.Evaluations,"Po4")">
+            <tr class="@GetEvaluationClass(Model.Evaluations,"PO4")">
                 <td>@Html.DisplayNameFor(model => model.WaterParameter.Po4)</td>
                 <td>@Html.DisplayFor(model => model.WaterParameter.Po4) mg/L</td>
-                <td>@(Model.Evaluations.ContainsKey("Po4") ? Model.Evaluations["Po4"] : "N/A")</td>
+                <td>@(Model.Evaluations.ContainsKey("PO4") ? Model.Evaluations["PO4"] : "N/A")</td>
             </tr>
             <tr class="@GetStatusClass(Model.Status)">
                 <td>@Html.DisplayNameFor(model => model.Status)</td>

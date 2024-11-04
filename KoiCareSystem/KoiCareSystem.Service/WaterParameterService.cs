@@ -187,8 +187,7 @@ namespace KoiCareSystem.Service
                     {
                         outsideGoodCount++;
                     }
-
-                    if (currentValue < limit.MinAcceptValue || currentValue > limit.MaxAcceptValue)
+                    else if (currentValue < limit.MinAcceptValue || currentValue > limit.MaxAcceptValue)
                     {
                         outsideAcceptCount++;
                     }
@@ -196,11 +195,11 @@ namespace KoiCareSystem.Service
                 }
 
                 int statusId;
-                if (outsideGoodCount == 0)
+                if (outsideGoodCount == 0 && outsideAcceptCount == 0)
                 {
                     statusId = 1; // All parameters within good range
                 }
-                else if (outsideGoodCount > 2)
+                else if ((outsideGoodCount >= 1 && outsideGoodCount <= 3) && outsideAcceptCount == 0)
                 {
                     statusId = 2; // More than 2 parameters outside good range
                 }
@@ -257,7 +256,7 @@ namespace KoiCareSystem.Service
                         default:
                             continue;
                     }
-                    if (currentValue > limit.MinGoodValue && currentValue < limit.MaxGoodValue)
+                    if (currentValue >= limit.MinGoodValue && currentValue <= limit.MaxGoodValue)
                     {
                         parameterEvaluations[limit.ParameterName] = $"Good";
                     }
@@ -277,7 +276,7 @@ namespace KoiCareSystem.Service
                     }
                 }
 
-                LogParameterEvaluations(parameterEvaluations);
+                //LogParameterEvaluations(parameterEvaluations);
 
                 return parameterEvaluations;
 
