@@ -48,7 +48,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
             {
                 return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
             }
-            Pond.UserId = (int)UserId; // Set the UserId for KoiFish
+            
 
             if (!ModelState.IsValid)
             {
@@ -65,12 +65,23 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
                 string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/ponds/");
                 Directory.CreateDirectory(uploadsFolder);  // Tạo thư mục nếu chưa có
 
+                // Đường dẫn lưu file trong mobile
+                string externalUploadsFolder = @"E:\Moblie\SWD392-KoiCareSystem-MobileApp\lib\images\ponds";
+                Directory.CreateDirectory(externalUploadsFolder);
+
                 // Đặt tên file duy nhất
                 string uniqueFileName = Guid.NewGuid().ToString() + "_" + ImageFile.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-                // Lưu file vào thư mục
+                // Lưu file vào wwwroot
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await ImageFile.CopyToAsync(fileStream);
+                }
+
+                // Lưu file vào mobile
+                string externalFilePath = Path.Combine(externalUploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(externalFilePath, FileMode.Create))
                 {
                     await ImageFile.CopyToAsync(fileStream);
                 }
@@ -78,7 +89,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
                 // Cập nhật đường dẫn ảnh trong model
                 Pond.ImageUrl = "/images/ponds/" + uniqueFileName;
             }
-
+            Pond.UserId = (int)UserId;
             var a = _pondService.Create(Pond);
 
             return RedirectToPage("./Index");

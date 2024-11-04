@@ -31,6 +31,15 @@ namespace KoiCareSystem.Data.Repository
                 .Where(o => o.PondId == pondId)
                 .ToListAsync();
         }
+        public async Task<WaterParameter> GetLatestByPondIdAsync(int pondId)
+        {
+            return await _context.WaterParameters
+                .Include(e => e.Status)
+                .Where(param => param.PondId == pondId) // Lọc theo PondId
+                .OrderByDescending(param => param.CreatedAt) // Sắp xếp theo thời gian tạo giảm dần
+                .FirstOrDefaultAsync(); // Lấy bản ghi đầu tiên (mới nhất)
+        }
+
         public void UpdateEntity(WaterParameter existingEntity, WaterParameter newEntity)
         {
             //_context.Entry(existingEntity).CurrentValues.SetValues(newEntity);

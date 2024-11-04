@@ -15,6 +15,7 @@ namespace KoiCareSystem.Service
     {
         Task<ServiceResult> GetById(int id);
         Task<ServiceResult> GetByPondId(int pondId);
+        Task<ServiceResult> GetLastestByPondId(int pondId);
         Task<ServiceResult> Create(WaterParameter param);
         Task<ServiceResult> Update(WaterParameter param);
         Task<ServiceResult> Status(WaterParameter param);
@@ -50,6 +51,23 @@ namespace KoiCareSystem.Service
                 if (param == null)
                 {
                     return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new List<WaterParameter>());
+                }
+
+                return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, param);
+            }
+            catch (Exception)
+            {
+                return new ServiceResult(Const.FAIL_READ_CODE, Const.FAIL_READ_MSG);
+            }
+        }
+        public async Task<ServiceResult> GetLastestByPondId(int pondId)
+        {
+            try
+            {
+                var param = await _unitOfWork.WaterParameterRepository.GetLatestByPondIdAsync(pondId);
+                if (param == null)
+                {
+                    return new ServiceResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA_MSG, new WaterParameter());
                 }
 
                 return new ServiceResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, param);

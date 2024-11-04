@@ -63,6 +63,7 @@ public partial class ApplicationDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
    => optionsBuilder.UseSqlServer(GetConnectionString("DefaultConnection")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Blog>(entity =>
@@ -214,6 +215,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.MinAcceptValue).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.MinGoodValue).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.ParameterName).IsRequired();
+            entity.Property(e => e.Unit).HasMaxLength(50);
         });
 
         modelBuilder.Entity<WaterStatus>(entity =>

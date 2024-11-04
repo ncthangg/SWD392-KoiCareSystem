@@ -50,9 +50,9 @@ namespace KoiCareSystem.Data.Repository
         public async Task<List<Pond>> GetByUserIdAsync(int userId)
         {
             // Fetch orders based on the userId
-            return await _context.Ponds
-                .Where(o => o.UserId == userId)
-                .ToListAsync();
+            var ponds = await _context.Ponds.Where(o => o.UserId == userId).ToListAsync();
+            
+            return ponds;
         }
         public async Task<Pond> GetByIdAsync(int id)
         {

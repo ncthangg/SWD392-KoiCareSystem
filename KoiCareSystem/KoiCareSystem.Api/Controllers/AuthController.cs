@@ -94,7 +94,6 @@ namespace KoiCareSystem.Api.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<ApiResponseDto<ResponseUserDto>>> Login([FromBody] RequestLoginDto request)
         {
-            Console.WriteLine("Login endpoint was hit.");
             if (!ModelState.IsValid) return BadRequest();
 
             var user = await _userService.GetByEmail(request.Email);

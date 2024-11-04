@@ -112,12 +112,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\icons\icon1.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koifishs\af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koi\27dcb404-8b6a-4c58-bc8b-9adda0d52732_koi2.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>KoiCareSystem.RazorWebApp</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
-      <RelativePath>images/koifishs/af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jpg</RelativePath>
+      <RelativePath>images/koi/27dcb404-8b6a-4c58-bc8b-9adda0d52732_koi2.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -126,7 +126,71 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koifishs\af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koi\27dcb404-8b6a-4c58-bc8b-9adda0d52732_koi2.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koi\63807120-0a5f-4b4e-8c3f-323233a96b3b_koi1.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/koi/63807120-0a5f-4b4e-8c3f-323233a96b3b_koi1.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koi\63807120-0a5f-4b4e-8c3f-323233a96b3b_koi1.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koi\af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/koi/af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koi\af426d07-af3a-46e1-b471-1bc46dee18a2_cakoi.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koi\c1131fa8-7df8-4bf0-9fe1-eb4e4ce106ad_koi1.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/koi/c1131fa8-7df8-4bf0-9fe1-eb4e4ce106ad_koi1.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koi\c1131fa8-7df8-4bf0-9fe1-eb4e4ce106ad_koi1.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koi\e06f0b6e-222b-41c3-83af-3585c8475a29_koi3.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/koi/e06f0b6e-222b-41c3-83af-3585c8475a29_koi3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\koi\e06f0b6e-222b-41c3-83af-3585c8475a29_koi3.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ponds\7d4bcd71-e606-45de-aa49-68a97e270ed3_ho1.jpg))">
       <SourceType>Package</SourceType>
@@ -143,6 +207,38 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ponds\7d4bcd71-e606-45de-aa49-68a97e270ed3_ho1.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ponds\af274789-9c99-4379-8617-3ab115286645_pond1.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/ponds/af274789-9c99-4379-8617-3ab115286645_pond1.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ponds\af274789-9c99-4379-8617-3ab115286645_pond1.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ponds\d11f3b5e-6934-480b-b3f5-9c297945fae9_pond2.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>KoiCareSystem.RazorWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/KoiCareSystem.RazorWebApp</BasePath>
+      <RelativePath>images/ponds/d11f3b5e-6934-480b-b3f5-9c297945fae9_pond2.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ponds\d11f3b5e-6934-480b-b3f5-9c297945fae9_pond2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\07b5e19b-233b-4bd7-8a9c-595709a64775_Muối.jpg))">
       <SourceType>Package</SourceType>

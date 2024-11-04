@@ -15,60 +15,66 @@
 </head>
 <body>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>WaterParameterLimit</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterParameterLimit.ParameterName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameterLimit.ParameterName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterParameterLimit.MinGoodValue)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameterLimit.MinGoodValue)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterParameterLimit.MaxGoodValue)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameterLimit.MaxGoodValue)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterParameterLimit.MinAcceptValue)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameterLimit.MinAcceptValue)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterParameterLimit.MaxAcceptValue)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameterLimit.MaxAcceptValue)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterParameterLimit.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameterLimit.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterParameterLimit.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WaterParameterLimit.UpdatedAt)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="WaterParameterLimit.ParameterId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
-</div>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>WaterParameterLimit</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WaterParameterLimit.ParameterName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WaterParameterLimit.ParameterName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WaterParameterLimit.MinGoodValue)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WaterParameterLimit.MinGoodValue)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WaterParameterLimit.MaxGoodValue)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WaterParameterLimit.MaxGoodValue)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WaterParameterLimit.MinAcceptValue)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WaterParameterLimit.MinAcceptValue)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WaterParameterLimit.MaxAcceptValue)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WaterParameterLimit.MaxAcceptValue)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WaterParameterLimit.Unit)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WaterParameterLimit.Unit)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WaterParameterLimit.CreatedAt)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WaterParameterLimit.CreatedAt)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WaterParameterLimit.UpdatedAt)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WaterParameterLimit.UpdatedAt)
+            </dd>
+        </dl>
+
+        <form method="post">
+            <input type="hidden" asp-for="WaterParameterLimit.ParameterId" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-page="./Index">Back to List</a>
+        </form>
+    </div>
 </body>
 </html>

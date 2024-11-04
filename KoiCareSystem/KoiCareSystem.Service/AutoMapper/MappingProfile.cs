@@ -27,6 +27,9 @@ namespace KoiCareSystem.Service.AutoMapper
             //Product
             CreateMap<Product, RequestCreateANewProductDto>();
             CreateMap<RequestCreateANewProductDto, Product>();
+            //Pond
+            CreateMap<Pond, ResponsePondDto>()
+               .ForMember(dest => dest.StatusName, opt => opt.Ignore());
             //WaterParameters
             CreateMap<ImportDataDto, WaterParameter>().ReverseMap();
 
