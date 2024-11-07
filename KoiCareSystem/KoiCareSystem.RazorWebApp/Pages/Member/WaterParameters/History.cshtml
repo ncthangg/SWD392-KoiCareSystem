@@ -1,0 +1,107 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters.HistoryModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@Model.PondName</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].MeasurementDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].WaterVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].Temperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].Salinity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].Ph)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].O2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].No2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].No3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].Po4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WaterParameter[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int index = 0; // Biến đếm để xác định dòng đầu tiên
+        }
+
+        @foreach (var item in Model.WaterParameter)
+        {
+            // Xác định lớp CSS dựa trên Status
+            var rowClass = item.Status.StatusName switch
+            {
+                "Good" => "bg-stable",
+                "Average" => "bg-average",
+                "Bad" => "bg-unstable",
+                _ => ""
+            };
+
+            // Nếu là item đầu tiên, thêm lớp CSS "first-item-border" để có khung
+            var additionalClass = index == 0 ? "first-item-border" : "";
+            var finalClass = $"{rowClass} {additionalClass}";
+
+            <tr class="@finalClass">
+                <td>
+                    @Html.DisplayFor(modelItem => item.MeasurementDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WaterVolume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Temperature)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salinity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ph)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.O2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.No2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.No3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Po4)
+                </td>
+                <td style="font-weight: bold; font-size: larger;">
+                    @Html.DisplayFor(modelItem => item.Status.StatusName)
+                </td>
+            </tr>
+            index++;
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-page="/Member/PondPages/Index">Back to Pond</a>
+</div>

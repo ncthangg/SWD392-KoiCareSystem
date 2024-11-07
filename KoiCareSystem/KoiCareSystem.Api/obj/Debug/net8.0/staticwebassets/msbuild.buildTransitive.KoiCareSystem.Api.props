@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\KoiCareSystem.Api.props" />
+</Project>

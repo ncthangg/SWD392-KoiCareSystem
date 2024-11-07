@@ -1,0 +1,263 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Member.Shop.MainModel
+@{
+    ViewData["Title"] = "Cửa hàng";
+}
+@using System.Text.Json
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Koi Care System</title>
+    <style>
+        /* Define keyframes without the symbol */
+        keyframes fade {
+            0%
+
+        {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 1;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+
+        }
+
+        .animated-background {
+            animation: fade 10s infinite; /* Fade effect over 10 seconds */
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            height: 350px;
+            transition: background-image 1s ease-in-out; /* Smooth transition */
+        }
+
+        .text-overlay {
+            color: white;
+            font-weight: bold;
+            font-size: 3.5rem;
+        }
+
+        .lead-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        /* Cố định kích thước cho ảnh sản phẩm */
+        .image-container {
+            height: 200px; /* Chiều cao cố định cho khung ảnh */
+            overflow: hidden;
+        }
+
+            .image-container img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover; /* Giữ tỷ lệ ảnh, cắt bớt nếu cần */
+            }
+
+        .card.p-3 {
+            position: sticky;
+            top: 20px;
+        }
+
+        .filter-panel {
+            position: fixed;
+            top: 500px; /* Tùy chỉnh khoảng cách từ đầu trang */
+            left: 20px;
+            width: 200px; /* Đặt chiều rộng cho bảng lọc */
+            z-index: 1000; /* Đảm bảo bảng lọc nổi lên trên các phần tử khác */
+        }
+
+        .product-list {
+            margin-left: 240px; /* Đặt khoảng cách bên trái để tránh bị che bởi bảng lọc */
+        }
+
+        .search-bar .input-group {
+            max-width: 800px; /* Chiều rộng tối đa cho nhóm nhập */
+            max-height: 80px;
+            margin: 0 auto; /* Để căn giữa thanh tìm kiếm */
+        }
+
+        .search-bar input {
+            flex: 3; /* Điều chỉnh tỉ lệ giữa các phần tử trong search-bar */
+            min-width: 800px; /* Đặt chiều rộng tối thiểu nếu cần */
+            max-height: 80px;
+        }
+
+        .input-group .form-control {
+            height: 40px; /* Chiều cao thanh tìm kiếm */
+            font-size: 16px; /* Kích thước chữ */
+        }
+
+        .btn-primary {
+            height: 80px; /* Chiều cao nút tìm kiếm */
+            font-size: 16px; /* Kích thước chữ */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <div id="background" class="text-center animated-background">
+            <h1 class="display-4 mb-4 text-overlay">Welcome to Koi Care System</h1>
+            <p class="lead lead-text">Chăm sóc và theo dõi sức khỏe cá Koi tại nhà</p>
+        </div>
+
+        <h1 class="text-center mb-4">Cửa hàng Koi</h1>
+
+        <div class="search-bar mb-4 d-flex">
+            <form method="get" class="flex-grow-1" id="searchForm">
+                <div class="input-group" style="width: 100%; height: 100%;">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm..." name="SearchQuery" value="@Model.SearchQuery" style="width: 50%; height: 100%; font-size: 20px;">
+                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                    <a href="@Url.Page("/Member/Shop/Main")" class="btn btn-light" style="height: 100%; display: flex; align-items: center; justify-content: center; border: 1px solid #007bff;">Reset</a>
+                </div>
+            </form>
+            <!-- Biểu tượng giỏ hàng đứng riêng -->
+            <span class="input-group-text" style="width: 70px; padding: 0; margin-left: 0; position: relative;">
+                <a href="/Member/Orders/ManagerOrder?orderId=@Model.OrderId" style="display: block; width: 100%; height: 100%; position: relative;">
+                <img src="/images/using/cart-icon.png" alt="Giỏ hàng" style="width: 70px; height: 70px;">
+                <!-- Hiển thị số lượng sản phẩm -->
+                @if (Model.TotalItems > 0)
+                {
+                    <span class="badge bg-danger" style="position: absolute; top: 0; right: 0; font-size: 0.8em; z-index: 10;">
+                        @Model.TotalItems
+                    </span>
+                }
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <!-- Bảng lọc nổi bên trái -->
+    <div class="filter-panel">
+        <div class="card p-3">
+            <h4>Lọc theo loại sản phẩm</h4>
+            <form id="filterForm">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="O2" id="o2" onchange="console.log('Changed to O2'); applyFilter()">
+                    <label class="form-check-label" for="o2">Oxi</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="Temperature" id="temperature" onchange="applyFilter()">
+                    <label class="form-check-label" for="temperature">Nhiệt độ</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="Salinity" id="salinity" onchange="applyFilter()">
+                    <label class="form-check-label" for="salinity">Muối</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="PH" id="pH" onchange="applyFilter()">
+                    <label class="form-check-label" for="pH">pH</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="NO2" id="nO2" onchange="applyFilter()">
+                    <label class="form-check-label" for="nO2">NO2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="NO3" id="nO3" onchange="applyFilter()">
+                    <label class="form-check-label" for="nO3">NO3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="PO4" id="pO4" onchange="applyFilter()">
+                    <label class="form-check-label" for="pO4">PO4</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="Food" id="food" onchange="applyFilter()">
+                    <label class="form-check-label" for="food">Food</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" value="Medicine" id="medicine" onchange="applyFilter()">
+                    <label class="form-check-label" for="medicine">Medicine</label>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- Danh sách sản phẩm bên phải -->
+    <div class="container my-5" id="productListContainer">
+        @await Html.PartialAsync("/Pages/Member/Shared/_ProductListPartial.cshtml", Model.Products)
+    </div>
+
+    <script> 
+        function applyFilter() {
+            const selectedCategory = document.querySelector('input[name="category"]:checked');
+
+            // Ghi lại giá trị của selectedCategory
+            console.log("Selected category element:", selectedCategory); // Kiểm tra phần tử đã chọn
+
+            if (selectedCategory) {
+                const categoryValue = selectedCategory.value; // Lấy giá trị từ phần tử đã chọn
+                console.log("Selected category value:", categoryValue); // Ghi lại giá trị chọn
+
+                // Gửi yêu cầu AJAX
+                $.ajax({
+                    url: '@Url.Page("Main", "OnGetAsync")',
+                    type: 'GET',
+                    data: { category: categoryValue, ajax: true },
+                    success: function (data) {
+                        $('#productListContainer').html(data); // Cập nhật danh sách sản phẩm
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Có lỗi xảy ra: " + error);
+                    }
+                });
+            } else {
+                console.log("No category selected."); // Ghi log nếu không có ô nào được chọn
+                loadAllProducts(); // Tải lại tất cả sản phẩm
+            }
+        }
+
+
+        function loadAllProducts() {
+            $.ajax({
+                url: '@Url.Page("Main", "OnGetAsync")',
+                type: 'GET',
+                data: { ajax: true }, // Chỉ gửi tham số ajax để tải tất cả sản phẩm
+                success: function (data) {
+                    $('#productListContainer').html(data); // Cập nhật danh sách sản phẩm
+                },
+                error: function (xhr, status, error) {
+                    console.error("Có lỗi xảy ra: " + error);
+                }
+            });
+        }
+    </script>
+
+    <script>
+        const images = [
+            '/images/background/background1.jpg',
+            '/images/background/background2.jpg',
+            '/images/background/background3.jpg'// Add all your image paths here
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            const backgroundDiv = document.getElementById('background');
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
+        }
+
+        // Change background every 10 seconds
+        setInterval(changeBackground, 10000); // 10 seconds
+        changeBackground(); // Initialize the first background
+    </script>
+
+</body>
+</html>
+

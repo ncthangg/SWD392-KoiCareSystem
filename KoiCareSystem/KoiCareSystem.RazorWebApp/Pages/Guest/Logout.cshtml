@@ -1,0 +1,14 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Guest.LogoutModel
+@{
+    ViewData["Title"] = "Logout";
+}
+
+<h2>Logging out...</h2>
+
+@section Scripts {
+    <script>
+        // Redirect back to login page after logging out
+        window.location.href = "/Guest/Login";
+    </script>
+}

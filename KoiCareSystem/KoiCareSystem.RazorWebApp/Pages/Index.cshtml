@@ -1,0 +1,217 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koi Care System</title>
+    <style>
+    /* Define keyframes without the symbol */
+    keyframes fade {
+        0% { opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+
+    .animated-background {
+        animation: fade 10s infinite; /* Fade effect over 10 seconds */
+        background-size: cover;
+        background-position: center;
+        padding: 50px;
+        height: 350px;
+        transition: background-image 1s ease-in-out; /* Smooth transition */
+    }
+
+    .text-overlay {
+        color: white;
+        font-weight: bold;
+        font-size: 3.5rem;
+    }
+
+    .lead-text {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+        .card-img-top {
+            height: 200px; /* Đặt chiều cao cố định cho ảnh */
+            object-fit: cover; /* Đảm bảo ảnh sẽ giữ tỉ lệ mà vẫn điền đầy khung */
+            width: 100%; /* Giúp ảnh điền đầy chiều rộng của thẻ chứa */
+        }
+</style>
+</head>
+<body>
+<div class="container my-5">
+    @* <div class="text-center" style="background-image: url('/images/background/Background.jpg'); background-size: cover; background-position: center; padding: 50px; height: 350px;">
+        <h1 class="display-4 mb-4" style="color: white; font-weight: bold; font-size: 3.5rem;">Welcome to Koi Care System</h1>
+        <p class="lead" style="color: white; font-size: 1.5rem; font-weight: 600;">Chăm sóc và theo dõi sức khỏe cá Koi tại nhà</p>
+    </div> *@
+    <div id="background" class="text-center animated-background">
+    <h1 class="display-4 mb-4 text-overlay">Welcome to Koi Care System</h1>
+    <p class="lead lead-text">Chăm sóc và theo dõi sức khỏe cá Koi tại nhà</p>
+    </div>
+
+
+    <div class="row my-5">
+        <div class="col-md-4 text-center" >
+            <h3 class="mt-3">Quản lý Cá Koi</h3>
+            <div style="background-image: url('/images/using/fish.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; padding: 20px; color: ghostwhite; font-weight: bold; border-radius: 8px; height: 400px; width: 100%; position: relative;border: 2px solid;">
+                <i class="fas fa-fish fa-3x text-primary"></i>
+                <p style="position: absolute; bottom: 0; left: 0; right: 0; background-color: white; color: black; margin: 0; padding: 10px; height: 20%; display: flex; justify-content: center; align-items: center;">
+                    Theo dõi và cập nhật tình trạng sức khỏe, giống cá, và lịch sử tăng trưởng.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <h3 class="mt-3">Quản lý Thông số Nước</h3>
+            <div style="background-image: url('/images/using/pond.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; padding: 20px; color: ghostwhite; font-weight: bold; border-radius: 8px; height: 400px; width: 100%; position: relative;border: 2px solid;">
+                <i class="fas fa-fish fa-3x text-primary"></i>
+                <p style="position: absolute; bottom: 0; left: 0; right: 0; background-color: white; color: black; margin: 0; padding: 10px; height: 20%; display: flex; justify-content: center; align-items: center;">
+                    Kiểm tra chất lượng nước trong hồ và đảm bảo môi trường sống ổn định.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <h3 class="mt-3">Cửa Hàng</h3>
+            <div style="background-image: url('/images/using/store.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; padding: 20px; color: ghostwhite; font-weight: bold; border-radius: 8px; height: 400px; width: 100%; position: relative;border: 2px solid;">
+                <i class="fas fa-fish fa-3x text-primary"></i>
+                <p style="position: absolute; bottom: 0; left: 0; right: 0; background-color: white; color: black; margin: 0; padding: 10px; height: 20%; display: flex; justify-content: center; align-items: center;">
+                    Mua sản phẩm chăm sóc cá và thiết bị nuôi cá Koi chất lượng.
+                </p> 
+            </div>
+                
+        </div>
+            <a class="btn btn-success" href="/Guest/Login">Đăng nhập</a>
+    </div>
+
+    <hr />
+        <div class="my-5 position-relative">
+            <!-- Carousel -->
+            <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/phattrien.jpg" class="card-img-top" alt="Guide to Koi Care">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Hướng dẫn chăm sóc cá Koi</h5>
+                                        <p class="card-text">Những bước cơ bản để bắt đầu chăm sóc cá Koi tại nhà.</p>
+                                        <a href="/Blog/Guide" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/water.jpg" class="card-img-top" alt="Water Quality Tips">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cách duy trì chất lượng nước trong hồ</h5>
+                                        <p class="card-text">Lời khuyên về cách giữ nước sạch và ổn định cho cá Koi.</p>
+                                        <a href="/Blog/WaterQuality" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/nutrition.jpg" class="card-img-top" alt="Koi Nutrition">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dinh dưỡng cho cá Koi</h5>
+                                        <p class="card-text">Các loại thức ăn và chế độ dinh dưỡng phù hợp cho cá Koi.</p>
+                                        <a href="/Blog/Nutrition" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/disease.png" class="card-img-top" alt="Disease Prevention">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Phòng ngừa bệnh cho cá Koi</h5>
+                                        <p class="card-text">Những cách để bảo vệ cá Koi khỏi các loại bệnh thường gặp.</p>
+                                        <a href="/Blog/DiseasePrevention" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/pondsetup.jpg" class="card-img-top" alt="Pond Setup Tips">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Thiết lập hồ cá Koi</h5>
+                                        <p class="card-text">Những điều cần lưu ý khi xây dựng hồ cá Koi tại nhà.</p>
+                                        <a href="/Blog/PondSetup" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/images/using/maintenance.jpg" class="card-img-top" alt="Koi Pond Maintenance">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Bảo trì hồ cá Koi</h5>
+                                        <p class="card-text">Các bước cơ bản để bảo trì hồ cá Koi một cách hiệu quả.</p>
+                                        <a href="/Blog/Maintenance" class="btn btn-outline-primary">Đọc thêm</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel controls placed outside the carousel -->
+            <div class="d-flex justify-content-between mt-3">
+                <button class="btn btn-primary" type="button" data-bs-target="#blogCarousel" data-bs-slide="prev">
+                    <span aria-hidden="true">&laquo; Previous</span>
+                </button>
+                <button class="btn btn-primary" type="button" data-bs-target="#blogCarousel" data-bs-slide="next">
+                    <span aria-hidden="true">Next &raquo;</span>
+                </button>
+            </div>
+        </div>
+</div>
+    <hr />
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Koi Care System. All rights reserved.</p>
+            <p>Contact us: <a href="mailto:info@koicare.com">info@koicare.com</a></p>
+            <div>
+                <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+                <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+                <a href="https://www.twitter.com" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    const images = [
+        '/images/background/background1.jpg',
+        '/images/background/background2.jpg',
+        '/images/background/background3.jpg'// Add all your image paths here
+    ];
+
+    let currentIndex = 0;
+
+    function changeBackground() {
+        const backgroundDiv = document.getElementById('background');
+        currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+        backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
+    }
+
+    // Change background every 10 seconds
+    setInterval(changeBackground, 10000); // 10 seconds
+    changeBackground(); // Initialize the first background
+</script>
+
+</body>
+</html>

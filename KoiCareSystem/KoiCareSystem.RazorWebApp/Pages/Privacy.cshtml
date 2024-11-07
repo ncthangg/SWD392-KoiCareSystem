@@ -1,0 +1,138 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koi Care System</title>
+    <style>
+        /* Define keyframes without the symbol */
+        keyframes fade {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .animated-background {
+            animation: fade 10s infinite; /* Fade effect over 10 seconds */
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            height: 350px;
+            transition: background-image 1s ease-in-out; /* Smooth transition */
+        }
+
+        .text-overlay {
+            color: white;
+            font-weight: bold;
+            font-size: 3.5rem;
+        }
+
+        .lead-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+            .card-img-top {
+                height: 200px; /* Đặt chiều cao cố định cho ảnh */
+                object-fit: cover; /* Đảm bảo ảnh sẽ giữ tỉ lệ mà vẫn điền đầy khung */
+                width: 100%; /* Giúp ảnh điền đầy chiều rộng của thẻ chứa */
+            }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        @* <div class="text-center" style="background-image: url('/images/background/Background.jpg'); background-size: cover; background-position: center; padding: 50px; height: 350px;">
+        <h1 class="display-4 mb-4" style="color: white; font-weight: bold; font-size: 3.5rem;">Welcome to Koi Care System</h1>
+        <p class="lead" style="color: white; font-size: 1.5rem; font-weight: 600;">Chăm sóc và theo dõi sức khỏe cá Koi tại nhà</p>
+        </div> *@
+        <div id="background" class="text-center animated-background">
+            <h1 class="display-4 mb-4 text-overlay">Welcome to Koi Care System</h1>
+            <p class="lead lead-text">Chăm sóc và theo dõi sức khỏe cá Koi tại nhà</p>
+        </div>
+
+        <div class="container mt-5">
+            <h1>Chính sách bảo mật của Koi Care System</h1>
+            <p>
+                Koi Care System cam kết bảo vệ quyền riêng tư và thông tin cá nhân của bạn. Chính sách này
+                giải thích cách chúng tôi thu thập, sử dụng và bảo vệ dữ liệu của bạn khi bạn sử dụng các dịch vụ của chúng tôi.
+            </p>
+
+            <h2>1. Thông tin chúng tôi thu thập</h2>
+            <p>
+                Chúng tôi thu thập thông tin bạn cung cấp khi đăng ký tài khoản, bao gồm tên, địa chỉ email, số điện thoại và bất kỳ thông tin nào khác
+                mà bạn cung cấp cho hệ thống. Thông tin này được sử dụng để cá nhân hóa trải nghiệm của bạn và hỗ trợ các dịch vụ mà chúng tôi cung cấp.
+            </p>
+
+            <h2>2. Sử dụng thông tin cá nhân</h2>
+            <p>
+                Chúng tôi sử dụng thông tin của bạn để cung cấp và nâng cao chất lượng dịch vụ, bao gồm:
+            </p>
+            <ul>
+                <li>Quản lý tài khoản người dùng và cung cấp hỗ trợ khách hàng.</li>
+                <li>Phân tích và cải thiện dịch vụ của chúng tôi dựa trên nhu cầu của người dùng.</li>
+                <li>Thông báo cho bạn về các cập nhật, thay đổi dịch vụ và những thông tin quan trọng khác.</li>
+            </ul>
+
+            <h2>3. Bảo mật thông tin</h2>
+            <p>
+                Chúng tôi áp dụng các biện pháp bảo mật để bảo vệ dữ liệu của bạn khỏi truy cập trái phép, mất mát, hoặc tiết lộ. Các biện pháp bao gồm mã hóa,
+                bảo vệ cơ sở dữ liệu và các biện pháp quản lý để hạn chế truy cập thông tin chỉ cho những người có trách nhiệm.
+            </p>
+
+            <h2>4. Quyền riêng tư của bạn</h2>
+            <p>
+                Bạn có quyền yêu cầu xem lại, cập nhật hoặc xóa thông tin cá nhân của mình. Nếu có bất kỳ câu hỏi hoặc thắc mắc nào về quyền riêng tư, vui lòng
+                liên hệ với chúng tôi qua địa chỉ email hỗ trợ của Koi Care System.
+            </p>
+
+            <h2>5. Thay đổi trong chính sách bảo mật</h2>
+            <p>
+                Koi Care System có thể cập nhật chính sách bảo mật theo thời gian để phản ánh những thay đổi về dịch vụ hoặc theo quy định của pháp luật. Chúng tôi sẽ thông báo
+                cho bạn khi có bất kỳ thay đổi nào trong chính sách này.
+            </p>
+        </div>
+
+    <hr />
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Koi Care System. All rights reserved.</p>
+            <p>Contact us: <a href="mailto:info@koicare.com">info@koicare.com</a></p>
+            <div>
+                <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+                <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+                <a href="https://www.twitter.com" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const images = [
+            '/images/background/background1.jpg',
+            '/images/background/background2.jpg',
+            '/images/background/background3.jpg'// Add all your image paths here
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            const backgroundDiv = document.getElementById('background');
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
+        }
+
+        // Change background every 10 seconds
+        setInterval(changeBackground, 10000); // 10 seconds
+        changeBackground(); // Initialize the first background
+    </script>
+
+</body>
+</html>
+

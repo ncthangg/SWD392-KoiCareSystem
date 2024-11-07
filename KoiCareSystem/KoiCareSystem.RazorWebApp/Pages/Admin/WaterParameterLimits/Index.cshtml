@@ -1,0 +1,77 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Admin.WaterParameterLimits.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Water Parameters Limit</h1>
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.WaterParameterLimit[0].ParameterName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WaterParameterLimit[0].MinGoodValue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WaterParameterLimit[0].MaxGoodValue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WaterParameterLimit[0].MinAcceptValue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WaterParameterLimit[0].MaxAcceptValue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WaterParameterLimit[0].Unit)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.WaterParameterLimit)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParameterName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MinGoodValue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaxGoodValue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MinAcceptValue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaxAcceptValue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Unit)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ParameterId">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ParameterId">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ParameterId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

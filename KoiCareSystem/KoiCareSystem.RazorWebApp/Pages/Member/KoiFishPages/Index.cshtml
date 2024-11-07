@@ -1,0 +1,191 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koi Care System</title>
+    <style>
+        /* Define keyframes without the symbol */
+        keyframes fade {
+            0%
+
+        {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 1;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+
+        }
+
+        .animated-background {
+            animation: fade 10s infinite; /* Fade effect over 10 seconds */
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            height: 350px;
+            transition: background-image 1s ease-in-out; /* Smooth transition */
+        }
+
+        .text-overlay {
+            color: white;
+            font-weight: bold;
+            font-size: 3.5rem;
+        }
+
+        .lead-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        @* <div class="text-center" style="background-image: url('/images/background/Background.jpg'); background-size: cover; background-position: center; padding: 50px; height: 350px;">
+        <h1 class="display-4 mb-4" style="color: white; font-weight: bold; font-size: 3.5rem;">Welcome to Koi Care System</h1>
+        <p class="lead" style="color: white; font-size: 1.5rem; font-weight: 600;">Chăm sóc và theo dõi sức khỏe cá Koi tại nhà</p>
+        </div> *@
+        <div id="background" class="text-center animated-background">
+            <h1 class="display-4 mb-4 text-overlay">Welcome to Koi Care System</h1>
+            <p class="lead lead-text">Chăm sóc và theo dõi sức khỏe cá Koi tại nhà</p>
+        </div>
+        <h1 class="text-center mb-4">Koi Fish</h1>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].FishName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].BodyShape)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].Origin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].Price)
+            </th>
+@*             <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].UpdatedAt)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.KoiFish[0].Pond.PondName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.KoiFish)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FishName)
+                </td>
+                <td>
+                    <img src="@item.ImageUrl" alt="Koi Fish Image" style="width: 100px; height: auto;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BodyShape)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Origin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+@*                 <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedAt)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pond.PondName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.FishId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.FishId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.FishId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    const images = [
+        '/images/background/background1.jpg',
+        '/images/background/background2.jpg',
+        '/images/background/background3.jpg'// Add all your image paths here
+    ];
+
+    let currentIndex = 0;
+
+    function changeBackground() {
+        const backgroundDiv = document.getElementById('background');
+        currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+        backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
+    }
+
+    // Change background every 10 seconds
+    setInterval(changeBackground, 10000); // 10 seconds
+    changeBackground(); // Initialize the first background
+</script>
+
+</body>
+</html>
