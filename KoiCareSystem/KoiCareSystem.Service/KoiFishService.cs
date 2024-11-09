@@ -222,16 +222,16 @@ namespace KoiCareSystem.Service
                 if (existingKoiFish.Status == Const.SUCCESS_READ_CODE)
                 {
                     var koiFishToUpdate = (KoiFish)existingKoiFish.Data;
-                    koiFish.CreatedAt = koiFishToUpdate.CreatedAt;
-                    koiFish.UpdatedAt = DateTime.UtcNow;
+
+                    koiFishToUpdate.UpdatedAt = DateTime.UtcNow;
+                    koiFishToUpdate.ImageUrl = koiFish.ImageUrl;
 
                     if (koiFishToUpdate != null)
                     {
-                        _unitOfWork.KoiFishRepository.UpdateEntity(koiFishToUpdate, koiFish);
+                         _unitOfWork.KoiFishRepository.Update(koiFishToUpdate);
 
-                        result = await _unitOfWork.SaveChangesAsync();
-
-                        return new ServiceResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG, koiFish);
+                         return new ServiceResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG, koiFishToUpdate);
+                        
                     }
                 }
 

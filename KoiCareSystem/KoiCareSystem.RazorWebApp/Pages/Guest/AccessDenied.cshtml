@@ -1,5 +1,27 @@
 ﻿@page
 @model KoiCareSystem.RazorWebApp.Pages.Guest.AccessDeniedModel
+@{
+    ViewData["Title"] = "Details";
+
+    // Conditionally set layout based on user role
+    if (Model.User.RoleId == 1)
+    {
+        Layout = "_AdminLayout";
+    }
+    else if (Model.User.RoleId == 2)
+    {
+        Layout = "_MemberLayout";
+    }
+    else if(Model.User.RoleId == 3)
+    {
+        Layout = "_ShopLayout"; // Assuming there's a Shop layout for RoleId == 3
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
+
 <h2>Access Denied</h2>
 <p>You do not have permission to access this page.</p>
 <a asp-page="/Guest/Login">Back to Login</a>

@@ -16,9 +16,11 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.WaterParameters
         //========================================
         public IList<WaterParameter> WaterParameter { get;set; } = default!;
         public string PondName { get; set; }
+        public int PondId { get; set; }
         //========================================
         public async Task OnGetAsync(int? id)
         {
+            PondId = (int)id;
             var pond = (await _pondService.GetById((int)id)).Data as Pond;
             PondName = pond.PondName;
 

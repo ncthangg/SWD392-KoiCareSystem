@@ -1,13 +1,39 @@
-version: '3.8'
+# version: '3.8'
 
+# services:
+#   web:
+#     build:
+#       context: .
+#       dockerfile: KoiCareSystem.RazorWebApp/Dockerfile  # Đường dẫn đến Dockerfile của ứng dụng
+#     volumes:
+#       - ./dataprotection-keys:/root/.aspnet/DataProtection-Keys 
+#     ports:
+#       - "8080:80"  # Map port 8080 trên host đến port 80 trong container
+#     environment:
+#       - ASPNETCORE_ENVIRONMENT=Development  # Cấu hình môi trường
+
+version: '3.8'
 services:
-  web:
+  koi_api:
     build:
       context: .
-      dockerfile: KoiCareSystem.RazorWebApp/Dockerfile  # Đường dẫn đến Dockerfile của ứng dụng
-    volumes:
-      - ./dataprotection-keys:/root/.aspnet/DataProtection-Keys 
+      dockerfile: KoiCareSystem.Api/Dockerfile
     ports:
-      - "8080:80"  # Map port 8080 trên host đến port 80 trong container
+      - "5000:80" # Adjust port as necessary
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development  # Cấu hình môi trường
+      - ASPNETCORE_ENVIRONMENT=Development 
+
+  koi_razor:
+    build:
+      context: .
+      dockerfile: KoiCareSystem.RazorWebApp/Dockerfile
+    ports:
+      - "5001:80" # Adjust port as necessary
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development 
+    volumes:
+      - E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\wwwroot\images:/app/wwwroot/images 
+      - E:\Moblie\SWD392-KoiCareSystem-MobileApp\lib\images\koi:/app/external_images/koi
+      - E:\Moblie\SWD392-KoiCareSystem-MobileApp\lib\images\ponds:/app/external_images/ponds
+
+      

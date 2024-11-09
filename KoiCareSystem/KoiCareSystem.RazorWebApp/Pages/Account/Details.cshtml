@@ -1,0 +1,90 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Account.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+
+    // Conditionally set layout based on user role
+    if (Model.User.RoleId == 1)
+    {
+        Layout = "_AdminLayout";
+    }
+    else if (Model.User.RoleId == 2)
+    {
+        Layout = "_MemberLayout";
+    }
+    else if (Model.User.RoleId == 3)
+    {
+        Layout = "_ShopLayout"; // Assuming there's a Shop layout for RoleId == 3
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div class="container my-5">
+        <div>
+            <h4>My Account</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.User.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.User.Email)
+                </dd>
+                <dt class="col-sm-2">
+                    Password
+                </dt>
+                <dd class="col-sm-10">
+                    *****
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.User.IsVerified)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.User.IsVerified)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            @if (Model.User.RoleId == 1)
+            {
+                <form asp-page="/Admin/Index" method="get" style="display: inline;">
+                    <button type="submit" class="btn" style="background-color: white; color: #007bff; border: 1px solid #007bff;">
+                        Back to Home
+                    </button>
+                </form>
+            }
+            else if (Model.User.RoleId == 2)
+            {
+                <form asp-page="/Member/Index" method="get" style="display: inline;">
+                    <button type="submit" class="btn" style="background-color: white; color: #007bff; border: 1px solid #007bff;">
+                        Back to Home
+                    </button>
+                </form>
+            }
+            else if (Model.User.RoleId == 3)
+            {
+                <form asp-page="/Shop/Index" method="get" style="display: inline;">
+                    <button type="submit" class="btn" style="background-color: white; color: #007bff; border: 1px solid #007bff;">
+                        Back to Home
+                    </button>
+                </form>
+            }
+        </div>
+
+    </div>
+
+</body>
+</html>

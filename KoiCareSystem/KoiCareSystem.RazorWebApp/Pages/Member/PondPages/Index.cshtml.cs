@@ -4,6 +4,7 @@ using KoiCareSystem.RazorWebApp.PageBase;
 using Microsoft.AspNetCore.Mvc;
 using KoiCareSystem.Common.DTOs.Response;
 using AutoMapper;
+using System.Collections.Generic;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
 {
@@ -23,6 +24,12 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
         //========================================================
         public IList<Pond> Pond { get; set; } = default!;
         public IList<ResponsePondDto> ResponsePondDto { get; set; } = default!;
+        // size page
+        [BindProperty(SupportsGet = true)]
+        public int CurrentPage { get; set; } = 1;
+        public int TotalPages { get; set; }
+
+        public const int PageSize = 5;
         //========================================================
         public async Task<IActionResult> OnGetAsync()
         {
@@ -43,7 +50,15 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
                 pondDto.StatusName = waterParam?.Status?.StatusName ?? "N/A";
             }
 
-            ResponsePondDto = pondsDto;
+            // Calculate total pages
+            int totalRecords = pondsDto.Count;
+            TotalPages = (int)Math.Ceiling(totalRecords / (double)PageSize);
+
+            // Get only the players for the current page
+            ResponsePondDto = pondsDto
+                .Skip((CurrentPage - 1) * PageSize)
+                .Take(PageSize)
+                .ToList();
 
             return Page();
         }

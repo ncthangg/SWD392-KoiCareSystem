@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.CodeAnalysis;
 using System;
+using System.Collections.Generic;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
 {
@@ -50,37 +51,17 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
 
         public async Task<IActionResult> OnGetAsync(string? searchQuery, string? category, bool ajax = false)
         {
+
             LoadUserIdFromSession();
             if (UserId == null)
             {
                 return RedirectToPage("/Guest/Login");
             }
             var allProducts = (await _productService.GetAll()).Data as List<Product>;
+            var list = FilterProducts(allProducts, searchQuery, category);
 
-            if (searchQuery != null)
-            {
-                SearchQuery = searchQuery;
-
-                // Lọc sản phẩm dựa trên tìm kiếm và categoryId
-                Products = allProducts
-                    .Where(p => (string.IsNullOrEmpty(searchQuery) || p.ProductName.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)))
-                    .ToList();
-            } 
-            else if (searchQuery == null && category != null)
-            {
-                Products = allProducts
-                    .Where(p => p.Category.Name == category) // Giả định rằng Product có thuộc tính Category
-                    .ToList();
-            }else if (searchQuery != null && category != null)
-            {
-                Products = allProducts
-                    .Where(p => p.Category.Name.Contains(category, StringComparison.OrdinalIgnoreCase) && p.ProductName.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) // Giả định rằng Product có thuộc tính Category
-                    .ToList();
-            }
-            else
-            {
-                Products = allProducts;
-            }
+            // Get only the players for the current page
+            Products = list;
 
             var categoryListResult = await _categoryService.GetAll();
             Categories = categoryListResult?.Data as List<Category> ?? new List<Category>();
@@ -108,24 +89,20 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
             }
 
             // Kiểm tra nếu yêu cầu AJAX để trả về Partial View
+            ViewData["OrderId"] = OrderId;
             if (ajax) // Kiểm tra tham số ajax
             {
                 return Partial("/Pages/Member/Shared/_ProductListPartial.cshtml", Products);
             }
             return Page();
         }
-
         public async Task<IActionResult> OnPostAddToCart(RequestItemToOrderDto requestItemToOrderDto)
         {
-            Console.WriteLine("Send");
             if (requestItemToOrderDto != null)
             {
                 var productId = requestItemToOrderDto.ProductId;
                 var orderId = requestItemToOrderDto.OrderId;
                 var quantity = requestItemToOrderDto.Quantity;
-
-                // Ghi log các giá trị để kiểm tra
-                Console.WriteLine($"ProductId: {productId}, OrderId: {orderId}, Quantity: {quantity}");
 
                 var result = await _orderItemService.AddItemToOrder(requestItemToOrderDto);
                 if (result.Status > 0)
@@ -137,6 +114,39 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Shop
             //return new JsonResult(new { success = false, message = "Không thể thêm sản phẩm vào giỏ hàng." });
             return RedirectToPage("/Main", new { message = "Không thể thêm sản phẩm vào giỏ hàng." });
         }
+
+        private List<Product> FilterProducts(List<Product> products, string? searchQuery, string? category)
+        {
+            List<Product> list;
+            if (searchQuery != null && category == null)
+            {
+                SearchQuery = searchQuery;
+
+                // Lọc sản phẩm dựa trên tìm kiếm và categoryId
+                list = products
+                   .Where(p => (string.IsNullOrEmpty(searchQuery) || p.ProductName.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)))
+                   .ToList();
+            }
+            else if (searchQuery == null && category != null)
+            {
+                list = products
+                   .Where(p => p.Category.Name == category) // Giả định rằng Product có thuộc tính Category
+                   .ToList();
+            }
+            else if (searchQuery != null && category != null)
+            {
+                list = products
+                   .Where(p => p.Category.Name.Contains(category, StringComparison.OrdinalIgnoreCase) && p.ProductName.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) // Giả định rằng Product có thuộc tính Category
+                   .ToList();
+            }
+            else
+            {
+                list = products;
+            }
+            return list;
+        }
+
+
 
         public async Task OnGetFilterAsync(string category)
         {

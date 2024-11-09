@@ -15,6 +15,10 @@ namespace KoiCareSystem.Data.Repository
         {
             _context.Entry(existingEntity).CurrentValues.SetValues(newEntity);
         }
+        public void Update(KoiFish koiToUpdate)
+        {
+            _context.Entry(koiToUpdate).State = EntityState.Modified;
+        }
         public IQueryable<KoiFish> GetAllQueryableAsync()
         {
             try

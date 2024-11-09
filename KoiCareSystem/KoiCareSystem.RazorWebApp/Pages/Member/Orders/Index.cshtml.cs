@@ -10,6 +10,7 @@ using KoiCareSystem.Data.Models;
 using KoiCareSystem.Service;
 using KoiCareSystem.Common.DTOs;
 using KoiCareSystem.RazorWebApp.PageBase;
+using System.Drawing.Printing;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
 {
@@ -23,6 +24,13 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
         }
         //========================================================
         public IList<Order> Order { get; set; } = default!;
+
+        // size page
+        [BindProperty(SupportsGet = true)]
+        public int CurrentPage { get; set; } = 1;
+        public int TotalPages { get; set; }
+
+        public const int PageSize = 5;
         //========================================================
         public async Task<IActionResult> OnGetAsync()
         {
@@ -34,11 +42,24 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             }
 
             var result = await _orderService.GetByUserId((int)UserId);
+
             if (result.Status > 0)
             {
-                Order = ((IList<Order>)result.Data)
+
+                var list = ((IList<Order>)result.Data)
                          .OrderByDescending(o => o.CreatedAt) // Sắp xếp từ mới nhất đến cũ
                          .ToList();
+
+                int totalRecords = list.Count;
+
+                TotalPages = (int)Math.Ceiling(totalRecords / (double)PageSize);
+
+                // Get only the players for the current page
+                Order = list
+                    .Skip((CurrentPage - 1) * PageSize)
+                    .Take(PageSize)
+                    .ToList();
+
             }
             return Page();
         }

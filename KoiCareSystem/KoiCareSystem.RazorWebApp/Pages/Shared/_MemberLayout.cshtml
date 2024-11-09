@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - KoiCareSystem.RazorWebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/KoiCareSystem.RazorWebApp.styles.css" asp-append-version="true" />
+    <style>
+        /* Ensure the body takes up the full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container-fluid, .navbar {
+            margin: 0;
+            padding: 0;
+        }
+        /* Main content takes up all available space */
+        .main-content {
+            flex: 1;
+            padding: 0; /* Adjust if needed */
+            margin: 0;
+        }
+        /* Footer stays at the bottom */
+        footer {
+            position: relative;
+            width: 100%;
+        }
+
+        .main-content {
+            background-image: url('/images/background/login2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Tạo hiệu ứng nền cố định khi cuộn */
+            height: 300%; /* Đảm bảo phần tử chiếm toàn bộ chiều cao */
+        }
+
+        .container.my-5 {
+            background-color: white;
+            padding: 30px; /* Optional: Adjust padding to your liking */
+            border-radius: 8px; /* Optional: For rounded corners */
+        }
+    </style>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-color border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Member/Index" asp-route-id="@Model.UserId">
+                    <img src="/images/icons/icon.png" alt="Koi Care Icon" style="height: 50px; width: 50px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Member/Index" asp-route-id="@Model.UserId">Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Member/PondPages/Index">PondPages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Member/KoiFishPages/Index">KoiFishPages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Member/Shop/Main">Shop</a>
+                        </li>
+@*                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Member/Orders/Index">Order History</a>
+                        </li> *@
+                    </ul>
+                    @await Html.PartialAsync("_LoginPartial")
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid flex-fill main-content">
+        <!-- Content will fill the remaining space -->
+        <main role="main" class="pb-3">
+            <div class="container my-5">
+            @RenderBody()
+            </div>
+        </main>
+    </div>
+
+    <footer class="text-black pt-4 pb-4 mt-auto" style="background-color: #99FFFF;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h4 class="text-uppercase">KoiCareSystem</h4>
+                    <p class="small">The best solution for managing your koi fish and pond health. Your koi, our care.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-black" href="/" style="text-decoration: none;">Home</a></li>
+                        <li><a class="text-black" asp-page="/Member/Index" style="text-decoration: none;">Dashboard</a></li>
+                        <li><a class="text-black" asp-page="/Member/Account/Details" style="text-decoration: none;">Profile</a></li>
+                        <li><a class="text-black" asp-page="/Privacy" style="text-decoration: none;">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-telephone-fill"></i> +1 (800) 123-4567</li>
+                        <li><i class="bi bi-envelope-fill"></i> support@koicare.com</li>
+                        <li><i class="bi bi-geo-alt-fill"></i> 123 Pondside Lane, WaterCity</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <a href="#" class="text-white mx-2">
+                        <i class="bi bi-facebook" style="font-size: 1.5rem;"></i>
+                    </a>
+                    <a href="#" class="text-white mx-2">
+                        <i class="bi bi-twitter" style="font-size: 1.5rem;"></i>
+                    </a>
+                    <a href="#" class="text-white mx-2">
+                        <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <p class="small">&copy; 2024 KoiCareSystem.RazorWebApp. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

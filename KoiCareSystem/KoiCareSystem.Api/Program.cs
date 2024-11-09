@@ -21,6 +21,11 @@ namespace KoiCareSystem.Api
 
             builder.Services.ConfigureApiServices(builder.Configuration);
 
+            builder.WebHost.ConfigureKestrel(serverOptions =>
+            {
+                serverOptions.ListenAnyIP(80); // Lắng nghe trên port 80
+            });
+
             builder.Services.AddScoped<ApplicationDbContext>();
 
             builder.Services.AddControllers().AddJsonOptions(options =>

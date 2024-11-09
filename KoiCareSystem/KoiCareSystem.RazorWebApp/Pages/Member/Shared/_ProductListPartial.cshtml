@@ -28,9 +28,21 @@
 </div>
 
 <style>
-    .image-container img {
-        width: 100%; /* Đảm bảo hình ảnh chiếm chiều rộng tối đa của ô */
-        height: 200px; /* Chiều cao cố định để hình ảnh đều nhau */
-        object-fit: cover; /* Đảm bảo hình ảnh được cắt theo tỷ lệ và không bị méo */
+    .image-container {
+        position: relative; /* Ensures the container is block-level */
+        width: 100%; /* Make sure the container takes up the full width of its parent */
+        height: 300px; /* Increased height for the image container */
+    }
+
+        .image-container img {
+            width: 100%; /* Make the image take the full width of the container */
+            height: 100%; /* Make the image take the full height of the container */
+            object-fit: cover; /* Ensures the image covers the container without distortion */
+            object-position: center; /* Centers the image in the container */
+        }
+
+    .card-body {
+        flex-grow: 1; /* Ensures the card-body adjusts and takes remaining space */
+        padding-top: 10px; /* Optional: Adds space between image and text */
     }
 </style>

@@ -67,14 +67,26 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.PondPages
                 if (ImageFile != null)
                 {
                     // Đường dẫn lưu file trong wwwroot
-                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/ponds");
+                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/ponds/");
                     Directory.CreateDirectory(uploadsFolder);  // Tạo thư mục nếu chưa có
+
+                    // Đường dẫn lưu file trong mobile
+                    string externalUploadsFolder = Path.Combine("/app/external_images/ponds");
+                    Directory.CreateDirectory(externalUploadsFolder);
+
                     // Đặt tên file duy nhất
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + ImageFile.FileName;
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-                    // Lưu file vào thư mục
+                    // Lưu file vào wwwroot
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ImageFile.CopyToAsync(fileStream);
+                    }
+
+                    // Lưu file vào mobile
+                    string externalFilePath = Path.Combine(externalUploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(externalFilePath, FileMode.Create))
                     {
                         await ImageFile.CopyToAsync(fileStream);
                     }

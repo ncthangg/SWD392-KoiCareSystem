@@ -6,6 +6,7 @@ using KoiCareSystem.RazorWebApp.PageBase;
 using KoiCareSystem.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 
 namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
 {
@@ -23,6 +24,13 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
         public IList<OrderItem> OrderItem { get; set; } = default!;
         public Order Order { get; set; } = default!;
         public int OrderId { get; set; }
+        // size page
+
+        [BindProperty(SupportsGet = true)]
+        public int CurrentPage { get; set; } = 1;
+        public int TotalPages { get; set; }
+
+        public const int PageSize = 5;
         /// <summary>
         /// status
         /// </summary>
@@ -58,7 +66,17 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.Orders
             }
             else
             {
-                OrderItem = orderItems.Data as List<OrderItem>;
+                var list = orderItems.Data as List<OrderItem>;
+
+                int totalRecords = list.Count;
+
+                TotalPages = (int)Math.Ceiling(totalRecords / (double)PageSize);
+
+                // Get only the players for the current page
+                OrderItem = list
+                    .Skip((CurrentPage - 1) * PageSize)
+                    .Take(PageSize)
+                    .ToList();
             }
             var orderExist = await _orderService.GetByOrderId(OrderId);
             if (orderExist != null)

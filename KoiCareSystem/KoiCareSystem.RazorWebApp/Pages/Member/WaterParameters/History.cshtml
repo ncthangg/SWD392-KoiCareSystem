@@ -3,10 +3,25 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_MemberLayout";
 }
 
 <h1>@Model.PondName</h1>
 
+<div style="display: flex; flex-direction: row; justify-content: space-between;">
+    <div style="flex: 1; margin-right: 10px;">
+        <canvas id="temperatureChart" width="200" height="100"></canvas>
+        <canvas id="salinityChart" width="200" height="100"></canvas>
+    </div>
+    <div style="flex: 1; margin-left: 10px;">
+        <canvas id="phChart" width="200" height="100"></canvas>
+        <canvas id="o2Chart" width="200" height="100"></canvas>
+    </div>
+</div>
+
+<div style="margin-top: 20px;">
+    <canvas id="waterParameterSummaryChart" width="400" height="200"></canvas>
+</div>
 
 <table class="table">
     <thead>
@@ -103,5 +118,229 @@
 </table>
 
 <div>
-    <a asp-page="/Member/PondPages/Index">Back to Pond</a>
+    <a asp-page="/Member/WaterParameters/Detail" asp-route-id="@Model.PondId">
+        Back to Pond
+    </a>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const temperatureData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.WaterParameter
+        .Select(x => new
+        {
+            date = x.MeasurementDate.HasValue ?
+        x.MeasurementDate.Value.ToString("yyyy-MM-dd") : null,
+            value = x.Temperature
+        }).ToList()));
+
+    const salinityData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.WaterParameter
+        .Select(x => new
+        {
+            date = x.MeasurementDate.HasValue ?
+        x.MeasurementDate.Value.ToString("yyyy-MM-dd") : null,
+            value = x.Salinity
+        }).ToList()));
+
+    const phData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.WaterParameter
+        .Select(x => new
+        {
+            date = x.MeasurementDate.HasValue ?
+        x.MeasurementDate.Value.ToString("yyyy-MM-dd") : null,
+            value = x.Ph
+        }).ToList()));
+
+    const o2Data = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.WaterParameter
+        .Select(x => new
+        {
+            date = x.MeasurementDate.HasValue ?
+        x.MeasurementDate.Value.ToString("yyyy-MM-dd") : null,
+            value = x.O2
+        }).ToList()));
+
+    const otherParametersData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.WaterParameter
+        .Select(x => new
+        {
+            date = x.MeasurementDate.HasValue ?
+        x.MeasurementDate.Value.ToString("yyyy-MM-dd") : null,
+            no2 = x.No2,
+            no3 = x.No3,
+            po4 = x.Po4
+        }).ToList()));
+
+    // Tạo biểu đồ nhiệt độ
+    const ctxTemperature = document.getElementById('temperatureChart').getContext('2d');
+    new Chart(ctxTemperature, {
+        type: 'line',
+        data: {
+            labels: temperatureData.map(d => d.date),
+            datasets: [{
+                label: 'Nhiệt Độ (°C)',
+                data: temperatureData.map(d => d.value),
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2,
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Ngày'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Nhiệt Độ (°C)'
+                    }
+                }
+            }
+        }
+    });
+
+    // Tạo biểu đồ Salinity
+    const ctxSalinity = document.getElementById('salinityChart').getContext('2d');
+    new Chart(ctxSalinity, {
+        type: 'line',
+        data: {
+            labels: salinityData.map(d => d.date),
+            datasets: [{
+                label: 'Salinity (g/L)',
+                data: salinityData.map(d => d.value),
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Ngày'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Salinity (g/L)'
+                    }
+                }
+            }
+        }
+    });
+
+    // Tạo biểu đồ pH
+    const ctxPh = document.getElementById('phChart').getContext('2d');
+    new Chart(ctxPh, {
+        type: 'line',
+        data: {
+            labels: phData.map(d => d.date),
+            datasets: [{
+                label: 'pH',
+                data: phData.map(d => d.value),
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Ngày'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'pH'
+                    }
+                }
+            }
+        }
+    });
+
+    // Tạo biểu đồ O2
+    const ctxO2 = document.getElementById('o2Chart').getContext('2d');
+    new Chart(ctxO2, {
+        type: 'line',
+        data: {
+            labels: o2Data.map(d => d.date),
+            datasets: [{
+                label: 'O2 (mg/L)',
+                data: o2Data.map(d => d.value),
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 2,
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Ngày'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'O2 (mg/L)'
+                    }
+                }
+            }
+        }
+    });
+
+    // Tạo biểu đồ tổng hợp các thông số NO2, NO3, PO4
+    const ctxSummary = document.getElementById('waterParameterSummaryChart').getContext('2d');
+    new Chart(ctxSummary, {
+        type: 'bar',
+        data: {
+            labels: otherParametersData.map(d => d.date),
+            datasets: [
+                {
+                    label: 'NO2',
+                    data: otherParametersData.map(d => d.no2),
+                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'NO3',
+                    data: otherParametersData.map(d => d.no3),
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'PO4',
+                    data: otherParametersData.map(d => d.po4),
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Ngày'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Nồng Độ (mg/L)'
+                    }
+                }
+            }
+        }
+    });
+</script>

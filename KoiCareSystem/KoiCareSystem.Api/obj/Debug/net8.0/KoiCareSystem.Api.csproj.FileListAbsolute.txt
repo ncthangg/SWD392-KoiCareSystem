@@ -464,6 +464,4 @@ E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.Api\obj\Debug\net8.0\KoiCareSystem.Api.RazorAssemblyInfo.cache
-E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.Api\obj\Debug\net8.0\KoiCareSystem.Api.RazorAssemblyInfo.cs
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

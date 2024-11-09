@@ -13,10 +13,24 @@
     <style>
         /* Define keyframes without the symbol */
         keyframes fade {
-            0% { opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { opacity: 0; }
+            0%
+
+        {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 1;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+
         }
 
         .animated-background {
@@ -40,15 +54,15 @@
             font-weight: 600;
         }
 
-            .card-img-top {
-                height: 200px; /* Đặt chiều cao cố định cho ảnh */
-                object-fit: cover; /* Đảm bảo ảnh sẽ giữ tỉ lệ mà vẫn điền đầy khung */
-                width: 100%; /* Giúp ảnh điền đầy chiều rộng của thẻ chứa */
-            }
+        .card-img-top {
+            height: 200px; /* Đặt chiều cao cố định cho ảnh */
+            object-fit: cover; /* Đảm bảo ảnh sẽ giữ tỉ lệ mà vẫn điền đầy khung */
+            width: 100%; /* Giúp ảnh điền đầy chiều rộng của thẻ chứa */
+        }
+
     </style>
 </head>
 <body>
-    <div class="container my-5">
         @* <div class="text-center" style="background-image: url('/images/background/Background.jpg'); background-size: cover; background-position: center; padding: 50px; height: 350px;">
         <h1 class="display-4 mb-4" style="color: white; font-weight: bold; font-size: 3.5rem;">Welcome to Koi Care System</h1>
         <p class="lead" style="color: white; font-size: 1.5rem; font-weight: 600;">Chăm sóc và theo dõi sức khỏe cá Koi tại nhà</p>
@@ -100,38 +114,27 @@
             </p>
         </div>
 
-    <hr />
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Koi Care System. All rights reserved.</p>
-            <p>Contact us: <a href="mailto:info@koicare.com">info@koicare.com</a></p>
-            <div>
-                <a href="https://www.facebook.com" target="_blank">Facebook</a> |
-                <a href="https://www.instagram.com" target="_blank">Instagram</a> |
-                <a href="https://www.twitter.com" target="_blank">Twitter</a>
-            </div>
-        </div>
-    </footer>
+        <hr />
 
-    <script>
-        const images = [
-            '/images/background/background1.jpg',
-            '/images/background/background2.jpg',
-            '/images/background/background3.jpg'// Add all your image paths here
-        ];
+        <script>
+            const images = [
+                '/images/background/background1.jpg',
+                '/images/background/background2.jpg',
+                '/images/background/background3.jpg'// Add all your image paths here
+            ];
 
-        let currentIndex = 0;
+            let currentIndex = 0;
 
-        function changeBackground() {
-            const backgroundDiv = document.getElementById('background');
-            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
-            backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
-        }
+            function changeBackground() {
+                const backgroundDiv = document.getElementById('background');
+                currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+                backgroundDiv.style.backgroundImage = `url(${images[currentIndex]})`;
+            }
 
-        // Change background every 10 seconds
-        setInterval(changeBackground, 10000); // 10 seconds
-        changeBackground(); // Initialize the first background
-    </script>
+            // Change background every 10 seconds
+            setInterval(changeBackground, 10000); // 10 seconds
+            changeBackground(); // Initialize the first background
+        </script>
 
 </body>
 </html>

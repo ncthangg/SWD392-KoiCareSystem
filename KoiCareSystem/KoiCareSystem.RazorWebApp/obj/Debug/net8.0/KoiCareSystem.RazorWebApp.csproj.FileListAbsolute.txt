@@ -1113,7 +1113,6 @@ E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.KoiCareSystem.RazorWebApp.props
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.KoiCareSystem.RazorWebApp.props
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\staticwebassets.pack.json
-E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\scopedcss\Pages\Member\Shared\_Layout.cshtml.rz.scp.css
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\scopedcss\bundle\KoiCareSystem.RazorWebApp.styles.css
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\scopedcss\projectbundle\KoiCareSystem.RazorWebApp.bundle.scp.css
@@ -1123,3 +1122,4 @@ E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.pdb
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\KoiCareSystem.RazorWebApp.genruntimeconfig.cache
 E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\ref\KoiCareSystem.RazorWebApp.dll
+E:\FPT-university\ChuyenNganh7\SWD392-KoiCareSystem\KoiCareSystem\KoiCareSystem.RazorWebApp\obj\Debug\net8.0\scopedcss\Pages\Shared\_MemberLayout.cshtml.rz.scp.css

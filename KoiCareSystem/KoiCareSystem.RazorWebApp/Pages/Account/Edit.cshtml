@@ -1,0 +1,64 @@
+﻿@page
+@model KoiCareSystem.RazorWebApp.Pages.Account.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="User.Id" />
+            <div class="form-group">
+                <label asp-for="User.Email" class="control-label"></label>
+                <input asp-for="User.Email" class="form-control" />
+                <span asp-validation-for="User.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.PasswordHash" class="control-label"></label>
+                <input asp-for="User.PasswordHash" class="form-control" />
+                <span asp-validation-for="User.PasswordHash" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="User.IsVerified" /> @Html.DisplayNameFor(model => model.User.IsVerified)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.EmailVerificationToken" class="control-label"></label>
+                <input asp-for="User.EmailVerificationToken" class="form-control" />
+                <span asp-validation-for="User.EmailVerificationToken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.RoleId" class="control-label"></label>
+                <select asp-for="User.RoleId" class="form-control" asp-items="ViewBag.RoleId"></select>
+                <span asp-validation-for="User.RoleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

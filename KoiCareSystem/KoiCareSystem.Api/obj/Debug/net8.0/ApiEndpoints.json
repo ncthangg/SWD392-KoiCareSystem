@@ -351,5 +351,21 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "KoiCareSystem.Api.Controllers.WaterController",
+    "Method": "GetWaterParametersAsync",
+    "RelativePath": "waterstatus/{pondId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pondId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

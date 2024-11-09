@@ -23,7 +23,14 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
         }
         //========================================================
         public IList<KoiFish> KoiFish { get; set; } = default!;
-       
+
+        // size page
+        [BindProperty(SupportsGet = true)]
+        public int CurrentPage { get; set; } = 1;
+        public int TotalPages { get; set; }
+
+        public const int PageSize = 5;
+
         //========================================================
         public async Task<IActionResult> OnGetAsync()
         {
@@ -33,7 +40,19 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
             {
                 return RedirectToPage("/Guest/Login"); // Điều hướng đến trang đăng nhập nếu không có UserId trong session
             }
-            KoiFish = (await _koiFishService.GetByUserId((int)UserId)).Data as IList<KoiFish>;
+            var list = (await _koiFishService.GetByUserId((int)UserId)).Data as IList<KoiFish>;
+
+            // Calculate total pages
+            int totalRecords = list.Count;
+
+            TotalPages = (int)Math.Ceiling(totalRecords / (double)PageSize);
+
+            // Get only the players for the current page
+            KoiFish = list
+                .Skip((CurrentPage - 1) * PageSize)
+                .Take(PageSize)
+                .ToList();
+
             return Page();
         }
     }

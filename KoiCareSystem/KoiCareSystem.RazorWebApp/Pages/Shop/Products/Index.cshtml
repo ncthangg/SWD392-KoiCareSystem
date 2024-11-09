@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_ShopLayout";
 }
 
 <h1>Products Management</h1>
@@ -22,8 +23,8 @@
             <input type="text" id="SearchName" name="SearchName" value="@Model.SearchName" class="form-control" />
         </div>
         <div class="col-md-3">
-            <label for="SearchType">Product Type:</label>
-            <input type="text" id="SearchType" name="SearchType" value="@Model.SearchType" class="form-control" />
+            <label for="SearchCategory">Category:</label>
+            <select asp-for="SearchCategory" class="form-control" asp-items="ViewBag.Category"></select>
         </div>
         <div class="col-md-auto align-self-end">
             <button type="submit" class="btn btn-primary mt-2">Search</button>

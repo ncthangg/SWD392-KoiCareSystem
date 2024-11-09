@@ -81,7 +81,7 @@ namespace KoiCareSystem.RazorWebApp.Pages.Member.KoiFishPages
                 Directory.CreateDirectory(uploadsFolder);
 
                 // Đường dẫn lưu file trong mobile
-                string externalUploadsFolder = @"E:\Moblie\SWD392-KoiCareSystem-MobileApp\lib\images\koi";
+                string externalUploadsFolder = Path.Combine("/app/external_images/koi");
                 Directory.CreateDirectory(externalUploadsFolder); 
 
                 // Đặt tên file duy nhất

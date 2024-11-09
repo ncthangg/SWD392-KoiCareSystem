@@ -36,6 +36,10 @@ namespace KoiCareSystem.Data.Repository
 
             _context.Entry(existingEntity).Property(p => p.UpdatedAt).IsModified = true;
         }
+        public void Update(Pond pondToUpdate)
+        {
+            _context.Entry(pondToUpdate).State = EntityState.Modified;
+        }
         public IQueryable<Pond> GetAllQueryableAsync()
         {
             try

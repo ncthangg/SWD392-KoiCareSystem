@@ -2,6 +2,7 @@
 @model KoiCareSystem.RazorWebApp.Pages.Member.IndexModel
 @{
     ViewData["Title"] = "Toi la Member";
+    Layout = "_MemberLayout";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -38,10 +39,15 @@
             font-size: 1.5rem;
             font-weight: 600;
         }
+
+        .card-img-top {
+            height: 200px; /* Đặt chiều cao cố định cho ảnh */
+            object-fit: cover; /* Đảm bảo ảnh sẽ giữ tỉ lệ mà vẫn điền đầy khung */
+            width: 100%; /* Giúp ảnh điền đầy chiều rộng của thẻ chứa */
+        }
     </style>
 </head>
 <body>
-    <div class="container my-5">
         @* <div class="text-center" style="background-image: url('/images/background/Background.jpg'); background-size: cover; background-position: center; padding: 50px; height: 350px;">
         <h1 class="display-4 mb-4" style="color: white; font-weight: bold; font-size: 3.5rem;">Welcome to Koi Care System</h1>
         <p class="lead" style="color: white; font-size: 1.5rem; font-weight: 600;">Chăm sóc và theo dõi sức khỏe cá Koi tại nhà</p>
@@ -90,42 +96,6 @@
             <h2 class="display-6">Các Bài Viết Hữu Ích</h2>
             <p>Những bài viết giúp bạn hiểu thêm về cách chăm sóc và nuôi dưỡng cá Koi.</p>
         </div>
-        @* <div class="row my-5">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/images/using/phattrien.jpg" class="card-img-top" alt="Guide to Koi Care">
-                    <div class="card-body">
-                        <h5 class="card-title">Hướng dẫn chăm sóc cá Koi</h5>
-                        <p class="card-text">Những bước cơ bản để bắt đầu chăm sóc cá Koi tại nhà.</p>
-                        <a href="/Blog/Guide" class="btn btn-outline-primary">Đọc thêm</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/images/using/water.jpg" class="card-img-top" alt="Water Quality Tips">
-                    <div class="card-body">
-                        <h5 class="card-title">Cách duy trì chất lượng nước trong hồ</h5>
-                        <p class="card-text">Lời khuyên về cách giữ nước sạch và ổn định cho cá Koi.</p>
-                        <a href="/Blog/WaterQuality" class="btn btn-outline-primary">Đọc thêm</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/images/blog3.jpg" class="card-img-top" alt="Koi Nutrition">
-                    <div class="card">
-                        <img src="/images/using/nutrition.jpg" class="card-img-top" alt="Koi Nutrition">
-                        <div class="card-body">
-                            <h5 class="card-title">Dinh dưỡng cho cá Koi</h5>
-                            <p class="card-text">Các loại thức ăn và chế độ dinh dưỡng phù hợp cho cá Koi.</p>
-                            <a href="/Blog/Nutrition" class="btn btn-outline-primary">Đọc thêm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> *@
         <div class="my-5 position-relative">
             <!-- Carousel -->
             <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel">

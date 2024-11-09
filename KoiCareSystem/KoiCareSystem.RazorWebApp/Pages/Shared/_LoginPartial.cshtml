@@ -1,20 +1,39 @@
 ﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 
-@if (HttpContextAccessor.HttpContext.Session.GetString("UserEmail") != null)
-{
-    var userName = HttpContextAccessor.HttpContext.Session.GetString("UserEmail");
-    <div class="navbar-nav">
-        <span class="nav-item nav-link">Hello, @userName!</span>
-        <form id="logoutForm" method="post" asp-page="/Guest/Logout" class="form-inline">
-            <button type="submit" class="btn btn-link nav-item nav-link">Logout</button>
-        </form>
-    </div>
-}
-else
-{
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" asp-area="" asp-page="/Guest/Login">Login</a>
-        <a class="nav-item nav-link" asp-area="" asp-page="/Guest/Register">Register</a>
-    </div>
-}
+<div class="navbar-nav">
+    @if (HttpContextAccessor.HttpContext.Session.GetString("UserEmail") != null)
+    {
+        var userName = HttpContextAccessor.HttpContext.Session.GetString("UserEmail");
+        var userId = HttpContextAccessor.HttpContext.Session.GetInt32("UserId"); // Get UserId from session
+
+        <div class="nav-item dropdown">
+            <!-- Icon as dropdown toggle -->
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userIconDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="~/images/using/icon.png" alt="User Icon" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 8px;">
+                <span>@userName</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="userIconDropdown">
+                <li>
+                    <!-- Pass the userId in the route -->
+                    <a class="dropdown-item" asp-page="/Account/Details" asp-route-id="@userId">View Profile</a>
+                </li>
+                <li>
+                    <!-- Pass the userId in the route -->
+                    <a class="dropdown-item" asp-page="/Member/Orders/Index">Order History</a>
+                </li>
+                <li>
+                    <form id="logoutForm" method="post" asp-page="/Guest/Logout">
+                        <button type="submit" class="dropdown-item" style="background-color:red">Logout</button>
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+    }
+    else
+    {
+        <a class="nav-item nav-link" asp-page="/Guest/Login">Đăng nhập</a>
+        <a class="nav-item nav-link" asp-page="/Guest/Register">Đăng ký</a>
+    }
+</div>

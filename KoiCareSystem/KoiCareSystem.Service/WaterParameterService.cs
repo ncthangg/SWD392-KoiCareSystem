@@ -187,9 +187,9 @@ namespace KoiCareSystem.Service
                     {
                         outsideGoodCount++;
                     }
-                    else if (currentValue < limit.MinAcceptValue || currentValue > limit.MaxAcceptValue)
+                    if (currentValue < limit.MinAcceptValue && currentValue > limit.MaxAcceptValue)
                     {
-                        outsideAcceptCount++;
+                        outsideAcceptCount++; // Tăng nếu giá trị ngoài giới hạn chấp nhận
                     }
 
                 }
@@ -199,7 +199,7 @@ namespace KoiCareSystem.Service
                 {
                     statusId = 1; // All parameters within good range
                 }
-                else if ((outsideGoodCount >= 1 && outsideGoodCount <= 3) && outsideAcceptCount == 0)
+                else if ((outsideGoodCount > 0 && outsideGoodCount <= 3) && outsideAcceptCount == 0)
                 {
                     statusId = 2; // More than 2 parameters outside good range
                 }
